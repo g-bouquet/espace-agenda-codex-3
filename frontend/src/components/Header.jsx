@@ -28,9 +28,6 @@ const Header = () => {
               src="/logo-espace-agenda.png" 
               alt="Espace Agenda" 
               className="h-[60px] w-auto"
-              style={{
-                filter: 'brightness(0) saturate(100%) invert(33%) sepia(88%) saturate(2084%) hue-rotate(222deg) brightness(96%) contrast(91%)'
-              }}
             />
           </Link>
         </div>
