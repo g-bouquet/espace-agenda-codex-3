@@ -108,28 +108,35 @@ const Home = () => {
                 title: 'Gain de temps immédiat',
                 description: 'Fini les appels téléphoniques pour planifier les rendez-vous. Vos clients réservent en ligne 24h/24, vous gérez tout depuis un seul outil.',
                 image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
-                delay: 'delay-100'
+                delay: 100
               },
               {
                 icon: Shield,
                 title: '100% votre marque',
                 description: 'Solution entièrement en marque blanche : votre logo, vos couleurs, votre identité. Aucune mention du fournisseur technique.',
                 image: 'https://images.pexels.com/photos/9064708/pexels-photo-9064708.jpeg?w=800&q=80',
-                delay: 'delay-200'
+                delay: 200
               },
               {
                 icon: Zap,
                 title: 'Installation et accompagnement',
                 description: 'Nous installons, configurons et vous formons. Support humain inclus pour vous accompagner au quotidien.',
                 image: 'https://images.pexels.com/photos/6129653/pexels-photo-6129653.jpeg?w=800&q=80',
-                delay: 'delay-300'
+                delay: 300
               }
             ].map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <Card 
                   key={index} 
-                  className={`border-border hover:border-primary transition-all duration-500 hover:shadow-lg overflow-hidden group ${benefitsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${benefit.delay}`}
+                  className={`border-border hover:border-primary transition-all duration-500 hover:shadow-lg overflow-hidden group ${
+                    benefitsInView 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{
+                    transitionDelay: benefitsInView ? `${benefit.delay}ms` : '0ms'
+                  }}
                 >
                   <div className="aspect-video w-full overflow-hidden">
                     <img 
