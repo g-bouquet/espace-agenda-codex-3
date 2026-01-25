@@ -9,16 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo et description */}
           <div className="md:col-span-2">
-            <div className="mb-4">
-              <Link to="/" className="inline-block">
-                <img 
-                  src="/logo-espace-agenda.png" 
-                  alt="Espace Agenda" 
-                  className="h-16 w-auto brightness-0 invert"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
-              </Link>
-            </div>
+            <Link to="/" className="inline-block mb-4">
+              <span className="text-2xl font-bold text-white">Espace Agenda</span>
+            </Link>
             <p className="text-sky-100 text-sm max-w-md">
               La solution de prise de rendez-vous en ligne 100% en marque blanche, pensée pour les praticiens et professionnels de l'accompagnement.
             </p>
