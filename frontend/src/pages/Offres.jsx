@@ -13,7 +13,7 @@ const Offres = () => {
       <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
               Des offres adaptées à{' '}
               <span className="text-primary">vos besoins</span>
             </h1>
@@ -46,10 +46,10 @@ const Offres = () => {
                 )}
                 
                 <CardHeader className="text-center pb-8 pt-8">
-                  <h3 className="text-2xl font-bold text-foreground">{offer.name}</h3>
+                  <h3 className="text-2xl font-bold font-heading text-foreground">{offer.name}</h3>
                   <p className="mt-2 text-muted-foreground">{offer.description}</p>
                   <div className="mt-6">
-                    <span className="text-4xl font-bold text-foreground">{offer.price}</span>
+                    <span className="text-4xl font-bold font-heading text-foreground">{offer.price}</span>
                   </div>
                 </CardHeader>
 
@@ -97,7 +97,7 @@ const Offres = () => {
       <section className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Options disponibles
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -159,7 +159,7 @@ const Offres = () => {
       <section className="py-20 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Une question sur nos offres ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">

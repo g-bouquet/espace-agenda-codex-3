@@ -35,7 +35,7 @@ const Exemples = () => {
       <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
               Espace Agenda s'adapte à{' '}
               <span className="text-primary">votre activité</span>
             </h1>
@@ -50,7 +50,7 @@ const Exemples = () => {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Des solutions pour chaque métier
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -113,7 +113,7 @@ const Exemples = () => {
       <section className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Les bénéfices concrets
             </h2>
           </div>
@@ -139,7 +139,7 @@ const Exemples = () => {
             ].map((benefit, index) => (
               <Card key={index} className="border-border">
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{benefit.title}</h3>
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{benefit.title}</h3>
                   <p className="text-muted-foreground">{benefit.description}</p>
                 </CardContent>
               </Card>
@@ -183,7 +183,7 @@ const Exemples = () => {
       <section className="py-20 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à simplifier votre quotidien ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">

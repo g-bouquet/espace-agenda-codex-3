@@ -66,7 +66,7 @@ const Contact = () => {
       <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
               Contactez-nous
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
@@ -83,7 +83,7 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-foreground mb-8">Nos coordonnées</h2>
+                <h2 className="text-2xl font-bold font-heading text-foreground mb-8">Nos coordonnées</h2>
               </div>
 
               <Card className="border-border">
@@ -145,7 +145,7 @@ const Contact = () => {
             <div className="lg:col-span-2">
               <Card className="border-border">
                 <CardContent className="pt-8">
-                  <h2 className="text-2xl font-bold text-foreground mb-6">
+                  <h2 className="text-2xl font-bold font-heading text-foreground mb-6">
                     Envoyez-nous un message
                   </h2>
                   
@@ -260,7 +260,7 @@ const Contact = () => {
       <section className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl font-bold font-heading text-foreground mb-4">
               Délai de réponse
             </h2>
             <p className="text-lg text-muted-foreground">

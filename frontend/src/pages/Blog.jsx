@@ -58,7 +58,7 @@ const Blog = () => {
       <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
               Ressources et{' '}
               <span className="text-primary">conseils pratiques</span>
             </h1>
@@ -97,7 +97,7 @@ const Blog = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-foreground mb-3 line-clamp-2">
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3 line-clamp-2">
                     {post.title}
                   </h3>
                   
@@ -126,7 +126,7 @@ const Blog = () => {
               <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary mx-auto mb-6">
                 <Calendar className="h-7 w-7" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl font-bold font-heading text-foreground mb-4">
                 Restez informé de nos actualités
               </h2>
               <p className="text-muted-foreground mb-8">
@@ -151,7 +151,7 @@ const Blog = () => {
       <section className="py-20 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à transformer votre gestion des rendez-vous ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">

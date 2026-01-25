@@ -59,7 +59,7 @@ const Solution = () => {
       <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div ref={heroRef} className={`mx-auto max-w-3xl text-center transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-bold font-heading font-heading tracking-tight text-foreground sm:text-5xl">
               Une solution complète pour{' '}
               <span className="text-primary">gérer vos rendez-vous</span>
             </h1>
@@ -82,7 +82,7 @@ const Solution = () => {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Comment ça marche ?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -110,10 +110,10 @@ const Solution = () => {
             ].map((item) => (
               <Card key={item.step} className="border-border">
                 <CardContent className="pt-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-white text-2xl font-bold mb-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-white text-2xl font-bold font-heading mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
+                  <h3 className="text-xl font-semibold font-heading text-foreground">{item.title}</h3>
                   <p className="mt-3 text-muted-foreground">{item.description}</p>
                 </CardContent>
               </Card>
@@ -126,7 +126,7 @@ const Solution = () => {
       <section className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Ce que vous obtenez
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -219,7 +219,7 @@ const Solution = () => {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Pourquoi Espace Agenda ?
             </h2>
           </div>
@@ -255,7 +255,7 @@ const Solution = () => {
       <section className="py-20 bg-muted">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Questions fréquentes
             </h2>
           </div>
@@ -279,7 +279,7 @@ const Solution = () => {
       <section className="py-20 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à démarrer ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">

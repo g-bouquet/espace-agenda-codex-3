@@ -50,7 +50,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Article non trouvé</h1>
+          <h1 className="text-2xl font-bold font-heading text-foreground mb-4">Article non trouvé</h1>
           <Link to="/blog">
             <Button variant="outline">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -78,7 +78,7 @@ const BlogPost = () => {
             {post.category}
           </Badge>
 
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-6">
+          <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl mb-6">
             {post.title}
           </h1>
 
@@ -124,28 +124,28 @@ const BlogPost = () => {
           </p>
 
           <div className="text-muted-foreground leading-relaxed space-y-6">
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Introduction</h2>
+            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Introduction</h2>
             <p>
               La gestion des rendez-vous est un défi quotidien pour de nombreux professionnels de l'accompagnement. 
               Entre les appels téléphoniques incessants, les annulations de dernière minute et la coordination des emplois du temps, 
               il est facile de perdre un temps précieux qui pourrait être consacré à votre activité principale.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Les enjeux d'une bonne gestion</h2>
+            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Les enjeux d'une bonne gestion</h2>
             <p>
               Une solution de prise de rendez-vous efficace doit répondre à plusieurs critères essentiels : 
               simplicité d'utilisation, fiabilité, personnalisation et respect de la confidentialité. 
               C'est pourquoi il est crucial de bien choisir l'outil qui vous accompagnera au quotidien.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Les critères de sélection</h2>
+            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Les critères de sélection</h2>
             <p>
               Lors du choix d'une plateforme de réservation, plusieurs éléments doivent être pris en compte : 
               la facilité de prise en main, les fonctionnalités proposées, la qualité du support client, 
               et bien sûr, la possibilité de personnaliser l'outil à votre image professionnelle.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Conclusion</h2>
+            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Conclusion</h2>
             <p>
               Investir dans une solution de prise de rendez-vous adaptée, c'est investir dans votre sérénité et celle de vos clients. 
               Une plateforme bien choisie vous permettra de gagner du temps, de réduire les absences et d'offrir une expérience moderne et professionnelle.
@@ -172,7 +172,7 @@ const BlogPost = () => {
       {/* Related Articles */}
       <section className="bg-muted py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground mb-8">Articles similaires</h2>
+          <h2 className="text-2xl font-bold font-heading text-foreground mb-8">Articles similaires</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedPosts.slice(0, 3).map((relatedPost) => (
               <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
