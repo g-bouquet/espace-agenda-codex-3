@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import axios from 'axios';
+import HeroSection from '../components/HeroSection';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -54,20 +55,13 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
-              Ressources et{' '}
-              <span className="text-primary">conseils pratiques</span>
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Découvrez nos articles pour optimiser votre gestion des rendez-vous et améliorer votre organisation professionnelle.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Ressources et"
+        titleHighlight="conseils pratiques"
+        description="Découvrez nos articles pour optimiser votre gestion des rendez-vous et améliorer votre organisation professionnelle."
+        showCta={false}
+        backgroundImage="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80"
+      />
 
       {/* Blog Posts */}
       <section className="py-20 bg-white">
