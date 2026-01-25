@@ -70,24 +70,44 @@ const Solution = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div ref={heroRef} className={`mx-auto max-w-3xl text-center transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-4xl font-bold font-heading font-heading tracking-tight text-foreground sm:text-5xl">
-              Une solution complète pour{' '}
-              <span className="text-primary">gérer vos rendez-vous</span>
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Espace Agenda est bien plus qu'un simple agenda en ligne. C'est une plateforme complète, installée et personnalisée pour vous, qui vous fait gagner un temps précieux au quotidien.
-            </p>
-            <div className="mt-10">
-              <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
-                  Demander l'installation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+      {/* Hero Section with Background Image and Parallax */}
+      <section className="relative overflow-hidden min-h-[500px] flex items-center">
+        {/* Background Image with Parallax */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80" 
+            alt="Solution professionnelle"
+            className="w-full h-full object-cover scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/80"></div>
+        </div>
+
+        <div className="relative z-10 py-20 lg:py-28 w-full">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div ref={heroRef} className={`mx-auto max-w-3xl text-center transition-all duration-1000 ease-out ${
+              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
+              <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
+                Une solution complète pour{' '}
+                <span className="text-primary">gérer vos rendez-vous</span>
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-muted-foreground">
+                Espace Agenda est bien plus qu'un simple agenda en ligne. C'est une plateforme complète, installée et personnalisée pour vous, qui vous fait gagner un temps précieux au quotidien.
+              </p>
+              <div className="mt-10">
+                <Link to="/contact">
+                  <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
+                    Demander l'installation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
