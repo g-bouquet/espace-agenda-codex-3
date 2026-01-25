@@ -24,10 +24,11 @@ const Header = () => {
         {/* Logo */}
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5 flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-sky-800 to-sky-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">EA</span>
-            </div>
-            <span className="text-xl font-semibold text-neutral-900">Espace Agenda</span>
+            <img 
+              src="/logo-espace-agenda.png" 
+              alt="Espace Agenda" 
+              className="h-12 w-auto"
+            />
           </Link>
         </div>
 
