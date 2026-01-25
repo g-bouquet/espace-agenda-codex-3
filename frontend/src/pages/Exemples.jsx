@@ -10,19 +10,22 @@ const Exemples = () => {
       icon: Heart,
       title: 'Thérapeutes et psychologues',
       description: 'Gestion des consultations, questionnaires pré-séance, espace client sécurisé pour les documents confidentiels.',
-      features: ['Prise de rendez-vous 24h/24', 'Rappels automatiques', 'Téléconsultation intégrée']
+      features: ['Prise de rendez-vous 24h/24', 'Rappels automatiques', 'Téléconsultation intégrée'],
+      image: 'https://images.unsplash.com/photo-1758273241090-b7d744465ce6?w=800&q=80'
     },
     {
       icon: Users,
       title: 'Coachs et consultants',
       description: 'Planification de séances individuelles ou de groupe, gestion des programmes d\'accompagnement sur plusieurs semaines.',
-      features: ['Séances récurrentes', 'Paiements par forfait', 'Suivi personnalisé']
+      features: ['Séances récurrentes', 'Paiements par forfait', 'Suivi personnalisé'],
+      image: 'https://images.pexels.com/photos/3958426/pexels-photo-3958426.jpeg?w=800&q=80'
     },
     {
       icon: Calendar,
       title: 'Praticiens de santé',
       description: 'Réservation en ligne pour ostéopathes, infirmiers, diététiciens. Gestion des urgences et disponibilités flexibles.',
-      features: ['Types de consultations multiples', 'Gestion des urgences', 'Conformité RGPD']
+      features: ['Types de consultations multiples', 'Gestion des urgences', 'Conformité RGPD'],
+      image: 'https://images.unsplash.com/photo-1758691461957-474a7686e388?w=800&q=80'
     }
   ];
 
