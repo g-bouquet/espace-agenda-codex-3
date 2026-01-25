@@ -5,48 +5,17 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { offers } from '../mock';
+import HeroSection from '../components/HeroSection';
 
 const Offres = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
-              Des offres adaptées à{' '}
-              <span className="text-primary">vos besoins</span>
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Choisissez la formule qui correspond à votre activité. Toutes nos offres incluent l'installation, la formation et le support.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Offers Section */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {offers.map((offer) => (
-              <Card 
-                key={offer.id} 
-                className={`relative border-2 transition-all duration-300 hover:shadow-xl ${
-                  offer.highlight 
-                    ? 'border-primary shadow-lg' 
-                    : 'border-border hover:border-primary'
-                }`}
-              >
-                {offer.highlight && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <Badge className="bg-primary text-white px-4 py-1 text-sm font-semibold">
-                      Recommandé
-                    </Badge>
-                  </div>
-                )}
-                
-                <CardHeader className="text-center pb-8 pt-8">
-                  <h3 className="text-2xl font-bold font-heading text-foreground">{offer.name}</h3>
+      <HeroSection
+        title="Des offres adaptées à"
+        titleHighlight="vos besoins"
+        description="Choisissez la formule qui correspond à votre activité. Toutes nos offres incluent l'installation, la formation et le support."
+        backgroundImage="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80"
+      />
                   <p className="mt-2 text-muted-foreground">{offer.description}</p>
                   <div className="mt-6">
                     <span className="text-4xl font-bold font-heading text-foreground">{offer.price}</span>
