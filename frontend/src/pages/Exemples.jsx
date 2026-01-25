@@ -33,20 +33,6 @@ const Exemples = () => {
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="Espace Agenda s'adapte à"
-        titleHighlight="votre activité"
-        description="Découvrez comment des professionnels de l'accompagnement utilisent Espace Agenda pour simplifier leur quotidien et offrir une meilleure expérience à leurs clients."
-        backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80"
-      />
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
-              Espace Agenda s'adapte à{' '}
-              <span className="text-primary">votre activité</span>
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              Découvrez comment des professionnels de l'accompagnement utilisent Espace Agenda pour simplifier leur quotidien et offrir une meilleure expérience à leurs clients.
-            </p>
           </div>
         </div>
       </section>
