@@ -75,6 +75,9 @@ const Footer = () => {
               <Link to="/confidentialite" className="hover:text-white transition-colors">
                 Politique de confidentialité
               </Link>
+              <Link to="/admin/login" className="hover:text-white transition-colors opacity-50 hover:opacity-100">
+                Admin
+              </Link>
             </div>
           </div>
         </div>
