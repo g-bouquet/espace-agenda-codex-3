@@ -56,10 +56,10 @@ const Solution = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
+      <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <div ref={heroRef} className={`mx-auto max-w-3xl text-center transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
               Une solution complète pour{' '}
               <span className="text-primary">gérer vos rendez-vous</span>
             </h1>
@@ -68,7 +68,7 @@ const Solution = () => {
             </p>
             <div className="mt-10">
               <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary-hover text-white">
+                <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
                   Demander l'installation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
