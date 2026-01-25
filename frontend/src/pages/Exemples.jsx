@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Calendar, Heart } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import HeroSection from '../components/HeroSection';
 
 const Exemples = () => {
   const useCases = [
@@ -31,8 +32,12 @@ const Exemples = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-sky-50 to-white py-20 lg:py-28">
+      <HeroSection
+        title="Espace Agenda s'adapte à"
+        titleHighlight="votre activité"
+        description="Découvrez comment des professionnels de l'accompagnement utilisent Espace Agenda pour simplifier leur quotidien et offrir une meilleure expérience à leurs clients."
+        backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80"
+      />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl">
