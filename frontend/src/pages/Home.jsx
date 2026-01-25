@@ -199,8 +199,14 @@ const Home = () => {
               ].map((item, index) => (
                 <div 
                   key={item.step} 
-                  className={`relative group transition-all duration-500 ${processInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
+                  className={`relative group transition-all duration-700 ease-out ${
+                    processInView 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{
+                    transitionDelay: processInView ? `${index * 150}ms` : '0ms'
+                  }}
                 >
                   {/* Image with subtle overlay and badge */}
                   <div className="relative aspect-square overflow-hidden rounded-lg mb-6 shadow-md group-hover:shadow-xl transition-shadow duration-300">
