@@ -65,8 +65,8 @@ const Home = () => {
               }`}
             >
               <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-6xl">
-                Votre solution de prise de rendez-vous{' '}
-                <span className="text-primary">en marque blanche</span>
+                Simplifiez votre{' '}
+                <span className="text-primary">gestion de rendez-vous</span>
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
                 Offrez à vos clients une expérience de réservation en ligne fluide et professionnelle, entièrement personnalisée à votre image. Gagnez du temps, réduisez les absences et concentrez-vous sur l'essentiel : votre métier.
