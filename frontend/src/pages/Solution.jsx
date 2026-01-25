@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Globe, Bell, CreditCard, Users, Shield, Settings, BarChart3, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { faqs } from '../mock';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useInView } from 'react-intersection-observer';
 
 const Solution = () => {
-  const { ref: heroRef, inView: heroInView } = useScrollAnimation();
-  const { ref: featuresRef, inView: featuresInView } = useScrollAnimation();
+  const [scrollY, setScrollY] = useState(0);
+  const { ref: heroRef, inView: heroInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+  const { ref: featuresRef, inView: featuresInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const features = [
     {
       icon: Globe,
