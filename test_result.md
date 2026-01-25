@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Tester complètement l'intégration backend d'Espace Agenda : API Contact, API Blog, CMS Blog (Create/Update/Delete), et vérification base de données"
+user_problem_statement: "Tester complètement l'intégration frontend d'Espace Agenda avec le backend : Page d'accueil, Blog (API), Articles individuels, Formulaire de Contact, Navigation, et Responsive"
 
 backend:
   - task: "Contact API - POST /api/contact"
