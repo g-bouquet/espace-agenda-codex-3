@@ -174,7 +174,7 @@ const BlogPost = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-neutral-900 mb-8">Articles similaires</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogPosts.filter(p => p.id !== id).slice(0, 3).map((relatedPost) => (
+            {relatedPosts.slice(0, 3).map((relatedPost) => (
               <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
                 <div className="aspect-video w-full overflow-hidden rounded-lg mb-4">
                   <img 
