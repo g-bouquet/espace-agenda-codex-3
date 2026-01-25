@@ -1,22 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Shield, Zap } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useInView } from 'react-intersection-observer';
 
 const Home = () => {
-  const { ref: heroRef, inView: heroInView } = useScrollAnimation();
-  const { ref: benefitsRef, inView: benefitsInView } = useScrollAnimation();
-  const { ref: processRef, inView: processInView } = useScrollAnimation();
+  const [scrollY, setScrollY] = useState(0);
+  
+  // Animation hooks avec observer actif
+  const { ref: heroRef, inView: heroInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+  
+  const { ref: benefitsRef, inView: benefitsInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+  
+  const { ref: processRef, inView: processInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  // Parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-        <div className="relative z-10 py-20 lg:py-32">
+      {/* Hero Section with Background Image and Parallax */}
+      <section className="relative overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center">
+        {/* Background Image with Parallax */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80" 
+            alt="Espace professionnel"
+            className="w-full h-full object-cover scale-110"
+          />
+          {/* Overlay gradient pour la lisibilité */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/80"></div>
+        </div>
+        
+        <div className="relative z-10 py-20 lg:py-32 w-full">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div ref={heroRef} className={`mx-auto max-w-3xl text-center transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div 
+              ref={heroRef} 
+              className={`mx-auto max-w-3xl text-center transition-all duration-1000 ease-out ${
+                heroInView 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}
+            >
               <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-6xl">
                 Votre solution de prise de rendez-vous{' '}
                 <span className="text-primary">en marque blanche</span>
