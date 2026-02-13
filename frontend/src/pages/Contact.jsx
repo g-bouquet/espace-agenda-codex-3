@@ -251,14 +251,30 @@ const Contact = () => {
                       />
                     </div>
 
+                    <div>
+                      <label className="flex items-start gap-2">
+                        <input
+                          type="checkbox"
+                          name="gdprConsent"
+                          required
+                          checked={formData.gdprConsent}
+                          onChange={handleChange}
+                          className="mt-1 h-4 w-4 rounded border-neutral-300 text-primary focus:ring-2 focus:ring-primary"
+                        />
+                        <span className="text-sm text-muted-foreground">
+                          J'accepte d'être recontacté·e concernant ma demande *
+                        </span>
+                      </label>
+                    </div>
+
                     <Button 
                       type="submit" 
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !formData.gdprConsent}
                       className="w-full bg-primary hover:bg-primary-hover text-white"
                       size="lg"
                     >
-                      {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
-                      <Send className="ml-2 h-5 w-5" />
+                      {isSubmitting ? 'Envoi en cours...' : 'Être rappelé·e / recevoir une proposition'}
+                      <Send className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
                 </CardContent>
