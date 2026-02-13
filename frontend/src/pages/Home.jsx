@@ -99,33 +99,30 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Pourquoi choisir Espace Agenda ?
+              Pourquoi les praticiens choisissent Espace Agenda
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Une solution pensée pour les praticiens et professionnels de l'accompagnement
-            </p>
           </div>
 
           <div ref={benefitsRef} className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3">
             {[
               {
                 icon: Clock,
-                title: 'Gain de temps immédiat',
-                description: 'Fini les appels téléphoniques pour planifier les rendez-vous. Vos clients réservent en ligne 24h/24, vous gérez tout depuis un seul outil.',
+                title: 'Moins d\'allers-retours, moins d\'oublis',
+                description: 'Vos clients réservent en ligne quand ils le souhaitent, et reçoivent des rappels automatiques. Vous n\'avez plus à gérer les confirmations.',
                 image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
                 delay: 100
               },
               {
                 icon: Shield,
-                title: '100% votre marque',
-                description: 'Solution entièrement en marque blanche : votre logo, vos couleurs, votre identité. Aucune mention du fournisseur technique.',
+                title: 'À votre nom, à votre image',
+                description: 'Votre logo, vos couleurs, votre identité. Vos clients ne voient que vous, sans mention d\'un outil tiers.',
                 image: 'https://images.pexels.com/photos/9064708/pexels-photo-9064708.jpeg?w=800&q=80',
                 delay: 200
               },
               {
                 icon: Zap,
-                title: 'Installation et accompagnement',
-                description: 'Nous installons, configurons et vous formons. Support humain inclus pour vous accompagner au quotidien.',
+                title: 'On installe, vous utilisez — support inclus',
+                description: 'Nous installons, paramétrons et vous formons (30 min). Support humain illimité pour toutes vos questions.',
                 image: 'https://images.pexels.com/photos/6129653/pexels-photo-6129653.jpeg?w=800&q=80',
                 delay: 300
               }
