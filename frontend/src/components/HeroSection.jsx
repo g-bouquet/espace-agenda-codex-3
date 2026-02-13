@@ -8,7 +8,7 @@ const HeroSection = ({
   title, 
   titleHighlight, 
   description, 
-  ctaText = "Demander l'installation",
+  ctaText = "Planifier un échange (15 min)",
   ctaLink = "/contact",
   showCta = true,
   backgroundImage = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&q=80"
