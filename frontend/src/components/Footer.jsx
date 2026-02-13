@@ -13,7 +13,7 @@ const Footer = () => {
               <span className="text-2xl font-bold font-heading">Espace Agenda</span>
             </Link>
             <p className="text-blue-100 text-sm max-w-md">
-              La solution de prise de rendez-vous en ligne 100% en marque blanche, pensée pour les praticiens et professionnels de l'accompagnement.
+              Prise de rendez-vous en ligne à votre nom, pensée pour les praticiens de l'accompagnement.
             </p>
           </div>
 
