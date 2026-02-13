@@ -77,44 +77,65 @@ export const offers = [
     id: '1',
     name: 'Essentiel',
     description: 'Pour démarrer en toute simplicité',
-    price: 'Sur devis',
+    price: '29€ / mois TTC',
+    installation: '149€ TTC (une fois)',
     features: [
-      'Site de réservation personnalisé',
-      'Agenda en ligne',
-      'Rappels automatiques par email',
-      'Espace client',
-      'Support technique'
+      'Page de réservation à votre nom (sous-domaine inclus)',
+      'Réservation 24/7 + confirmations',
+      'Rappels email inclus',
+      'Annulation / replanification côté client',
+      'Support standard (tickets + base de connaissance)'
     ],
     highlight: false
   },
   {
     id: '2',
-    name: 'Professionnel',
+    name: 'Pro',
     description: 'La solution complète pour votre activité',
-    price: 'Sur devis',
+    price: '45€ / mois TTC',
+    installation: '249€ TTC (une fois)',
+    sms: 'SMS disponible : 0,09€ / SMS',
     features: [
-      'Tout de l\'offre Essentiel',
-      'Rappels SMS',
-      'Paiements en ligne',
-      'Synchronisation calendrier',
-      'Statistiques avancées',
-      'Support prioritaire'
+      'Tout Essentiel',
+      'Paiements & acomptes (si activés)',
+      'Formulaires / champs personnalisés (fiche client)',
+      'Notes internes + historique client',
+      'Tableau de bord & suivi (selon configuration)',
+      'Support renforcé (tickets + WhatsApp)'
     ],
     highlight: true
   },
   {
     id: '3',
-    name: 'Sur mesure',
-    description: 'Une solution adaptée à vos besoins spécifiques',
-    price: 'Sur devis',
+    name: 'Premium',
+    description: 'Pour une gestion avancée',
+    price: '79€ / mois TTC',
+    installation: '399€ TTC (une fois)',
+    sms: 'SMS disponible : 0,09€ / SMS',
     features: [
-      'Tout de l\'offre Professionnelle',
-      'Fonctionnalités personnalisées',
-      'Intégrations sur mesure',
-      'Formation approfondie',
-      'Accompagnement dédié'
+      'Tout Pro',
+      'Import / export (si disponible)',
+      'Facturation ou exports pour facturation (selon configuration)',
+      'Paramétrages avancés (selon besoin)',
+      'Support prioritaire (urgent <6h • autres <24h) + téléphone'
     ],
     highlight: false
+  },
+  {
+    id: '4',
+    name: 'Sur mesure',
+    description: 'Une solution adaptée à vos besoins spécifiques',
+    price: 'Devis',
+    installation: '',
+    features: [
+      'Multi-praticiens',
+      'Migrations',
+      'Intégrations spécifiques',
+      'Règles avancées',
+      'Configuration personnalisée'
+    ],
+    highlight: false,
+    isCustom: true
   }
 ];
 
