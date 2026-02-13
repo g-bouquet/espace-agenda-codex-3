@@ -59,10 +59,11 @@ const Solution = () => {
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="Une solution complète pour"
-        titleHighlight="gérer vos rendez-vous"
-        description="Espace Agenda est bien plus qu'un simple agenda en ligne. C'est une plateforme complète, installée et personnalisée pour vous, qui vous fait gagner un temps précieux au quotidien."
+        title="Tout ce qu'il faut pour gérer vos rendez-vous —"
+        titleHighlight="à votre nom"
+        description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels, paiements (selon offre) et un espace client si vous le souhaitez."
         backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80"
+        ctaText="Démarrer mon installation"
       />
 
       {/* How it works */}
