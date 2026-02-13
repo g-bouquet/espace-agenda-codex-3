@@ -15,6 +15,13 @@ const Footer = () => {
             <p className="text-blue-100 text-sm max-w-md">
               Prise de rendez-vous en ligne à votre nom, pensée pour les praticiens de l'accompagnement.
             </p>
+            <div className="mt-4">
+              <Link to="/contact">
+                <Button size="sm" className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
+                  Planifier un échange (15 min)
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Navigation */}
