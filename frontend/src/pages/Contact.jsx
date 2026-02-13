@@ -128,11 +128,10 @@ const Contact = () => {
                       <MapPin className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">Adresse</h3>
+                      <h3 className="font-semibold text-foreground mb-1">Localisation</h3>
                       <p className="text-muted-foreground">
-                        123 Avenue de la République<br />
-                        75011 Paris<br />
-                        France
+                        France (à distance)<br />
+                        Visio possible
                       </p>
                     </div>
                   </div>
