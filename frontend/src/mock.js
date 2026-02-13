@@ -139,32 +139,37 @@ export const howItWorks = [
 export const faqs = [
   {
     id: '1',
-    question: 'Qu\'est-ce qu\'une solution en marque blanche ?',
-    answer: 'Une solution en marque blanche signifie que la plateforme est entièrement personnalisée à votre image (logo, couleurs, nom de domaine) sans aucune mention du fournisseur technique. Vos clients ne voient que votre marque.'
+    question: 'Que veut dire "à votre nom" ?',
+    answer: 'Vos clients voient votre identité (logo, couleurs, nom) sans mention d\'un outil tiers. La plateforme de réservation est entièrement à votre image, comme si vous l\'aviez créée vous-même.'
   },
   {
     id: '2',
+    question: 'Puis-je l\'intégrer sur mon site existant ?',
+    answer: 'Oui, tout à fait. Nous pouvons intégrer la solution directement sur votre site existant via un lien ou une intégration complète. Si vous n\'avez pas encore de site, nous créons une page de réservation dédiée.'
+  },
+  {
+    id: '3',
+    question: 'Quand suis-je facturé·e ?',
+    answer: 'La facturation débute 7 jours après la signature de votre contrat. Vous avez ainsi le temps de valider la solution mise en place avant le début de la facturation.'
+  },
+  {
+    id: '4',
     question: 'Combien de temps faut-il pour mettre en place la solution ?',
     answer: 'La mise en place complète prend généralement entre 2 et 4 semaines, incluant la personnalisation, l\'installation, la formation et les tests. Nous adaptons le planning à vos contraintes.'
   },
   {
-    id: '3',
+    id: '5',
     question: 'Ai-je besoin de compétences techniques ?',
-    answer: 'Non, aucune compétence technique n\'est nécessaire. Nous installons et configurons tout pour vous, puis nous vous formons à l\'utilisation quotidienne qui est très intuitive.'
+    answer: 'Non, aucune compétence technique n\'est nécessaire. Nous installons et configurons tout pour vous, puis nous vous formons à l\'utilisation quotidienne en 30 minutes. L\'interface est très intuitive.'
   },
   {
-    id: '4',
+    id: '6',
     question: 'Mes données sont-elles sécurisées ?',
     answer: 'Absolument. Toutes les données sont hébergées de manière sécurisée avec un respect strict du RGPD. Vous restez propriétaire de vos données à tout moment.'
   },
   {
-    id: '5',
-    question: 'Puis-je proposer cette solution à mes propres clients ?',
-    answer: 'Oui, c\'est l\'un des avantages de la marque blanche. Une fois la plateforme installée, vous pouvez la proposer sous votre propre marque à vos patients ou clients.'
-  },
-  {
-    id: '6',
+    id: '7',
     question: 'Quel type de support est inclus ?',
-    answer: 'Vous bénéficiez d\'un support humain par email et téléphone. Nous sommes là pour répondre à vos questions et vous accompagner dans l\'utilisation et l\'évolution de votre plateforme.'
+    answer: 'Vous bénéficiez d\'un support humain illimité par email et téléphone. Nous sommes là pour répondre à vos questions et vous accompagner dans l\'utilisation et l\'évolution de votre plateforme.'
   }
 ];
