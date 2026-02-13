@@ -123,8 +123,8 @@ const Home = () => {
               },
               {
                 icon: Zap,
-                title: 'On installe, vous utilisez — support inclus',
-                description: 'Nous installons, paramétrons et vous formons (30 min). Support humain illimité pour toutes vos questions.',
+                title: 'Clé en main (vraiment)',
+                description: 'Vous ne passez pas vos soirées à paramétrer : on le fait, on teste, on met en ligne.',
                 image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
                 delay: 300
               }
@@ -386,6 +386,39 @@ const Home = () => {
         </div>
       </section>
 
+      {/* FAQ courte Section */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+              Questions fréquentes
+            </h2>
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.slice(0, 5).map((faq) => (
+              <AccordionItem key={faq.id} value={faq.id} className="bg-white border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
+          <div className="text-center mt-8">
+            <Link to="/solution">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                Voir toutes les questions
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -399,7 +432,7 @@ const Home = () => {
             <div className="mt-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-secondary hover:bg-gray-100 font-medium shadow-lg hover:shadow-xl transition-all duration-300 rounded-sm">
-                  Démarrer mon installation
+                  Planifier un échange (15 min)
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
