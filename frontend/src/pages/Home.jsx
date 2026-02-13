@@ -239,15 +239,15 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-              Prêt à simplifier votre gestion des rendez-vous ?
+              Prêt à passer à une prise de rendez-vous plus sereine ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">
-              Demandez l'installation de votre solution personnalisée et bénéficiez d'un accompagnement complet.
+              Dites-nous votre pratique, vos horaires et vos règles : on prépare une version prête à l'emploi.
             </p>
             <div className="mt-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-secondary hover:bg-gray-100 font-medium shadow-lg hover:shadow-xl transition-all duration-300 rounded-sm">
-                  Demander l'installation
+                  Démarrer mon installation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
