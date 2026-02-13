@@ -15,14 +15,17 @@ const Contact = () => {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    profession: '',
+    message: '',
+    gdprConsent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     });
   };
 
@@ -44,7 +47,9 @@ const Contact = () => {
           email: '',
           phone: '',
           subject: '',
-          message: ''
+          profession: '',
+          message: '',
+          gdprConsent: false
         });
       }
     } catch (error) {
@@ -64,8 +69,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="Contactez-nous"
-        description="Une question ? Un projet ? Notre équipe est à votre écoute pour vous accompagner dans la mise en place de votre solution de prise de rendez-vous."
+        title="Parlez-nous de votre pratique"
+        description="Réponse sous 24h ouvrées • Vous hésitez entre 2 offres ? On vous oriente."
         showCta={false}
         backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80"
       />
