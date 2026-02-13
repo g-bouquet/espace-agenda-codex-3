@@ -142,33 +142,41 @@ const Exemples = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
+      {/* Engagements */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="order-2 lg:order-1">
-              <div className="aspect-square overflow-hidden rounded-lg shadow-lg">
-                <img 
-                  src="https://images.pexels.com/photos/8730045/pexels-photo-8730045.jpeg?w=800&q=80" 
-                  alt="Témoignage client satisfait"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            
-            {/* Content */}
-            <div className="order-1 lg:order-2">
-              <div className="lg:pl-8">
-                <p className="text-2xl text-muted-foreground italic mb-8 leading-relaxed">
-                  "Espace Agenda a transformé ma gestion quotidienne. Je gagne un temps précieux que je peux désormais consacrer entièrement à mes patients. La plateforme est intuitive et mes clients apprécient la simplicité de la réservation en ligne."
-                </p>
-                <div>
-                  <p className="font-semibold text-foreground text-lg">Marie L.</p>
-                  <p className="text-muted-foreground">Psychologue</p>
-                </div>
-              </div>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-8">
+              Nos engagements
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'Installation guidée',
+                description: 'Nous installons et configurons tout pour vous. Aucune compétence technique requise.'
+              },
+              {
+                title: 'Support humain',
+                description: 'Une question ? Notre équipe est disponible par email et téléphone pour vous accompagner.'
+              },
+              {
+                title: 'Paramétrage adapté',
+                description: 'Nous adaptons la plateforme à votre pratique, vos horaires et vos règles spécifiques.'
+              },
+              {
+                title: 'Aucune complexité technique',
+                description: 'Interface simple et intuitive. Formation de 30 minutes et vous êtes opérationnel·le.'
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border-border">
+                <CardContent className="pt-6">
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
