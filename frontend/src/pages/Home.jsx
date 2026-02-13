@@ -65,24 +65,29 @@ const Home = () => {
               }`}
             >
               <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-6xl">
-                Simplifiez votre{' '}
-                <span className="text-primary">gestion de rendez-vous</span>
+                La prise de rendez-vous{' '}
+                <span className="text-primary">à votre nom</span> — simple pour vous, fluide pour vos clients
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Offrez à vos clients une expérience de réservation en ligne fluide et professionnelle, entièrement personnalisée à votre image. Gagnez du temps, réduisez les absences et concentrez-vous sur l'essentiel : votre métier.
+                Une page de réservation claire, des rappels automatiques, et un espace client si besoin. Nous installons et configurons pour votre pratique, puis nous restons disponibles.
               </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <Link to="/contact">
-                  <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
-                    Demander l'installation
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/solution">
-                  <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-sm transition-all duration-300">
-                    Découvrir la solution
-                  </Button>
-                </Link>
+              <div className="mt-10 flex flex-col items-center justify-center gap-4">
+                <div className="flex items-center justify-center gap-x-6">
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
+                      Démarrer mon installation
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link to="/exemples">
+                    <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-sm transition-all duration-300">
+                      Voir des exemples
+                    </Button>
+                  </Link>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Installation guidée • Support humain • Paramétrage adapté à votre pratique
+                </p>
               </div>
             </div>
           </div>
