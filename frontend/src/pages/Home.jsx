@@ -167,6 +167,156 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Pour qui Section */}
+      <section className="py-16 bg-muted">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
+              Pour qui ?
+            </h2>
+            <p className="text-lg text-foreground mb-4">
+              Pensé pour les praticiens indépendants : psychologues/psychopraticiens, bien-être, coaching.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Moins adapté si vous cherchez un outil 100% autonome sans accompagnement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Côté client Section */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
+                Côté client : une réservation simple et rassurante
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Vos clients choisissent un créneau en quelques secondes. Ils reçoivent une confirmation et des rappels (email, SMS selon l'offre).
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { icon: Smartphone, text: 'Mobile et ordinateur' },
+                  { icon: Shield, text: 'Messages à votre nom' },
+                  { icon: Calendar, text: 'Annuler / déplacer facilement' }
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={index} className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-foreground font-medium">{item.text}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="flex justify-center">
+              <div className="relative max-w-sm">
+                <img 
+                  src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" 
+                  alt="Interface mobile de réservation"
+                  className="rounded-lg shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Côté praticien Section */}
+      <section className="py-20 bg-muted">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 flex justify-center">
+              <div className="relative max-w-sm">
+                <img 
+                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80" 
+                  alt="Interface praticien"
+                  className="rounded-lg shadow-xl"
+                />
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
+                Côté praticien : tout est cadré
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Vous gardez la main sur vos règles : durées, motifs, indisponibilités, acompte, notes internes (selon l'offre).
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { icon: Calendar, text: 'Agenda & disponibilité' },
+                  { icon: Shield, text: 'Historique client' },
+                  { icon: Check, text: 'Rappels & paiements (selon l\'offre)' }
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={index} className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-foreground font-medium">{item.text}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Offres aperçu Section */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
+              Offres (aperçu)
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              À partir de 29€/mois TTC
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+            {[
+              { name: 'Essentiel', price: '29€/mois TTC', desc: 'Réservation + rappels email' },
+              { name: 'Pro', price: '45€/mois TTC', desc: 'Essentiel + paiements + fiche client', highlight: true },
+              { name: 'Premium', price: '79€/mois TTC', desc: 'Pro + paramétrage avancé' }
+            ].map((offer, index) => (
+              <Card key={index} className={`border-border ${offer.highlight ? 'border-primary border-2 shadow-lg' : ''}`}>
+                <CardContent className="pt-6 text-center">
+                  {offer.highlight && (
+                    <div className="mb-4">
+                      <span className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        Recommandé
+                      </span>
+                    </div>
+                  )}
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-2">{offer.name}</h3>
+                  <p className="text-2xl font-bold text-primary mb-3">{offer.price}</p>
+                  <p className="text-sm text-muted-foreground">{offer.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link to="/offres">
+              <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300 mb-3">
+                Comparer les offres
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <p className="text-sm text-muted-foreground">
+              On vous aide à choisir en 10 minutes.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
