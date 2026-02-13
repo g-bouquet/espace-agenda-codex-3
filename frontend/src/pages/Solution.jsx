@@ -62,7 +62,7 @@ const Solution = () => {
         title="Tout ce qu'il faut pour gérer vos rendez-vous —"
         titleHighlight="à votre nom"
         description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels, paiements (selon offre) et un espace client si vous le souhaitez."
-        backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=80"
         ctaText="Démarrer mon installation"
       />
 

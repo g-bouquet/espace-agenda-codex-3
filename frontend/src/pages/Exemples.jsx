@@ -12,14 +12,14 @@ const Exemples = () => {
       title: 'Psychologues, thérapeutes, praticiens de l\'accompagnement',
       description: 'Gestion des consultations, questionnaires pré-séance, espace client sécurisé pour les documents confidentiels.',
       features: ['Prise de rendez-vous 24h/24', 'Rappels automatiques', 'Lien visio envoyé automatiquement (si vous faites de la visio)'],
-      image: 'https://images.unsplash.com/photo-1758273241090-b7d744465ce6?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80'
     },
     {
       icon: Calendar,
       title: 'Ostéopathes & mieux-être corporel',
       description: 'Réservation en ligne pour ostéopathes, praticiens en bien-être corporel. Gestion des disponibilités flexibles.',
       features: ['Types de consultations multiples', 'Rappels automatiques', 'Conformité RGPD'],
-      image: 'https://images.unsplash.com/photo-1758691461957-474a7686e388?w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80'
     },
     {
       icon: Users,
@@ -37,7 +37,7 @@ const Exemples = () => {
         titleHighlight="(et côté praticien)"
         description="Une expérience de réservation claire et rassurante, sur mobile comme sur ordinateur."
         ctaText="Voir des exemples"
-        backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80"
       />
 
       {/* Use Cases */}

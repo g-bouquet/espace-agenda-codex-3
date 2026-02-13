@@ -14,7 +14,7 @@ const Offres = () => {
         title="Des offres adaptées à"
         titleHighlight="vos besoins"
         description="Choisissez la formule qui correspond à votre activité. Toutes nos offres incluent l'installation, la formation et le support."
-        backgroundImage="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80"
       />
 
       {/* Pricing Cards */}

@@ -46,7 +46,7 @@ const Home = () => {
           }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&q=80" 
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80" 
             alt="Accompagnement professionnel"
             className="w-full h-full object-cover scale-110"
           />
@@ -109,21 +109,21 @@ const Home = () => {
                 icon: Clock,
                 title: 'Moins d\'allers-retours, moins d\'oublis',
                 description: 'Vos clients réservent en ligne quand ils le souhaitent, et reçoivent des rappels automatiques. Vous n\'avez plus à gérer les confirmations.',
-                image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
+                image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80',
                 delay: 100
               },
               {
                 icon: Shield,
                 title: 'À votre nom, à votre image',
                 description: 'Votre logo, vos couleurs, votre identité. Vos clients ne voient que vous, sans mention d\'un outil tiers.',
-                image: 'https://images.pexels.com/photos/9064708/pexels-photo-9064708.jpeg?w=800&q=80',
+                image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
                 delay: 200
               },
               {
                 icon: Zap,
                 title: 'On installe, vous utilisez — support inclus',
                 description: 'Nous installons, paramétrons et vous formons (30 min). Support humain illimité pour toutes vos questions.',
-                image: 'https://images.pexels.com/photos/6129653/pexels-photo-6129653.jpeg?w=800&q=80',
+                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
                 delay: 300
               }
             ].map((benefit, index) => {
@@ -181,19 +181,19 @@ const Home = () => {
                   step: '1',
                   title: 'Cadrage (15–30 min) + formulaire de besoins',
                   description: 'Vous nous parlez de votre pratique, de vos horaires et de vos règles. Nous remplissons ensemble le formulaire de besoins.',
-                  image: 'https://images.unsplash.com/photo-1758518729706-b1810dd39cc6?w=600&q=80'
+                  image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80'
                 },
                 {
                   step: '2',
                   title: 'Installation + paramétrage + intégration',
                   description: 'Nous installons votre plateforme, la paramétrons selon vos besoins et l\'intégrons sur votre site si vous en avez déjà un.',
-                  image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80'
+                  image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=80'
                 },
                 {
                   step: '3',
                   title: 'Mini-formation (30 min) + support illimité',
                   description: 'Nous vous formons à l\'utilisation en 30 minutes. Ensuite, notre support humain reste disponible pour toutes vos questions.',
-                  image: 'https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?w=600&q=80'
+                  image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80'
                 }
               ].map((item, index) => (
                 <div 

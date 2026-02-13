@@ -72,7 +72,7 @@ const Contact = () => {
         title="Parlez-nous de votre pratique"
         description="Réponse sous 24h ouvrées • Vous hésitez entre 2 offres ? On vous oriente."
         showCta={false}
-        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1920&q=80"
       />
 
       {/* Contact Section */}

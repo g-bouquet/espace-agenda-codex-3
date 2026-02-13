@@ -60,7 +60,7 @@ const Blog = () => {
         titleHighlight="plus sereine"
         description="Découvrez nos articles pour optimiser votre gestion des rendez-vous et améliorer votre organisation professionnelle."
         showCta={false}
-        backgroundImage="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80"
       />
 
       {/* Blog Posts */}
