@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, Shield, Zap } from 'lucide-react';
+import { ArrowRight, Clock, Shield, Zap, Check, Smartphone, Calendar } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useInView } from 'react-intersection-observer';
+import { faqs } from '../mock';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -75,13 +77,13 @@ const Home = () => {
                 <div className="flex items-center justify-center gap-x-6">
                   <Link to="/contact">
                     <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
-                      Démarrer mon installation
+                      Planifier un échange (15 min)
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <Link to="/exemples">
                     <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-sm transition-all duration-300">
-                      Voir des exemples
+                      Voir un exemple
                     </Button>
                   </Link>
                 </div>
