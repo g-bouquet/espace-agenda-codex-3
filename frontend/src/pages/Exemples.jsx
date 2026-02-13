@@ -9,33 +9,34 @@ const Exemples = () => {
   const useCases = [
     {
       icon: Heart,
-      title: 'Thérapeutes et psychologues',
+      title: 'Psychologues, thérapeutes, praticiens de l\'accompagnement',
       description: 'Gestion des consultations, questionnaires pré-séance, espace client sécurisé pour les documents confidentiels.',
-      features: ['Prise de rendez-vous 24h/24', 'Rappels automatiques', 'Téléconsultation intégrée'],
+      features: ['Prise de rendez-vous 24h/24', 'Rappels automatiques', 'Lien visio envoyé automatiquement (si vous faites de la visio)'],
       image: 'https://images.unsplash.com/photo-1758273241090-b7d744465ce6?w=800&q=80'
     },
     {
-      icon: Users,
-      title: 'Coachs et consultants',
-      description: 'Planification de séances individuelles ou de groupe, gestion des programmes d\'accompagnement sur plusieurs semaines.',
-      features: ['Séances récurrentes', 'Paiements par forfait', 'Suivi personnalisé'],
-      image: 'https://images.pexels.com/photos/3958426/pexels-photo-3958426.jpeg?w=800&q=80'
+      icon: Calendar,
+      title: 'Ostéopathes & mieux-être corporel',
+      description: 'Réservation en ligne pour ostéopathes, praticiens en bien-être corporel. Gestion des disponibilités flexibles.',
+      features: ['Types de consultations multiples', 'Rappels automatiques', 'Conformité RGPD'],
+      image: 'https://images.unsplash.com/photo-1758691461957-474a7686e388?w=800&q=80'
     },
     {
-      icon: Calendar,
-      title: 'Praticiens de santé',
-      description: 'Réservation en ligne pour ostéopathes, infirmiers, diététiciens. Gestion des urgences et disponibilités flexibles.',
-      features: ['Types de consultations multiples', 'Gestion des urgences', 'Conformité RGPD'],
-      image: 'https://images.unsplash.com/photo-1758691461957-474a7686e388?w=800&q=80'
+      icon: Users,
+      title: 'Coachs & consultants',
+      description: 'Planification de séances individuelles ou de groupe, gestion des programmes d\'accompagnement sur plusieurs semaines.',
+      features: ['Séances récurrentes', 'Paiements par forfait (selon offre)', 'Suivi personnalisé'],
+      image: 'https://images.pexels.com/photos/3958426/pexels-photo-3958426.jpeg?w=800&q=80'
     }
   ];
 
   return (
     <div className="min-h-screen">
       <HeroSection
-        title="Des exemples concrets d'utilisation"
-        titleHighlight="pour votre métier"
-        description="Découvrez comment Espace Agenda s'adapte à votre activité et transforme votre gestion quotidienne des rendez-vous."
+        title="À quoi ça ressemble côté client ?"
+        titleHighlight="(et côté praticien)"
+        description="Une expérience de réservation claire et rassurante, sur mobile comme sur ordinateur."
+        ctaText="Voir des exemples"
         backgroundImage="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80"
       />
 
@@ -114,11 +115,11 @@ const Exemples = () => {
           <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: 'Jusqu\'\u00e0 10h gagnées par semaine',
+                title: 'Moins d\'appels et de messages pour caler un créneau',
                 description: 'Fini les allers-retours téléphoniques pour planifier ou déplacer des rendez-vous.'
               },
               {
-                title: 'Réduction des absences de 30%',
+                title: 'Moins d\'oublis grâce aux rappels automatiques',
                 description: 'Les rappels automatiques diminuent considérablement les oublis et absences.'
               },
               {
@@ -126,7 +127,7 @@ const Exemples = () => {
                 description: 'Vos clients réservent à tout moment, même en dehors de vos horaires d\'ouverture.'
               },
               {
-                title: 'Meilleure expérience client',
+                title: 'Une expérience client claire et professionnelle',
                 description: 'Une plateforme moderne et intuitive qui valorise votre image professionnelle.'
               }
             ].map((benefit, index) => (
