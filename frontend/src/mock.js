@@ -139,37 +139,70 @@ export const howItWorks = [
 export const faqs = [
   {
     id: '1',
-    question: 'Que veut dire "à votre nom" ?',
-    answer: 'Vos clients voient votre identité (logo, couleurs, nom) sans mention d\'un outil tiers. La plateforme de réservation est entièrement à votre image, comme si vous l\'aviez créée vous-même.'
+    question: 'Est-ce que c\'est à mon nom / à mon image ?',
+    answer: 'Oui. Nous configurons l\'interface aux couleurs de votre cabinet (logo, couleurs, textes). Vos clients voient uniquement votre identité. Option : votre nom de domaine.'
   },
   {
     id: '2',
-    question: 'Puis-je l\'intégrer sur mon site existant ?',
-    answer: 'Oui, tout à fait. Nous pouvons intégrer la solution directement sur votre site existant via un lien ou une intégration complète. Si vous n\'avez pas encore de site, nous créons une page de réservation dédiée.'
+    question: 'En combien de temps c\'est mis en place ?',
+    answer: 'Après signature, la mise en place démarre sous 7 jours. Le délai exact dépend de vos besoins (paiements, formulaires, intégration sur votre site).'
   },
   {
     id: '3',
-    question: 'Quand suis-je facturé·e ?',
-    answer: 'La facturation débute 7 jours après la signature de votre contrat. Vous avez ainsi le temps de valider la solution mise en place avant le début de la facturation.'
+    question: 'Dois-je être à l\'aise avec la technique ?',
+    answer: 'Non. Nous installons et configurons. Vous recevez une mini-formation de 30 minutes pour prendre en main l\'essentiel.'
   },
   {
     id: '4',
-    question: 'Combien de temps faut-il pour mettre en place la solution ?',
-    answer: 'La mise en place complète prend généralement entre 2 et 4 semaines, incluant la personnalisation, l\'installation, la formation et les tests. Nous adaptons le planning à vos contraintes.'
+    question: 'Est-ce que mes clients reçoivent des rappels ?',
+    answer: 'Oui : rappels email inclus. Les SMS sont possibles selon l\'offre, facturés au réel (0,09€ / SMS).'
   },
   {
     id: '5',
-    question: 'Ai-je besoin de compétences techniques ?',
-    answer: 'Non, aucune compétence technique n\'est nécessaire. Nous installons et configurons tout pour vous, puis nous vous formons à l\'utilisation quotidienne en 30 minutes. L\'interface est très intuitive.'
+    question: 'Puis-je demander un acompte ou un paiement en ligne ?',
+    answer: 'Oui, selon l\'offre. Vous pouvez activer les paiements et/ou les acomptes pour sécuriser les rendez-vous.'
   },
   {
     id: '6',
-    question: 'Mes données sont-elles sécurisées ?',
-    answer: 'Absolument. Toutes les données sont hébergées de manière sécurisée avec un respect strict du RGPD. Vous restez propriétaire de vos données à tout moment.'
+    question: 'Est-ce que je peux avoir des notes internes et une fiche client ?',
+    answer: 'Oui, selon l\'offre. Notes internes + champs personnalisés pour adapter la fiche client à votre pratique.'
   },
   {
     id: '7',
-    question: 'Quel type de support est inclus ?',
-    answer: 'Vous bénéficiez d\'un support humain illimité par email et téléphone. Nous sommes là pour répondre à vos questions et vous accompagner dans l\'utilisation et l\'évolution de votre plateforme.'
+    question: 'Mes données sont-elles protégées ?',
+    answer: 'Oui. Accès sécurisé et bonnes pratiques de protection des données. Nous vous aidons à paramétrer correctement les accès et les informations demandées.'
+  },
+  {
+    id: '8',
+    question: 'Quel support est inclus ?',
+    answer: 'Support illimité + base de connaissances. Urgences : réponse < 6h ouvrées. Autres demandes : réponse < 24h ouvrées. Canaux : email, tickets, WhatsApp, et téléphone selon l\'offre.'
+  },
+  {
+    id: '9',
+    question: 'Puis-je intégrer la réservation sur mon site existant ?',
+    answer: 'Oui. Lien simple, bouton, ou intégration : on vous conseille la solution la plus simple et fiable.'
+  },
+  {
+    id: '10',
+    question: 'Je suis en cabinet / à plusieurs praticiens : possible ?',
+    answer: 'Oui, selon le besoin : multi-praticiens et réglages avancés possibles en option ou via une configuration sur mesure.'
+  }
+];
+
+export const faqsOffres = [
+  {
+    id: 'A',
+    question: 'Qu\'est-ce qui est inclus dans les frais d\'installation ?',
+    answer: 'Rendez-vous de cadrage, formulaire de besoins, paramétrage du back-office, configuration côté client (ou intégration sur votre site), tests, et mini-formation (30 min).'
+  },
+  {
+    id: 'B',
+    question: 'Les SMS sont-ils inclus ?',
+    answer: 'Les SMS sont disponibles selon l\'offre et facturés au réel : 0,09€ / SMS (activation/désactivation possible).'
+  },
+  {
+    id: 'C',
+    question: 'Puis-je commencer simple puis évoluer ?',
+    answer: 'Oui. Vous pouvez démarrer avec une offre et évoluer ensuite (options ou offre supérieure).'
   }
 ];
