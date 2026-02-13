@@ -172,9 +172,6 @@ const Home = () => {
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Comment ça fonctionne ?
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Trois étapes simples pour démarrer
-            </p>
           </div>
 
           <div ref={processRef} className="mx-auto mt-16 max-w-5xl">
@@ -182,20 +179,20 @@ const Home = () => {
               {[
                 {
                   step: '1',
-                  title: 'Échange et personnalisation',
-                  description: 'Nous discutons de vos besoins et configurons votre plateforme selon votre identité visuelle.',
+                  title: 'Cadrage (15–30 min) + formulaire de besoins',
+                  description: 'Vous nous parlez de votre pratique, de vos horaires et de vos règles. Nous remplissons ensemble le formulaire de besoins.',
                   image: 'https://images.unsplash.com/photo-1758518729706-b1810dd39cc6?w=600&q=80'
                 },
                 {
                   step: '2',
-                  title: 'Installation et formation',
-                  description: 'Nous installons la solution et vous formons à son utilisation pour une prise en main optimale.',
+                  title: 'Installation + paramétrage + intégration',
+                  description: 'Nous installons votre plateforme, la paramétrons selon vos besoins et l\'intégrons sur votre site si vous en avez déjà un.',
                   image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80'
                 },
                 {
                   step: '3',
-                  title: 'Accompagnement continu',
-                  description: 'Vous bénéficiez d\'un support humain et d\'évolutions régulières de votre plateforme.',
+                  title: 'Mini-formation (30 min) + support illimité',
+                  description: 'Nous vous formons à l\'utilisation en 30 minutes. Ensuite, notre support humain reste disponible pour toutes vos questions.',
                   image: 'https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?w=600&q=80'
                 }
               ].map((item, index) => (
