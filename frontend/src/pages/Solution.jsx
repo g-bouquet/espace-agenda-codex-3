@@ -126,49 +126,49 @@ const Solution = () => {
             {[
               {
                 icon: Globe,
-                title: 'Site de réservation personnalisé',
-                description: 'Votre propre site de prise de rendez-vous aux couleurs de votre marque, accessible 24h/24. Vos clients réservent en quelques clics, en toute autonomie.',
+                title: 'Page de réservation à votre nom',
+                description: 'Votre propre page de prise de rendez-vous, accessible 24h/24. Vos clients réservent en quelques clics, en toute autonomie.',
                 image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80'
               },
               {
                 icon: Calendar,
-                title: 'Agenda intelligent',
+                title: 'Agenda + synchronisation (selon offre)',
                 description: 'Gérez vos disponibilités en temps réel. Synchronisation automatique de vos rendez-vous et blocage intelligent des créneaux déjà réservés.',
                 image: 'https://images.unsplash.com/photo-1649433391719-2e784576d044?w=600&q=80'
               },
               {
                 icon: Bell,
                 title: 'Rappels automatiques',
-                description: 'Réduisez les absences grâce aux notifications automatiques par email et SMS. Vos clients reçoivent des rappels avant chaque rendez-vous.',
+                description: 'Réduisez les absences grâce aux notifications automatiques par email et SMS (selon offre). Vos clients reçoivent des rappels avant chaque rendez-vous.',
                 image: 'https://images.unsplash.com/photo-1659428167876-a5a52756f421?w=600&q=80'
               },
               {
                 icon: CreditCard,
-                title: 'Paiements en ligne',
+                title: 'Paiement / acompte (selon offre)',
                 description: 'Acceptez les paiements et acomptes directement lors de la réservation. Transactions sécurisées et suivi automatique des encaissements.',
                 image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80'
               },
               {
                 icon: Users,
-                title: 'Espace client dédié',
-                description: 'Chaque client dispose d\'un espace personnel pour consulter son historique, ses prochains rendez-vous et accéder à ses documents.',
+                title: 'Espace client (si vous le souhaitez)',
+                description: 'Chaque client peut disposer d\'un espace personnel pour consulter son historique, ses prochains rendez-vous et accéder à ses documents.',
                 image: 'https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?w=600&q=80'
               },
               {
                 icon: Shield,
-                title: 'Données sécurisées',
-                description: 'Conformité RGPD garantie, hébergement sécurisé et sauvegarde automatique de toutes vos données professionnelles.',
+                title: 'Données protégées • Paramétrage conforme RGPD',
+                description: 'Conformité RGPD garantie, hébergement sécurisé et sauvegarde automatique de toutes vos données professionnelles. Accès sécurisé.',
                 image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&q=80'
               },
               {
                 icon: Settings,
-                title: 'Personnalisation complète',
-                description: 'Adaptez la plateforme à vos besoins : durée des consultations, types de services, questionnaires personnalisés et bien plus.',
+                title: 'Personnalisation : logo, couleurs, textes',
+                description: 'Adaptez la plateforme à votre image : logo, couleurs, textes personnalisés. Nom de domaine personnalisé disponible en option.',
                 image: 'https://images.unsplash.com/photo-1649433391719-2e784576d044?w=600&q=80'
               },
               {
                 icon: BarChart3,
-                title: 'Statistiques et suivi',
+                title: 'Tableau de bord & suivi (selon offre)',
                 description: 'Tableau de bord complet pour suivre votre activité : taux de remplissage, revenus, clients réguliers et analyses détaillées.',
                 image: 'https://images.unsplash.com/photo-1649433391719-2e784576d044?w=600&q=80'
               }
@@ -222,9 +222,9 @@ const Solution = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">Personnalisation complète</h3>
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Personnalisation à votre image</h3>
                 <p className="text-lg text-muted-foreground">
-                  Votre plateforme reflète votre identité professionnelle : logo, couleurs, nom de domaine personnalisé. Vos clients ne voient que votre marque, sans aucune mention du fournisseur technique.
+                  Votre plateforme reflète votre identité professionnelle : logo, couleurs, nom de domaine personnalisé (option). Vos clients ne voient que vous, sans mention d'un outil tiers.
                 </p>
               </div>
 
