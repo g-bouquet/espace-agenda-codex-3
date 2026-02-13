@@ -194,13 +194,13 @@ const Exemples = () => {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
-                  Demander l'installation
+                  Démarrer mon installation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/solution">
+              <Link to="/exemples">
                 <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-                  Découvrir toutes les fonctionnalités
+                  Voir des exemples
                 </Button>
               </Link>
             </div>
