@@ -211,14 +211,28 @@ const Contact = () => {
                           className="flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent"
                         >
                           <option value="">Sélectionnez un sujet</option>
-                          <option value="installation">Demande d'installation</option>
-                          <option value="demo">Demande de démonstration</option>
-                          <option value="devis">Demande de devis</option>
-                          <option value="info">Demande d'informations</option>
-                          <option value="support">Support technique</option>
+                          <option value="installation">Démarrer mon installation</option>
+                          <option value="offre">Choisir mon offre (29/45/79)</option>
+                          <option value="domaine">Nom de domaine / intégration site</option>
+                          <option value="sms-paiements">SMS / paiements</option>
                           <option value="autre">Autre</option>
                         </select>
                       </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="profession" className="block text-sm font-medium text-foreground mb-2">
+                        Votre métier (optionnel)
+                      </label>
+                      <input
+                        type="text"
+                        id="profession"
+                        name="profession"
+                        value={formData.profession}
+                        onChange={handleChange}
+                        className="flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent"
+                        placeholder="Ex: Psychologue, Ostéopathe, Coach..."
+                      />
                     </div>
 
                     <div>
