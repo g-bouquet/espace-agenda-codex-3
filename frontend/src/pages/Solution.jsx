@@ -63,7 +63,7 @@ const Solution = () => {
         titleHighlight="à votre nom"
         description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels, paiements (selon offre) et un espace client si vous le souhaitez."
         backgroundImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=80"
-        ctaText="Démarrer mon installation"
+        ctaText="Planifier un échange (15 min)"
       />
 
       {/* How it works */}
@@ -276,7 +276,7 @@ const Solution = () => {
             <div className="mt-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
-                  Demander l'installation
+                  Planifier un échange (15 min)
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
