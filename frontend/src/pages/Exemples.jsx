@@ -36,7 +36,7 @@ const Exemples = () => {
         title="À quoi ça ressemble côté client ?"
         titleHighlight="(et côté praticien)"
         description="Une expérience de réservation claire et rassurante, sur mobile comme sur ordinateur."
-        ctaText="Voir des exemples"
+        ctaText="Voir un exemple"
         backgroundImage="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80"
       />
 
@@ -194,13 +194,13 @@ const Exemples = () => {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
-                  Démarrer mon installation
+                  Planifier un échange (15 min)
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/exemples">
+              <Link to="/offres">
                 <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-                  Voir des exemples
+                  Comparer les offres
                 </Button>
               </Link>
             </div>

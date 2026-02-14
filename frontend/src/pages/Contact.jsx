@@ -215,6 +215,7 @@ const Contact = () => {
                           <option value="offre">Choisir mon offre (29/45/79)</option>
                           <option value="domaine">Nom de domaine / intégration site</option>
                           <option value="sms-paiements">SMS / paiements</option>
+                          <option value="sur-mesure">Sur mesure</option>
                           <option value="autre">Autre</option>
                         </select>
                       </div>
@@ -273,9 +274,13 @@ const Contact = () => {
                       className="w-full bg-primary hover:bg-primary-hover text-white"
                       size="lg"
                     >
-                      {isSubmitting ? 'Envoi en cours...' : 'Être rappelé·e / recevoir une proposition'}
+                      {isSubmitting ? 'Envoi en cours...' : 'Planifier un échange (15 min)'}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
+
+                    <p className="text-xs text-center text-muted-foreground mt-2">
+                      Réponse sous 24h ouvrées (urgences &lt; 6h)
+                    </p>
                   </form>
                 </CardContent>
               </Card>
