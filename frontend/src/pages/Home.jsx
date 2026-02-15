@@ -349,26 +349,7 @@ const Home = () => {
 
           <div ref={processRef} className="mx-auto mt-16 max-w-5xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  step: '1',
-                  title: 'Cadrage (15–30 min) + formulaire de besoins',
-                  description: 'Vous nous parlez de votre pratique, de vos horaires et de vos règles. Nous remplissons ensemble le formulaire de besoins.',
-                  image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80'
-                },
-                {
-                  step: '2',
-                  title: 'Installation + paramétrage + intégration',
-                  description: 'Nous installons votre plateforme, la paramétrons selon vos besoins et l\'intégrons sur votre site si vous en avez déjà un.',
-                  image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=80'
-                },
-                {
-                  step: '3',
-                  title: 'Mini-formation (30 min) + support illimité',
-                  description: 'Nous vous formons à l\'utilisation en 30 minutes. Ensuite, notre support humain reste disponible pour toutes vos questions.',
-                  image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80'
-                }
-              ].map((item, index) => (
+              {howItWorks.map((item, index) => (
                 <div 
                   key={item.step} 
                   className={`relative group transition-all duration-700 ease-out ${
@@ -380,26 +361,15 @@ const Home = () => {
                     transitionDelay: processInView ? `${index * 150}ms` : '0ms'
                   }}
                 >
-                  {/* Image with subtle overlay and badge */}
-                  <div className="relative aspect-square overflow-hidden rounded-lg mb-6 shadow-md group-hover:shadow-xl transition-shadow duration-300">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {/* Subtle overlay only at bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                    {/* Badge positioned at top left */}
-                    <div className="absolute top-4 left-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white text-xl font-bold font-heading shadow-lg">
+                  <Card className="border-border hover:border-primary transition-all duration-300 h-full">
+                    <CardContent className="pt-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white text-xl font-bold font-heading shadow-md mb-6">
                         {item.step}
                       </div>
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                      <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{item.title}</h3>
+                      <p className="text-gray-700">{item.description}</p>
+                    </CardContent>
+                  </Card>
                 </div>
               ))}
             </div>
