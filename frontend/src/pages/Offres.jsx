@@ -205,7 +205,7 @@ const Offres = () => {
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-gray-700">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -227,7 +227,7 @@ const Offres = () => {
             <div className="mt-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
-                  Planifier un échange (15 min)
+                  {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
