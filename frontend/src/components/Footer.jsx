@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
+import { contactInfo, globalCTA } from '../content';
 
 const Footer = () => {
   return (
@@ -19,7 +20,7 @@ const Footer = () => {
             <div className="mt-4">
               <Link to="/contact">
                 <Button size="sm" className="bg-white/10 hover:bg-white/20 text-white border border-white/20">
-                  Planifier un échange (15 min)
+                  {globalCTA.primary}
                 </Button>
               </Link>
             </div>
@@ -58,15 +59,19 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-blue-100">
               <li className="flex items-center gap-2 transition-colors hover:text-white">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:contact@espaceagenda.fr" className="hover:text-white transition-colors duration-300">
-                  contact@espaceagenda.fr
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-white transition-colors duration-300">
+                  {contactInfo.email}
                 </a>
               </li>
               <li className="flex items-center gap-2 transition-colors hover:text-white">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+33123456789" className="hover:text-white transition-colors duration-300">
-                  01 23 45 67 89
+                <a href={`tel:+33${contactInfo.phone.replace(/\s/g, '').substring(1)}`} className="hover:text-white transition-colors duration-300">
+                  {contactInfo.phone}
                 </a>
+              </li>
+              <li className="flex items-center gap-2 transition-colors hover:text-white">
+                <MapPin className="h-4 w-4" />
+                <span>{contactInfo.location}</span>
               </li>
             </ul>
           </div>
