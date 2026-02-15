@@ -102,29 +102,19 @@ const Offres = () => {
             </p>
           </div>
 
-          <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: 'Nom de domaine personnalisé (option)',
-                description: 'Mise en place + maintenance de votre nom de domaine (ex: reservation.votrecabinet.fr)'
-              },
-              {
-                title: 'SMS supplémentaires',
-                description: '0,09€ / SMS (activation/désactivation possible selon l\'offre)'
-              },
-              {
-                title: 'Intégration sur votre site',
-                description: 'Lien, bouton ou intégration complète : on vous conseille la solution la plus simple'
-              },
-              {
-                title: 'Cabinet / multi-praticiens',
-                description: 'Configuration multi-praticiens avec réglages avancés (sur devis)'
-              }
-            ].map((option, index) => (
-              <Card key={index} className="border-border">
+          <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {options.map((option) => (
+              <Card key={option.id} className="border-border hover:border-primary transition-all duration-300">
                 <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{option.title}</h3>
-                  <p className="text-muted-foreground text-sm">{option.description}</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{option.name}</h3>
+                  <p className="text-gray-700 text-sm mb-3">{option.description}</p>
+                  {option.example && (
+                    <p className="text-xs text-gray-600 mb-2 font-mono bg-gray-100 px-2 py-1 rounded">{option.example}</p>
+                  )}
+                  <p className="text-sm font-semibold text-primary">{option.price}</p>
+                  {option.note && (
+                    <p className="text-xs text-gray-600 mt-2">{option.note}</p>
+                  )}
                 </CardContent>
               </Card>
             ))}
