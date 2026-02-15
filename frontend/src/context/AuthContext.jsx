@@ -24,8 +24,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (password) => {
-    // Mot de passe simple pour démo (en production, utiliser une vraie authentification)
-    if (password === 'admin123') {
+    // Vérification du mot de passe depuis la variable d'environnement
+    const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD || 'admin123';
+    if (password === adminPassword) {
       localStorage.setItem('admin_token', 'espace-agenda-admin-2025');
       setIsAuthenticated(true);
       return true;
