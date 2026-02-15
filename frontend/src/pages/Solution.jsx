@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Globe, Bell, CreditCard, Users, Shield, Settings, BarChart3, ArrowRight } from 'lucide-react';
+import * as Icons from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { faqs } from '../mock';
+import { keyFeatures, faqs, globalCTA, howItWorks } from '../content';
 import { useInView } from 'react-intersection-observer';
 import HeroSection from '../components/HeroSection';
 
@@ -13,57 +13,15 @@ const Solution = () => {
     threshold: 0.1,
     triggerOnce: true
   });
-  const features = [
-    {
-      icon: Globe,
-      title: 'Site de réservation personnalisé',
-      description: 'Votre propre site de prise de rendez-vous aux couleurs de votre marque, accessible 24h/24. Vos clients réservent en quelques clics, en toute autonomie.'
-    },
-    {
-      icon: Calendar,
-      title: 'Agenda intelligent',
-      description: 'Gérez vos disponibilités en temps réel. Synchronisation automatique de vos rendez-vous et blocage intelligent des créneaux déjà réservés.'
-    },
-    {
-      icon: Bell,
-      title: 'Rappels automatiques',
-      description: 'Réduisez les absences grâce aux notifications automatiques par email et SMS. Vos clients reçoivent des rappels avant chaque rendez-vous.'
-    },
-    {
-      icon: CreditCard,
-      title: 'Paiements en ligne',
-      description: 'Acceptez les paiements et acomptes directement lors de la réservation. Transactions sécurisées et suivi automatique des encaissements.'
-    },
-    {
-      icon: Users,
-      title: 'Espace client dédié',
-      description: 'Chaque client dispose d\'un espace personnel pour consulter son historique, ses prochains rendez-vous et accéder à ses documents.'
-    },
-    {
-      icon: Shield,
-      title: 'Données sécurisées',
-      description: 'Conformité RGPD garantie, hébergement sécurisé et sauvegarde automatique de toutes vos données professionnelles.'
-    },
-    {
-      icon: Settings,
-      title: 'Personnalisation complète',
-      description: 'Adaptez la plateforme à vos besoins : durée des consultations, types de services, questionnaires personnalisés et bien plus.'
-    },
-    {
-      icon: BarChart3,
-      title: 'Statistiques et suivi',
-      description: 'Tableau de bord complet pour suivre votre activité : taux de remplissage, revenus, clients réguliers et analyses détaillées.'
-    }
-  ];
 
   return (
     <div className="min-h-screen">
       <HeroSection
         title="Tout ce qu'il faut pour gérer vos rendez-vous —"
         titleHighlight="à votre nom"
-        description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels, paiements (selon offre) et un espace client si vous le souhaitez."
+        description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels (email + SMS + WhatsApp selon offre), paiements et support humain."
         backgroundImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=80"
-        ctaText="Planifier un échange (15 min)"
+        ctaText={globalCTA.primary}
       />
 
       {/* How it works */}
