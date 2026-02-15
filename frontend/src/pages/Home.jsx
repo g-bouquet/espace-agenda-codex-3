@@ -66,28 +66,28 @@ const Home = () => {
                   : 'opacity-0 translate-y-10'
               }`}
             >
-              <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-6xl">
-                La prise de rendez-vous{' '}
-                <span className="text-primary">à votre nom</span> — simple pour vous, fluide pour vos clients
+              <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-tight">
+                {heroHome.h1.split(':')[0]}:{' '}
+                <span className="text-primary">{heroHome.h1.split(':')[1]}</span>
               </h1>
-              <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Une page de réservation claire, des rappels automatiques, et un espace client si besoin. Nous installons et configurons pour votre pratique, puis nous restons disponibles.
+              <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
+                {heroHome.subtitle}
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4">
                 <div className="flex items-center justify-center gap-x-6">
                   <Link to="/contact">
                     <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
-                      Planifier un échange (15 min)
+                      {heroHome.ctaPrimary}
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
-                  <Link to="/exemples">
+                  <Link to={heroHome.ctaSecondaryLink}>
                     <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-sm transition-all duration-300">
-                      Voir un exemple
+                      {heroHome.ctaSecondary}
                     </Button>
                   </Link>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">
+                <p className="text-sm text-gray-600 mt-2">
                   Installation guidée • Support humain • Paramétrage adapté à votre pratique
                 </p>
               </div>
