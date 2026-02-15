@@ -297,31 +297,28 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
-              Offres (aperçu)
+              Nos formules
             </h2>
-            <p className="text-lg text-muted-foreground">
-              À partir de 29€/mois TTC
+            <p className="text-base sm:text-lg text-gray-700">
+              À partir de 29€ / mois TTC
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            {[
-              { name: 'Essentiel', price: '29€/mois TTC', desc: 'Réservation + rappels email' },
-              { name: 'Pro', price: '45€/mois TTC', desc: 'Essentiel + paiements + fiche client', highlight: true },
-              { name: 'Premium', price: '79€/mois TTC', desc: 'Pro + paramétrage avancé' }
-            ].map((offer, index) => (
-              <Card key={index} className={`border-border ${offer.highlight ? 'border-primary border-2 shadow-lg' : ''}`}>
+            {offers.slice(0, 3).map((offer, index) => (
+              <Card key={offer.id} className={`border-border hover:border-primary transition-all duration-300 ${offer.highlight ? 'border-primary border-2 shadow-lg scale-105' : ''}`}>
                 <CardContent className="pt-6 text-center">
-                  {offer.highlight && (
+                  {offer.highlight && offer.badge && (
                     <div className="mb-4">
                       <span className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                        Recommandé
+                        {offer.badge}
                       </span>
                     </div>
                   )}
                   <h3 className="text-xl font-semibold font-heading text-foreground mb-2">{offer.name}</h3>
-                  <p className="text-2xl font-bold text-primary mb-3">{offer.price}</p>
-                  <p className="text-sm text-muted-foreground">{offer.desc}</p>
+                  <p className="text-2xl font-bold text-primary mb-2">{offer.price}</p>
+                  <p className="text-xs text-gray-600 mb-3">+ {offer.installation} (une fois)</p>
+                  <p className="text-sm text-gray-700">{offer.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -334,8 +331,8 @@ const Home = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              On vous aide à choisir en 10 minutes.
+            <p className="text-sm text-gray-600">
+              Installation guidée + support humain inclus dans toutes les offres
             </p>
           </div>
         </div>
