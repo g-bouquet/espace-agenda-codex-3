@@ -5,6 +5,7 @@ import { Card, CardContent } from '../components/ui/card';
 import { toast } from 'sonner';
 import axios from 'axios';
 import HeroSection from '../components/HeroSection';
+import { contactInfo, globalCTA } from '../content';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -93,8 +94,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                      <a href="mailto:contact@espaceagenda.fr" className="text-muted-foreground hover:text-primary transition-colors">
-                        contact@espaceagenda.fr
+                      <a href={`mailto:${contactInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                        {contactInfo.email}
                       </a>
                     </div>
                   </div>
@@ -109,8 +110,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Téléphone</h3>
-                      <a href="tel:+33123456789" className="text-muted-foreground hover:text-primary transition-colors">
-                        01 23 45 67 89
+                      <a href={`tel:+33${contactInfo.phone.replace(/\s/g, '').substring(1)}`} className="text-muted-foreground hover:text-primary transition-colors">
+                        {contactInfo.phone}
                       </a>
                       <p className="text-sm text-neutral-500 mt-1">
                         Du lundi au vendredi<br />
@@ -130,8 +131,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Localisation</h3>
                       <p className="text-muted-foreground">
-                        France (à distance)<br />
-                        Visio possible
+                        {contactInfo.location}
                       </p>
                     </div>
                   </div>
@@ -274,7 +274,7 @@ const Contact = () => {
                       className="w-full bg-primary hover:bg-primary-hover text-white"
                       size="lg"
                     >
-                      {isSubmitting ? 'Envoi en cours...' : 'Planifier un échange (15 min)'}
+                      {isSubmitting ? 'Envoi en cours...' : globalCTA.primary}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
 

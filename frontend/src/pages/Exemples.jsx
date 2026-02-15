@@ -4,6 +4,7 @@ import { ArrowRight, Users, Calendar, Heart } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import HeroSection from '../components/HeroSection';
+import { globalCTA } from '../content';
 
 const Exemples = () => {
   const useCases = [
@@ -194,7 +195,7 @@ const Exemples = () => {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
-                  Planifier un échange (15 min)
+                  {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
