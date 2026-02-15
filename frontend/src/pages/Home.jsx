@@ -167,19 +167,43 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Pour qui Section */}
-      <section className="py-16 bg-muted">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="text-center">
+      {/* Pour qui Section - Enrichie V3 */}
+      <section className="py-20 bg-muted">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
               Pour qui ?
             </h2>
-            <p className="text-lg text-foreground mb-4">
-              Pensé pour les praticiens indépendants : psychologues/psychopraticiens, bien-être, coaching.
+            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+              Particulièrement adapté aux praticiens et indépendants en cabinet, consultation ou accompagnement :
             </p>
-            <p className="text-sm text-muted-foreground">
-              Moins adapté si vous cherchez un outil 100% autonome sans accompagnement.
-            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+            {targetAudiences.map((profession, index) => (
+              <div 
+                key={index} 
+                className="bg-white border border-gray-200 rounded-md px-3 py-2 text-center text-sm text-gray-700 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+              >
+                {profession}
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Card className="inline-block bg-white/80 border-primary/30 max-w-2xl">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold text-foreground mb-2">Ce que vous obtenez</h3>
+                <ul className="text-left text-sm text-gray-700 space-y-2">
+                  {whatYouGet.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
