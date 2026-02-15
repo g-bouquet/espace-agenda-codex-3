@@ -96,7 +96,7 @@ const Header = () => {
             ))}
             <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
               <Button className="w-full mt-4 bg-primary hover:bg-primary-hover text-white font-medium rounded-sm">
-                Demander l'installation
+                Planifier un échange (15 min)
               </Button>
             </Link>
           </div>
