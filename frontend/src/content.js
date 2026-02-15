@@ -84,7 +84,7 @@ export const keyFeatures = [
     id: '3',
     icon: 'Bell',
     title: 'Rappels automatiques',
-    description: 'Rappels email inclus. SMS et WhatsApp disponibles selon l'offre. Réduisez les absences et les oublis de vos clients.'
+    description: 'Rappels email inclus. SMS et WhatsApp disponibles selon l\'offre. Reduisez les absences et les oublis de vos clients.'
   },
   {
     id: '4',
