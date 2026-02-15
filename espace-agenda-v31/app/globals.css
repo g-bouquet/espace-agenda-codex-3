@@ -3,13 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --foreground: #1e293b;
-    --muted-foreground: #64748b;
-  }
-  
   body {
-    @apply text-foreground;
+    @apply text-gray-900;
   }
   
   h1, h2, h3, h4, h5, h6 {
