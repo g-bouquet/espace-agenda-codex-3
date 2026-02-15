@@ -1,5 +1,5 @@
-// Contenu centralisé V3 - Espace Agenda
-// Source unique de vérité pour tous les textes, prix, et configurations
+// Contenu centralise V3 - Espace Agenda
+// Source unique de verite pour tous les textes, prix, et configurations
 
 // ========================
 // INFORMATIONS DE CONTACT
@@ -65,7 +65,7 @@ export const whatYouGet = [
 ];
 
 // ========================
-// FONCTIONNALITÉS CLÉS
+// FONCTIONNALITES CLES
 // ========================
 export const keyFeatures = [
   {
@@ -84,7 +84,7 @@ export const keyFeatures = [
     id: '3',
     icon: 'Bell',
     title: 'Rappels automatiques',
-    description: 'Rappels email inclus. SMS et WhatsApp disponibles selon l\'offre. Reduisez les absences et les oublis de vos clients.'
+    description: 'Rappels email inclus. SMS et WhatsApp disponibles selon l\'offre. Réduisez les absences et les oublis de vos clients.'
   },
   {
     id: '4',
@@ -245,7 +245,7 @@ export const options = [
     id: 'opt-2',
     icon: 'MessageSquare',
     name: 'SMS supplémentaires',
-    description: '50 SMS inclus dans l'offre Pro',
+    description: '50 SMS inclus dans l\'offre Pro',
     price: '0,09€ / SMS supplémentaire',
     note: 'Facturation au réel. Activation / désactivation possible.'
   },
@@ -284,7 +284,7 @@ export const options = [
 ];
 
 // ========================
-// FAQ COMPLÈTE (8 Q/R)
+// FAQ COMPLETE (8 Q/R)
 // ========================
 export const faqs = [
   {
@@ -330,7 +330,7 @@ export const faqs = [
 ];
 
 // ========================
-// FAQ OFFRES (spécifiques)
+// FAQ OFFRES (specifiques)
 // ========================
 export const faqsOffres = [
   {
@@ -376,7 +376,7 @@ export const faqsOffres = [
 ];
 
 // ========================
-// COMMENT ÇA MARCHE
+// COMMENT CA MARCHE
 // ========================
 export const howItWorks = [
   {
@@ -397,7 +397,7 @@ export const howItWorks = [
 ];
 
 // ========================
-// BLOG POSTS (placeholder réalistes)
+// BLOG POSTS (placeholder realistes)
 // ========================
 export const blogPosts = [
   {
@@ -502,7 +502,7 @@ export const globalCTA = {
 };
 
 // ========================
-// MENTIONS LÉGALES (contenu)
+// MENTIONS LEGALES (contenu)
 // ========================
 export const legalInfo = {
   companyName: 'Espace Agenda',
