@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution | Espace Agenda</title>
+    <meta name="description" content="Toutes les fonctionnalités de gestion des rendez-vous : calendrier, rappels automatiques, paiements et plus encore.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Espace Agenda</a>
+            <nav class="nav-desktop">
+                <a href="index.html">Accueil</a>
+                <a href="solution.html" class="active">Solution</a>
+                <a href="offres.html">Offres</a>
+                <a href="exemples.html">Exemples</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-primary">Planifier un échange</a>
+            </nav>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <nav id="mobile-menu" class="mobile-menu">
+            <a href="index.html">Accueil</a>
+            <a href="solution.html">Solution</a>
+            <a href="offres.html">Offres</a>
+            <a href="exemples.html">Exemples</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn btn-primary">Planifier un échange</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Une solution complète pour <span class="highlight">gérer vos rendez-vous</span></h1>
+                <p>Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels, paiements et espace client si vous le souhaitez.</p>
+                <div class="hero-cta">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Planifier un échange</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2>Fonctionnalités clés</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon">📅</div>
+                    <h3>Calendrier & disponibilités</h3>
+                    <p>Vue jour, semaine, mois. Synchronisation Google/Outlook et blocage des indisponibilités.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Page de réservation</h3>
+                    <p>Interface mobile et desktop à votre nom. Réservation 24/7 pour vos clients.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔔</div>
+                    <h3>Rappels automatiques</h3>
+                    <p>Email inclus. SMS et WhatsApp selon l'offre. Réduction des oublis et absences.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💳</div>
+                    <h3>Paiements & acomptes</h3>
+                    <p>Acceptez les paiements en ligne (selon offre). Sécurisez vos rendez-vous et suivez les transactions.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <h3>Facturation / exports</h3>
+                    <p>Exports pour comptabilité et facturation (selon offre). Simplifiez votre gestion administrative.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👤</div>
+                    <h3>Fiche client</h3>
+                    <p>Historique, notes internes, champs personnalisés. Import/export des données.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3>Espace client (option)</h3>
+                    <p>Accès pour vos clients : historique rendez-vous, documents et informations personnelles.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>RGPD & sécurité</h3>
+                    <p>Accès sécurisé, bonnes pratiques de protection des données. Nous vous aidons au paramétrage.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Multi-praticiens</h3>
+                    <p>Gestion de plusieurs praticiens (sur devis/option). Paramétrages adaptés à votre cabinet.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Support humain</h3>
+                    <p>Support illimité + base de connaissances. Réponse urgente < 6h, autres < 24h.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-muted">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2>Questions fréquentes</h2>
+            </div>
+            <div class="faq-container">
+                <details>
+                    <summary>Est-ce que ça sera à mon nom / à mon image ?</summary>
+                    <p>Oui. La page de réservation et les communications peuvent être personnalisées : nom, couleurs, éléments d'identité et lien de réservation à votre nom. L'objectif est que vos clients réservent comme s'ils étaient sur votre propre service.</p>
+                </details>
+                <details>
+                    <summary>En combien de temps est-ce mis en place ?</summary>
+                    <p>La mise en place est réalisée sous 7 jours après signature du contrat, selon vos éléments (horaires, types de rendez-vous, règles de réservation, identité visuelle). Nous validons avec vous avant mise en ligne.</p>
+                </details>
+                <details>
+                    <summary>Est-ce que mes clients reçoivent des rappels ?</summary>
+                    <p>Oui. Les rappels automatiques sont envoyés par email et WhatsApp (selon offre). Les SMS sont inclus dans certaines formules et disponibles en complément selon votre besoin.</p>
+                </details>
+                <details>
+                    <summary>Puis-je demander un acompte / paiement en ligne ?</summary>
+                    <p>Oui, selon la formule choisie. Vous pouvez activer le paiement en ligne et/ou les acomptes afin de sécuriser les rendez-vous et réduire les annulations de dernière minute.</p>
+                </details>
+                <details>
+                    <summary>Puis-je intégrer la réservation sur mon site ?</summary>
+                    <p>Oui. L'intégration standard sur votre site est incluse. Et si vous n'avez pas de site, nous pouvons mettre en place un mini-site de réservation simple et propre, prêt à partager.</p>
+                </details>
+                <details>
+                    <summary>Qu'est-ce qui est inclus dans les frais d'installation ?</summary>
+                    <p>Les frais d'installation couvrent : cadrage de vos besoins, paramétrage, personnalisation à votre identité, tests, mise en ligne, et une mini-formation (30 min) pour prendre en main l'essentiel.</p>
+                </details>
+                <details>
+                    <summary>Quel support est inclus ?</summary>
+                    <p>Le support est illimité. Vous pouvez nous contacter par email/tickets/WhatsApp et par téléphone. En cas d'urgence, réponse en moins de 6h, sinon moins de 24h.</p>
+                </details>
+                <details>
+                    <summary>Et si je suis plusieurs praticiens ?</summary>
+                    <p>C'est possible. La gestion multi-praticiens / cabinet est disponible sur devis / option, avec un paramétrage adapté (prestations, agendas, accès, règles de réservation).</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container text-center">
+            <h2>Prêt à démarrer ?</h2>
+            <p class="mb-3">Échangeons sur vos besoins et trouvons la solution adaptée à votre pratique.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Planifier un échange</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Espace Agenda</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.95rem;">Prise de rendez-vous en ligne à votre nom, pensée pour les praticiens de l'accompagnement.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="solution.html">Solution</a></li>
+                        <li><a href="offres.html">Offres</a></li>
+                        <li><a href="exemples.html">Exemples</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:0611016054">06 11 01 60 54</a></li>
+                        <li><a href="mailto:contact@espaceagenda.fr">contact@espaceagenda.fr</a></li>
+                        <li>Bordeaux + à distance</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Espace Agenda. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
