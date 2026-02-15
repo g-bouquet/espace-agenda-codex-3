@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useInView } from 'react-intersection-observer';
-import { faqs } from '../mock';
+import { heroHome, whatYouGet, keyFeatures, targetAudiences, offers, howItWorks, faqs, globalCTA } from '../content';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
