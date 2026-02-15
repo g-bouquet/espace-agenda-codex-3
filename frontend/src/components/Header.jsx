@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { globalCTA, contactInfo } from '../content';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -70,7 +71,7 @@ const Header = () => {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/contact">
             <Button className="bg-primary hover:bg-primary-hover text-white font-medium px-6 rounded-sm shadow-sm hover:shadow-md transition-all duration-300">
-              Planifier un échange (15 min)
+              {globalCTA.primary}
             </Button>
           </Link>
         </div>
@@ -96,7 +97,7 @@ const Header = () => {
             ))}
             <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
               <Button className="w-full mt-4 bg-primary hover:bg-primary-hover text-white font-medium rounded-sm">
-                Planifier un échange (15 min)
+                {globalCTA.primary}
               </Button>
             </Link>
           </div>
