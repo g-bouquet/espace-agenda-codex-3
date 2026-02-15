@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import { legalInfo, contactInfo } from '../content';
 
 const MentionsLegales = () => {
   return (
@@ -23,17 +24,15 @@ const MentionsLegales = () => {
               Le site Espace Agenda est édité par :
             </p>
             <p>
-              <strong>Espace Agenda</strong><br />
-              Société par actions simplifiée au capital de 10 000 €<br />
-              Siège social : 123 Avenue de la République, 75011 Paris, France<br />
-              RCS Paris : 123 456 789<br />
-              SIRET : 123 456 789 00012<br />
-              TVA intracommunautaire : FR12 123456789
+              <strong>{legalInfo.companyName}</strong><br />
+              {legalInfo.legalForm}<br />
+              Siège social : {legalInfo.address}<br />
+              SIRET : {legalInfo.siret}
             </p>
             <p>
-              <strong>Directeur de la publication :</strong> [Nom du directeur]<br />
-              <strong>Contact :</strong> contact@espaceagenda.fr<br />
-              <strong>Téléphone :</strong> 01 23 45 67 89
+              <strong>Directeur de la publication :</strong> {legalInfo.director}<br />
+              <strong>Contact :</strong> {contactInfo.email}<br />
+              <strong>Téléphone :</strong> {contactInfo.phone}
             </p>
           </section>
 
