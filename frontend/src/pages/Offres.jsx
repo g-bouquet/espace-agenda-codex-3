@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, X } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { offers, faqsOffres } from '../mock';
+import { offers, options, faqsOffres, globalCTA } from '../content';
 import HeroSection from '../components/HeroSection';
 
 const Offres = () => {
@@ -14,9 +14,9 @@ const Offres = () => {
       <HeroSection
         title="Des offres simples, adaptées à"
         titleHighlight="votre pratique"
-        description="On installe, on configure, puis on vous accompagne. Tarifs TTC. France."
+        description="Installation guidée, accompagnement humain, support réactif. Tarifs TTC. France."
         backgroundImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80"
-        ctaText="Planifier un échange (15 min)"
+        ctaText={globalCTA.primary}
         ctaLink="/contact"
         showCta={true}
       />
@@ -32,10 +32,10 @@ const Offres = () => {
                   offer.highlight ? 'border-primary border-2 shadow-lg' : ''
                 } ${offer.isCustom ? 'lg:col-span-2 xl:col-span-1' : ''}`}
               >
-                {offer.highlight && (
+                {offer.highlight && offer.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <Badge className="bg-primary text-white px-6 py-1 text-sm">
-                      Recommandé
+                      {offer.badge}
                     </Badge>
                   </div>
                 )}
@@ -72,7 +72,7 @@ const Offres = () => {
                           : 'bg-neutral-900 hover:bg-neutral-800 text-white'
                       }`}
                     >
-                      {offer.isCustom ? 'Décrire mon besoin' : 'Planifier un échange (15 min)'}
+                      {offer.isCustom ? 'Décrire mon besoin' : globalCTA.primary}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
