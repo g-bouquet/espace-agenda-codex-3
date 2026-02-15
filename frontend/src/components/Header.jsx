@@ -70,7 +70,7 @@ const Header = () => {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/contact">
             <Button className="bg-primary hover:bg-primary-hover text-white font-medium px-6 rounded-sm shadow-sm hover:shadow-md transition-all duration-300">
-              Demander l'installation
+              Planifier un échange (15 min)
             </Button>
           </Link>
         </div>
