@@ -155,22 +155,32 @@ const Offres = () => {
               </thead>
               <tbody>
                 {[
+                  { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
+                  { label: 'Sous-domaine inclus', ess: true, pro: true, prem: true },
                   { label: 'Rappels email', ess: true, pro: true, prem: true },
-                  { label: 'Rappels SMS', ess: false, pro: '0,09€/SMS', prem: '0,09€/SMS' },
-                  { label: 'Paiements & acomptes', ess: false, pro: true, prem: true },
-                  { label: 'Fiche client & notes', ess: false, pro: true, prem: true },
-                  { label: 'Support prioritaire', ess: false, pro: false, prem: true }
+                  { label: 'Rappels WhatsApp', ess: true, pro: true, prem: true },
+                  { label: 'Rappels SMS', ess: false, pro: '50 inclus', prem: '0,09€/SMS' },
+                  { label: 'Calendrier & synchronisation', ess: true, pro: true, prem: true },
+                  { label: 'Paiements & acomptes en ligne', ess: false, pro: true, prem: true },
+                  { label: 'Fiche client personnalisée', ess: false, pro: true, prem: true },
+                  { label: 'Notes internes', ess: false, pro: true, prem: true },
+                  { label: 'Formulaires personnalisés', ess: false, pro: true, prem: true },
+                  { label: 'Facturation intégrée', ess: false, pro: false, prem: true },
+                  { label: 'Import / Export données', ess: false, pro: false, prem: true },
+                  { label: 'Espace client', ess: false, pro: false, prem: true },
+                  { label: 'Support', ess: 'Standard', pro: 'Renforcé', prem: 'Prioritaire' },
+                  { label: 'Support téléphonique', ess: false, pro: false, prem: true }
                 ].map((row, index) => (
-                  <tr key={index} className="border-b border-border">
+                  <tr key={index} className="border-b border-border hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-4 text-foreground font-medium">{row.label}</td>
                     <td className="py-4 px-4 text-center">
-                      {row.ess === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.ess === false ? '—' : <span className="text-xs text-muted-foreground">{row.ess}</span>}
+                      {row.ess === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.ess === false ? <X className="h-5 w-5 text-gray-300 mx-auto" /> : <span className="text-xs text-gray-600">{row.ess}</span>}
                     </td>
                     <td className="py-4 px-4 text-center bg-primary/5">
-                      {row.pro === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.pro === false ? '—' : <span className="text-xs text-muted-foreground">{row.pro}</span>}
+                      {row.pro === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.pro === false ? <X className="h-5 w-5 text-gray-300 mx-auto" /> : <span className="text-xs text-gray-600">{row.pro}</span>}
                     </td>
                     <td className="py-4 px-4 text-center">
-                      {row.prem === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.prem === false ? '—' : <span className="text-xs text-muted-foreground">{row.prem}</span>}
+                      {row.prem === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.prem === false ? <X className="h-5 w-5 text-gray-300 mx-auto" /> : <span className="text-xs text-gray-600">{row.prem}</span>}
                     </td>
                   </tr>
                 ))}
