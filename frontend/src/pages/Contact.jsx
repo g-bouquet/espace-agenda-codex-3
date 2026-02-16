@@ -274,7 +274,7 @@ const Contact = () => {
                       className="w-full bg-primary hover:bg-primary-hover text-white"
                       size="lg"
                     >
-                      {isSubmitting ? 'Envoi en cours...' : globalCTA.primary}
+                      {isSubmitting ? 'Envoi en cours...' : 'Envoyer votre message'}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
 
