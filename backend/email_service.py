@@ -116,8 +116,8 @@ class EmailService:
                   </div>
                   <div class="footer">
                     <p>Espace Agenda - Solution de prise de rendez-vous en ligne<br>
-                    123 Avenue de la République, 75011 Paris<br>
-                    01 23 45 67 89 | contact@espaceagenda.fr</p>
+                    42 rue de Tauzia, 33800 Bordeaux<br>
+                    06 11 01 60 54 | contact@espaceagenda.fr</p>
                   </div>
                 </div>
               </body>
