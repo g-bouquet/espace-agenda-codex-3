@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { offers, options, faqsOffres, globalCTA } from '../content';
+import { offers, faqsOffres, globalCTA } from '../content';
 import HeroSection from '../components/HeroSection';
 
 const Offres = () => {
@@ -21,16 +21,27 @@ const Offres = () => {
         showCta={true}
       />
 
-      {/* Pricing Cards */}
+      {/* Offres principales */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-4 max-w-6xl mx-auto">
-            {offers.map((offer) => (
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
+              Nos offres
+            </h2>
+            <p className="text-lg text-gray-700">
+              Choisissez la formule adaptée à votre activité
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {offers.filter(o => !o.isBanner).map((offer) => (
               <Card 
                 key={offer.id} 
-                className={`relative border-border flex flex-col ${
-                  offer.highlight ? 'border-primary border-2 shadow-lg' : ''
-                } ${offer.isCustom ? 'lg:col-span-2 xl:col-span-1' : ''}`}
+                className={`relative border-2 hover:shadow-xl transition-all duration-300 ${
+                  offer.highlight 
+                    ? 'border-primary shadow-lg scale-105' 
+                    : 'border-border'
+                }`}
               >
                 {offer.highlight && offer.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -42,29 +53,34 @@ const Offres = () => {
                 
                 <CardHeader className="flex-grow">
                   <h3 className="text-2xl font-bold font-heading text-foreground">{offer.name}</h3>
-                  <p className="mt-2 text-muted-foreground text-sm">{offer.description}</p>
+                  <p className="mt-2 text-gray-700 text-sm">{offer.description}</p>
                   <div className="mt-6">
                     <span className="text-3xl font-bold font-heading text-foreground">{offer.price}</span>
                     {offer.installation && (
-                      <p className="mt-2 text-sm text-muted-foreground">Installation : {offer.installation}</p>
+                      <p className="mt-2 text-sm text-gray-600">Installation : {offer.installation}</p>
                     )}
                     {offer.sms && (
-                      <p className="mt-1 text-xs text-muted-foreground">{offer.sms}</p>
+                      <p className="mt-1 text-xs text-gray-600">{offer.sms}</p>
                     )}
                   </div>
                 </CardHeader>
 
                 <CardContent className="pt-0">
                   <ul className="space-y-3 mb-8">
-                    {offer.features.map((feature, index) => (
+                    {offer.features.slice(0, 8).map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground text-sm">{feature}</span>
+                        <span className="text-gray-700 text-sm">{feature}</span>
                       </li>
                     ))}
+                    {offer.features.length > 8 && (
+                      <li className="text-sm text-primary font-medium">
+                        + {offer.features.length - 8} autres fonctionnalités
+                      </li>
+                    )}
                   </ul>
 
-                  <Link to={offer.isCustom ? "/contact?subject=sur-mesure" : "/contact"}>
+                  <Link to="/contact">
                     <Button 
                       className={`w-full ${
                         offer.highlight
@@ -72,7 +88,7 @@ const Offres = () => {
                           : 'bg-neutral-900 hover:bg-neutral-800 text-white'
                       }`}
                     >
-                      {offer.isCustom ? 'Décrire mon besoin' : globalCTA.primary}
+                      {globalCTA.primary}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -81,93 +97,89 @@ const Offres = () => {
             ))}
           </div>
 
+          {/* Sur mesure en bandeau */}
+          {offers.filter(o => o.isBanner).map((offer) => (
+            <Card key={offer.id} className="mt-12 border-2 border-primary bg-gradient-to-r from-blue-50 to-indigo-50">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                  <div>
+                    <h3 className="text-2xl font-bold font-heading text-foreground mb-2">{offer.name}</h3>
+                    <p className="text-gray-700 text-sm mb-4">{offer.description}</p>
+                    <p className="text-2xl font-bold text-primary">{offer.price}</p>
+                  </div>
+                  <div className="md:col-span-2">
+                    <div className="grid grid-cols-2 gap-3">
+                      {offer.features.map((feature, index) => (
+                        <div key={index} className="flex items-start gap-2">
+                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
+                          <span className="text-gray-700 text-sm">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-6">
+                      <Link to="/contact?subject=sur-mesure">
+                        <Button className="bg-primary hover:bg-primary-hover text-white">
+                          Décrire mon besoin
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+
           {/* Additional info */}
           <div className="mt-16 text-center max-w-2xl mx-auto">
-            <p className="text-muted-foreground">
+            <p className="text-gray-700">
               Toutes nos offres incluent l'installation, la personnalisation complète, la formation et le support technique.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Options Section */}
-      <section className="py-20 bg-muted">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Options disponibles
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Personnalisez votre offre avec des fonctionnalités supplémentaires
-            </p>
-          </div>
-
-          <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {options.map((option) => (
-              <Card key={option.id} className="border-border hover:border-primary transition-all duration-300">
-                <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{option.name}</h3>
-                  <p className="text-gray-700 text-sm mb-3">{option.description}</p>
-                  {option.example && (
-                    <p className="text-xs text-gray-600 mb-2 font-mono bg-gray-100 px-2 py-1 rounded">{option.example}</p>
-                  )}
-                  <p className="text-sm font-semibold text-primary">{option.price}</p>
-                  {option.note && (
-                    <p className="text-xs text-gray-600 mt-2">{option.note}</p>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-6">
-              Besoin d'une configuration spécifique ? Contactez-nous pour un devis personnalisé.
-            </p>
-            <Link to="/contact">
-              <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
-                Discuter de mon projet
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Tableau comparatif */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-muted">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Comparatif rapide
+              Comparatif détaillé
             </h2>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse bg-white rounded-lg">
               <thead>
                 <tr className="border-b-2 border-border">
                   <th className="text-left py-4 px-4 font-semibold text-foreground"></th>
                   <th className="text-center py-4 px-4 font-semibold text-foreground">Essentiel</th>
                   <th className="text-center py-4 px-4 font-semibold text-foreground bg-primary/5">Pro</th>
-                  <th className="text-center py-4 px-4 font-semibold text-foreground">Premium</th>
+                  <th className="text-center py-4 px-4 font-semibold text-foreground">Prime</th>
                 </tr>
               </thead>
               <tbody>
                 {[
                   { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
-                  { label: 'Sous-domaine inclus', ess: true, pro: true, prem: true },
-                  { label: 'Rappels email', ess: true, pro: true, prem: true },
-                  { label: 'Rappels WhatsApp', ess: true, pro: true, prem: true },
+                  { label: 'Sous-domaine personnalisé', ess: false, pro: true, prem: true },
+                  { label: 'Rappels email + WhatsApp', ess: true, pro: true, prem: true },
                   { label: 'Rappels SMS', ess: false, pro: '50 inclus', prem: '0,09€/SMS' },
-                  { label: 'Calendrier & synchronisation', ess: true, pro: true, prem: true },
+                  { label: 'Espace client', ess: true, pro: true, prem: true },
+                  { label: 'Facturation', ess: true, pro: true, prem: true },
+                  { label: 'Calendrier + sync (Google, Outlook, Apple)', ess: true, pro: true, prem: true },
                   { label: 'Paiements & acomptes en ligne', ess: false, pro: true, prem: true },
                   { label: 'Fiche client personnalisée', ess: false, pro: true, prem: true },
                   { label: 'Notes internes', ess: false, pro: true, prem: true },
-                  { label: 'Formulaires personnalisés', ess: false, pro: true, prem: true },
-                  { label: 'Facturation intégrée', ess: false, pro: false, prem: true },
-                  { label: 'Import / Export données', ess: false, pro: false, prem: true },
-                  { label: 'Espace client', ess: false, pro: false, prem: true },
+                  { label: 'Évaluations et avis', ess: false, pro: true, prem: true },
+                  { label: 'RDV récurrents', ess: false, pro: true, prem: true },
+                  { label: 'Réservations de groupe', ess: false, pro: true, prem: true },
+                  { label: 'Coupons', ess: false, pro: true, prem: true },
+                  { label: 'Google Analytics / Tag Manager', ess: false, pro: true, prem: true },
+                  { label: 'Chatbot', ess: false, pro: false, prem: true },
+                  { label: 'Gestion de ressources', ess: false, pro: false, prem: true },
+                  { label: 'Bundles', ess: false, pro: false, prem: true },
+                  { label: 'Plusieurs emplacements', ess: false, pro: false, prem: true },
+                  { label: 'API / Zapier / Webhooks', ess: false, pro: false, prem: true },
                   { label: 'Support', ess: 'Standard', pro: 'Renforcé', prem: 'Prioritaire' },
                   { label: 'Support téléphonique', ess: false, pro: false, prem: true }
                 ].map((row, index) => (
@@ -190,8 +202,8 @@ const Offres = () => {
         </div>
       </section>
 
-      {/* FAQ Offres */}
-      <section className="py-20 bg-muted">
+      {/* FAQ */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
@@ -214,15 +226,15 @@ const Offres = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA final */}
       <section className="py-20 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-              Une question sur nos offres ?
+              Prêt à choisir votre offre ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">
-              Notre équipe est à votre disposition pour vous conseiller et vous aider à choisir la formule la plus adaptée.
+              Discutons de vos besoins pour vous guider vers l'offre la plus adaptée.
             </p>
             <div className="mt-10">
               <Link to="/contact">
