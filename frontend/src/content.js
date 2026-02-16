@@ -526,13 +526,16 @@ export const globalCTA = {
 export const legalInfo = {
   companyName: 'Espace Agenda',
   legalForm: 'Micro-entreprise',
-  siret: '[À compléter]',
-  address: 'Bordeaux, France',
+  siret: '504 849 142 00048',
+  address: '42 rue de Tauzia, 33800 Bordeaux',
+  addressShort: 'Bordeaux, France',
   phone: '06 11 01 60 54',
   email: 'contact@espaceagenda.fr',
-  director: '[À compléter]',
+  director: 'Célestin Bouquet',
+  lastUpdate: 'février 2026',
   hosting: {
-    name: '[À compléter]',
-    address: '[À compléter]'
+    name: 'HOSTINGER INTERNATIONAL LTD',
+    address: '61 Lordou Vironos Street, 6023 Larnaca, Chypre',
+    website: 'https://www.hostinger.fr/contact'
   }
 };
