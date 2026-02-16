@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as Icons from 'lucide-react';
+import { Calendar, Globe, Bell, CreditCard, Users, Shield, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { keyFeatures, faqs, globalCTA, howItWorks } from '../content';
+import { faqs, globalCTA } from '../content';
 import { useInView } from 'react-intersection-observer';
 import HeroSection from '../components/HeroSection';
 
@@ -13,6 +13,39 @@ const Solution = () => {
     threshold: 0.1,
     triggerOnce: true
   });
+
+  const features = [
+    {
+      icon: Globe,
+      title: 'Page de réservation à votre nom',
+      description: 'Votre propre page de prise de rendez-vous aux couleurs de votre marque, accessible 24h/24. Mini-site inclus ou intégration sur votre site existant.'
+    },
+    {
+      icon: Calendar,
+      title: 'Calendrier intelligent + synchronisation',
+      description: 'Gérez vos disponibilités en temps réel. Synchronisation automatique avec Google Agenda et Outlook. Blocage des indisponibilités.'
+    },
+    {
+      icon: Bell,
+      title: 'Rappels automatiques (email + SMS + WhatsApp selon offre)',
+      description: 'Réduisez les absences grâce aux rappels automatiques par email, SMS (selon offre) et WhatsApp. Vos clients sont prévenus avant chaque rendez-vous.'
+    },
+    {
+      icon: CreditCard,
+      title: 'Paiements & acomptes (selon offre)',
+      description: 'Acceptez les paiements et acomptes en ligne. Transactions sécurisées et suivi automatique des encaissements.'
+    },
+    {
+      icon: Users,
+      title: 'Fiche client personnalisée',
+      description: 'Historique des rendez-vous, notes internes privées, champs personnalisés adaptés à votre pratique. Import / export des données.'
+    },
+    {
+      icon: Shield,
+      title: 'Sécurité & RGPD',
+      description: 'Conformité RGPD garantie, hébergement sécurisé et sauvegarde automatique. Gestion des consentements et des droits clients.'
+    }
+  ];
 
   return (
     <div className="min-h-screen">
@@ -32,115 +65,71 @@ const Solution = () => {
               Comment ça marche ?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Trois étapes simples pour démarrer avec votre nouvelle plateforme
+              En 3 étapes simples, vous disposez de votre plateforme de réservation personnalisée
             </p>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3">
-            {[
-              {
-                step: '1',
-                title: 'Échange et personnalisation',
-                description: 'Nous discutons de vos besoins et configurons votre plateforme selon votre identité visuelle.'
-              },
-              {
-                step: '2',
-                title: 'Installation et formation',
-                description: 'Nous installons la solution et vous formons à son utilisation pour une prise en main optimale.'
-              },
-              {
-                step: '3',
-                title: 'Accompagnement continu',
-                description: 'Vous bénéficiez d\'un support humain et d\'évolutions régulières de votre plateforme.'
-              }
-            ].map((item) => (
-              <Card key={item.step} className="border-border">
-                <CardContent className="pt-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-white text-2xl font-bold font-heading mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-semibold font-heading text-foreground">{item.title}</h3>
-                  <p className="mt-3 text-muted-foreground">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mx-auto mt-16 max-w-5xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  step: '1',
+                  title: 'Cadrage (15-30 min)',
+                  description: 'Nous discutons de vos besoins, horaires et règles. Formulaire détaillé pour tout paramétrer.'
+                },
+                {
+                  step: '2',
+                  title: 'Installation + paramétrage',
+                  description: 'Nous installons et configurons votre plateforme selon vos besoins. Intégration sur votre site si nécessaire.'
+                },
+                {
+                  step: '3',
+                  title: 'Formation (30 min) + support',
+                  description: 'Mini-formation pour une prise en main rapide. Support humain illimité par la suite.'
+                }
+              ].map((item) => (
+                <Card key={item.step} className="border-border">
+                  <CardContent className="pt-6">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white text-xl font-bold font-heading shadow-md mb-6">
+                      {item.step}
+                    </div>
+                    <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What you get */}
-      <section className="py-20 bg-muted">
+      {/* Features */}
+      <section ref={featuresRef} className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Ce que vous obtenez
+              Fonctionnalités clés
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Une plateforme complète et personnalisée pour votre activité
+              Tout ce dont vous avez besoin pour gérer vos rendez-vous efficacement
             </p>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
-            {[
-              {
-                icon: Globe,
-                title: 'Page de réservation à votre nom',
-                description: 'Votre propre page de prise de rendez-vous, accessible 24h/24. Vos clients réservent en quelques clics, en toute autonomie.',
-                image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80'
-              },
-              {
-                icon: Calendar,
-                title: 'Agenda + synchronisation (selon offre)',
-                description: 'Gérez vos disponibilités en temps réel. Synchronisation automatique de vos rendez-vous et blocage intelligent des créneaux déjà réservés.',
-                image: 'https://images.unsplash.com/photo-1649433391719-2e784576d044?w=600&q=80'
-              },
-              {
-                icon: Bell,
-                title: 'Rappels automatiques',
-                description: 'Réduisez les absences grâce aux notifications automatiques par email et SMS (selon offre). Vos clients reçoivent des rappels avant chaque rendez-vous.',
-                image: 'https://images.unsplash.com/photo-1659428167876-a5a52756f421?w=600&q=80'
-              },
-              {
-                icon: CreditCard,
-                title: 'Paiement / acompte (selon offre)',
-                description: 'Acceptez les paiements et acomptes directement lors de la réservation. Transactions sécurisées et suivi automatique des encaissements.',
-                image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80'
-              },
-              {
-                icon: Users,
-                title: 'Espace client (si vous le souhaitez)',
-                description: 'Chaque client peut disposer d\'un espace personnel pour consulter son historique, ses prochains rendez-vous et accéder à ses documents.',
-                image: 'https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?w=600&q=80'
-              },
-              {
-                icon: Shield,
-                title: 'Données protégées • Paramétrage conforme RGPD',
-                description: 'Conformité RGPD garantie, hébergement sécurisé et sauvegarde automatique de toutes vos données professionnelles. Accès sécurisé.',
-                image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&q=80'
-              },
-              {
-                icon: Settings,
-                title: 'Personnalisation : logo, couleurs, textes',
-                description: 'Adaptez la plateforme à votre image : logo, couleurs, textes personnalisés. Nom de domaine personnalisé disponible en option.',
-                image: 'https://images.unsplash.com/photo-1649433391719-2e784576d044?w=600&q=80'
-              },
-              {
-                icon: BarChart3,
-                title: 'Tableau de bord & suivi (selon offre)',
-                description: 'Tableau de bord complet pour suivre votre activité : taux de remplissage, revenus, clients réguliers et analyses détaillées.',
-                image: 'https://images.unsplash.com/photo-1649433391719-2e784576d044?w=600&q=80'
-              }
-            ].map((feature, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border-border hover:border-primary transition-all duration-300 overflow-hidden group">
-                  <div className="aspect-video w-full overflow-hidden bg-neutral-100">
-                    <img 
-                      src={feature.image} 
-                      alt={feature.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+                <Card 
+                  key={index} 
+                  className={`border-border hover:border-primary transition-all duration-500 hover:shadow-lg ${
+                    featuresInView 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{
+                    transitionDelay: featuresInView ? `${index * 80}ms` : '0ms'
+                  }}
+                >
                   <CardContent className="pt-6">
                     <div className="flex gap-4 items-start">
                       <div className="flex-shrink-0">
@@ -150,7 +139,7 @@ const Solution = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-                        <p className="mt-2 text-muted-foreground">{feature.description}</p>
+                        <p className="mt-2 text-muted-foreground text-sm">{feature.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -180,7 +169,7 @@ const Solution = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">Personnalisation à votre image</h3>
+                <h3 className="text-2xl font-semibold text-foreground mb-4">Personnalisé à votre image</h3>
                 <p className="text-lg text-muted-foreground">
                   Votre plateforme reflète votre identité professionnelle : logo, couleurs, nom de domaine personnalisé (option). Vos clients ne voient que vous, sans mention d'un outil tiers.
                 </p>
@@ -207,12 +196,12 @@ const Solution = () => {
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq) => (
+            {faqs.slice(0, 6).map((faq) => (
               <AccordionItem key={faq.id} value={faq.id} className="bg-white border border-border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-gray-700">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -226,15 +215,15 @@ const Solution = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-              Prêt à démarrer ?
+              Prêt à simplifier votre gestion ?
             </h2>
             <p className="mt-6 text-lg leading-8 text-blue-100">
-              Demandez l'installation de votre plateforme personnalisée et découvrez comment Espace Agenda peut transformer votre gestion des rendez-vous.
+              Discutons de votre pratique et trouvons ensemble la solution la plus adaptée.
             </p>
             <div className="mt-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
-                  Planifier un échange (15 min)
+                  {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
