@@ -80,7 +80,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-blue-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-100">
-            <p>© 2025 Espace Agenda. Tous droits réservés.</p>
+            <p>© 2026 Espace Agenda. Tous droits réservés.</p>
             <div className="flex gap-6">
               <Link to="/mentions-legales" className="hover:text-white transition-colors duration-300">
                 Mentions légales
