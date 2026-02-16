@@ -144,18 +144,24 @@ export const offers = [
     installationNumeric: 149,
     features: [
       'Page de réservation à votre nom',
-      'Sous-domaine inclus : rdv.votrecabinet.fr',
       'Mini-site OU intégration sur votre site existant',
       'Réservation 24/7 + confirmations automatiques',
       'Rappels email inclus',
       'Rappels WhatsApp inclus',
-      'Annulation / replanification côté client',
+      'Annulation / replanification + Espace client',
       'Calendrier : gestion des disponibilités',
-      'Synchronisation Google Agenda / Outlook',
+      'Synchronisation Google Agenda / Outlook / Apple',
+      'Facturation intégrée',
+      'Réserver avec Google',
+      'Intégration Zoom et Google Meet',
+      'Détection automatique des fuseaux horaires',
+      'Interface client multilingue',
+      'Gestion des taxes',
+      'Fonctionnalité "presque complet"',
       'Support standard (email + tickets + base de connaissances)'
     ],
     highlight: false,
-    notIncluded: ['SMS', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
+    notIncluded: ['Sous-domaine personnalisé', 'SMS', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
   },
   {
     id: '2',
@@ -168,6 +174,7 @@ export const offers = [
     sms: '50 SMS inclus / mois, puis 0,09€ / SMS',
     features: [
       'Tout Essentiel',
+      'Sous-domaine inclus : rdv.votrecabinet.fr',
       'Rappels SMS : 50 SMS inclus / mois',
       'SMS supplémentaires : 0,09€ / SMS',
       'Paiements en ligne & acomptes',
@@ -175,12 +182,19 @@ export const offers = [
       'Notes internes (privées)',
       'Historique client complet',
       'Formulaires personnalisés',
+      'Évaluations et avis clients',
+      'Rendez-vous récurrents',
+      'Pixel Facebook',
+      'Intégration Google Analytics et Google Tag Manager',
+      'Réservations de groupe',
+      'Extras (options supplémentaires)',
+      'Coupons et codes promo',
       'Tableau de bord & statistiques',
       'Support renforcé (email + tickets + WhatsApp + base de connaissances)'
     ],
     highlight: true,
     badge: 'Le plus choisi',
-    notIncluded: ['Facturation automatique', 'Export avancé', 'Support téléphonique']
+    notIncluded: ['Chatbot', 'Support téléphonique', 'Accès API']
   },
   {
     id: '3',
@@ -193,11 +207,15 @@ export const offers = [
     sms: 'SMS disponibles : 0,09€ / SMS',
     features: [
       'Tout Pro',
-      'Facturation intégrée (ou exports pour facturation)',
       'Import / export des données clients',
       'Paramétrages avancés (règles personnalisées)',
       'Statistiques avancées & rapports',
-      'Espace client activable (accès clients à leur historique)',
+      'Chatbot intelligent',
+      'Gestion de ressources (salles, équipements)',
+      'Bundles (packs de services)',
+      'Plusieurs emplacements / sites',
+      'Accès API, Zapier et Webhooks',
+      'Intégrations : Mailchimp, Sendinblue, Acumbamail',
       'Support prioritaire : urgences < 6h, autres < 24h',
       'Support téléphonique inclus',
       'Accompagnement personnalisé'
@@ -224,6 +242,7 @@ export const offers = [
     ],
     highlight: false,
     isCustom: true,
+    isBanner: true,
     notIncluded: []
   }
 ];
