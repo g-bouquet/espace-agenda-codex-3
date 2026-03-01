@@ -172,6 +172,7 @@ export const offers = [
       'Réservation 24/7 + confirmations automatiques',
       'Rappels email inclus',
       'Rappels WhatsApp inclus',
+      'Rappels SMS : option disponible (0,09€ / SMS)',
       'Annulation / replanification + Espace client',
       'Calendrier : gestion des disponibilités',
       'Synchronisation Google Agenda / Outlook / Apple',
@@ -185,7 +186,7 @@ export const offers = [
       'Support standard (email + tickets + base de connaissances)'
     ],
     highlight: false,
-    notIncluded: ['Sous-domaine personnalisé', 'SMS', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
+    notIncluded: ['Sous-domaine personnalisé', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
   },
   {
     id: '2',
