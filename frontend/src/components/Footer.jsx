@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { contactInfo, globalCTA } from '../content';
+import axios from 'axios';
+import { toast } from 'sonner';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
+
+const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterLoading(true);
+    try {
+      const res = await axios.post(`${API}/newsletter/subscribe`, { email: newsletterEmail });
+      if (res.data.success) {
+        toast.success(res.data.message);
+        setNewsletterEmail('');
+      }
+    } catch {
+      toast.error("Une erreur est survenue. Veuillez réessayer.");
+    } finally {
+      setNewsletterLoading(false);
+    }
+  };
 
 const Footer = () => {
   return (
