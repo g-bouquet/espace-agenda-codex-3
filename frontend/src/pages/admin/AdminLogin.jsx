@@ -63,9 +63,7 @@ const AdminLogin = () => {
             >
               {loading ? 'Connexion...' : 'Se connecter'}
             </Button>
-            <p className="text-xs text-neutral-500 text-center mt-4">
-              Mot de passe par défaut : admin123
-            </p>
+            
           </form>
         </CardContent>
       </Card>
