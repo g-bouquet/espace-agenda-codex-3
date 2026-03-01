@@ -162,10 +162,10 @@ const Exemples = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
-              Et bien d\'autres professions
+              Et bien d'autres professions
             </h2>
             <p className="text-lg text-gray-700">
-              Espace Agenda s\'adapte à votre pratique, quelle qu\'elle soit
+              Espace Agenda s'adapte à votre pratique, quelle qu'elle soit
             </p>
           </div>
 
@@ -182,7 +182,7 @@ const Exemples = () => {
 
           <div className="mt-12 text-center">
             <p className="text-gray-700 mb-6">
-              Votre métier n\'est pas dans la liste ? Aucun problème !
+              Votre métier n'est pas dans la liste ? Aucun problème !
             </p>
             <Link to="/contact">
               <Button variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
