@@ -406,7 +406,7 @@ export const faqsOffres = [
   {
     id: 'faq-off-6',
     question: 'Quelle est la différence entre Pro et Prime ?',
-    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus, support renforcé via WhatsApp. L\'offre Prime ajoute des fonctionnalités avancées : facturation intégrée, exports de données, paramètres avancés, espace client, support prioritaire (urgences < 6h) et support téléphonique. Si vous avez besoin d\'un suivi financier intégré et d\'un support ultra-réactif, choisissez Prime. Sinon, Pro est parfait.'
+    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus, support téléphonique et support WhatsApp. L\'offre Prime ajoute des fonctionnalités avancées : exports de données, paramètres avancés, chatbot intelligent, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, et support prioritaire (urgences < 6h). Si vous avez besoin de fonctionnalités très avancées et d\'un suivi prioritaire, choisissez Prime. Sinon, Pro est parfait pour la grande majorité des praticiens.'
   },
   {
     id: 'faq-off-7',
