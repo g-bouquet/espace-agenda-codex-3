@@ -21,6 +21,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminPosts from "./pages/admin/AdminPosts";
 import AdminPostEditor from "./pages/admin/AdminPostEditor";
 import AdminContacts from "./pages/admin/AdminContacts";
+import AdminNewsletters from "./pages/admin/AdminNewsletters";
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
