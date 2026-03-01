@@ -31,7 +31,30 @@ class ContactSubmissionCreate(BaseModel):
     email: EmailStr
     phone: Optional[str] = Field(None, max_length=20)
     subject: str = Field(..., min_length=1)
+    profession: Optional[str] = Field(None, max_length=100)
     message: str = Field(..., min_length=10, max_length=2000)
+    gdprConsent: Optional[bool] = Field(default=False)
+
+
+class NewsletterSubscription(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    email: EmailStr
+    name: Optional[str] = Field(None, max_length=100)
+    status: str = Field(default="active")
+    subscribed_at: datetime = Field(default_factory=datetime.utcnow)
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "email": "contact@exemple.fr",
+                "name": "Jean Dupont"
+            }
+        }
+
+
+class NewsletterSubscriptionCreate(BaseModel):
+    email: EmailStr
+    name: Optional[str] = Field(None, max_length=100)
 
 
 class BlogPost(BaseModel):
