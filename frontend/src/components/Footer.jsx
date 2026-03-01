@@ -104,7 +104,35 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-blue-800">
+        <div className="mt-8 pt-6 border-t border-blue-900/50">
+          {/* Newsletter */}
+          <div className="mb-6 flex flex-col md:flex-row items-center gap-4 justify-between">
+            <p className="text-blue-100 text-sm">Restez informé des actualités Espace Agenda :</p>
+            <form onSubmit={handleNewsletterSubmit} className="flex gap-2 w-full md:w-auto">
+              <input
+                type="email"
+                value={newsletterEmail}
+                onChange={e => setNewsletterEmail(e.target.value)}
+                placeholder="votre@email.fr"
+                required
+                className="flex-1 md:w-64 h-9 rounded-sm bg-white/10 border border-white/20 text-white placeholder-blue-200 px-3 text-sm focus:outline-none focus:ring-1 focus:ring-white/40"
+                data-testid="newsletter-email-input"
+              />
+              <Button
+                type="submit"
+                size="sm"
+                disabled={newsletterLoading}
+                className="bg-white/15 hover:bg-white/25 text-white border border-white/20 rounded-sm"
+                data-testid="newsletter-subscribe-btn"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </form>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-6 border-t border-blue-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-100">
             <p>© 2026 Espace Agenda. Tous droits réservés.</p>
             <div className="flex gap-6">
