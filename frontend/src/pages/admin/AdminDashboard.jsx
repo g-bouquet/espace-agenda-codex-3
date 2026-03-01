@@ -143,6 +143,21 @@ const AdminDashboard = () => {
               </Link>
             </CardContent>
           </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <h3 className="text-xl font-semibold text-neutral-900">Newsletter</h3>
+              <p className="text-neutral-600 mt-2">Gérer les abonnés à la newsletter</p>
+            </CardHeader>
+            <CardContent>
+              <Link to="/admin/newsletters">
+                <Button variant="outline" className="w-full">
+                  <Users className="mr-2 h-4 w-4" />
+                  Voir les abonnés
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
