@@ -131,7 +131,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Localisation</h3>
                       <p className="text-muted-foreground">
-                        {contactInfo.location}
+                        {contactInfo.locationShort}
                       </p>
                     </div>
                   </div>
