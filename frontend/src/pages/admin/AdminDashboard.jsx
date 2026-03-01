@@ -13,19 +13,22 @@ const AdminDashboard = () => {
   const { logout } = useAuth();
   const [stats, setStats] = useState({
     totalPosts: 0,
-    totalContacts: 0
+    totalContacts: 0,
+    totalNewsletters: 0
   });
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const [postsRes, contactsRes] = await Promise.all([
+        const [postsRes, contactsRes, newsletterRes] = await Promise.all([
           axios.get(`${API}/blog/posts?published=false`),
-          axios.get(`${API}/contacts`)
+          axios.get(`${API}/contacts`),
+          axios.get(`${API}/newsletter/subscribers`)
         ]);
         setStats({
           totalPosts: postsRes.data.total,
-          totalContacts: contactsRes.data.length
+          totalContacts: contactsRes.data.length,
+          totalNewsletters: newsletterRes.data.length
         });
       } catch (error) {
         console.error('Erreur chargement statistiques:', error);
