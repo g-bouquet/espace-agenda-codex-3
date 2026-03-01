@@ -215,11 +215,12 @@ export const offers = [
       'Extras (options supplémentaires)',
       'Coupons et codes promo',
       'Tableau de bord & statistiques',
-      'Support renforcé (email + tickets + WhatsApp + base de connaissances)'
+      'Support renforcé (email + tickets + WhatsApp)',
+      'Support téléphonique inclus'
     ],
     highlight: true,
     badge: 'Le plus choisi',
-    notIncluded: ['Chatbot', 'Support téléphonique', 'Accès API']
+    notIncluded: ['Chatbot', 'Accès API']
   },
   {
     id: '3',
