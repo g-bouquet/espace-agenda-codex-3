@@ -12,7 +12,7 @@ from datetime import datetime
 from typing import Dict, Any, List
 
 # Configuration
-BACKEND_URL = "https://wellness-planner-40.preview.emergentagent.com"
+BACKEND_URL = "https://v3-agenda-build.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 class BackendTester:
