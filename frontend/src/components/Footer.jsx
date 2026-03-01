@@ -30,7 +30,6 @@ const Footer = () => {
     }
   };
 
-const Footer = () => {
   return (
     <footer className="bg-secondary text-white">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
@@ -103,11 +102,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-blue-900/50">
-          {/* Newsletter */}
-          <div className="mb-6 flex flex-col md:flex-row items-center gap-4 justify-between">
-            <p className="text-blue-100 text-sm">Restez informé des actualités Espace Agenda :</p>
+        {/* Newsletter */}
+        <div className="mt-10 pt-8 border-t border-blue-900/50">
+          <div className="flex flex-col md:flex-row items-center gap-4 justify-between mb-6">
+            <p className="text-blue-100 text-sm font-medium">Restez informé des actualités Espace Agenda :</p>
             <form onSubmit={handleNewsletterSubmit} className="flex gap-2 w-full md:w-auto">
               <input
                 type="email"
