@@ -365,7 +365,7 @@ export const faqs = [
   {
     id: 'faq-7',
     question: 'Quel support est inclus ?',
-    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email et via notre système de tickets. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dès l\'offre Pro. Le support téléphonique est inclus dans l\'offre Prime. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
+    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email et via notre système de tickets. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dès l\'offre Pro. Le support téléphonique est inclus à partir de l\'offre Pro. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
   },
   {
     id: 'faq-8',
