@@ -1,50 +1,84 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Globe, Bell, CreditCard, Users, Shield, ArrowRight } from 'lucide-react';
+import {
+  Calendar, Globe, Bell, CreditCard, Users, Shield, ArrowRight,
+  Check, X, Phone, Mail, MessageSquare, Zap, Star, Clock, Settings,
+  FileText, UserCheck, Headphones, BarChart3, Database, Lock
+} from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { faqs, globalCTA } from '../content';
+import { faqs, globalCTA, keyFeatures } from '../content';
 import { useInView } from 'react-intersection-observer';
 import HeroSection from '../components/HeroSection';
 
-const Solution = () => {
-  const { ref: featuresRef, inView: featuresInView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
+const iconMap = {
+  Calendar, Globe, Bell, CreditCard, FileText, Users, UserCheck,
+  Shield, Users2: Users, Headphones
+};
 
-  const features = [
+const Solution = () => {
+  const { ref: featuresRef, inView: featuresInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const { ref: whyRef, inView: whyInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const { ref: compareRef, inView: compareInView } = useInView({ threshold: 0.1, triggerOnce: true });
+
+  const integrations = [
+    { name: 'Google Agenda', icon: Calendar, color: 'bg-blue-50 text-blue-600' },
+    { name: 'Outlook', icon: Mail, color: 'bg-sky-50 text-sky-700' },
+    { name: 'Apple Calendar', icon: Calendar, color: 'bg-gray-50 text-gray-700' },
+    { name: 'Zoom', icon: Phone, color: 'bg-blue-50 text-blue-700' },
+    { name: 'Google Meet', icon: MessageSquare, color: 'bg-green-50 text-green-700' },
+    { name: 'Google Analytics', icon: BarChart3, color: 'bg-orange-50 text-orange-600' },
+    { name: 'Stripe / Paiements', icon: CreditCard, color: 'bg-purple-50 text-purple-700' },
+    { name: 'Zapier / API', icon: Zap, color: 'bg-yellow-50 text-yellow-700' },
+    { name: 'Mailchimp', icon: Mail, color: 'bg-yellow-50 text-yellow-800' },
+    { name: 'Google Tag Manager', icon: Settings, color: 'bg-blue-50 text-blue-800' },
+    { name: 'WordPress', icon: Globe, color: 'bg-gray-50 text-gray-800' },
+    { name: 'Facebook Pixel', icon: Database, color: 'bg-blue-50 text-blue-900' },
+  ];
+
+  const comparisonRows = [
+    { feature: 'Disponibilité', manual: 'Horaires bureau uniquement', ea: '24h/24, 7j/7' },
+    { feature: 'Rappels clients', manual: 'Manuelle (appel, SMS)', ea: 'Automatiques (email, SMS, WhatsApp)' },
+    { feature: 'Annulations / reports', manual: 'Gestion chronophage', ea: 'Client autonome en ligne' },
+    { feature: 'Paiements & acomptes', manual: 'Virement manuel ou espèces', ea: 'En ligne, sécurisé, automatique' },
+    { feature: 'Suivi clients', manual: 'Agenda papier ou tableur', ea: 'Fiche client centralisée, historique' },
+    { feature: 'Image professionnelle', manual: 'Outil générique visible', ea: 'À votre nom, vos couleurs' },
+    { feature: 'Temps administratif', manual: '2h+ par semaine', ea: 'Moins de 15 min/semaine' },
+  ];
+
+  const whyPoints = [
     {
-      icon: Globe,
-      title: 'Page de réservation à votre nom',
-      description: 'Votre propre page de prise de rendez-vous aux couleurs de votre marque, accessible 24h/24. Mini-site inclus ou intégration sur votre site existant.'
+      icon: Zap,
+      title: 'Installation clé en main',
+      description: "Nous configurons tout pour vous : agenda, services, personnalisation visuelle, intégration sur votre site. Vous démarrez sans stress et sans compétences techniques requises."
     },
     {
-      icon: Calendar,
-      title: 'Calendrier intelligent + synchronisation',
-      description: 'Gérez vos disponibilités en temps réel. Synchronisation automatique avec Google Agenda et Outlook. Blocage des indisponibilités.'
+      icon: UserCheck,
+      title: 'Personnalisé à votre image',
+      description: "Votre logo, vos couleurs, votre nom de domaine. Vos clients ne voient que vous — aucune mention d'un outil tiers. Une expérience cohérente et professionnelle du premier au dernier clic."
     },
     {
-      icon: Bell,
-      title: 'Rappels automatiques (email + SMS + WhatsApp selon offre)',
-      description: 'Réduisez les absences grâce aux rappels automatiques par email, SMS (selon offre) et WhatsApp. Vos clients sont prévenus avant chaque rendez-vous.'
-    },
-    {
-      icon: CreditCard,
-      title: 'Paiements & acomptes (selon offre)',
-      description: 'Acceptez les paiements et acomptes en ligne. Transactions sécurisées et suivi automatique des encaissements.'
-    },
-    {
-      icon: Users,
-      title: 'Fiche client personnalisée',
-      description: 'Historique des rendez-vous, notes internes privées, champs personnalisés adaptés à votre pratique. Import / export des données.'
+      icon: Headphones,
+      title: 'Support humain, réactif et durable',
+      description: "Une question après 3 mois ? Vous nous écrivez, on vous répond. Urgences traitées sous 6h. Nous ne disparaissons pas après l'installation."
     },
     {
       icon: Shield,
-      title: 'Sécurité & RGPD',
-      description: 'Conformité RGPD garantie, hébergement sécurisé et sauvegarde automatique. Gestion des consentements et des droits clients.'
-    }
+      title: 'Sécurité & conformité RGPD',
+      description: "Hébergement sécurisé, données chiffrées, gestion des consentements et des droits clients. Votre pratique est protégée, vos données restent les vôtres."
+    },
+    {
+      icon: Settings,
+      title: 'Adapté à votre pratique',
+      description: "Durées de séance, motifs de consultation, règles de réservation spécifiques, questionnaires préalables — nous configurons selon votre fonctionnement, pas l'inverse."
+    },
+    {
+      icon: Clock,
+      title: 'Évolutif avec vous',
+      description: "Vous démarrez simple et évoluez à votre rythme. Activation de nouvelles fonctionnalités, changement d'offre, ajout d'un praticien — tout est possible sans contrainte."
+    },
   ];
 
   return (
@@ -52,12 +86,12 @@ const Solution = () => {
       <HeroSection
         title="Tout ce qu'il faut pour gérer vos rendez-vous —"
         titleHighlight="à votre nom"
-        description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels (email + SMS + WhatsApp selon offre), paiements et support humain."
+        description="Plateforme installée et configurée pour votre pratique : réservation en ligne, rappels automatiques, paiements et support humain inclus."
         backgroundImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=80"
         ctaText={globalCTA.primary}
       />
 
-      {/* How it works */}
+      {/* Comment ça marche */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -75,20 +109,20 @@ const Solution = () => {
                 {
                   step: '1',
                   title: 'Cadrage (15-30 min)',
-                  description: 'Nous discutons de vos besoins, horaires et règles. Formulaire détaillé pour tout paramétrer.'
+                  description: "Nous discutons de vos besoins, vos horaires, vos services, vos règles. Un formulaire détaillé pour tout paramétrer selon votre pratique."
                 },
                 {
                   step: '2',
                   title: 'Installation + paramétrage',
-                  description: 'Nous installons et configurons votre plateforme selon vos besoins. Intégration sur votre site si nécessaire.'
+                  description: "Nous configurons votre plateforme de A à Z. Personnalisation visuelle, intégration sur votre site, activation des rappels et paiements selon votre offre."
                 },
                 {
                   step: '3',
                   title: 'Formation (30 min) + support',
-                  description: 'Mini-formation pour une prise en main rapide. Support humain illimité par la suite.'
+                  description: "Une mini-session pour vous expliquer l'essentiel. Puis notre équipe reste disponible pour toutes vos questions et évolutions."
                 }
               ].map((item) => (
-                <Card key={item.step} className="border-border">
+                <Card key={item.step} className="border-border hover:border-primary transition-all duration-300 hover:shadow-md">
                   <CardContent className="pt-6">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white text-xl font-bold font-heading shadow-md mb-6">
                       {item.step}
@@ -103,32 +137,28 @@ const Solution = () => {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Fonctionnalités complètes */}
       <section ref={featuresRef} className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Fonctionnalités clés
+              Toutes les fonctionnalités
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Tout ce dont vous avez besoin pour gérer vos rendez-vous efficacement
+              Une solution complète, pensée pour les praticiens indépendants
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {keyFeatures.map((feature, index) => {
+              const Icon = iconMap[feature.icon] || Calendar;
               return (
-                <Card 
-                  key={index} 
+                <Card
+                  key={feature.id}
                   className={`border-border hover:border-primary transition-all duration-500 hover:shadow-lg ${
-                    featuresInView 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-10'
+                    featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
-                  style={{
-                    transitionDelay: featuresInView ? `${index * 80}ms` : '0ms'
-                  }}
+                  style={{ transitionDelay: featuresInView ? `${index * 60}ms` : '0ms' }}
                 >
                   <CardContent className="pt-6">
                     <div className="flex gap-4 items-start">
@@ -138,7 +168,7 @@ const Solution = () => {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
+                        <h3 className="text-base font-semibold text-foreground">{feature.title}</h3>
                         <p className="mt-2 text-muted-foreground text-sm">{feature.description}</p>
                       </div>
                     </div>
@@ -150,36 +180,170 @@ const Solution = () => {
         </div>
       </section>
 
-      {/* Why Espace Agenda */}
-      <section className="py-20 bg-white">
+      {/* Comparaison gestion manuelle vs Espace Agenda */}
+      <section ref={compareRef} className="py-20 bg-white">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+              Avant et après Espace Agenda
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Ce que change concrètement une solution de réservation bien configurée
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse rounded-xl overflow-hidden shadow-md">
+              <thead>
+                <tr>
+                  <th className="text-left py-4 px-6 bg-gray-100 text-gray-600 font-medium text-sm w-1/3">Aspect</th>
+                  <th className="text-center py-4 px-6 bg-gray-100 text-gray-600 font-medium text-sm w-1/3">
+                    <span className="flex items-center justify-center gap-2">
+                      <X className="h-4 w-4 text-red-400" />
+                      Gestion manuelle
+                    </span>
+                  </th>
+                  <th className="text-center py-4 px-6 bg-primary text-white font-medium text-sm w-1/3">
+                    <span className="flex items-center justify-center gap-2">
+                      <Check className="h-4 w-4" />
+                      Avec Espace Agenda
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row, index) => (
+                  <tr key={index} className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                    <td className="py-4 px-6 text-foreground font-medium text-sm">{row.feature}</td>
+                    <td className="py-4 px-6 text-center text-red-500 text-sm">{row.manual}</td>
+                    <td className="py-4 px-6 text-center text-green-700 text-sm font-medium bg-primary/5">{row.ea}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Pourquoi Espace Agenda */}
+      <section ref={whyRef} className="py-20 bg-muted">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Pourquoi Espace Agenda ?
             </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Pas juste un outil, un accompagnement dans la durée
+            </p>
           </div>
 
-          <div className="mx-auto mt-16 max-w-4xl">
-            <div className="space-y-12">
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">Installation clé en main</h3>
-                <p className="text-lg text-muted-foreground">
-                  Pas besoin de compétences techniques. Nous installons et configurons tout pour vous. Vous n'avez qu'à vous concentrer sur votre métier, nous nous occupons du reste.
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {whyPoints.map((point, index) => {
+              const Icon = point.icon;
+              return (
+                <div
+                  key={index}
+                  className={`flex gap-4 transition-all duration-500 ${
+                    whyInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: whyInView ? `${index * 80}ms` : '0ms' }}
+                >
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-sm">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">{point.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{point.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">Personnalisé à votre image</h3>
-                <p className="text-lg text-muted-foreground">
-                  Votre plateforme reflète votre identité professionnelle : logo, couleurs, nom de domaine personnalisé (option). Vos clients ne voient que vous, sans mention d'un outil tiers.
-                </p>
-              </div>
+      {/* Intégrations */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+              Intégrations incluses
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Espace Agenda se connecte aux outils que vous utilisez déjà
+            </p>
+          </div>
 
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">Support humain inclus</h3>
-                <p className="text-lg text-muted-foreground">
-                  Une question ? Un besoin d'évolution ? Notre équipe est là pour vous accompagner. Support par email et téléphone inclus dans toutes nos offres.
-                </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+            {integrations.map((integration, index) => {
+              const Icon = integration.icon;
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col items-center gap-2 p-4 rounded-xl border border-gray-100 hover:border-primary hover:shadow-md transition-all duration-300 ${integration.color}`}
+                >
+                  <Icon className="h-6 w-6" />
+                  <span className="text-xs font-medium text-center leading-tight">{integration.name}</span>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="text-center text-sm text-muted-foreground mt-8">
+            Et bien d'autres selon votre offre. Intégrations spécifiques disponibles sur devis.
+          </p>
+        </div>
+      </section>
+
+      {/* Sécurité & RGPD */}
+      <section className="py-20 bg-muted">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="bg-primary/10 text-primary mb-4">Sécurité & conformité</Badge>
+              <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
+                Vos données et celles de vos clients sont protégées
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Conformité RGPD complète, hébergement sécurisé, gestion des consentements — nous avons pensé à tout pour que vous puissiez exercer sereinement.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { icon: Lock, text: 'Connexions chiffrées (HTTPS/SSL) pour tous les échanges' },
+                  { icon: Shield, text: 'Conformité RGPD : consentements, droits d\'accès, rectification, suppression' },
+                  { icon: Database, text: 'Hébergement fiable avec sauvegardes régulières' },
+                  { icon: UserCheck, text: 'Accès sécurisés avec gestion des rôles (admin, praticien, client)' },
+                ].map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary mt-0.5">
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <span className="text-muted-foreground">{item.text}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
+              <h3 className="text-xl font-bold text-foreground mb-6">Ce que nous gérons pour vous</h3>
+              <div className="space-y-4">
+                {[
+                  { label: 'Politique de confidentialité', status: 'Incluse et personnalisée' },
+                  { label: 'Mentions légales', status: 'Fournies et à jour' },
+                  { label: 'Consentements clients', status: 'Gestion automatique' },
+                  { label: 'Droit d\'accès et suppression', status: 'Processus défini' },
+                  { label: 'Cookies et traceurs', status: 'Gestion intégrée' },
+                  { label: 'Sauvegardes données', status: 'Automatiques et régulières' },
+                ].map((item, index) => (
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                    <span className="text-sm text-foreground">{item.label}</span>
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">{item.status}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -187,26 +351,39 @@ const Solution = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-muted">
+      <section id="faq" className="py-20 bg-white scroll-mt-20">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
               Questions fréquentes
             </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Tout ce que vous voulez savoir avant de démarrer
+            </p>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.slice(0, 6).map((faq) => (
-              <AccordionItem key={faq.id} value={faq.id} className="bg-white border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+            {faqs.map((faq) => (
+              <AccordionItem key={faq.id} value={faq.id} className="bg-muted border border-border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700">
+                <AccordionContent className="text-gray-700 leading-relaxed pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">Vous avez d'autres questions ?</p>
+            <Link to="/contact">
+              <Button className="bg-primary hover:bg-primary-hover text-white">
+                Posez-nous directement
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -220,11 +397,16 @@ const Solution = () => {
             <p className="mt-6 text-lg leading-8 text-blue-100">
               Discutons de votre pratique et trouvons ensemble la solution la plus adaptée.
             </p>
-            <div className="mt-10">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/offres">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  Voir les offres
                 </Button>
               </Link>
             </div>
