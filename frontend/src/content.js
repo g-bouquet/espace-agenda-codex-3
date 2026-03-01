@@ -7,7 +7,7 @@
 export const contactInfo = {
   phone: '06 11 01 60 54',
   email: 'contact@espaceagenda.fr',
-  location: 'Bordeaux + à distance',
+  location: 'Bordeaux',
   locationShort: 'Bordeaux'
 };
 
