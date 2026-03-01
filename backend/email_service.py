@@ -17,7 +17,7 @@ class EmailService:
         self.contact_email = os.getenv('CONTACT_EMAIL', 'contact@espaceagenda.fr')
         self.use_tls = os.getenv('SMTP_USE_TLS', 'false').lower() == 'true'
 
-    def send_contact_notification(self, name: str, email: str, phone: Optional[str], subject: str, message: str) -> bool:
+    def send_contact_notification(self, name: str, email: str, phone: Optional[str], subject: str, message: str, profession: Optional[str] = None) -> bool:
         """Envoie une notification email à l'équipe pour un nouveau contact"""
         try:
             msg = MIMEMultipart('alternative')
