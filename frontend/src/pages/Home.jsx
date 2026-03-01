@@ -400,7 +400,7 @@ const Home = () => {
           </Accordion>
 
           <div className="text-center mt-8">
-            <Link to="/solution">
+            <Link to="/solution#faq">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
                 Voir toutes les questions
                 <ArrowRight className="ml-2 h-4 w-4" />

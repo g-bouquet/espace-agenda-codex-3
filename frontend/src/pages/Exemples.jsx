@@ -82,7 +82,7 @@ const Exemples = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Intégration sur site existant</h3>
                 <p className="text-gray-700 text-sm mb-4">
-                  Exemple d\'intégration de la réservation directement sur un site WordPress ou autre.
+                  Exemple d'intégration de la réservation directement sur un site WordPress ou autre.
                 </p>
                 <span className="inline-flex items-center gap-2 text-gray-500 text-sm">
                   Démo prochainement disponible
