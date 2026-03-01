@@ -140,6 +140,11 @@ function App() {
                 <AdminContacts />
               </ProtectedRoute>
             } />
+            <Route path="/admin/newsletters" element={
+              <ProtectedRoute>
+                <AdminNewsletters />
+              </ProtectedRoute>
+            } />
           </Routes>
           <Toaster />
         </BrowserRouter>
