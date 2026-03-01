@@ -181,7 +181,7 @@ const Offres = () => {
                   { label: 'Plusieurs emplacements', ess: false, pro: false, prem: true },
                   { label: 'API / Zapier / Webhooks', ess: false, pro: false, prem: true },
                   { label: 'Support', ess: 'Standard', pro: 'Renforcé', prem: 'Prioritaire' },
-                  { label: 'Support téléphonique', ess: false, pro: false, prem: true }
+                  { label: 'Support téléphonique', ess: false, pro: true, prem: true }
                 ].map((row, index) => (
                   <tr key={index} className="border-b border-border hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-4 text-foreground font-medium">{row.label}</td>
