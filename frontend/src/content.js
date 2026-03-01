@@ -230,7 +230,7 @@ export const offers = [
     priceNumeric: 69,
     installation: '249€ TTC (une fois)',
     installationNumeric: 249,
-    sms: 'SMS disponibles : 0,09€ / SMS',
+    sms: '50 SMS inclus / mois, puis 0,09€ / SMS',
     features: [
       'Tout Pro',
       'Import / export des données clients',
