@@ -163,7 +163,7 @@ const Offres = () => {
                   { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
                   { label: 'Sous-domaine personnalisé', ess: false, pro: true, prem: true },
                   { label: 'Rappels email + WhatsApp', ess: true, pro: true, prem: true },
-                  { label: 'Rappels SMS', ess: false, pro: '50 inclus', prem: '0,09€/SMS' },
+                  { label: 'Rappels SMS', ess: 'Option 0,09€/SMS', pro: '50 inclus', prem: '50 inclus' },
                   { label: 'Espace client', ess: true, pro: true, prem: true },
                   { label: 'Facturation', ess: true, pro: true, prem: true },
                   { label: 'Calendrier + sync (Google, Outlook, Apple)', ess: true, pro: true, prem: true },
