@@ -58,6 +58,10 @@ class EmailService:
                       <div class="value">{phone or 'Non renseigné'}</div>
                     </div>
                     <div class="field">
+                      <div class="label">Métier :</div>
+                      <div class="value">{profession or 'Non renseigné'}</div>
+                    </div>
+                    <div class="field">
                       <div class="label">Sujet :</div>
                       <div class="value">{subject}</div>
                     </div>
