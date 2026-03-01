@@ -11,7 +11,8 @@ import re
 
 from models import (
     ContactSubmission, ContactSubmissionCreate,
-    BlogPost, BlogPostCreate, BlogPostUpdate
+    BlogPost, BlogPostCreate, BlogPostUpdate,
+    NewsletterSubscription, NewsletterSubscriptionCreate
 )
 from email_service import email_service
 
