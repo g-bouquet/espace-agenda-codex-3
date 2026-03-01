@@ -76,7 +76,8 @@ async def submit_contact(contact_data: ContactSubmissionCreate):
                 email=contact.email,
                 phone=contact.phone,
                 subject=contact.subject,
-                message=contact.message
+                message=contact.message,
+                profession=contact.profession
             )
             email_service.send_contact_confirmation(
                 name=contact.name,
