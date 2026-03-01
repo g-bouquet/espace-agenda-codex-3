@@ -278,6 +278,71 @@ async def get_blog_categories():
 
 
 # ============================================================================
+# NEWSLETTER ENDPOINTS
+# ============================================================================
+
+@api_router.post("/newsletter/subscribe", response_model=dict)
+async def subscribe_newsletter(subscription_data: NewsletterSubscriptionCreate):
+    """Inscrit un email à la newsletter"""
+    try:
+        # Vérifier si déjà inscrit
+        existing = await db.newsletter.find_one({"email": subscription_data.email})
+        if existing:
+            # Réactiver si désabonné
+            if existing.get("status") == "unsubscribed":
+                await db.newsletter.update_one(
+                    {"email": subscription_data.email},
+                    {"$set": {"status": "active"}}
+                )
+                return {"success": True, "message": "Vous êtes à nouveau inscrit à notre newsletter."}
+            return {"success": True, "message": "Vous êtes déjà inscrit à notre newsletter."}
+
+        subscription = NewsletterSubscription(**subscription_data.dict())
+        await db.newsletter.insert_one(subscription.dict())
+        logger.info(f"Nouvelle inscription newsletter: {subscription.email}")
+
+        return {"success": True, "message": "Merci pour votre inscription ! Vous recevrez nos prochaines actualités."}
+
+    except Exception as e:
+        logger.error(f"Erreur inscription newsletter: {str(e)}")
+        raise HTTPException(status_code=500, detail="Erreur lors de l'inscription")
+
+
+@api_router.get("/newsletter/subscribers", response_model=List[NewsletterSubscription])
+async def get_newsletter_subscribers(
+    limit: int = Query(default=100, le=500),
+    skip: int = Query(default=0, ge=0),
+    status: str = Query(default="active")
+):
+    """Récupère la liste des abonnés newsletter (admin)"""
+    try:
+        filter_dict = {"status": status} if status else {}
+        subscribers = await db.newsletter.find(filter_dict).sort("subscribed_at", -1).skip(skip).limit(limit).to_list(limit)
+        return [NewsletterSubscription(**s) for s in subscribers]
+    except Exception as e:
+        logger.error(f"Erreur récupération abonnés: {str(e)}")
+        raise HTTPException(status_code=500, detail="Erreur lors de la récupération des abonnés")
+
+
+@api_router.delete("/newsletter/subscribers/{email}", response_model=dict)
+async def unsubscribe_newsletter(email: str):
+    """Désabonne un email de la newsletter"""
+    try:
+        result = await db.newsletter.update_one(
+            {"email": email},
+            {"$set": {"status": "unsubscribed"}}
+        )
+        if result.modified_count == 0:
+            raise HTTPException(status_code=404, detail="Email non trouvé")
+        return {"success": True, "message": "Désabonnement effectué"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Erreur désabonnement: {str(e)}")
+        raise HTTPException(status_code=500, detail="Erreur lors du désabonnement")
+
+
+# ============================================================================
 # LEGACY / TEST ENDPOINTS
 # ============================================================================
 
