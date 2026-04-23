@@ -62,7 +62,17 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - Retrait du badge Emergent, copyright 2026
 - Configuration email backend SMTP
 
-### Session 2 (actuelle - Février 2026)
+### Session 3 (actuelle - Février 2026) — Refonte Visuelle Wellness
+- ✅ **Palette de couleurs** : Sage Green (#5A7161), Terracotta (#C27A62), Warm Sand (#F9F6F0), Deep Forest (#2C352D)
+- ✅ **Typographie** : Cormorant Garamond (headings), Manrope (body) — remplace Poppins/Open Sans
+- ✅ **HeroSection** : Fond forêt lumineuse, overlay warm sand, layout gauche aligné, pill buttons
+- ✅ **Header** : Glassmorphism (.header-glass), rounded-full CTA sage green
+- ✅ **Home.jsx** : Complète refonte — images wellness praticiens, palette warm, sections épurées
+- ✅ **Footer** : Fond deep forest (#2C352D), newsletter intégrée
+- ✅ **Contact.jsx** : Formulaire warm sand, cards coordonnées epurées
+- ✅ **Offres.jsx, Blog.jsx, Exemples.jsx, Solution.jsx** : Couleurs bleues/indigo résiduelles supprimées
+- ✅ **App.css** : Design system complet (glass, warm shadows, textures, scrollbar)
+- ✅ **tailwind.config.js** : Nouvelle palette complète
 - ✅ **Page Solution** : Bug page blanche corrigé + contenu enrichi (comparaison manuelle/EA, fonctionnalités complètes depuis keyFeatures, intégrations, section RGPD, FAQ complète avec ancre #faq)
 - ✅ **Localisation** : "Bordeaux" (plus "+ à distance") dans Footer et Contact
 - ✅ **Liens internes** : "Voir toutes les questions" → /solution#faq (plus d'ancre cassée)

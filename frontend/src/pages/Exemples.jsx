@@ -77,7 +77,7 @@ const Exemples = () => {
 
             <Card className="border-border hover:border-primary transition-all duration-300 hover:shadow-lg">
               <CardContent className="pt-6">
-                <div className="aspect-video bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg mb-6 flex items-center justify-center">
+                <div className="aspect-video rounded-2xl mb-6 flex items-center justify-center overflow-hidden img-hover-zoom" style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}>
                   <Calendar className="h-16 w-16 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Intégration sur site existant</h3>
