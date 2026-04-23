@@ -62,7 +62,12 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - Retrait du badge Emergent, copyright 2026
 - Configuration email backend SMTP
 
-### Session 3 (actuelle - Février 2026) — Refonte Visuelle Wellness
+### Session 4 (actuelle - Février 2026) — UX/Layout Améliorations
+- ✅ **Scroll reset** : composant ScrollToTop (behavior: instant) sur chaque navigation
+- ✅ **Professions** : 29 professions exactes, groupées en 5 catégories (tags pill sage green + labels terracotta)
+- ✅ **Intégrations** : couleur uniforme sage green (#5A7161) sur tous les items
+- ✅ **FAQ Exemples** : 6 questions/réponses complètes ajoutées dans faqsExemples (content.js)
+- ✅ **Offres.jsx** : cartes pricing warm palette, Fix import Card/CardContent
 - ✅ **Palette de couleurs** : Sage Green (#5A7161), Terracotta (#C27A62), Warm Sand (#F9F6F0), Deep Forest (#2C352D)
 - ✅ **Typographie** : Cormorant Garamond (headings), Manrope (body) — remplace Poppins/Open Sans
 - ✅ **HeroSection** : Fond forêt lumineuse, overlay warm sand, layout gauche aligné, pill buttons
