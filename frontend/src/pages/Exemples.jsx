@@ -56,7 +56,7 @@ const Exemples = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="border-border hover:border-primary transition-all duration-300 hover:shadow-lg">
               <CardContent className="pt-6">
-                <div className="aspect-video bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg mb-6 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-[#F4F0E8] to-[#F9F6F0] rounded-lg mb-6 flex items-center justify-center">
                   <Heart className="h-16 w-16 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">Mini-site de réservation</h3>
@@ -201,12 +201,12 @@ const Exemples = () => {
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à créer votre page de réservation ?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-blue-100">
+            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(249,246,240,0.75)' }}>
               Nous vous accompagnons de A à Z : installation, personnalisation, formation.
             </p>
             <div className="mt-10">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
+                <Button size="lg" className="rounded-full font-medium px-8" style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}>
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

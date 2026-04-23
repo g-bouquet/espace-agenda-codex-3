@@ -148,12 +148,12 @@ const Blog = () => {
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à transformer votre gestion des rendez-vous ?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-blue-100">
+            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(249,246,240,0.75)' }}>
               Demandez l'installation de votre plateforme personnalisée et gagnez en efficacité dès aujourd'hui.
             </p>
             <div className="mt-10">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
+                <Button size="lg" className="rounded-full font-medium px-8" style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}>
                   Demander l'installation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

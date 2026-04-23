@@ -99,7 +99,7 @@ const Offres = () => {
 
           {/* Sur mesure en bandeau */}
           {offers.filter(o => o.isBanner).map((offer) => (
-            <Card key={offer.id} className="mt-12 border-2 border-primary bg-gradient-to-r from-blue-50 to-indigo-50">
+            <Card key={offer.id} className="mt-12 border-2 border-primary bg-gradient-to-r from-[#F4F0E8] to-[#F9F6F0]">
               <CardContent className="p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                   <div>
@@ -233,12 +233,12 @@ const Offres = () => {
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à choisir votre offre ?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-blue-100">
+            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(249,246,240,0.75)' }}>
               Discutons de vos besoins pour vous guider vers l'offre la plus adaptée.
             </p>
             <div className="mt-10">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
+                <Button size="lg" className="rounded-full font-medium px-8" style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}>
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

@@ -4,68 +4,97 @@ import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 
-const HeroSection = ({ 
-  title, 
-  titleHighlight, 
-  description, 
+const HeroSection = ({
+  title,
+  titleHighlight,
+  description,
   ctaText = "Planifier un échange (15 min)",
   ctaLink = "/contact",
   showCta = true,
-  backgroundImage = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&q=80"
+  backgroundImage = "https://images.unsplash.com/photo-1773858375548-3919c0fe1ca0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920"
 }) => {
   const [scrollY, setScrollY] = useState(0);
-  const { ref: heroRef, inView: heroInView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
+  const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section className="relative overflow-hidden min-h-[500px] lg:min-h-[600px] flex items-center">
+    <section className="relative overflow-hidden min-h-[560px] lg:min-h-[660px] flex items-center">
       {/* Background Image with Parallax */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
-          transition: 'transform 0.1s ease-out'
+          transform: `translateY(${scrollY * 0.3}px)`,
+          transition: 'transform 0.1s linear'
         }}
       >
-        <img 
-          src={backgroundImage} 
-          alt="Hero background"
-          className="w-full h-full object-cover scale-110"
+        <img
+          src={backgroundImage}
+          alt=""
+          className="w-full h-[120%] object-cover"
+          style={{ objectPosition: 'center 30%' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/80"></div>
+        {/* Warm sand overlay — not cold/white */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(135deg, rgba(249,246,240,0.94) 0%, rgba(244,240,232,0.88) 50%, rgba(249,246,240,0.80) 100%)'
+        }} />
       </div>
 
-      <div className="relative z-10 py-20 lg:py-28 w-full">
+      {/* Decorative organic shape */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/3 z-0 opacity-10 hidden lg:block"
+        style={{
+          background: 'radial-gradient(ellipse at right center, #5A7161 0%, transparent 70%)'
+        }}
+      />
+
+      <div className="relative z-10 py-24 lg:py-32 w-full">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div 
-            ref={heroRef} 
-            className={`mx-auto max-w-3xl text-center transition-all duration-1000 ease-out ${
-              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          <div
+            ref={heroRef}
+            className={`max-w-3xl transition-all duration-1000 ease-out ${
+              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            {/* Overline */}
+            <p className="label-tag text-primary mb-5 opacity-80" style={{ animationDelay: '0.1s' }}>
+              Gestion de rendez-vous pour praticiens
+            </p>
+
+            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight mb-6"
+              style={{ color: '#2C352D', lineHeight: '1.1' }}>
               {title}{' '}
-              {titleHighlight && <span className="text-primary">{titleHighlight}</span>}
+              {titleHighlight && (
+                <em className="not-italic" style={{ color: '#5A7161' }}>{titleHighlight}</em>
+              )}
             </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+
+            <p className="text-lg leading-relaxed mb-10 max-w-xl" style={{ color: '#5E6C60' }}>
               {description}
             </p>
+
             {showCta && (
-              <div className="mt-10">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link to={ctaLink}>
-                  <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
+                  <Button
+                    size="lg"
+                    className="rounded-full bg-primary hover:bg-primary-hover text-white shadow-warm-md font-medium px-8"
+                    data-testid="hero-cta-button"
+                  >
                     {ctaText}
                     <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/offres">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-border text-foreground hover:border-primary hover:text-primary px-8"
+                  >
+                    Voir les offres
                   </Button>
                 </Link>
               </div>

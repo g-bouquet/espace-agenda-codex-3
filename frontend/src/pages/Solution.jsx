@@ -24,18 +24,18 @@ const Solution = () => {
   const { ref: compareRef, inView: compareInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   const integrations = [
-    { name: 'Google Agenda', icon: Calendar, color: 'bg-blue-50 text-blue-600' },
-    { name: 'Outlook', icon: Mail, color: 'bg-sky-50 text-sky-700' },
-    { name: 'Apple Calendar', icon: Calendar, color: 'bg-gray-50 text-gray-700' },
-    { name: 'Zoom', icon: Phone, color: 'bg-blue-50 text-blue-700' },
-    { name: 'Google Meet', icon: MessageSquare, color: 'bg-green-50 text-green-700' },
-    { name: 'Google Analytics', icon: BarChart3, color: 'bg-orange-50 text-orange-600' },
-    { name: 'Stripe / Paiements', icon: CreditCard, color: 'bg-purple-50 text-purple-700' },
-    { name: 'Zapier / API', icon: Zap, color: 'bg-yellow-50 text-yellow-700' },
-    { name: 'Mailchimp', icon: Mail, color: 'bg-yellow-50 text-yellow-800' },
-    { name: 'Google Tag Manager', icon: Settings, color: 'bg-blue-50 text-blue-800' },
-    { name: 'WordPress', icon: Globe, color: 'bg-gray-50 text-gray-800' },
-    { name: 'Facebook Pixel', icon: Database, color: 'bg-blue-50 text-blue-900' },
+    { name: 'Google Agenda', icon: Calendar, color: 'bg-[#F4F0E8] text-[#5A7161]' },
+    { name: 'Outlook', icon: Mail, color: 'bg-[#F4F0E8] text-[#5E6C60]' },
+    { name: 'Apple Calendar', icon: Calendar, color: 'bg-[#F4F0E8] text-[#2C352D]' },
+    { name: 'Zoom', icon: Phone, color: 'bg-[#F4F0E8] text-[#5A7161]' },
+    { name: 'Google Meet', icon: MessageSquare, color: 'bg-[#F4F0E8] text-[#5A7161]' },
+    { name: 'Google Analytics', icon: BarChart3, color: 'bg-[#FDF8F4] text-[#C27A62]' },
+    { name: 'Stripe / Paiements', icon: CreditCard, color: 'bg-[#F4F0E8] text-[#5E6C60]' },
+    { name: 'Zapier / API', icon: Zap, color: 'bg-[#FDF8F4] text-[#C27A62]' },
+    { name: 'Mailchimp', icon: Mail, color: 'bg-[#FDF8F4] text-[#C27A62]' },
+    { name: 'Google Tag Manager', icon: Settings, color: 'bg-[#F4F0E8] text-[#5E6C60]' },
+    { name: 'WordPress', icon: Globe, color: 'bg-[#F4F0E8] text-[#2C352D]' },
+    { name: 'Facebook Pixel', icon: Database, color: 'bg-[#F4F0E8] text-[#5A7161]' },
   ];
 
   const comparisonRows = [
@@ -394,12 +394,12 @@ const Solution = () => {
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
               Prêt à simplifier votre gestion ?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-blue-100">
+            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(249,246,240,0.75)' }}>
               Discutons de votre pratique et trouvons ensemble la solution la plus adaptée.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-sky-900 hover:bg-neutral-100">
+                <Button size="lg" className="rounded-full font-medium px-8" style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}>
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

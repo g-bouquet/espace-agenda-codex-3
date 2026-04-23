@@ -1,288 +1,346 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, Shield, Zap, Check, Smartphone, Calendar } from 'lucide-react';
+import { ArrowRight, Clock, Shield, Zap, Check, Smartphone, Calendar, Leaf } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useInView } from 'react-intersection-observer';
-import { heroHome, whatYouGet, keyFeatures, targetAudiences, offers, howItWorks, faqs, globalCTA } from '../content';
+import { heroHome, whatYouGet, targetAudiences, offers, howItWorks, faqs, globalCTA } from '../content';
+
+// Images wellness sélectionnées
+const IMAGES = {
+  hero: 'https://images.unsplash.com/photo-1773858375548-3919c0fe1ca0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920',
+  benefitOne: 'https://images.pexels.com/photos/36729385/pexels-photo-36729385.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  benefitTwo: 'https://images.unsplash.com/photo-1683056242525-9e0e9883a42e?crop=entropy&cs=srgb&fm=jpg&q=85',
+  benefitThree: 'https://images.unsplash.com/photo-1765447041709-9f1efbc81606?crop=entropy&cs=srgb&fm=jpg&q=85',
+  sideClient: 'https://images.unsplash.com/photo-1456426531648-850ec2f5a462?crop=entropy&cs=srgb&fm=jpg&q=85',
+  sidePractitioner: 'https://images.pexels.com/photos/3958426/pexels-photo-3958426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  divider: 'https://images.pexels.com/photos/29347337/pexels-photo-29347337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+};
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
-  
-  // Animation hooks avec observer actif
-  const { ref: heroRef, inView: heroInView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
-  
-  const { ref: benefitsRef, inView: benefitsInView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
-  
-  const { ref: processRef, inView: processInView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
 
-  // Parallax effect
+  const { ref: benefitsRef, inView: benefitsInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const { ref: audienceRef, inView: audienceInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const { ref: processRef, inView: processInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const { ref: pricingRef, inView: pricingInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0.1, triggerOnce: true });
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section with Background Image and Parallax */}
-      <section className="relative overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center">
-        {/* Background Image with Parallax */}
-        <div 
+    <div className="min-h-screen" style={{ backgroundColor: '#F9F6F0' }}>
+
+      {/* ================================================================
+          HERO SECTION — forêt, lumière douce, palette sable chaud
+      ================================================================ */}
+      <section className="relative overflow-hidden min-h-[660px] lg:min-h-[760px] flex items-center">
+        <div
           className="absolute inset-0 z-0"
-          style={{
-            transform: `translateY(${scrollY * 0.5}px)`,
-            transition: 'transform 0.1s ease-out'
-          }}
+          style={{ transform: `translateY(${scrollY * 0.28}px)`, transition: 'transform 0.1s linear' }}
         >
-          <img 
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80" 
-            alt="Accompagnement professionnel"
-            className="w-full h-full object-cover scale-110"
+          <img
+            src={IMAGES.hero}
+            alt=""
+            className="w-full h-[120%] object-cover"
+            style={{ objectPosition: 'center 40%' }}
           />
-          {/* Overlay gradient pour la lisibilité */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/80"></div>
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(120deg, rgba(249,246,240,0.96) 0%, rgba(244,240,232,0.90) 55%, rgba(249,246,240,0.70) 100%)'
+          }} />
         </div>
-        
-        <div className="relative z-10 py-20 lg:py-32 w-full">
+
+        {/* Organic accent shape */}
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-72 h-72 rounded-full opacity-10 blur-3xl hidden lg:block"
+          style={{ background: '#5A7161' }} />
+
+        <div className="relative z-10 py-24 lg:py-36 w-full">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div 
-              ref={heroRef} 
-              className={`mx-auto max-w-3xl text-center transition-all duration-1000 ease-out ${
-                heroInView 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-10'
+            <div
+              ref={heroRef}
+              className={`max-w-2xl lg:max-w-3xl transition-all duration-1000 ease-out ${
+                heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
             >
-              <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-tight">
-                {heroHome.h1.split(':')[0]}:{' '}
-                <span className="text-primary">{heroHome.h1.split(':')[1]}</span>
+              <div className="flex items-center gap-2 mb-6">
+                <Leaf className="h-4 w-4" style={{ color: '#5A7161' }} />
+                <span className="label-tag" style={{ color: '#5A7161' }}>
+                  Réservation en ligne pour praticiens
+                </span>
+              </div>
+              <h1 className="font-heading font-medium mb-6"
+                style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', lineHeight: '1.08', color: '#2C352D' }}>
+                {heroHome.h1.split(':')[0]}
+                <br />
+                <em className="not-italic" style={{ color: '#5A7161' }}>
+                  {heroHome.h1.split(':')[1]}
+                </em>
               </h1>
-              <p className="mt-6 text-base sm:text-lg leading-relaxed text-gray-700">
+              <p className="text-lg leading-relaxed mb-10 max-w-xl" style={{ color: '#5E6C60' }}>
                 {heroHome.subtitle}
               </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4">
-                <div className="flex items-center justify-center gap-x-6">
-                  <Link to="/contact">
-                    <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300">
-                      {heroHome.ctaPrimary}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <Link to={heroHome.ctaSecondaryLink}>
-                    <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-sm transition-all duration-300">
-                      {heroHome.ctaSecondary}
-                    </Button>
-                  </Link>
-                </div>
-                <p className="text-sm text-gray-600 mt-2">
-                  Installation guidée • Support humain • Paramétrage adapté à votre pratique
-                </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/contact">
+                  <Button
+                    size="lg"
+                    className="rounded-full text-white font-medium px-8"
+                    style={{ backgroundColor: '#5A7161' }}
+                    data-testid="home-hero-primary-cta"
+                  >
+                    {heroHome.ctaPrimary}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to={heroHome.ctaSecondaryLink}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full px-8 font-medium"
+                    style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
+                  >
+                    {heroHome.ctaSecondary}
+                  </Button>
+                </Link>
               </div>
+              <p className="mt-5 text-sm" style={{ color: '#5E6C60' }}>
+                Installation guidée · Support humain · Paramétrage adapté
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      {/* ================================================================
+          BÉNÉFICES — 3 cartes avec images wellness
+      ================================================================ */}
+      <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Pourquoi les praticiens choisissent Espace Agenda
+          <div className="text-center mb-16">
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
+              Pourquoi les praticiens choisissent<br />
+              <em className="not-italic" style={{ color: '#5A7161' }}>Espace Agenda</em>
             </h2>
           </div>
 
-          <div ref={benefitsRef} className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3">
+          <div ref={benefitsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Clock,
-                title: 'Moins d\'allers-retours, moins d\'oublis',
-                description: 'Vos clients réservent en ligne quand ils le souhaitent, et reçoivent des rappels automatiques. Vous n\'avez plus à gérer les confirmations.',
-                image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80',
-                delay: 100
+                title: 'Moins de gestion, plus de présence',
+                description: 'Vos clients réservent en ligne quand ils le souhaitent et reçoivent des rappels automatiques. Vous consacrez votre énergie à l\'essentiel.',
+                image: IMAGES.benefitOne,
+                delay: 0
               },
               {
                 icon: Shield,
                 title: 'À votre nom, à votre image',
-                description: 'Votre logo, vos couleurs, votre identité. Vos clients ne voient que vous, sans mention d\'un outil tiers.',
-                image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
-                delay: 200
+                description: 'Votre logo, vos couleurs, votre domaine. Vos clients ne voient que vous — aucune mention d\'un outil tiers.',
+                image: IMAGES.benefitTwo,
+                delay: 120
               },
               {
                 icon: Zap,
-                title: 'Clé en main (vraiment)',
-                description: 'Vous ne passez pas vos soirées à paramétrer : on le fait, on teste, on met en ligne.',
-                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
-                delay: 300
+                title: 'Clé en main, vraiment',
+                description: 'Vous ne passez pas vos soirées à configurer. Nous installons, paramétrons et mettons en ligne. Vous n\'avez qu\'à accueillir.',
+                image: IMAGES.benefitThree,
+                delay: 240
               }
             ].map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card 
-                  key={index} 
-                  className={`border-border hover:border-primary transition-all duration-500 hover:shadow-lg overflow-hidden group ${
-                    benefitsInView 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-10'
+                <div
+                  key={index}
+                  className={`group overflow-hidden rounded-3xl border transition-all duration-700 ${
+                    benefitsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                   }`}
                   style={{
-                    transitionDelay: benefitsInView ? `${benefit.delay}ms` : '0ms'
+                    transitionDelay: `${benefit.delay}ms`,
+                    borderColor: '#E2DFD8',
+                    backgroundColor: '#FFFFFF',
+                    boxShadow: '0 2px 8px rgba(90,113,97,0.06)'
                   }}
                 >
-                  <div className="aspect-video w-full overflow-hidden">
-                    <img 
-                      src={benefit.image} 
+                  <div className="aspect-[4/3] overflow-hidden img-hover-zoom rounded-t-3xl">
+                    <img
+                      src={benefit.image}
                       alt={benefit.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
-                  <CardContent className="pt-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      <Icon className="h-6 w-6" />
+                  <div className="p-8">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full mb-5 transition-colors duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: 'rgba(90,113,97,0.1)', color: '#5A7161' }}>
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="text-xl font-semibold font-heading text-foreground">
+                    <h3 className="font-heading font-medium text-2xl mb-3" style={{ color: '#2C352D' }}>
                       {benefit.title}
                     </h3>
-                    <p className="mt-3 text-muted-foreground">
+                    <p className="leading-relaxed" style={{ color: '#5E6C60' }}>
                       {benefit.description}
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Pour qui Section - Enrichie V3 */}
-      <section className="py-20 bg-muted">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
-              Pour qui ?
-            </h2>
-            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-              Particulièrement adapté aux praticiens et indépendants en cabinet, consultation ou accompagnement :
+      {/* ================================================================
+          SÉPARATEUR NATURE — bande paysage immersive
+      ================================================================ */}
+      <div className="relative h-64 overflow-hidden" style={{ margin: '0' }}>
+        <img
+          src={IMAGES.divider}
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 50%', filter: 'saturate(0.8) brightness(0.85)' }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center"
+          style={{ background: 'rgba(249,246,240,0.55)' }}>
+          <div className="text-center px-6">
+            <p className="font-heading text-2xl sm:text-3xl font-medium" style={{ color: '#2C352D' }}>
+              "Redonner du temps aux soignants, c'est leur permettre de soigner mieux."
             </p>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
-            {targetAudiences.map((profession, index) => (
-              <div 
-                key={index} 
-                className="bg-white border border-gray-200 rounded-md px-3 py-2 text-center text-sm text-gray-700 hover:border-primary hover:bg-primary/5 transition-all duration-300"
-              >
-                {profession}
+        </div>
+      </div>
+
+      {/* ================================================================
+          POUR QUI — audiences
+      ================================================================ */}
+      <section className="py-24" style={{ backgroundColor: '#F4F0E8' }}>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div ref={audienceRef} className={`transition-all duration-700 ${audienceInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+              <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Pour qui ?</span>
+              <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#2C352D' }}>
+                Fait pour les praticiens<br />de l'accompagnement
+              </h2>
+              <p className="text-lg mb-8 leading-relaxed" style={{ color: '#5E6C60' }}>
+                Particulièrement adapté aux professions du soin, du bien-être et de l'accompagnement humain :
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {targetAudiences.slice(0, 14).map((profession, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-colors duration-200"
+                    style={{ backgroundColor: '#FFFFFF', color: '#5E6C60', border: '1px solid #E2DFD8' }}
+                  >
+                    <Check className="h-3.5 w-3.5 flex-shrink-0" style={{ color: '#5A7161' }} />
+                    {profession}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Card className="inline-block bg-white/80 border-primary/30 max-w-2xl">
-              <CardContent className="pt-6">
-                <h3 className="font-semibold text-foreground mb-2">Ce que vous obtenez</h3>
-                <ul className="text-left text-sm text-gray-700 space-y-2">
+              <Link to="/exemples" className="inline-flex items-center gap-2 mt-6 font-medium transition-colors" style={{ color: '#5A7161' }}>
+                Voir tous les exemples <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="relative">
+              {/* Feature list card */}
+              <div className="rounded-3xl p-10" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8', boxShadow: '0 8px 24px rgba(90,113,97,0.10)' }}>
+                <h3 className="font-heading font-medium text-2xl mb-6" style={{ color: '#2C352D' }}>
+                  Ce que vous obtenez
+                </h3>
+                <ul className="space-y-4">
                   {whatYouGet.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center mt-0.5"
+                        style={{ backgroundColor: 'rgba(90,113,97,0.12)', color: '#5A7161' }}>
+                        <Check className="h-3.5 w-3.5" />
+                      </div>
+                      <span className="leading-snug" style={{ color: '#2C352D' }}>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
+              </div>
+              {/* Decorative element */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-20 blur-xl"
+                style={{ backgroundColor: '#C27A62' }} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Côté client Section */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* ================================================================
+          CÔTÉ CLIENT & PRATICIEN — deux colonnes avec images
+      ================================================================ */}
+      <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-24">
+          {/* Côté client */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
-                Côté client : une réservation simple et rassurante
+              <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Pour vos clients</span>
+              <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#2C352D' }}>
+                Une réservation simple<br />et rassurante
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg mb-8 leading-relaxed" style={{ color: '#5E6C60' }}>
                 Vos clients choisissent un créneau en quelques secondes. Ils reçoivent une confirmation et des rappels (email, SMS selon l'offre).
               </p>
               <ul className="space-y-4">
                 {[
-                  { icon: Smartphone, text: 'Mobile et ordinateur' },
-                  { icon: Shield, text: 'Messages à votre nom' },
-                  { icon: Calendar, text: 'Annuler / déplacer facilement' }
+                  { icon: Smartphone, text: 'Mobile et ordinateur, sans application à installer' },
+                  { icon: Shield, text: 'Messages et pages à votre nom uniquement' },
+                  { icon: Calendar, text: 'Annuler ou déplacer facilement, en autonomie' }
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
+                        style={{ backgroundColor: 'rgba(90,113,97,0.10)', color: '#5A7161' }}>
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className="text-foreground font-medium">{item.text}</span>
+                      <span className="font-medium" style={{ color: '#2C352D' }}>{item.text}</span>
                     </li>
                   );
                 })}
               </ul>
             </div>
-            <div className="flex justify-center">
-              <div className="relative max-w-sm">
-                <img 
-                  src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" 
-                  alt="Interface mobile de réservation"
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
+            <div className="rounded-3xl overflow-hidden img-hover-zoom shadow-warm-lg">
+              <img
+                src={IMAGES.sideClient}
+                alt="Client en séance de bien-être"
+                className="w-full h-80 lg:h-96 object-cover"
+              />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Côté praticien Section */}
-      <section className="py-20 bg-muted">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 flex justify-center">
-              <div className="relative max-w-sm">
-                <img 
-                  src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80" 
-                  alt="Interface praticien"
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
+          {/* Côté praticien */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 rounded-3xl overflow-hidden img-hover-zoom shadow-warm-lg">
+              <img
+                src={IMAGES.sidePractitioner}
+                alt="Praticienne en consultation"
+                className="w-full h-80 lg:h-96 object-cover"
+              />
             </div>
             <div className="order-1 lg:order-2">
-              <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
-                Côté praticien : tout est cadré
+              <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Pour vous</span>
+              <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#2C352D' }}>
+                Tout est cadré,<br />vous gardez la main
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Vous gardez la main sur vos règles : durées, motifs, indisponibilités, acompte, notes internes (selon l'offre).
+              <p className="text-lg mb-8 leading-relaxed" style={{ color: '#5E6C60' }}>
+                Vous gérez vos règles : durées, motifs, indisponibilités, acomptes et notes internes (selon l'offre).
               </p>
               <ul className="space-y-4">
                 {[
-                  { icon: Calendar, text: 'Agenda & disponibilité' },
-                  { icon: Shield, text: 'Historique client' },
-                  { icon: Check, text: 'Rappels & paiements (selon l\'offre)' }
+                  { icon: Calendar, text: 'Agenda et disponibilités en temps réel' },
+                  { icon: Shield, text: 'Historique client complet et confidentiel' },
+                  { icon: Check, text: 'Rappels et paiements automatisés (selon l\'offre)' }
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <li key={index} className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
+                        style={{ backgroundColor: 'rgba(90,113,97,0.10)', color: '#5A7161' }}>
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className="text-foreground font-medium">{item.text}</span>
+                      <span className="font-medium" style={{ color: '#2C352D' }}>{item.text}</span>
                     </li>
                   );
                 })}
@@ -292,116 +350,151 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Offres aperçu Section */}
-      <section className="py-20 bg-white">
+      {/* ================================================================
+          OFFRES APERÇU — spa menu premium
+      ================================================================ */}
+      <section className="py-24" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
-              Nos formules
-            </h2>
-            <p className="text-base sm:text-lg text-gray-700">
+          <div className="text-center mb-16">
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Nos formules</span>
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               À partir de 29€ / mois TTC
-            </p>
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+          <div ref={pricingRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
             {offers.slice(0, 3).map((offer, index) => (
-              <Card key={offer.id} className={`border-border hover:border-primary transition-all duration-300 ${offer.highlight ? 'border-primary border-2 shadow-lg scale-105' : ''}`}>
-                <CardContent className="pt-6 text-center">
-                  {offer.highlight && offer.badge && (
-                    <div className="mb-4">
-                      <span className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                        {offer.badge}
-                      </span>
-                    </div>
-                  )}
-                  <h3 className="text-xl font-semibold font-heading text-foreground mb-2">{offer.name}</h3>
-                  <p className="text-2xl font-bold text-primary mb-2">{offer.price}</p>
-                  <p className="text-xs text-gray-600 mb-3">+ {offer.installation} (une fois)</p>
-                  <p className="text-sm text-gray-700">{offer.description}</p>
-                </CardContent>
-              </Card>
+              <div
+                key={offer.id}
+                className={`rounded-3xl p-8 transition-all duration-700 ${
+                  pricingInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                } ${offer.highlight ? 'ring-2 scale-105' : ''}`}
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                  backgroundColor: offer.highlight ? '#5A7161' : '#FFFFFF',
+                  color: offer.highlight ? '#FFFFFF' : '#2C352D',
+                  border: offer.highlight ? 'none' : '1px solid #E2DFD8',
+                  boxShadow: offer.highlight ? '0 16px 40px rgba(90,113,97,0.25)' : '0 2px 8px rgba(90,113,97,0.06)',
+                  ringColor: '#5A7161'
+                }}
+              >
+                {offer.highlight && offer.badge && (
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full mb-4 inline-block"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#FFFFFF' }}>
+                    {offer.badge}
+                  </span>
+                )}
+                <h3 className="font-heading font-medium text-2xl mb-1">{offer.name}</h3>
+                <p className="text-3xl font-bold my-3" style={{ color: offer.highlight ? '#FFFFFF' : '#5A7161' }}>
+                  {offer.price}
+                </p>
+                <p className="text-xs mb-4" style={{ color: offer.highlight ? 'rgba(255,255,255,0.7)' : '#5E6C60' }}>
+                  + {offer.installation} (installation)
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: offer.highlight ? 'rgba(255,255,255,0.85)' : '#5E6C60' }}>
+                  {offer.description}
+                </p>
+              </div>
             ))}
           </div>
 
           <div className="text-center">
             <Link to="/offres">
-              <Button size="lg" className="bg-primary hover:bg-primary-hover text-white font-medium rounded-sm shadow-md hover:shadow-lg transition-all duration-300 mb-3">
-                Comparer les offres
+              <Button
+                size="lg"
+                className="rounded-full text-white font-medium px-8"
+                style={{ backgroundColor: '#5A7161' }}
+              >
+                Comparer toutes les offres
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <p className="text-sm text-gray-600">
+            <p className="mt-3 text-sm" style={{ color: '#5E6C60' }}>
               Installation guidée + support humain inclus dans toutes les offres
             </p>
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-20 bg-muted">
+      {/* ================================================================
+          COMMENT ÇA MARCHE
+      ================================================================ */}
+      <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+          <div className="text-center mb-16">
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Le processus</span>
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Comment ça fonctionne ?
             </h2>
           </div>
 
-          <div ref={processRef} className="mx-auto mt-16 max-w-5xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {howItWorks.map((item, index) => (
-                <div 
-                  key={item.step} 
-                  className={`relative group transition-all duration-700 ease-out ${
-                    processInView 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-10'
-                  }`}
-                  style={{
-                    transitionDelay: processInView ? `${index * 150}ms` : '0ms'
-                  }}
-                >
-                  <Card className="border-border hover:border-primary transition-all duration-300 h-full">
-                    <CardContent className="pt-6">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white text-xl font-bold font-heading shadow-md mb-6">
-                        {item.step}
-                      </div>
-                      <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{item.title}</h3>
-                      <p className="text-gray-700">{item.description}</p>
-                    </CardContent>
-                  </Card>
+          <div ref={processRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {howItWorks.map((item, index) => (
+              <div
+                key={item.step}
+                className={`group rounded-3xl p-8 transition-all duration-700 hover:-translate-y-2 ${
+                  processInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{
+                  transitionDelay: `${index * 150}ms`,
+                  backgroundColor: '#F4F0E8',
+                  border: '1px solid #E2DFD8'
+                }}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full text-white text-xl font-bold font-heading shadow-warm-sm mb-6"
+                  style={{ backgroundColor: '#5A7161' }}>
+                  {item.step}
                 </div>
-              ))}
-            </div>
+                <h3 className="font-heading font-medium text-xl mb-3" style={{ color: '#2C352D' }}>
+                  {item.title}
+                </h3>
+                <p className="leading-relaxed" style={{ color: '#5E6C60' }}>{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ courte Section */}
-      <section className="py-20 bg-white">
+      {/* ================================================================
+          FAQ
+      ================================================================ */}
+      <section className="py-24" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Questions fréquentes
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.slice(0, 6).map((faq) => (
-              <AccordionItem key={faq.id} value={faq.id} className="bg-white border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="rounded-2xl px-6"
+                style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}
+              >
+                <AccordionTrigger
+                  className="text-left font-semibold py-5 hover:no-underline"
+                  style={{ color: '#2C352D' }}
+                >
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700">
+                <AccordionContent className="pb-5 leading-relaxed" style={{ color: '#5E6C60' }}>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <Link to="/solution#faq">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+              <Button
+                variant="outline"
+                className="rounded-full px-8 font-medium"
+                style={{ borderColor: '#5A7161', color: '#5A7161' }}
+                data-testid="see-all-faq-btn"
+              >
                 Voir toutes les questions
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -410,21 +503,41 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-secondary text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* ================================================================
+          CTA FINAL — fond forêt profond
+      ================================================================ */}
+      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#2C352D' }}>
+        {/* Organic subtle glow */}
+        <div className="absolute inset-0 opacity-30"
+          style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(90,113,97,0.6) 0%, transparent 60%)' }} />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-              Prêt à simplifier votre gestion des rendez-vous ?
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#F9F6F0' }}>
+              Prêt à simplifier votre<br />gestion des rendez-vous ?
             </h2>
-            <p className="mt-6 text-base sm:text-lg leading-relaxed text-blue-100">
-              Parlez-nous de votre pratique lors d'un échange sans engagement. Nous vous conseillerons l'offre la plus adaptée et répondrons à toutes vos questions.
+            <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(249,246,240,0.75)' }}>
+              Parlez-nous de votre pratique lors d'un échange sans engagement. Nous vous conseillerons l'offre la plus adaptée.
             </p>
-            <div className="mt-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-secondary hover:bg-gray-100 font-medium shadow-lg hover:shadow-xl transition-all duration-300 rounded-sm">
+                <Button
+                  size="lg"
+                  className="rounded-full font-medium px-8"
+                  style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}
+                  data-testid="home-final-cta-button"
+                >
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/offres">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8"
+                  style={{ borderColor: 'rgba(249,246,240,0.3)', color: '#F9F6F0' }}
+                >
+                  Voir les offres
                 </Button>
               </Link>
             </div>

@@ -73,81 +73,51 @@ const Contact = () => {
         title="Parlez-nous de votre pratique"
         description="Réponse sous 24h ouvrées • Vous hésitez entre 2 offres ? On vous oriente."
         showCta={false}
-        backgroundImage="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1765447041709-9f1efbc81606?crop=entropy&cs=srgb&fm=jpg&q=85"
       />
 
       {/* Contact Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-1 space-y-8">
+            <div className="lg:col-span-1 space-y-6">
               <div>
-                <h2 className="text-2xl font-bold font-heading text-foreground mb-8">Nos coordonnées</h2>
+                <h2 className="font-heading font-medium text-3xl mb-6" style={{ color: '#2C352D' }}>
+                  Nos coordonnées
+                </h2>
               </div>
 
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                      <a href={`mailto:${contactInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
-                        {contactInfo.email}
-                      </a>
-                    </div>
+              {[
+                { Icon: Mail, label: 'Email', content: contactInfo.email, href: `mailto:${contactInfo.email}` },
+                { Icon: Phone, label: 'Téléphone', content: contactInfo.phone, note: 'Lun–Ven • 9h–18h', href: `tel:${contactInfo.phone.replace(/\s/g, '')}` },
+                { Icon: MapPin, label: 'Localisation', content: contactInfo.locationShort, href: null },
+              ].map(({ Icon, label, content, note, href }, i) => (
+                <div key={i} className="flex items-start gap-4 p-6 rounded-2xl" style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}>
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: 'rgba(90,113,97,0.12)', color: '#5A7161' }}>
+                    <Icon className="h-5 w-5" />
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-sky-100 text-sky-800">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">Téléphone</h3>
-                      <a href={`tel:+33${contactInfo.phone.replace(/\s/g, '').substring(1)}`} className="text-muted-foreground hover:text-primary transition-colors">
-                        {contactInfo.phone}
-                      </a>
-                      <p className="text-sm text-neutral-500 mt-1">
-                        Du lundi au vendredi<br />
-                        9h00 - 18h00
-                      </p>
-                    </div>
+                  <div>
+                    <h3 className="font-semibold mb-1" style={{ color: '#2C352D' }}>{label}</h3>
+                    {href ? (
+                      <a href={href} className="transition-colors hover:underline" style={{ color: '#5E6C60' }}>{content}</a>
+                    ) : (
+                      <p style={{ color: '#5E6C60' }}>{content}</p>
+                    )}
+                    {note && <p className="text-xs mt-1" style={{ color: '#5E6C60', opacity: 0.7 }}>{note}</p>}
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">Localisation</h3>
-                      <p className="text-muted-foreground">
-                        {contactInfo.locationShort}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+              ))}
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="border-border">
-                <CardContent className="pt-8">
-                  <h2 className="text-2xl font-bold font-heading text-foreground mb-6">
-                    Envoyez-nous un message
-                  </h2>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="rounded-3xl p-8 lg:p-10" style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}>
+                <h2 className="font-heading font-medium text-3xl mb-8" style={{ color: '#2C352D' }}>
+                  Envoyez-nous un message
+                </h2>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -268,36 +238,37 @@ const Contact = () => {
                       </label>
                     </div>
 
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       disabled={isSubmitting || !formData.gdprConsent}
-                      className="w-full bg-primary hover:bg-primary-hover text-white"
+                      className="w-full rounded-full text-white font-medium"
+                      style={{ backgroundColor: '#5A7161' }}
                       size="lg"
+                      data-testid="contact-submit-button"
                     >
                       {isSubmitting ? 'Envoi en cours...' : 'Envoyer votre message'}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
 
-                    <p className="text-xs text-center text-muted-foreground mt-2">
+                    <p className="text-xs text-center mt-2" style={{ color: '#5E6C60' }}>
                       Réponse sous 24h ouvrées (urgences &lt; 6h)
                     </p>
                   </form>
-                </CardContent>
-              </Card>
+                </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Info Section */}
-      <section className="py-20 bg-muted">
+      <section className="py-16" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-bold font-heading text-foreground mb-4">
+            <h2 className="font-heading font-medium text-3xl mb-4" style={{ color: '#2C352D' }}>
               Délai de réponse
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Nous nous engageons à vous répondre sous 24 heures ouvrées. 
+            <p className="text-lg leading-relaxed" style={{ color: '#5E6C60' }}>
+              Nous nous engageons à vous répondre sous 24 heures ouvrées.
               Pour toute urgence, n'hésitez pas à nous contacter directement par téléphone.
             </p>
           </div>
