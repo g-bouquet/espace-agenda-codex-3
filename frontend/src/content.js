@@ -23,18 +23,14 @@ export const heroHome = {
 };
 
 // ========================
-// POUR QUI ? (enrichi)
+// POUR QUI ? (liste exacte - 29 professions)
 // ========================
 export const targetAudiences = [
   'Psychologues',
-  'Psychothérapeutes',
-  'Psychiatres',
   'Psychopraticiens',
   'Psychanalystes',
-  'Coachs de vie',
-  'Coachs professionnels',
-  'Coachs sportifs',
-  'Thérapeutes (art-thérapie, musicothérapie, etc.)',
+  'Coachs',
+  'Thérapeutes',
   'Sophrologues',
   'Hypnothérapeutes',
   'Naturopathes',
@@ -53,27 +49,72 @@ export const targetAudiences = [
   'Ergothérapeutes',
   'Psychomotriciens',
   'Acupuncteurs',
-  'Homéopathes',
-  'Podologues',
-  'Masseurs-kinésithérapeutes',
   'Étiopathes',
-  'Audioprothésistes',
-  'Orthoptistes',
   'Pédicures-podologues',
-  'Conseillers en nutrition',
-  'Coachs en développement personnel',
   'Thérapeutes de couple',
   'Conseillers en orientation',
-  'Hypnopraticiens',
   'Praticiens EFT / EMDR',
-  'Praticiens Reiki',
-  'Magnétiseurs',
-  'Astrologues / Numérologues',
-  'Tarologues',
-  'Conseillers en image',
-  'Personal trainers',
-  'Professeurs de yoga',
-  'Professeurs de pilates'
+  'Conseillers en image'
+];
+
+// ========================
+// PROFESSIONS GROUPÉES (par catégorie)
+// ========================
+export const professionsGrouped = [
+  {
+    category: 'Psychologie & Accompagnement',
+    professions: [
+      'Psychologues',
+      'Psychopraticiens',
+      'Psychanalystes',
+      'Coachs',
+      'Thérapeutes',
+      'Thérapeutes de couple'
+    ]
+  },
+  {
+    category: 'Bien-être & Énergétique',
+    professions: [
+      'Sophrologues',
+      'Hypnothérapeutes',
+      'Naturopathes',
+      'Énergéticiens',
+      'Praticiens en médecines douces',
+      'Praticiens EFT / EMDR'
+    ]
+  },
+  {
+    category: 'Corps & Thérapies manuelles',
+    professions: [
+      'Ostéopathes',
+      'Kinésithérapeutes',
+      'Chiropracteurs',
+      'Acupuncteurs',
+      'Étiopathes',
+      'Praticiens en shiatsu / réflexologie'
+    ]
+  },
+  {
+    category: 'Santé & Paramédical',
+    professions: [
+      'Orthophonistes',
+      'Ergothérapeutes',
+      'Psychomotriciens',
+      'Pédicures-podologues',
+      'Diététiciens / Nutritionnistes'
+    ]
+  },
+  {
+    category: 'Conseil & Orientation',
+    professions: [
+      'Conseillers conjugaux et familiaux',
+      'Médiateurs',
+      'Consultants indépendants',
+      'Formateurs / Enseignants particuliers',
+      'Conseillers en orientation',
+      'Conseillers en image'
+    ]
+  }
 ];
 
 // ========================
@@ -534,6 +575,42 @@ export const blogPosts = [
     date: '2025-01-01',
     category: 'Tutoriels',
     image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=400&fit=crop'
+  }
+];
+
+// ========================
+// FAQ EXEMPLES (spécifiques à la page exemples)
+// ========================
+export const faqsExemples = [
+  {
+    id: 'faq-ex-1',
+    question: 'Puis-je voir un exemple concret avant de décider ?',
+    answer: 'Oui, absolument. Nous avons créé une démo en ligne que vous pouvez parcourir librement : mini-site complet pour une thérapeute, avec page de présentation, services, réservation en ligne et rappels automatiques. Vous pouvez aussi nous demander une démo personnalisée adaptée à votre métier lors d\'un échange de 15 minutes. Lien de démo disponible directement sur cette page.'
+  },
+  {
+    id: 'faq-ex-2',
+    question: 'Est-ce vraiment adapté à mon métier spécifique ?',
+    answer: 'Oui. Espace Agenda est conçu pour être flexible et s\'adapte à une grande variété de pratiques : consultations individuelles, séances en groupe, visio ou présentiel, durées variables, services multiples. Si votre activité implique de gérer des rendez-vous avec des clients ou patients, la solution peut être configurée pour votre cas précis. En cas de doute, contactez-nous : nous évaluerons ensemble si notre outil répond à vos besoins spécifiques.'
+  },
+  {
+    id: 'faq-ex-3',
+    question: 'À quoi ressemble l\'expérience pour mes clients ?',
+    answer: 'Vos clients accèdent à votre page de réservation depuis n\'importe quel appareil (mobile, tablette, ordinateur). Ils voient vos services disponibles, choisissent un créneau selon vos disponibilités, renseignent leurs coordonnées et confirment leur réservation. Ils reçoivent ensuite un email de confirmation avec tous les détails (lieu, durée, lien de visio si applicable) et des rappels automatiques à l\'approche du rendez-vous. L\'expérience est fluide, rapide et rassurante.'
+  },
+  {
+    id: 'faq-ex-4',
+    question: 'Puis-je personnaliser complètement le style visuel ?',
+    answer: 'Oui, entièrement. Votre logo, vos couleurs, vos textes de présentation, vos services et tarifs — tout est personnalisé à votre identité professionnelle. Vos clients ne voient aucune mention d\'un outil tiers. Nous nous chargeons de la configuration et du design lors de l\'installation. Si vous avez déjà un site internet, nous pouvons intégrer directement la réservation pour une cohérence parfaite.'
+  },
+  {
+    id: 'faq-ex-5',
+    question: 'Combien de temps faut-il pour que ma page soit en ligne ?',
+    answer: 'En général, une page de réservation standard est opérationnelle sous 7 à 14 jours ouvrés après votre inscription et le remplissage de notre formulaire de besoins. Ce délai inclut le paramétrage complet, les tests, et votre formation de 30 minutes. Pour des configurations plus avancées (intégration sur site existant, activation des paiements, formulaires sur mesure), le délai peut être légèrement plus long. Nous vous communiquons un planning précis dès le démarrage.'
+  },
+  {
+    id: 'faq-ex-6',
+    question: 'Mon métier ne figure pas dans la liste — est-ce possible quand même ?',
+    answer: 'Tout à fait ! La liste de professions présentée est indicative et non exhaustive. Si votre activité implique la gestion de rendez-vous avec des clients individuels ou en groupe, Espace Agenda peut très probablement s\'adapter. Nous avons déjà mis en place des solutions pour des professions très variées. Contactez-nous avec une description de votre activité et nous vous dirons en toute transparence si et comment nous pouvons vous aider.'
   }
 ];
 

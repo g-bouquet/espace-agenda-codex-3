@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Check, ArrowRight, X } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Card, CardContent, CardHeader } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
+import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { offers, faqsOffres, globalCTA } from '../content';
 import HeroSection from '../components/HeroSection';
@@ -15,85 +14,99 @@ const Offres = () => {
         title="Des offres simples, adaptées à"
         titleHighlight="votre pratique"
         description="Installation guidée, accompagnement humain, support réactif. Tarifs TTC. France."
-        backgroundImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1683056242525-9e0e9883a42e?crop=entropy&cs=srgb&fm=jpg&q=85"
         ctaText={globalCTA.primary}
         ctaLink="/contact"
         showCta={true}
       />
 
       {/* Offres principales */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Nos formules</span>
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               Nos offres
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg" style={{ color: '#5E6C60' }}>
               Choisissez la formule adaptée à votre activité
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {offers.filter(o => !o.isBanner).map((offer) => (
-              <Card 
-                key={offer.id} 
-                className={`relative border-2 hover:shadow-xl transition-all duration-300 ${
-                  offer.highlight 
-                    ? 'border-primary shadow-lg scale-105' 
-                    : 'border-border'
+              <div
+                key={offer.id}
+                className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${
+                  offer.highlight ? 'scale-105' : ''
                 }`}
+                style={{
+                  backgroundColor: offer.highlight ? '#5A7161' : '#FFFFFF',
+                  border: offer.highlight ? 'none' : '1px solid #E2DFD8',
+                  boxShadow: offer.highlight ? '0 16px 40px rgba(90,113,97,0.25)' : '0 2px 8px rgba(90,113,97,0.06)'
+                }}
               >
                 {offer.highlight && offer.badge && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <Badge className="bg-primary text-white px-6 py-1 text-sm">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="text-xs font-semibold px-4 py-1 rounded-full" style={{ backgroundColor: '#C27A62', color: '#FFFFFF' }}>
                       {offer.badge}
-                    </Badge>
+                    </span>
                   </div>
                 )}
-                
-                <CardHeader className="flex-grow">
-                  <h3 className="text-2xl font-bold font-heading text-foreground">{offer.name}</h3>
-                  <p className="mt-2 text-gray-700 text-sm">{offer.description}</p>
-                  <div className="mt-6">
-                    <span className="text-3xl font-bold font-heading text-foreground">{offer.price}</span>
-                    {offer.installation && (
-                      <p className="mt-2 text-sm text-gray-600">Installation : {offer.installation}</p>
-                    )}
-                    {offer.sms && (
-                      <p className="mt-1 text-xs text-gray-600">{offer.sms}</p>
-                    )}
-                  </div>
-                </CardHeader>
 
-                <CardContent className="pt-0">
-                  <ul className="space-y-3 mb-8">
-                    {offer.features.slice(0, 8).map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                    {offer.features.length > 8 && (
-                      <li className="text-sm text-primary font-medium">
-                        + {offer.features.length - 8} autres fonctionnalités
-                      </li>
-                    )}
-                  </ul>
+                <h3 className="font-heading font-medium text-2xl mb-2" style={{ color: offer.highlight ? '#F9F6F0' : '#2C352D' }}>
+                  {offer.name}
+                </h3>
+                <p className="text-sm mb-4 leading-relaxed" style={{ color: offer.highlight ? 'rgba(249,246,240,0.75)' : '#5E6C60' }}>
+                  {offer.description}
+                </p>
+                <div className="mb-6">
+                  <span className="text-3xl font-bold font-heading" style={{ color: offer.highlight ? '#F9F6F0' : '#5A7161' }}>
+                    {offer.price}
+                  </span>
+                  {offer.installation && (
+                    <p className="mt-1 text-xs" style={{ color: offer.highlight ? 'rgba(249,246,240,0.6)' : '#5E6C60' }}>
+                      + {offer.installation} (installation)
+                    </p>
+                  )}
+                  {offer.sms && (
+                    <p className="mt-1 text-xs font-medium" style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#5A7161' }}>
+                      {offer.sms}
+                    </p>
+                  )}
+                </div>
 
-                  <Link to="/contact">
-                    <Button 
-                      className={`w-full ${
-                        offer.highlight
-                          ? 'bg-primary hover:bg-primary-hover text-white'
-                          : 'bg-neutral-900 hover:bg-neutral-800 text-white'
-                      }`}
-                    >
-                      {globalCTA.primary}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+                <ul className="space-y-2.5 mb-8">
+                  {offer.features.slice(0, 8).map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2.5">
+                      <span className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-0.5"
+                        style={{ backgroundColor: offer.highlight ? 'rgba(249,246,240,0.2)' : 'rgba(90,113,97,0.12)', color: offer.highlight ? '#F9F6F0' : '#5A7161' }}>
+                        <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="text-sm" style={{ color: offer.highlight ? 'rgba(249,246,240,0.9)' : '#5E6C60' }}>{feature}</span>
+                    </li>
+                  ))}
+                  {offer.features.length > 8 && (
+                    <li className="text-sm font-medium" style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#5A7161' }}>
+                      + {offer.features.length - 8} autres fonctionnalités
+                    </li>
+                  )}
+                </ul>
+
+                <Link to="/contact">
+                  <button
+                    className="w-full py-3 rounded-full text-sm font-semibold transition-all duration-200"
+                    style={{
+                      backgroundColor: offer.highlight ? '#F9F6F0' : '#5A7161',
+                      color: offer.highlight ? '#2C352D' : '#FFFFFF'
+                    }}
+                  >
+                    {globalCTA.primary} →
+                  </button>
+                </Link>
+              </div>
             ))}
           </div>
 
@@ -140,7 +153,7 @@ const Offres = () => {
       </section>
 
       {/* Tableau comparatif */}
-      <section className="py-20 bg-muted">
+      <section className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
@@ -203,21 +216,29 @@ const Offres = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Questions fréquentes
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqsOffres.map((faq) => (
-              <AccordionItem key={faq.id} value={faq.id} className="bg-white border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="rounded-2xl px-6"
+                style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}
+              >
+                <AccordionTrigger
+                  className="text-left font-semibold py-5 hover:no-underline"
+                  style={{ color: '#2C352D' }}
+                >
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700">
+                <AccordionContent className="pb-5 leading-relaxed" style={{ color: '#5E6C60' }}>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

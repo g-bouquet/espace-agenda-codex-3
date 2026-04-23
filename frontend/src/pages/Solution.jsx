@@ -24,18 +24,18 @@ const Solution = () => {
   const { ref: compareRef, inView: compareInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   const integrations = [
-    { name: 'Google Agenda', icon: Calendar, color: 'bg-[#F4F0E8] text-[#5A7161]' },
-    { name: 'Outlook', icon: Mail, color: 'bg-[#F4F0E8] text-[#5E6C60]' },
-    { name: 'Apple Calendar', icon: Calendar, color: 'bg-[#F4F0E8] text-[#2C352D]' },
-    { name: 'Zoom', icon: Phone, color: 'bg-[#F4F0E8] text-[#5A7161]' },
-    { name: 'Google Meet', icon: MessageSquare, color: 'bg-[#F4F0E8] text-[#5A7161]' },
-    { name: 'Google Analytics', icon: BarChart3, color: 'bg-[#FDF8F4] text-[#C27A62]' },
-    { name: 'Stripe / Paiements', icon: CreditCard, color: 'bg-[#F4F0E8] text-[#5E6C60]' },
-    { name: 'Zapier / API', icon: Zap, color: 'bg-[#FDF8F4] text-[#C27A62]' },
-    { name: 'Mailchimp', icon: Mail, color: 'bg-[#FDF8F4] text-[#C27A62]' },
-    { name: 'Google Tag Manager', icon: Settings, color: 'bg-[#F4F0E8] text-[#5E6C60]' },
-    { name: 'WordPress', icon: Globe, color: 'bg-[#F4F0E8] text-[#2C352D]' },
-    { name: 'Facebook Pixel', icon: Database, color: 'bg-[#F4F0E8] text-[#5A7161]' },
+    { name: 'Google Agenda', icon: Calendar },
+    { name: 'Outlook', icon: Mail },
+    { name: 'Apple Calendar', icon: Calendar },
+    { name: 'Zoom', icon: Phone },
+    { name: 'Google Meet', icon: MessageSquare },
+    { name: 'Google Analytics', icon: BarChart3 },
+    { name: 'Stripe / Paiements', icon: CreditCard },
+    { name: 'Zapier / API', icon: Zap },
+    { name: 'Mailchimp', icon: Mail },
+    { name: 'Google Tag Manager', icon: Settings },
+    { name: 'WordPress', icon: Globe },
+    { name: 'Facebook Pixel', icon: Database },
   ];
 
   const comparisonRows = [
@@ -282,10 +282,13 @@ const Solution = () => {
               return (
                 <div
                   key={index}
-                  className={`flex flex-col items-center gap-2 p-4 rounded-xl border border-gray-100 hover:border-primary hover:shadow-md transition-all duration-300 ${integration.color}`}
+                  className="flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all duration-300 hover:shadow-warm-md hover:-translate-y-1"
+                  style={{ backgroundColor: '#F4F0E8', borderColor: '#E2DFD8', color: '#5A7161' }}
                 >
-                  <Icon className="h-6 w-6" />
-                  <span className="text-xs font-medium text-center leading-tight">{integration.name}</span>
+                  <div className="h-9 w-9 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(90,113,97,0.12)' }}>
+                    <Icon className="h-5 w-5" style={{ color: '#5A7161' }} />
+                  </div>
+                  <span className="text-xs font-medium text-center leading-tight" style={{ color: '#2C352D' }}>{integration.name}</span>
                 </div>
               );
             })}

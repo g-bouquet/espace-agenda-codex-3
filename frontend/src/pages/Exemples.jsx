@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Calendar, Heart, ExternalLink } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import HeroSection from '../components/HeroSection';
-import { globalCTA, targetAudiences } from '../content';
+import { globalCTA, professionsGrouped, faqsExemples } from '../content';
 
 const Exemples = () => {
   const useCases = [
@@ -38,7 +39,7 @@ const Exemples = () => {
         titleHighlight="et côté praticien ?"
         description="Une expérience de réservation claire et rassurante, sur mobile comme sur ordinateur."
         ctaText="Voir un exemple"
-        backgroundImage="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1544027993-37dbfe43562a?crop=entropy&cs=srgb&fm=jpg&q=85"
       />
 
       {/* Demos Section */}
@@ -157,40 +158,84 @@ const Exemples = () => {
         </div>
       </section>
 
-      {/* Plus d'exemples de professions */}
-      <section className="py-20 bg-muted">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-4">
+      {/* Plus d'exemples de professions — grouped layout */}
+      <section className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="label-tag mb-3 block" style={{ color: '#C27A62' }}>Professions concernées</span>
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               Et bien d'autres professions
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg" style={{ color: '#5E6C60' }}>
               Espace Agenda s'adapte à votre pratique, quelle qu'elle soit
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-6xl mx-auto">
-            {targetAudiences.map((profession, index) => (
-              <div 
-                key={index} 
-                className="bg-white border border-gray-200 rounded-md px-3 py-2 text-center text-sm text-gray-700 hover:border-primary hover:bg-primary/5 transition-all duration-300"
-              >
-                {profession}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {professionsGrouped.map((group, gi) => (
+              <div key={gi} className="rounded-2xl p-6" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}>
+                <p className="label-tag mb-4" style={{ color: '#C27A62' }}>{group.category}</p>
+                <ul className="space-y-2">
+                  {group.professions.map((p, pi) => (
+                    <li key={pi} className="flex items-center gap-2 text-sm" style={{ color: '#2C352D' }}>
+                      <span className="h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#5A7161' }} />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-gray-700 mb-6">
+            <p className="mb-5" style={{ color: '#5E6C60' }}>
               Votre métier n'est pas dans la liste ? Aucun problème !
             </p>
             <Link to="/contact">
-              <Button variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
+              <Button
+                className="rounded-full font-medium px-8"
+                style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}
+              >
                 Discuter de mon cas
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
+              Questions fréquentes
+            </h2>
+            <p className="text-lg" style={{ color: '#5E6C60' }}>
+              Tout ce que vous voulez savoir sur les exemples et la compatibilité avec votre métier
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqsExemples.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="rounded-2xl px-6"
+                style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}
+              >
+                <AccordionTrigger
+                  className="text-left font-semibold py-5 hover:no-underline"
+                  style={{ color: '#2C352D' }}
+                >
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="pb-5 leading-relaxed" style={{ color: '#5E6C60' }}>
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 

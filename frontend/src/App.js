@@ -16,6 +16,7 @@ import { Toaster } from "./components/ui/sonner";
 
 // Admin pages
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import ScrollToTop from "./components/ScrollToTop";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminPosts from "./pages/admin/AdminPosts";
@@ -47,6 +48,7 @@ function App() {
     <AuthProvider>
       <div className="App">
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={

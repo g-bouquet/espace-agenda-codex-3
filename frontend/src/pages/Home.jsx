@@ -4,7 +4,7 @@ import { ArrowRight, Clock, Shield, Zap, Check, Smartphone, Calendar, Leaf } fro
 import { Button } from '../components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useInView } from 'react-intersection-observer';
-import { heroHome, whatYouGet, targetAudiences, offers, howItWorks, faqs, globalCTA } from '../content';
+import { heroHome, whatYouGet, professionsGrouped, offers, howItWorks, faqs, globalCTA } from '../content';
 
 // Images wellness sélectionnées
 const IMAGES = {
@@ -224,25 +224,24 @@ const Home = () => {
               <p className="text-lg mb-8 leading-relaxed" style={{ color: '#5E6C60' }}>
                 Particulièrement adapté aux professions du soin, du bien-être et de l'accompagnement humain :
               </p>
-              <div className="grid grid-cols-2 gap-2">
-                {targetAudiences.slice(0, 14).map((profession, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition-colors duration-200"
-                    style={{ backgroundColor: '#FFFFFF', color: '#5E6C60', border: '1px solid #E2DFD8' }}
-                  >
-                    <Check className="h-3.5 w-3.5 flex-shrink-0" style={{ color: '#5A7161' }} />
-                    {profession}
+              <div className="space-y-6">
+                {professionsGrouped.map((group, gi) => (
+                  <div key={gi}>
+                    <p className="label-tag mb-3" style={{ color: '#C27A62' }}>{group.category}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {group.professions.map((p, pi) => (
+                        <span key={pi} className="text-sm px-3 py-1 rounded-full font-medium"
+                          style={{ backgroundColor: 'rgba(90,113,97,0.08)', color: '#2C352D', border: '1px solid rgba(90,113,97,0.15)' }}>
+                          {p}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
-              <Link to="/exemples" className="inline-flex items-center gap-2 mt-6 font-medium transition-colors" style={{ color: '#5A7161' }}>
-                Voir tous les exemples <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
 
             <div className="relative">
-              {/* Feature list card */}
               <div className="rounded-3xl p-10" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8', boxShadow: '0 8px 24px rgba(90,113,97,0.10)' }}>
                 <h3 className="font-heading font-medium text-2xl mb-6" style={{ color: '#2C352D' }}>
                   Ce que vous obtenez
@@ -259,6 +258,9 @@ const Home = () => {
                   ))}
                 </ul>
               </div>
+              <Link to="/exemples" className="inline-flex items-center gap-2 mt-5 font-medium transition-colors text-sm" style={{ color: '#5A7161' }}>
+                Voir tous les métiers concernés <ArrowRight className="h-4 w-4" />
+              </Link>
               {/* Decorative element */}
               <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-20 blur-xl"
                 style={{ backgroundColor: '#C27A62' }} />
