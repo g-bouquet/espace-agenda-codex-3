@@ -1,0 +1,151 @@
+{
+  "theme": "light",
+  "archetype": "Organic & Earthy",
+  "emotional_tone": "Premium, calming, authentic, trustworthy, and human.",
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond, serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Use for all main titles, section headers, and hero text to evoke a premium, elegant, and holistic feel. Avoid generic sans-serif for headings.",
+      "tracking": "tracking-tight"
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "Clean, highly readable text for paragraphs, buttons, and navigation.",
+      "tracking": "tracking-normal"
+    },
+    "labels": {
+      "family": "Manrope, sans-serif",
+      "weights": ["600"],
+      "usage": "Uppercase, wide letter-spacing for subheadings, overlines, and tags.",
+      "tracking": "tracking-widest"
+    }
+  },
+  "colors": {
+    "background": {
+      "default": "#F9F6F0",
+      "description": "Warm sand / Off-white. Never use pure white for the main background to avoid a sterile tech feel."
+    },
+    "surface": {
+      "default": "#FFFFFF",
+      "description": "Pure white for cards and floating elements to create crisp contrast against the warm background."
+    },
+    "primary": {
+      "default": "#5A7161",
+      "hover": "#47594D",
+      "description": "Soft Sage / Forest Green. Represents growth, calm, and nature. Use for primary CTAs and important icons."
+    },
+    "secondary": {
+      "default": "#C27A62",
+      "hover": "#A6654F",
+      "description": "Terracotta/Earth. Warmth and grounding. Use for accents, active states, or secondary buttons."
+    },
+    "text": {
+      "primary": "#2C352D",
+      "secondary": "#5E6C60",
+      "description": "Deep charcoal tinted with green instead of pure black for a softer, organic contrast."
+    },
+    "border": {
+      "default": "#E2DFD8",
+      "description": "Subtle, warm grey/beige for dividers and card borders."
+    }
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "sm": "0 2px 8px rgba(90, 113, 97, 0.05)",
+      "md": "0 8px 24px rgba(90, 113, 97, 0.08)",
+      "lg": "0 16px 32px rgba(90, 113, 97, 0.12)"
+    },
+    "border_radius": {
+      "buttons": "9999px",
+      "cards": "1.5rem",
+      "images": "2rem"
+    },
+    "textures": "Consider a very subtle SVG noise overlay (opacity 1-2%) to give the background a tactile, paper-like feel."
+  },
+  "layouts_and_spacing": {
+    "spacing_system": "Generous. Use 2-3x typical spacing (e.g., py-24, gap-12). Let elements breathe to simulate a calm environment.",
+    "hero_section": "Edge-to-edge landscape background with a soft gradient overlay to ensure text readability. The overlay should be warm (e.g., #F9F6F0/40) rather than a harsh dark gradient.",
+    "bento_grid": "For the 'Solution' or 'Benefits' section, use asymmetrical bento grids with large gaps (gap-8) and mix text cards with high-quality practitioner images.",
+    "navbar": "Sticky, Glassmorphism. bg-[#F9F6F0]/80 with backdrop-blur-md and a subtle bottom border. Must feel premium and seamless."
+  },
+  "components": {
+    "buttons": "Pill-shaped (rounded-full). Primary buttons solid Sage Green. Secondary buttons outline with Terracotta or deep charcoal. Smooth hover lift (-translate-y-0.5).",
+    "cards": "White background, rounded-3xl, subtle warm shadow, 1px border of #E2DFD8. Padding must be generous (p-8 or p-10).",
+    "forms": "Inputs should have rounded-xl borders, soft backgrounds (#F4F1EA), and border-color transitioning to Sage Green on focus. No harsh blue rings.",
+    "accordion": "For FAQ. Clean, border-b only, smooth height transitions. Use a plus/minus icon that rotates, colored in Terracotta."
+  },
+  "motion_and_interactions": {
+    "library": "framer-motion",
+    "scroll": "Use Lenis for smooth momentum scrolling to give a premium feel.",
+    "animations": {
+      "page_load": "Soft fade-ins and gentle upward translations (y: 20 -> 0, duration: 0.8s, ease: easeOut).",
+      "scroll_reveal": "Staggered fade-ins for cards. Parallax effect for the hero background image.",
+      "hover": "Cards lift slightly. Images scale up very subtly (scale: 1.03) within an overflow-hidden container."
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure Deep Charcoal text over Warm Sand meets WCAG AA standards. Button text must be #FFFFFF on the Sage Green background.",
+    "focus_rings": "Focus states should use the Sage Green color, offset by 2px, to maintain brand consistency while remaining visible.",
+    "reduced_motion": "Respect prefers-reduced-motion for all framer-motion animations."
+  },
+  "media_and_images": {
+    "style": "Natural, human, warm. High-quality photography. Avoid tech devices, sterile clinical rooms, or cold blue lighting.",
+    "images": [
+      {
+        "category": "Hero Background",
+        "url": "https://images.pexels.com/photos/11117579/pexels-photo-11117579.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Sunlight beams through tall trees in a peaceful forest setting. Represents growth and calm."
+      },
+      {
+        "category": "Hero Background Alternative",
+        "url": "https://images.unsplash.com/photo-1621957908924-04b3870c30e9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBzdW5saWdodCUyMGxhbmRzY2FwZXxlbnwwfHx8fDE3NzY5NzM1ODZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Sun shining through the clouds over a forest."
+      },
+      {
+        "category": "Practitioner Benefits / Authentic Human Moment",
+        "url": "https://images.pexels.com/photos/6255599/pexels-photo-6255599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "A woman in therapy, engaged in discussion with a professional therapist. Natural light, warm atmosphere."
+      },
+      {
+        "category": "Practitioner Benefits 2",
+        "url": "https://images.pexels.com/photos/23496505/pexels-photo-23496505.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "A therapist and a client engaging in a counseling session in a bright, modern office."
+      },
+      {
+        "category": "Manual Care / Wellness Services",
+        "url": "https://images.pexels.com/photos/4599428/pexels-photo-4599428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Professional therapist performing a relaxing hand massage, enhancing wellness."
+      },
+      {
+        "category": "Manual Care / Wellness Services 2",
+        "url": "https://images.unsplash.com/photo-1757689314932-bec6e9c39e51?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwxfHxzcGElMjBoYW5kcyUyMG1hc3NhZ2V8ZW58MHx8fHwxNzc2OTczNTg1fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Hands massaging a person's forearm with gentle pressure."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use standard raw HTML/Tailwind for layout composition. Do not rely heavily on pre-made Shadcn layout cards if they conflict with the organic, asymmetric spacing.",
+    "Ensure the hero section does not use 'generic tech SaaS' layouts (no 50/50 split with a dashboard illustration). Use the forest landscape image as an immersive background, or large organic mask shapes.",
+    "For the Pricing Table (Offres), make it look like a high-end spa menu or premium membership tier, not a SaaS pricing grid. Use soft background colors and clear checkmarks.",
+    "Implement Lenis for smooth scrolling.",
+    "Icons should be Phosphor Icons (Duotone or Light weights) to match the elegant serif typography. Avoid heavy or cartoonish icons.",
+    "Never use pure transparent backgrounds for sticky headers or dropdowns—always use a backdrop blur + tint.",
+    "Remove any existing 'tech/software' graphics and replace them with the provided human/nature images.",
+    "Update tailwind.config.js with the new color palette, extending the theme rather than replacing base colors completely to avoid breaking Shadcn defaults.",
+    "Add font links for Cormorant Garamond and Manrope to the HTML head.",
+    "Inject the CSS variables for the color palette in /app/frontend/src/App.css or index.css."
+  ],
+  "universal_guidelines_for_main_agent": [
+    "Do not use dark colors as gradients.",
+    "Do not center align the app container (.App { text-align: center; } is forbidden).",
+    "Create depth through layered design elements with z-index hierarchy and glass-morphism effects with backdrop filters (12-24px blur).",
+    "Never apply universal transitions (e.g., transition: all). Target specific properties like opacity, transform, or background-color.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Do not use AI emoji characters for icons.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing."
+  ]
+}
