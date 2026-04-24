@@ -400,34 +400,38 @@ const Home = () => {
           </div>
 
           {/* Toggle mensuel / annuel */}
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="text-sm font-medium" style={{ color: isAnnualHome ? '#5E6C60' : '#2C352D' }}>
-              Mensuel
-            </span>
-            <button
-              onClick={() => setIsAnnualHome(!isAnnualHome)}
-              className="relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-300 focus:outline-none"
-              style={{ backgroundColor: isAnnualHome ? '#5A7161' : '#E2DFD8' }}
-              aria-label="Basculer entre facturation mensuelle et annuelle"
-              data-testid="home-billing-toggle"
-            >
-              <span
-                className="inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform duration-300"
-                style={{ transform: isAnnualHome ? 'translateX(24px)' : 'translateX(4px)' }}
-              />
-            </button>
-            <span className="text-sm font-medium" style={{ color: isAnnualHome ? '#2C352D' : '#5E6C60' }}>
-              Annuel
-            </span>
-            {isAnnualHome && (
-              <span
-                className="text-xs font-semibold px-3 py-1 rounded-full"
-                style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
-                data-testid="home-annual-badge"
-              >
-                2 mois offerts
+          <div className="flex flex-col items-center gap-3 mb-12">
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-medium" style={{ color: isAnnualHome ? '#5E6C60' : '#2C352D' }}>
+                Mensuel
               </span>
-            )}
+              <button
+                onClick={() => setIsAnnualHome(!isAnnualHome)}
+                className="relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-300 focus:outline-none"
+                style={{ backgroundColor: isAnnualHome ? '#5A7161' : '#E2DFD8' }}
+                aria-label="Basculer entre facturation mensuelle et annuelle"
+                data-testid="home-billing-toggle"
+              >
+                <span
+                  className="inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform duration-300"
+                  style={{ transform: isAnnualHome ? 'translateX(24px)' : 'translateX(4px)' }}
+                />
+              </button>
+              <span className="text-sm font-medium" style={{ color: isAnnualHome ? '#2C352D' : '#5E6C60' }}>
+                Annuel
+              </span>
+            </div>
+            <div className="h-6 flex items-center justify-center">
+              {isAnnualHome && (
+                <span
+                  className="text-xs font-semibold px-3 py-1 rounded-full"
+                  style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
+                  data-testid="home-annual-badge"
+                >
+                  2 mois offerts
+                </span>
+              )}
+            </div>
           </div>
 
           <div ref={pricingRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">

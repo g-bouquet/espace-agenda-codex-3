@@ -1,0 +1,51 @@
+{
+  "summary": "Frontend testing of Espace Agenda V3 iteration 5: (1) Header renamed Exemples→Aperçu, (2) Exemples.jsx rewrite with real screenshots, (3) toggle badge layout fix on /offres and /. All 15 test cases passed. Zero regressions detected.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "/exemples - residual Tailwind classes",
+        "issues": [
+          "ACCEPTABLE (not a bug): 'text-foreground' and 'bg-primary' found in DOM on /exemples page, but exclusively from shadcn Button component base classes (not from Exemples.jsx own JSX). Inline style overrides apply correctly. Same classes appear on every page that uses Button — this is expected behavior from the UI library."
+        ]
+      }
+    ]
+  },
+  "test_report_links": ["/app/test_reports/iteration_5.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "No critical issues found. Previous 'Prime' references in content.js (iteration_4 finding) have been fully resolved — no 'Prime' appears on /, /offres, or /exemples."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "N/A",
+    "frontend": "100% (15/15 tests passed)"
+  },
+  "test_credentials": "No auth required for tested pages",
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "main_agent_can_self_test": false,
+  "context_for_next_testing_agent": "All features from iterations 1-5 verified working. Key data-testids available: demo-card-therapist, demo-card-osteo, demo-link-therapist, demo-link-osteo, exemples-final-cta, offres-billing-toggle, offres-annual-badge, home-billing-toggle, home-annual-badge. Both images harmonietherapeute.jpg (naturalWidth=1004) and calmeosteo.jpg (naturalWidth=1071) load correctly from /app/frontend/public/.",
+  "test_results_detail": {
+    "header_apercu_desktop": "PASS - nav link shows 'Aperçu' pointing to /exemples",
+    "header_apercu_mobile": "PASS - hamburger menu shows 'Aperçu'",
+    "exemples_demo_card_therapist": "PASS - data-testid='demo-card-therapist' present, title='Harmonie Thérapie'",
+    "exemples_demo_card_osteo": "PASS - data-testid='demo-card-osteo' present, title='CalmeOstéo'",
+    "exemples_image_harmonietherapeute": "PASS - /harmonietherapeute.jpg loads (naturalWidth=1004px)",
+    "exemples_image_calmeosteo": "PASS - /calmeosteo.jpg loads (naturalWidth=1071px)",
+    "exemples_link_therapist": "PASS - href='https://harmonietherapeute.wlbookings.com/'",
+    "exemples_link_osteo": "PASS - href='https://ostodirect.wlbookings.com/'",
+    "exemples_professions_grid_row1": "PASS - 3 cards in first row (md:grid-cols-3)",
+    "exemples_professions_grid_row2": "PASS - 2 cards in second row (md:grid-cols-2 max-w-3xl)",
+    "exemples_faq_accordion": "PASS - 6 questions from faqsExemples, opens/closes correctly",
+    "exemples_final_cta": "PASS - 'Prêt à créer votre page de réservation ?' on #2C352D bg, data-testid='exemples-final-cta' present",
+    "offres_toggle_badge_below": "PASS - badge '2 mois offerts' appears below toggle (y=1053.6 > toggle bottom 1040.6), 0px horizontal shift",
+    "home_toggle_badge_below": "PASS - badge '2 mois offerts' appears below toggle, 0px horizontal shift",
+    "prime_word_check_all_pages": "PASS - 'Prime' not present on /, /offres, /exemples"
+  }
+}
