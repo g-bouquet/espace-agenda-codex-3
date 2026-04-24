@@ -143,55 +143,67 @@ export const keyFeatures = [
     id: '2',
     icon: 'Globe',
     title: 'Page de réservation personnalisée',
-    description: 'Réservation en ligne 24/7, responsive (mobile + desktop), personnalisée à votre image (logo, couleurs, textes). Mini-site ou intégration sur votre site existant.'
+    description: 'Réservation en ligne 24/7, responsive mobile et desktop, à votre image (logo, couleurs, textes). Mini-site ou intégration sur votre site existant.'
   },
   {
     id: '3',
     icon: 'Bell',
     title: 'Rappels automatiques',
-    description: 'Rappels email inclus. SMS et WhatsApp disponibles selon l\'offre. Réduisez les absences et les oublis de vos clients.'
+    description: 'Rappels email et WhatsApp inclus dès l\'offre Essentiel. SMS disponibles selon l\'offre. Réduisez les absences et les oublis sans intervention de votre part.'
   },
   {
     id: '4',
     icon: 'CreditCard',
     title: 'Paiements & acomptes',
-    description: 'Acceptez les paiements en ligne et demandez des acomptes pour sécuriser vos rendez-vous. Suivi des transactions intégré (selon offre).'
+    description: 'Acceptez les paiements en ligne et demandez des acomptes pour sécuriser vos rendez-vous. Suivi des transactions intégré.'
   },
   {
     id: '5',
     icon: 'FileText',
-    title: 'Facturation & exports',
-    description: 'Générez des factures ou exportez vos données pour votre comptabilité. Historique complet et suivi financier (selon offre).'
+    title: 'Facturation intégrée',
+    description: 'Générez vos factures ou exportez vos données pour votre comptabilité. Inclus dès 29€/mois — aucun outil externe nécessaire.'
   },
   {
     id: '6',
     icon: 'Users',
     title: 'Fiche client personnalisée',
-    description: 'Historique des rendez-vous, notes internes privées, champs personnalisés adaptés à votre pratique. Import / export des données clients.'
+    description: 'Historique des rendez-vous, notes internes privées, champs personnalisés adaptés à votre pratique. Import et export de vos données inclus.'
   },
   {
     id: '7',
     icon: 'UserCheck',
     title: 'Espace client (option)',
-    description: 'Vos clients accèdent à leur historique, prochains rendez-vous, documents partagés. Activation / désactivation selon vos préférences.'
+    description: 'Vos clients accèdent à leur historique, leurs prochains rendez-vous et les documents partagés. Activation ou désactivation selon vos préférences.'
   },
   {
     id: '8',
     icon: 'Shield',
-    title: 'Sécurité & RGPD',
-    description: 'Accès sécurisés, conformité RGPD, hébergement fiable. Gestion des consentements et des droits clients (accès, rectification, suppression).'
+    title: 'Sécurité & conformité RGPD',
+    description: 'Connexions chiffrées, hébergement sécurisé, gestion des consentements et des droits clients. Votre pratique est protégée, vos données restent les vôtres.'
   },
   {
     id: '9',
-    icon: 'Users2',
-    title: 'Multi-praticiens (option)',
-    description: 'Gérez plusieurs praticiens, agendas distincts ou partagés, règles de réservation par praticien. Sur devis.'
+    icon: 'Headphones',
+    title: 'Support humain & réactif',
+    description: 'Support illimité par email, WhatsApp et téléphone (selon offre). Urgences traitées sous 6h, autres demandes sous 24h. Nous ne disparaissons pas après l\'installation.'
   },
   {
     id: '10',
-    icon: 'Headphones',
-    title: 'Support humain & réactif',
-    description: 'Support illimité par email, tickets, WhatsApp (selon offre) et téléphone. Urgences traitées sous 6h, autres demandes sous 24h. Base de connaissances disponible.'
+    icon: 'Settings',
+    title: 'Paramétrage adapté à votre pratique',
+    description: 'Durées de séance, motifs de consultation, règles de réservation spécifiques, questionnaires préalables — nous configurons selon votre fonctionnement, pas l\'inverse.'
+  },
+  {
+    id: '11',
+    icon: 'Smartphone',
+    title: 'Interface mobile soignée',
+    description: 'Vos clients réservent depuis leur téléphone en quelques secondes. Aucune application à installer. Expérience fluide sur tous les appareils.'
+  },
+  {
+    id: '12',
+    icon: 'Users2',
+    title: 'Multi-praticiens (option)',
+    description: 'Gérez plusieurs praticiens, agendas distincts ou partagés, règles de réservation par praticien. Sur devis — contactez-nous pour un paramétrage adapté à votre cabinet.'
   }
 ];
 
@@ -205,6 +217,8 @@ export const offers = [
     description: 'Pour démarrer en toute simplicité',
     price: '29€ / mois TTC',
     priceNumeric: 29,
+    priceAnnual: '290€ / an TTC',
+    priceAnnualNumeric: 290,
     installation: '149€ TTC (une fois)',
     installationNumeric: 149,
     features: [
@@ -235,6 +249,8 @@ export const offers = [
     description: 'La solution complète pour votre activité',
     price: '45€ / mois TTC',
     priceNumeric: 45,
+    priceAnnual: '450€ / an TTC',
+    priceAnnualNumeric: 450,
     installation: '199€ TTC (une fois)',
     installationNumeric: 199,
     sms: '50 SMS inclus / mois, puis 0,09€ / SMS',
@@ -265,15 +281,18 @@ export const offers = [
   },
   {
     id: '3',
-    name: 'Prime',
-    description: 'Pour une gestion avancée et un support prioritaire',
+    name: 'Intégral',
+    description: 'Gestion avancée et support prioritaire',
     price: '69€ / mois TTC',
     priceNumeric: 69,
+    priceAnnual: '690€ / an TTC',
+    priceAnnualNumeric: 690,
     installation: '249€ TTC (une fois)',
     installationNumeric: 249,
-    sms: '50 SMS inclus / mois, puis 0,09€ / SMS',
+    sms: '100 SMS inclus / mois, puis 0,09€ / SMS',
     features: [
       'Tout Pro',
+      'Rappels SMS : 100 SMS inclus / mois',
       'Import / export des données clients',
       'Paramétrages avancés (règles personnalisées)',
       'Statistiques avancées & rapports',
@@ -296,6 +315,8 @@ export const offers = [
     description: 'Une solution adaptée à vos besoins spécifiques',
     price: 'Sur devis',
     priceNumeric: null,
+    priceAnnual: null,
+    priceAnnualNumeric: null,
     installation: 'Sur devis',
     installationNumeric: null,
     features: [

@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Calendar, Globe, Bell, CreditCard, Users, Shield, ArrowRight,
-  Check, X, Phone, Mail, MessageSquare, Zap, Star, Clock, Settings,
-  FileText, UserCheck, Headphones, BarChart3, Database, Lock
+  Check, X, Phone, Mail, MessageSquare, Zap, Clock, Settings,
+  FileText, UserCheck, Headphones, BarChart3, Database, Lock,
+  Users2, Smartphone
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
@@ -15,7 +16,7 @@ import HeroSection from '../components/HeroSection';
 
 const iconMap = {
   Calendar, Globe, Bell, CreditCard, FileText, Users, UserCheck,
-  Shield, Users2: Users, Headphones
+  Shield, Users2, Headphones, Settings, Smartphone
 };
 
 const Solution = () => {
@@ -82,7 +83,7 @@ const Solution = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: '#F9F6F0' }}>
       <HeroSection
         title="Tout ce qu'il faut pour gérer vos rendez-vous —"
         titleHighlight="à votre nom"
@@ -91,15 +92,16 @@ const Solution = () => {
         ctaText={globalCTA.primary}
       />
 
-      {/* Comment ça marche */}
-      <section className="py-20 bg-white">
+      {/* Comment ça se passe */}
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Comment ça marche ?
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Le processus</span>
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
+              Comment ça se passe ?
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              En 3 étapes simples, vous disposez de votre plateforme de réservation personnalisée
+            <p className="mt-4 text-lg" style={{ color: '#5E6C60' }}>
+              Trois étapes, puis vous n'avez plus qu'à accueillir vos clients.
             </p>
           </div>
 
@@ -122,13 +124,20 @@ const Solution = () => {
                   description: "Une mini-session pour vous expliquer l'essentiel. Puis notre équipe reste disponible pour toutes vos questions et évolutions."
                 }
               ].map((item) => (
-                <Card key={item.step} className="border-border hover:border-primary transition-all duration-300 hover:shadow-md">
+                <Card
+                  key={item.step}
+                  className="rounded-3xl transition-all duration-300 hover:shadow-warm-md"
+                  style={{ border: '1px solid #E2DFD8', backgroundColor: '#FFFFFF' }}
+                >
                   <CardContent className="pt-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white text-xl font-bold font-heading shadow-md mb-6">
+                    <div
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-white text-xl font-bold font-heading shadow-md mb-6"
+                      style={{ backgroundColor: '#5A7161' }}
+                    >
                       {item.step}
                     </div>
-                    <h3 className="text-xl font-semibold font-heading text-foreground mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
+                    <h3 className="text-xl font-semibold font-heading mb-3" style={{ color: '#2C352D' }}>{item.title}</h3>
+                    <p style={{ color: '#5E6C60' }}>{item.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -137,15 +146,16 @@ const Solution = () => {
         </div>
       </section>
 
-      {/* Fonctionnalités complètes */}
-      <section ref={featuresRef} className="py-20 bg-muted">
+      {/* Ce que vous obtenez — Fonctionnalités complètes */}
+      <section ref={featuresRef} className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Toutes les fonctionnalités
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Fonctionnalités</span>
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
+              Ce que vous obtenez
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Une solution complète, pensée pour les praticiens indépendants
+            <p className="mt-4 text-lg" style={{ color: '#5E6C60' }}>
+              Une solution installée, configurée et maintenue pour votre pratique.
             </p>
           </div>
 
@@ -155,21 +165,28 @@ const Solution = () => {
               return (
                 <Card
                   key={feature.id}
-                  className={`border-border hover:border-primary transition-all duration-500 hover:shadow-lg ${
+                  className={`rounded-2xl transition-all duration-500 hover:shadow-warm-md ${
                     featuresInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
-                  style={{ transitionDelay: featuresInView ? `${index * 60}ms` : '0ms' }}
+                  style={{
+                    transitionDelay: featuresInView ? `${index * 60}ms` : '0ms',
+                    border: '1px solid #E2DFD8',
+                    backgroundColor: '#FFFFFF'
+                  }}
                 >
                   <CardContent className="pt-6">
                     <div className="flex gap-4 items-start">
                       <div className="flex-shrink-0">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <div
+                          className="flex h-10 w-10 items-center justify-center rounded-lg"
+                          style={{ backgroundColor: 'rgba(90,113,97,0.10)', color: '#5A7161' }}
+                        >
                           <Icon className="h-5 w-5" />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-base font-semibold text-foreground">{feature.title}</h3>
-                        <p className="mt-2 text-muted-foreground text-sm">{feature.description}</p>
+                        <h3 className="text-base font-semibold" style={{ color: '#2C352D' }}>{feature.title}</h3>
+                        <p className="mt-2 text-sm" style={{ color: '#5E6C60' }}>{feature.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -180,15 +197,15 @@ const Solution = () => {
         </div>
       </section>
 
-      {/* Comparaison gestion manuelle vs Espace Agenda */}
-      <section ref={compareRef} className="py-20 bg-white">
+      {/* Avec ou sans Espace Agenda */}
+      <section ref={compareRef} className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Avant et après Espace Agenda
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
+              Avec ou sans Espace Agenda
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Ce que change concrètement une solution de réservation bien configurée
+            <p className="mt-4 text-lg" style={{ color: '#5E6C60' }}>
+              Ce que ça change concrètement dans votre semaine.
             </p>
           </div>
 
@@ -196,14 +213,14 @@ const Solution = () => {
             <table className="w-full border-collapse rounded-xl overflow-hidden shadow-md">
               <thead>
                 <tr>
-                  <th className="text-left py-4 px-6 bg-gray-100 text-gray-600 font-medium text-sm w-1/3">Aspect</th>
-                  <th className="text-center py-4 px-6 bg-gray-100 text-gray-600 font-medium text-sm w-1/3">
+                  <th className="text-left py-4 px-6 font-medium text-sm w-1/3" style={{ backgroundColor: '#F4F0E8', color: '#5E6C60' }}>Aspect</th>
+                  <th className="text-center py-4 px-6 font-medium text-sm w-1/3" style={{ backgroundColor: '#F4F0E8', color: '#5E6C60' }}>
                     <span className="flex items-center justify-center gap-2">
                       <X className="h-4 w-4 text-red-400" />
                       Gestion manuelle
                     </span>
                   </th>
-                  <th className="text-center py-4 px-6 bg-primary text-white font-medium text-sm w-1/3">
+                  <th className="text-center py-4 px-6 font-medium text-sm w-1/3" style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}>
                     <span className="flex items-center justify-center gap-2">
                       <Check className="h-4 w-4" />
                       Avec Espace Agenda
@@ -214,9 +231,9 @@ const Solution = () => {
               <tbody>
                 {comparisonRows.map((row, index) => (
                   <tr key={index} className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
-                    <td className="py-4 px-6 text-foreground font-medium text-sm">{row.feature}</td>
+                    <td className="py-4 px-6 font-medium text-sm" style={{ color: '#2C352D' }}>{row.feature}</td>
                     <td className="py-4 px-6 text-center text-red-500 text-sm">{row.manual}</td>
-                    <td className="py-4 px-6 text-center text-green-700 text-sm font-medium bg-primary/5">{row.ea}</td>
+                    <td className="py-4 px-6 text-center text-sm font-medium" style={{ color: '#5A7161', backgroundColor: 'rgba(90,113,97,0.05)' }}>{row.ea}</td>
                   </tr>
                 ))}
               </tbody>
@@ -225,15 +242,16 @@ const Solution = () => {
         </div>
       </section>
 
-      {/* Pourquoi Espace Agenda */}
-      <section ref={whyRef} className="py-20 bg-muted">
+      {/* Pourquoi nous choisir */}
+      <section ref={whyRef} className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Pourquoi Espace Agenda ?
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Notre différence</span>
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
+              Pourquoi nous choisir ?
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Pas juste un outil, un accompagnement dans la durée
+            <p className="mt-4 text-lg" style={{ color: '#5E6C60' }}>
+              Pas un logiciel à installer vous-même. Un service humain, de l'installation au quotidien.
             </p>
           </div>
 
@@ -249,13 +267,16 @@ const Solution = () => {
                   style={{ transitionDelay: whyInView ? `${index * 80}ms` : '0ms' }}
                 >
                   <div className="flex-shrink-0">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-sm">
+                    <div
+                      className="flex h-12 w-12 items-center justify-center rounded-xl shadow-sm"
+                      style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}
+                    >
                       <Icon className="h-6 w-6" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{point.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{point.description}</p>
+                    <h3 className="text-lg font-semibold mb-2" style={{ color: '#2C352D' }}>{point.title}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: '#5E6C60' }}>{point.description}</p>
                   </div>
                 </div>
               );
@@ -264,15 +285,16 @@ const Solution = () => {
         </div>
       </section>
 
-      {/* Intégrations */}
-      <section className="py-20 bg-white">
+      {/* Vos outils habituels, connectés */}
+      <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Intégrations incluses
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Intégrations</span>
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
+              Vos outils habituels, connectés
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Espace Agenda se connecte aux outils que vous utilisez déjà
+            <p className="mt-4 text-lg" style={{ color: '#5E6C60' }}>
+              Espace Agenda s'intègre à ce que vous utilisez déjà — sans configuration de votre part.
             </p>
           </div>
 
@@ -283,9 +305,12 @@ const Solution = () => {
                 <div
                   key={index}
                   className="flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all duration-300 hover:shadow-warm-md hover:-translate-y-1"
-                  style={{ backgroundColor: '#F4F0E8', borderColor: '#E2DFD8', color: '#5A7161' }}
+                  style={{ backgroundColor: '#F4F0E8', borderColor: '#E2DFD8' }}
                 >
-                  <div className="h-9 w-9 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(90,113,97,0.12)' }}>
+                  <div
+                    className="h-9 w-9 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'rgba(90,113,97,0.12)' }}
+                  >
                     <Icon className="h-5 w-5" style={{ color: '#5A7161' }} />
                   </div>
                   <span className="text-xs font-medium text-center leading-tight" style={{ color: '#2C352D' }}>{integration.name}</span>
@@ -294,23 +319,28 @@ const Solution = () => {
             })}
           </div>
 
-          <p className="text-center text-sm text-muted-foreground mt-8">
+          <p className="text-center text-sm mt-8" style={{ color: '#5E6C60' }}>
             Et bien d'autres selon votre offre. Intégrations spécifiques disponibles sur devis.
           </p>
         </div>
       </section>
 
-      {/* Sécurité & RGPD */}
-      <section className="py-20 bg-muted">
+      {/* Données & confidentialité */}
+      <section className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge className="bg-primary/10 text-primary mb-4">Sécurité & conformité</Badge>
-              <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl mb-6">
-                Vos données et celles de vos clients sont protégées
+              <Badge
+                className="mb-4"
+                style={{ backgroundColor: 'rgba(90,113,97,0.10)', color: '#5A7161' }}
+              >
+                Données & confidentialité
+              </Badge>
+              <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl mb-6" style={{ color: '#2C352D' }}>
+                Vos données et celles de vos clients, protégées
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Conformité RGPD complète, hébergement sécurisé, gestion des consentements — nous avons pensé à tout pour que vous puissiez exercer sereinement.
+              <p className="text-lg mb-8" style={{ color: '#5E6C60' }}>
+                Conformité RGPD, hébergement sécurisé, gestion des consentements — nous gérons la partie technique pour que vous puissiez exercer sereinement.
               </p>
               <ul className="space-y-4">
                 {[
@@ -322,17 +352,23 @@ const Solution = () => {
                   const Icon = item.icon;
                   return (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary mt-0.5">
+                      <div
+                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg mt-0.5"
+                        style={{ backgroundColor: 'rgba(90,113,97,0.10)', color: '#5A7161' }}
+                      >
                         <Icon className="h-4 w-4" />
                       </div>
-                      <span className="text-muted-foreground">{item.text}</span>
+                      <span style={{ color: '#5E6C60' }}>{item.text}</span>
                     </li>
                   );
                 })}
               </ul>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
-              <h3 className="text-xl font-bold text-foreground mb-6">Ce que nous gérons pour vous</h3>
+            <div
+              className="rounded-2xl p-8"
+              style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8', boxShadow: '0 2px 8px rgba(90,113,97,0.06)' }}
+            >
+              <h3 className="text-xl font-bold mb-6" style={{ color: '#2C352D' }}>Ce que nous gérons pour vous</h3>
               <div className="space-y-4">
                 {[
                   { label: 'Politique de confidentialité', status: 'Incluse et personnalisée' },
@@ -343,8 +379,13 @@ const Solution = () => {
                   { label: 'Sauvegardes données', status: 'Automatiques et régulières' },
                 ].map((item, index) => (
                   <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
-                    <span className="text-sm text-foreground">{item.label}</span>
-                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">{item.status}</span>
+                    <span className="text-sm" style={{ color: '#2C352D' }}>{item.label}</span>
+                    <span
+                      className="text-xs px-2 py-1 rounded-full font-medium"
+                      style={{ backgroundColor: 'rgba(90,113,97,0.12)', color: '#5A7161' }}
+                    >
+                      {item.status}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -354,24 +395,35 @@ const Solution = () => {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 bg-white scroll-mt-20">
+      <section id="faq" className="py-20 scroll-mt-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
               Questions fréquentes
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Tout ce que vous voulez savoir avant de démarrer
+            <p className="mt-4 text-lg" style={{ color: '#5E6C60' }}>
+              Les réponses aux questions que tout le monde se pose.
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq) => (
-              <AccordionItem key={faq.id} value={faq.id} className="bg-muted border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary py-5">
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="rounded-2xl px-6"
+                style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}
+              >
+                <AccordionTrigger
+                  className="text-left font-semibold py-5 hover:no-underline"
+                  style={{ color: '#2C352D' }}
+                >
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700 leading-relaxed pb-5">
+                <AccordionContent
+                  className="leading-relaxed pb-5"
+                  style={{ color: '#5E6C60' }}
+                >
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -379,10 +431,13 @@ const Solution = () => {
           </Accordion>
 
           <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-4">Vous avez d'autres questions ?</p>
+            <p className="mb-4" style={{ color: '#5E6C60' }}>Une question spécifique à votre pratique ?</p>
             <Link to="/contact">
-              <Button className="bg-primary hover:bg-primary-hover text-white">
-                Posez-nous directement
+              <Button
+                className="rounded-full font-medium px-6"
+                style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}
+              >
+                Posez-la nous directement
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -391,24 +446,35 @@ const Solution = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#2C352D' }}>
+        <div className="absolute inset-0 opacity-30"
+          style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(90,113,97,0.6) 0%, transparent 60%)' }} />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-              Prêt à simplifier votre gestion ?
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#F9F6F0' }}>
+              Votre agenda en ligne,<br />prêt en 7 jours.
             </h2>
-            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(249,246,240,0.75)' }}>
-              Discutons de votre pratique et trouvons ensemble la solution la plus adaptée.
+            <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(249,246,240,0.75)' }}>
+              Échangeons 20 minutes. Vous expliquez votre pratique, nous vous montrons à quoi ressemblera votre page.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full font-medium px-8" style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}>
+                <Button
+                  size="lg"
+                  className="rounded-full font-medium px-8"
+                  style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}
+                >
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/offres">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8"
+                  style={{ borderColor: 'rgba(249,246,240,0.3)', color: '#F9F6F0' }}
+                >
                   Voir les offres
                 </Button>
               </Link>

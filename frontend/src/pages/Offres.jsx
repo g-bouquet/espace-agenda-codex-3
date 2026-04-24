@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ArrowRight, X } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { offers, faqsOffres, globalCTA } from '../content';
 import HeroSection from '../components/HeroSection';
 
 const Offres = () => {
+  const [isAnnual, setIsAnnual] = useState(false);
+
+  const mainOffers = offers.filter(o => !o.isBanner);
+  const bannerOffer = offers.find(o => o.isBanner);
+
   return (
     <div className="min-h-screen">
       <HeroSection
@@ -20,81 +24,174 @@ const Offres = () => {
         showCta={true}
       />
 
-      {/* Offres principales */}
+      {/* ================================================================
+          OFFRES PRINCIPALES
+      ================================================================ */}
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
+          <div className="mx-auto max-w-2xl text-center mb-12">
             <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Nos formules</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
-              Nos offres
+              Choisissez votre formule
             </h2>
             <p className="text-lg" style={{ color: '#5E6C60' }}>
-              Choisissez la formule adaptée à votre activité
+              Installation, personnalisation et support humain inclus dans toutes les offres.
             </p>
           </div>
 
+          {/* Toggle mensuel / annuel */}
+          <div className="flex items-center justify-center gap-4 mb-14">
+            <span
+              className="text-sm font-medium"
+              style={{ color: isAnnual ? '#5E6C60' : '#2C352D' }}
+            >
+              Mensuel
+            </span>
+            <button
+              onClick={() => setIsAnnual(!isAnnual)}
+              className="relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-300 focus:outline-none"
+              style={{ backgroundColor: isAnnual ? '#5A7161' : '#E2DFD8' }}
+              aria-label="Basculer entre facturation mensuelle et annuelle"
+              data-testid="offres-billing-toggle"
+            >
+              <span
+                className="inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform duration-300"
+                style={{ transform: isAnnual ? 'translateX(24px)' : 'translateX(4px)' }}
+              />
+            </button>
+            <span
+              className="text-sm font-medium"
+              style={{ color: isAnnual ? '#2C352D' : '#5E6C60' }}
+            >
+              Annuel
+            </span>
+            {isAnnual && (
+              <span
+                className="text-xs font-semibold px-3 py-1 rounded-full"
+                style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
+                data-testid="offres-annual-badge"
+              >
+                2 mois offerts
+              </span>
+            )}
+          </div>
+
+          {/* Grille des 3 offres */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {offers.filter(o => !o.isBanner).map((offer) => (
+            {mainOffers.map((offer) => (
               <div
                 key={offer.id}
-                className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${
+                className={`relative rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 flex flex-col ${
                   offer.highlight ? 'scale-105' : ''
                 }`}
                 style={{
                   backgroundColor: offer.highlight ? '#5A7161' : '#FFFFFF',
                   border: offer.highlight ? 'none' : '1px solid #E2DFD8',
-                  boxShadow: offer.highlight ? '0 16px 40px rgba(90,113,97,0.25)' : '0 2px 8px rgba(90,113,97,0.06)'
+                  boxShadow: offer.highlight
+                    ? '0 16px 40px rgba(90,113,97,0.25)'
+                    : '0 2px 8px rgba(90,113,97,0.06)'
                 }}
+                data-testid={`offer-card-${offer.name.toLowerCase().replace(/\s+/g, '-')}`}
               >
+                {/* Badge "Le plus choisi" */}
                 {offer.highlight && offer.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="text-xs font-semibold px-4 py-1 rounded-full" style={{ backgroundColor: '#C27A62', color: '#FFFFFF' }}>
+                    <span
+                      className="text-xs font-semibold px-4 py-1 rounded-full"
+                      style={{ backgroundColor: '#C27A62', color: '#FFFFFF' }}
+                    >
                       {offer.badge}
                     </span>
                   </div>
                 )}
 
-                <h3 className="font-heading font-medium text-2xl mb-2" style={{ color: offer.highlight ? '#F9F6F0' : '#2C352D' }}>
+                {/* Nom + description */}
+                <h3
+                  className="font-heading font-medium text-2xl mb-1"
+                  style={{ color: offer.highlight ? '#F9F6F0' : '#2C352D' }}
+                >
                   {offer.name}
                 </h3>
-                <p className="text-sm mb-4 leading-relaxed" style={{ color: offer.highlight ? 'rgba(249,246,240,0.75)' : '#5E6C60' }}>
+                <p
+                  className="text-sm mb-5 leading-relaxed"
+                  style={{ color: offer.highlight ? 'rgba(249,246,240,0.75)' : '#5E6C60' }}
+                >
                   {offer.description}
                 </p>
-                <div className="mb-6">
-                  <span className="text-3xl font-bold font-heading" style={{ color: offer.highlight ? '#F9F6F0' : '#5A7161' }}>
-                    {offer.price}
-                  </span>
+
+                {/* Bloc prix */}
+                <div className="mb-2 min-h-[72px]">
+                  {isAnnual && offer.priceAnnual ? (
+                    <div
+                      className="text-3xl font-bold font-heading"
+                      style={{ color: offer.highlight ? '#F9F6F0' : '#5A7161' }}
+                      data-testid={`offer-price-${offer.id}`}
+                    >
+                      {offer.priceAnnual}
+                    </div>
+                  ) : (
+                    <div
+                      className="text-3xl font-bold font-heading"
+                      style={{ color: offer.highlight ? '#F9F6F0' : '#5A7161' }}
+                      data-testid={`offer-price-${offer.id}`}
+                    >
+                      {offer.price}
+                    </div>
+                  )}
                   {offer.installation && (
-                    <p className="mt-1 text-xs" style={{ color: offer.highlight ? 'rgba(249,246,240,0.6)' : '#5E6C60' }}>
-                      + {offer.installation} (installation)
+                    <p
+                      className="mt-1 text-xs"
+                      style={{ color: offer.highlight ? 'rgba(249,246,240,0.6)' : '#5E6C60' }}
+                    >
+                      + {offer.installation} (installation, une fois)
                     </p>
                   )}
                   {offer.sms && (
-                    <p className="mt-1 text-xs font-medium" style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#5A7161' }}>
+                    <p
+                      className="mt-1 text-xs font-medium"
+                      style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#5A7161' }}
+                    >
                       {offer.sms}
                     </p>
                   )}
                 </div>
 
-                <ul className="space-y-2.5 mb-8">
+                {/* Liste des features */}
+                <ul className="space-y-2.5 mb-8 mt-4 flex-1">
                   {offer.features.slice(0, 8).map((feature, index) => (
                     <li key={index} className="flex items-start gap-2.5">
-                      <span className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-0.5"
-                        style={{ backgroundColor: offer.highlight ? 'rgba(249,246,240,0.2)' : 'rgba(90,113,97,0.12)', color: offer.highlight ? '#F9F6F0' : '#5A7161' }}>
+                      <span
+                        className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-0.5"
+                        style={{
+                          backgroundColor: offer.highlight
+                            ? 'rgba(249,246,240,0.2)'
+                            : 'rgba(90,113,97,0.12)',
+                          color: offer.highlight ? '#F9F6F0' : '#5A7161'
+                        }}
+                      >
                         <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
                       </span>
-                      <span className="text-sm" style={{ color: offer.highlight ? 'rgba(249,246,240,0.9)' : '#5E6C60' }}>{feature}</span>
+                      <span
+                        className="text-sm"
+                        style={{ color: offer.highlight ? 'rgba(249,246,240,0.9)' : '#5E6C60' }}
+                      >
+                        {feature}
+                      </span>
                     </li>
                   ))}
                   {offer.features.length > 8 && (
-                    <li className="text-sm font-medium" style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#5A7161' }}>
-                      + {offer.features.length - 8} autres fonctionnalités
+                    <li
+                      className="text-sm font-medium"
+                      style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#5A7161' }}
+                    >
+                      + {offer.features.length - 8} autres fonctionnalités incluses
                     </li>
                   )}
                 </ul>
 
+                {/* CTA */}
                 <Link to="/contact">
                   <button
                     className="w-full py-3 rounded-full text-sm font-semibold transition-all duration-200"
@@ -102,6 +199,7 @@ const Offres = () => {
                       backgroundColor: offer.highlight ? '#F9F6F0' : '#5A7161',
                       color: offer.highlight ? '#2C352D' : '#FFFFFF'
                     }}
+                    data-testid={`offer-cta-${offer.id}`}
                   >
                     {globalCTA.primary} →
                   </button>
@@ -110,65 +208,84 @@ const Offres = () => {
             ))}
           </div>
 
-          {/* Sur mesure en bandeau */}
-          {offers.filter(o => o.isBanner).map((offer) => (
-            <Card key={offer.id} className="mt-12 border-2 border-primary bg-gradient-to-r from-[#F4F0E8] to-[#F9F6F0]">
-              <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold font-heading text-foreground mb-2">{offer.name}</h3>
-                    <p className="text-gray-700 text-sm mb-4">{offer.description}</p>
-                    <p className="text-2xl font-bold text-primary">{offer.price}</p>
-                  </div>
-                  <div className="md:col-span-2">
-                    <div className="grid grid-cols-2 gap-3">
-                      {offer.features.map((feature, index) => (
-                        <div key={index} className="flex items-start gap-2">
-                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-gray-700 text-sm">{feature}</span>
+          {/* Bandeau Sur mesure */}
+          {bannerOffer && (
+            <div
+              className="mt-12 rounded-3xl p-8"
+              style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div>
+                  <span className="label-tag mb-2 block" style={{ color: '#C27A62' }}>Sur mesure</span>
+                  <h3 className="font-heading font-medium text-2xl mb-2" style={{ color: '#2C352D' }}>
+                    {bannerOffer.name}
+                  </h3>
+                  <p className="text-sm mb-4" style={{ color: '#5E6C60' }}>{bannerOffer.description}</p>
+                  <p className="font-heading font-medium text-2xl" style={{ color: '#5A7161' }}>
+                    {bannerOffer.price}
+                  </p>
+                </div>
+                <div className="md:col-span-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {bannerOffer.features.map((feature, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <div
+                          className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-0.5"
+                          style={{ backgroundColor: 'rgba(90,113,97,0.12)', color: '#5A7161' }}
+                        >
+                          <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                          </svg>
                         </div>
-                      ))}
-                    </div>
-                    <div className="mt-6">
-                      <Link to="/contact?subject=sur-mesure">
-                        <Button className="bg-primary hover:bg-primary-hover text-white">
-                          Décrire mon besoin
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </div>
+                        <span className="text-sm" style={{ color: '#5E6C60' }}>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6">
+                    <Link to="/contact?subject=sur-mesure">
+                      <button
+                        className="py-3 px-8 rounded-full text-sm font-semibold transition-all duration-200"
+                        style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}
+                        data-testid="offer-sur-mesure-cta"
+                      >
+                        Décrire mon besoin →
+                      </button>
+                    </Link>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            </div>
+          )}
 
-          {/* Additional info */}
-          <div className="mt-16 text-center max-w-2xl mx-auto">
-            <p className="text-gray-700">
+          {/* Mention bas de section */}
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <p className="text-sm" style={{ color: '#5E6C60' }}>
               Toutes nos offres incluent l'installation, la personnalisation complète, la formation et le support technique.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Tableau comparatif */}
+      {/* ================================================================
+          TABLEAU COMPARATIF
+      ================================================================ */}
       <section className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-heading tracking-tight text-foreground sm:text-4xl">
-              Comparatif détaillé
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Détail</span>
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
+              Comparatif complet
             </h2>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse bg-white rounded-lg">
+            <table className="w-full border-collapse rounded-2xl overflow-hidden" style={{ backgroundColor: '#FFFFFF', boxShadow: '0 2px 8px rgba(90,113,97,0.06)' }}>
               <thead>
-                <tr className="border-b-2 border-border">
-                  <th className="text-left py-4 px-4 font-semibold text-foreground"></th>
-                  <th className="text-center py-4 px-4 font-semibold text-foreground">Essentiel</th>
-                  <th className="text-center py-4 px-4 font-semibold text-foreground bg-primary/5">Pro</th>
-                  <th className="text-center py-4 px-4 font-semibold text-foreground">Prime</th>
+                <tr>
+                  <th className="text-left py-4 px-5 text-sm font-medium" style={{ backgroundColor: '#F4F0E8', color: '#5E6C60', width: '40%' }}></th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold" style={{ backgroundColor: '#F4F0E8', color: '#2C352D' }}>Essentiel</th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold" style={{ backgroundColor: 'rgba(90,113,97,0.08)', color: '#2C352D' }}>Pro</th>
+                  <th className="text-center py-4 px-4 text-sm font-semibold" style={{ backgroundColor: '#F4F0E8', color: '#2C352D' }}>Intégral</th>
                 </tr>
               </thead>
               <tbody>
@@ -176,9 +293,9 @@ const Offres = () => {
                   { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
                   { label: 'Sous-domaine personnalisé', ess: false, pro: true, prem: true },
                   { label: 'Rappels email + WhatsApp', ess: true, pro: true, prem: true },
-                  { label: 'Rappels SMS', ess: 'Option 0,09€/SMS', pro: '50 inclus', prem: '50 inclus' },
+                  { label: 'Rappels SMS', ess: 'Option 0,09€/SMS', pro: '50 inclus', prem: '100 inclus' },
                   { label: 'Espace client', ess: true, pro: true, prem: true },
-                  { label: 'Facturation', ess: true, pro: true, prem: true },
+                  { label: 'Facturation intégrée', ess: true, pro: true, prem: true },
                   { label: 'Calendrier + sync (Google, Outlook, Apple)', ess: true, pro: true, prem: true },
                   { label: 'Paiements & acomptes en ligne', ess: false, pro: true, prem: true },
                   { label: 'Fiche client personnalisée', ess: false, pro: true, prem: true },
@@ -196,16 +313,34 @@ const Offres = () => {
                   { label: 'Support', ess: 'Standard', pro: 'Renforcé', prem: 'Prioritaire' },
                   { label: 'Support téléphonique', ess: false, pro: true, prem: true }
                 ].map((row, index) => (
-                  <tr key={index} className="border-b border-border hover:bg-gray-50 transition-colors">
-                    <td className="py-4 px-4 text-foreground font-medium">{row.label}</td>
-                    <td className="py-4 px-4 text-center">
-                      {row.ess === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.ess === false ? <X className="h-5 w-5 text-gray-300 mx-auto" /> : <span className="text-xs text-gray-600">{row.ess}</span>}
+                  <tr
+                    key={index}
+                    style={{
+                      borderBottom: '1px solid #E2DFD8',
+                      backgroundColor: index % 2 === 0 ? '#FFFFFF' : 'rgba(249,246,240,0.5)'
+                    }}
+                  >
+                    <td className="py-3.5 px-5 text-sm font-medium" style={{ color: '#2C352D' }}>{row.label}</td>
+                    <td className="py-3.5 px-4 text-center">
+                      {row.ess === true
+                        ? <svg className="h-5 w-5 mx-auto" fill="none" stroke="#5A7161" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        : row.ess === false
+                        ? <svg className="h-5 w-5 mx-auto" fill="none" stroke="#D1CFC9" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        : <span className="text-xs" style={{ color: '#5E6C60' }}>{row.ess}</span>}
                     </td>
-                    <td className="py-4 px-4 text-center bg-primary/5">
-                      {row.pro === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.pro === false ? <X className="h-5 w-5 text-gray-300 mx-auto" /> : <span className="text-xs text-gray-600">{row.pro}</span>}
+                    <td className="py-3.5 px-4 text-center" style={{ backgroundColor: 'rgba(90,113,97,0.05)' }}>
+                      {row.pro === true
+                        ? <svg className="h-5 w-5 mx-auto" fill="none" stroke="#5A7161" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        : row.pro === false
+                        ? <svg className="h-5 w-5 mx-auto" fill="none" stroke="#D1CFC9" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        : <span className="text-xs" style={{ color: '#5E6C60' }}>{row.pro}</span>}
                     </td>
-                    <td className="py-4 px-4 text-center">
-                      {row.prem === true ? <Check className="h-5 w-5 text-primary mx-auto" /> : row.prem === false ? <X className="h-5 w-5 text-gray-300 mx-auto" /> : <span className="text-xs text-gray-600">{row.prem}</span>}
+                    <td className="py-3.5 px-4 text-center">
+                      {row.prem === true
+                        ? <svg className="h-5 w-5 mx-auto" fill="none" stroke="#5A7161" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        : row.prem === false
+                        ? <svg className="h-5 w-5 mx-auto" fill="none" stroke="#D1CFC9" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        : <span className="text-xs" style={{ color: '#5E6C60' }}>{row.prem}</span>}
                     </td>
                   </tr>
                 ))}
@@ -215,10 +350,13 @@ const Offres = () => {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* ================================================================
+          FAQ
+      ================================================================ */}
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
+            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Questions</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Questions fréquentes
             </h2>
@@ -244,24 +382,58 @@ const Offres = () => {
               </AccordionItem>
             ))}
           </Accordion>
+
+          <div className="mt-10 text-center">
+            <p className="text-sm mb-4" style={{ color: '#5E6C60' }}>
+              Une question spécifique à votre pratique ?
+            </p>
+            <Link to="/contact">
+              <button
+                className="py-3 px-8 rounded-full text-sm font-semibold"
+                style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}
+                data-testid="offres-faq-contact-cta"
+              >
+                Posez-la nous directement →
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="py-20 bg-secondary text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* ================================================================
+          CTA FINAL
+      ================================================================ */}
+      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#2C352D' }}>
+        <div className="absolute inset-0 opacity-30"
+          style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(90,113,97,0.6) 0%, transparent 60%)' }} />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-              Prêt à choisir votre offre ?
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#F9F6F0' }}>
+              Vous hésitez entre deux offres ?
             </h2>
-            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(249,246,240,0.75)' }}>
-              Discutons de vos besoins pour vous guider vers l'offre la plus adaptée.
+            <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(249,246,240,0.75)' }}>
+              Échangeons 20 minutes. Vous nous décrivez votre pratique, nous vous conseillons la formule la plus adaptée — sans engagement.
             </p>
-            <div className="mt-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="rounded-full font-medium px-8" style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}>
+                <Button
+                  size="lg"
+                  className="rounded-full font-medium px-8"
+                  style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}
+                  data-testid="offres-final-cta"
+                >
                   {globalCTA.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/solution">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8"
+                  style={{ borderColor: 'rgba(249,246,240,0.3)', color: '#F9F6F0' }}
+                >
+                  Voir la solution
                 </Button>
               </Link>
             </div>

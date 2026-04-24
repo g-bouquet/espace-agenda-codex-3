@@ -211,3 +211,23 @@ h1, h2, h3, h4, h5, h6 {
         border-bottom-color: inherit;
     }
 }
+
+
+/* Correctif animation Accordion Radix UI / Shadcn */
+@keyframes accordion-down {
+  from { height: 0; overflow: hidden; }
+  to { height: var(--radix-accordion-content-height); overflow: hidden; }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); overflow: hidden; }
+  to { height: 0; overflow: hidden; }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
