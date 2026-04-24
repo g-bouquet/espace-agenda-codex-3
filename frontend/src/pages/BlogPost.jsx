@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, User, Clock } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
 import axios from 'axios';
+import { globalCTA } from '../content';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -20,42 +20,52 @@ const BlogPost = () => {
       try {
         const response = await axios.get(`${API}/blog/posts/${id}`);
         setPost(response.data);
-        
-        // Charger aussi les articles connexes
         const relatedResponse = await axios.get(`${API}/blog/posts?limit=3`);
-        setRelatedPosts(relatedResponse.data.posts.filter(p => p.id !== id));
+        setRelatedPosts((relatedResponse.data.posts || []).filter(p => p.id !== id));
       } catch (err) {
-        console.error('Erreur lors du chargement de l\'article:', err);
-        setError("Article non trouvé");
+        console.error("Erreur lors du chargement de l'article:", err);
+        setError('Article non trouvé');
       } finally {
         setLoading(false);
       }
     };
-
     fetchPost();
   }, [id]);
 
+  // --- État chargement ---
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F9F6F0' }}>
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Chargement de l'article...</p>
+          <div
+            className="animate-spin rounded-full h-10 w-10 border-b-2 mx-auto mb-4"
+            style={{ borderColor: '#5A7161' }}
+          />
+          <p className="text-sm" style={{ color: '#5E6C60' }}>Chargement de l'article…</p>
         </div>
       </div>
     );
   }
 
+  // --- État erreur ---
   if (error || !post) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold font-heading text-foreground mb-4">Article non trouvé</h1>
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#F9F6F0' }}>
+        <div className="text-center max-w-sm px-6">
+          <h1 className="font-heading font-medium text-3xl mb-4" style={{ color: '#2C352D' }}>
+            Article non trouvé
+          </h1>
+          <p className="text-sm mb-8" style={{ color: '#5E6C60' }}>
+            Cet article n'existe pas ou a été supprimé.
+          </p>
           <Link to="/blog">
-            <Button variant="outline">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+            <button
+              className="inline-flex items-center gap-2 rounded-full px-6 py-2 text-sm font-semibold"
+              style={{ border: '1px solid #E2DFD8', color: '#2C352D', backgroundColor: '#FFFFFF' }}
+            >
+              <ArrowLeft className="h-4 w-4" />
               Retour au blog
-            </Button>
+            </button>
           </Link>
         </div>
       </div>
@@ -63,131 +73,213 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <div className="bg-gradient-to-b from-sky-50 to-white py-12">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <Link to="/blog">
-            <Button variant="ghost" className="mb-6 -ml-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Retour au blog
-            </Button>
+    <div className="min-h-screen" style={{ backgroundColor: '#F9F6F0' }}>
+
+      {/* ================================================================
+          EN-TÊTE ARTICLE
+      ================================================================ */}
+      <div className="pt-16 pb-12" style={{ backgroundColor: '#F4F0E8' }}>
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          {/* Retour */}
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm font-medium mb-8 transition-opacity hover:opacity-70"
+            style={{ color: '#5A7161' }}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Retour aux articles
           </Link>
 
-          <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/10 mb-4">
-            {post.category}
-          </Badge>
+          {/* Catégorie */}
+          {post.category && (
+            <span
+              className="text-xs font-semibold px-3 py-1 rounded-full inline-block mb-5"
+              style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
+            >
+              {post.category}
+            </span>
+          )}
 
-          <h1 className="text-4xl font-bold font-heading tracking-tight text-foreground sm:text-5xl mb-6">
+          {/* Titre */}
+          <h1
+            className="font-heading font-medium mb-6"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.2rem)', lineHeight: '1.15', color: '#2C352D' }}
+          >
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <User className="h-4 w-4" />
-              <span>{post.author}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="h-4 w-4" />
-              <span>
-                {new Date(post.date).toLocaleDateString('fr-FR', { 
-                  day: 'numeric', 
-                  month: 'long', 
-                  year: 'numeric' 
+          {/* Méta */}
+          <div className="flex flex-wrap items-center gap-5 text-sm" style={{ color: '#5E6C60' }}>
+            {post.author && (
+              <span className="flex items-center gap-1.5">
+                <User className="h-4 w-4" />
+                {post.author}
+              </span>
+            )}
+            {post.date && (
+              <span className="flex items-center gap-1.5">
+                <Calendar className="h-4 w-4" />
+                {new Date(post.date).toLocaleDateString('fr-FR', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
                 })}
               </span>
-            </div>
-            <div className="flex items-center gap-2">
+            )}
+            <span className="flex items-center gap-1.5">
               <Clock className="h-4 w-4" />
-              <span>5 min de lecture</span>
-            </div>
+              5 min de lecture
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Featured Image */}
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 -mt-8 mb-12">
-        <div className="aspect-video w-full overflow-hidden rounded-lg shadow-lg">
-          <img 
-            src={post.image} 
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
+      {/* ================================================================
+          IMAGE À LA UNE
+      ================================================================ */}
+      {post.image && (
+        <div className="mx-auto max-w-4xl px-6 lg:px-8 -mt-6 mb-14">
+          <div className="w-full overflow-hidden rounded-3xl" style={{ boxShadow: '0 8px 24px rgba(90,113,97,0.10)' }}>
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full object-cover"
+              style={{ maxHeight: '480px' }}
+            />
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Content */}
+      {/* ================================================================
+          CONTENU DE L'ARTICLE
+          Affiché depuis post.content saisi en admin
+      ================================================================ */}
       <article className="mx-auto max-w-3xl px-6 lg:px-8 pb-20">
-        <div className="prose prose-lg max-w-none">
-          <p className="text-xl text-muted-foreground mb-8">
+
+        {/* Extrait / chapeau */}
+        {post.excerpt && (
+          <p
+            className="text-xl leading-relaxed mb-10 pb-10"
+            style={{ color: '#5E6C60', borderBottom: '1px solid #E2DFD8' }}
+          >
             {post.excerpt}
           </p>
+        )}
 
-          <div className="text-muted-foreground leading-relaxed space-y-6">
-            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Introduction</h2>
-            <p>
-              La gestion des rendez-vous est un défi quotidien pour de nombreux professionnels de l'accompagnement. 
-              Entre les appels téléphoniques incessants, les annulations de dernière minute et la coordination des emplois du temps, 
-              il est facile de perdre un temps précieux qui pourrait être consacré à votre activité principale.
-            </p>
+        {/* Contenu principal saisi en admin */}
+        {post.content ? (
+          <div
+            className="prose-blog leading-relaxed"
+            style={{ color: '#2C352D' }}
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        ) : (
+          <p style={{ color: '#5E6C60' }}>Contenu de l'article non disponible.</p>
+        )}
 
-            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Les enjeux d'une bonne gestion</h2>
-            <p>
-              Une solution de prise de rendez-vous efficace doit répondre à plusieurs critères essentiels : 
-              simplicité d'utilisation, fiabilité, personnalisation et respect de la confidentialité. 
-              C'est pourquoi il est crucial de bien choisir l'outil qui vous accompagnera au quotidien.
-            </p>
-
-            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Les critères de sélection</h2>
-            <p>
-              Lors du choix d'une plateforme de réservation, plusieurs éléments doivent être pris en compte : 
-              la facilité de prise en main, les fonctionnalités proposées, la qualité du support client, 
-              et bien sûr, la possibilité de personnaliser l'outil à votre image professionnelle.
-            </p>
-
-            <h2 className="text-2xl font-bold font-heading text-foreground mt-12 mb-4">Conclusion</h2>
-            <p>
-              Investir dans une solution de prise de rendez-vous adaptée, c'est investir dans votre sérénité et celle de vos clients. 
-              Une plateforme bien choisie vous permettra de gagner du temps, de réduire les absences et d'offrir une expérience moderne et professionnelle.
-            </p>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-16 p-8 bg-amber-50 rounded-lg border border-amber-200">
-          <h3 className="text-xl font-bold text-foreground mb-3">
+        {/* ================================================================
+            CTA inline bas d'article
+        ================================================================ */}
+        <div
+          className="mt-16 p-8 rounded-3xl"
+          style={{ backgroundColor: '#F4F0E8', border: '1px solid #E2DFD8' }}
+        >
+          <h3 className="font-heading font-medium text-2xl mb-3" style={{ color: '#2C352D' }}>
             Vous souhaitez simplifier votre gestion des rendez-vous ?
           </h3>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-sm leading-relaxed mb-6" style={{ color: '#5E6C60' }}>
             Découvrez comment Espace Agenda peut transformer votre quotidien professionnel.
           </p>
           <Link to="/contact">
-            <Button className="bg-primary hover:bg-primary-hover text-white">
+            <button
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+              style={{ backgroundColor: '#5A7161', color: '#FFFFFF' }}
+              data-testid="blogpost-inline-cta"
+            >
               Demander l'installation
-            </Button>
+              <ArrowRight className="h-4 w-4" />
+            </button>
           </Link>
         </div>
       </article>
 
-      {/* Related Articles */}
-      <section className="bg-muted py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-2xl font-bold font-heading text-foreground mb-8">Articles similaires</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {relatedPosts.slice(0, 3).map((relatedPost) => (
-              <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
-                <div className="aspect-video w-full overflow-hidden rounded-lg mb-4">
-                  <img 
-                    src={relatedPost.image} 
-                    alt={relatedPost.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                  {relatedPost.title}
-                </h3>
-              </Link>
-            ))}
+      {/* ================================================================
+          ARTICLES CONNEXES
+      ================================================================ */}
+      {relatedPosts.length > 0 && (
+        <section className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2 className="font-heading font-medium text-3xl mb-10" style={{ color: '#2C352D' }}>
+              Articles similaires
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.slice(0, 3).map((relatedPost) => (
+                <Link
+                  key={relatedPost.id}
+                  to={`/blog/${relatedPost.id}`}
+                  className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 block"
+                  style={{ border: '1px solid #E2DFD8', backgroundColor: '#FFFFFF' }}
+                  data-testid={`related-post-${relatedPost.id}`}
+                >
+                  {relatedPost.image && (
+                    <div className="aspect-video w-full overflow-hidden">
+                      <img
+                        src={relatedPost.image}
+                        alt={relatedPost.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                  <div className="p-5">
+                    {relatedPost.category && (
+                      <span
+                        className="text-xs font-semibold px-2.5 py-1 rounded-full inline-block mb-3"
+                        style={{ backgroundColor: 'rgba(194,122,98,0.10)', color: '#C27A62' }}
+                      >
+                        {relatedPost.category}
+                      </span>
+                    )}
+                    <h3
+                      className="font-heading font-medium text-lg leading-snug line-clamp-2 transition-colors"
+                      style={{ color: '#2C352D' }}
+                    >
+                      {relatedPost.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ================================================================
+          CTA FINAL
+      ================================================================ */}
+      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#2C352D' }}>
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(90,113,97,0.6) 0%, transparent 60%)' }}
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#F9F6F0' }}>
+              Votre agenda en ligne,<br />prêt en 7 jours.
+            </h2>
+            <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(249,246,240,0.75)' }}>
+              Échangeons 20 minutes. Vous expliquez votre pratique, nous vous montrons à quoi ressemblera votre page.
+            </p>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                className="rounded-full font-medium px-8"
+                style={{ backgroundColor: '#F9F6F0', color: '#2C352D' }}
+                data-testid="blogpost-final-cta"
+              >
+                {globalCTA.primary}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,0 +1,78 @@
+{
+  "summary": "Frontend testing of Espace Agenda V3 iteration 6: Blog.jsx & BlogPost.jsx refactor. All 15 feature requirements verified. dangerouslySetInnerHTML implementation is CORRECT (no hardcoded text). One notable issue: DB content is stored as Markdown (not HTML), causing raw `#` characters to render visibly in the browser. prose-blog CSS styles exist and are correctly defined but won't apply to Markdown-formatted content.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "/api/blog/posts",
+        "issue": "API returns only 3 posts despite 9 seed articles. Either the default limit is 3 or only 3 are published. Worth confirming pagination/limit behavior.",
+        "priority": "LOW"
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "BlogPost - prose-blog content rendering",
+        "issue": "VISUAL BUG: Blog post content is stored in DB as Markdown (# Introduction, ## Les enjeux...). dangerouslySetInnerHTML renders raw markdown text — visible `#` and `##` symbols appear on screen. The prose-blog h2/h3 CSS styles exist but won't apply since there are no actual <h2>/<h3> HTML elements in the rendered output. Fix: either store HTML in DB, or apply a Markdown parser (e.g. marked.js) before passing to dangerouslySetInnerHTML.",
+        "selector": ".prose-blog",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "/blog - newsletter email input",
+        "issues": [
+          "ACCEPTABLE (not a bug in Blog.jsx): input[type='email'] found comes from Footer component (x-file-name='Footer'), not from Blog.jsx. Blog.jsx itself has no newsletter section. Requirement is satisfied."
+        ]
+      }
+    ]
+  },
+  "test_report_links": ["/app/test_reports/iteration_6.json"],
+  "action_items": [
+    "CRITICAL: Blog post content is stored as Markdown in DB but dangerouslySetInnerHTML renders it as raw HTML. Either: (1) re-seed blog posts with HTML content, or (2) add a Markdown→HTML conversion using `marked` or `react-markdown` before passing to dangerouslySetInnerHTML. This causes visible `#` symbols on the article content area."
+  ],
+  "critical_code_review_comments": [
+    "BlogPost.jsx dangerouslySetInnerHTML fix is correctly implemented — no hardcoded text remains in JSX. Content comes from post.content via the API.",
+    "index.css prose-blog styles verified: h2/h3 use Cormorant Garamond, p uses #5E6C60 color, blockquote has green (#5A7161) left border. Styles are correct but won't render since DB content is Markdown not HTML.",
+    "Blog.jsx empty state (posts.length === 0) correctly shows 'Les articles arrivent bientôt' per code review — data-testid='blog-empty-contact-cta' present.",
+    "No bg-muted class found in Blog.jsx page DOM (only shadcn internals if any — none found).",
+    "Both blog-final-cta and blogpost-final-cta CTAs display 'Planifier un échange' from globalCTA.primary — correct."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "N/A (frontend only)",
+    "frontend": "93% (14/15 visible tests pass; 1 visual bug: Markdown content rendered as raw text)"
+  },
+  "test_credentials": "Admin: /admin/login, password JQi]=3+8Azc4 (not needed for this run)",
+  "seed_data_creation": "None. 9 seed articles already in DB, /api/blog/posts returns 3.",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All Blog.jsx and BlogPost.jsx structural requirements pass. Key remaining issue: blog post content (post.content) is stored as Markdown in MongoDB but rendered via dangerouslySetInnerHTML which expects HTML. The page shows raw `# Introduction` etc. with visible hash symbols. Fix is either: re-seeding DB articles with HTML content, or adding a Markdown parser. data-testids all present: blog-post-card-{id}, blog-read-link-{id}, blog-final-cta, blog-empty-contact-cta, blogpost-inline-cta, blogpost-final-cta, related-post-{id}.",
+  "rca_of_issue": {
+    "issue": "Markdown content rendered as raw text in BlogPost",
+    "root_cause": "Seed data in content.js stores blog post content as Markdown strings (with # for headings). BlogPost.jsx uses dangerouslySetInnerHTML which injects the string as raw HTML. Since Markdown is not HTML, the browser renders the literal `#` characters as visible text instead of headings. The prose-blog CSS classes (.prose-blog h2, .prose-blog h3) are correctly defined but never applied because no actual <h2>/<h3> elements exist in the rendered DOM.",
+    "reproduction": "Navigate to /blog/1, scroll to content area — visible '# Introduction ## Les enjeux...' text with hash symbols",
+    "mitigation": "Option 1 (recommended): Update seed data / admin panel to save content as HTML. Option 2: In BlogPost.jsx, use a Markdown parser (e.g. `marked.parse(post.content)`) and pass result to dangerouslySetInnerHTML: `dangerouslySetInnerHTML={{ __html: marked.parse(post.content || '') }}`"
+  },
+  "test_results_detail": {
+    "blog_hero_ressources": "PASS - 'Ressources pour les praticiens' and 'qui gèrent mieux leur temps' visible",
+    "blog_posts_grid": "PASS - 3-column grid, 3 post cards, each with image/category/date/title/excerpt/'Lire l'article'",
+    "blog_no_newsletter": "PASS - No newsletter section in Blog.jsx DOM; email input found is from Footer component only",
+    "blog_final_cta": "PASS - data-testid='blog-final-cta', text='Planifier un échange', bg=rgb(44,53,45) #2C352D",
+    "blog_no_bg_muted": "PASS - 0 elements with class bg-muted in Blog page DOM",
+    "blogpost_navigate": "PASS - Clicking 'Lire l'article' navigates to /blog/1",
+    "blogpost_header_badge": "PASS - Terracotta category badge (rgba(194,122,98,0.12)) with 'Conseils'",
+    "blogpost_header_title": "PASS - H1 title in Cormorant Garamond font",
+    "blogpost_header_meta": "PASS - Author 'Équipe Espace Agenda', date '15 janvier 2025', '5 min de lecture'",
+    "blogpost_header_bg": "PASS - Header background is rgb(244,240,232) = #F4F0E8",
+    "blogpost_prose_blog": "PASS - .prose-blog div present, content from dangerouslySetInnerHTML (post.content, not hardcoded)",
+    "blogpost_inline_cta": "PASS - data-testid='blogpost-inline-cta', text='Demander l'installation', bg #F4F0E8",
+    "blogpost_related_posts": "PASS - 'Articles similaires' section with 2 related-post-{id} elements",
+    "blogpost_final_cta": "PASS - data-testid='blogpost-final-cta', bg=rgb(44,53,45) #2C352D",
+    "blogpost_back_link": "PASS - 'Retour aux articles' href='/blog'",
+    "index_css_prose_blog": "PASS - .prose-blog h2/h3 use Cormorant Garamond, p=rgb(94,108,96), blockquote has green left border",
+    "content_markdown_issue": "FAIL (visual) - Content stored as Markdown in DB, dangerouslySetInnerHTML shows raw # symbols"
+  }
+}
