@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, Shield, Zap, Check, Smartphone, Calendar, Leaf } from 'lucide-react';
+import { ArrowRight, Clock, Shield, Zap, Check, Smartphone, Calendar, Leaf, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useInView } from 'react-intersection-observer';
@@ -107,7 +107,7 @@ const Home = () => {
                 </Link>
               </div>
               <p className="mt-5 text-sm" style={{ color: '#5E6C60' }}>
-                Installation guidée · Support humain · Paramétrage adapté
+                Installation en 7 jours · Facturation incluse dès 29€/mois · Aucun engagement
               </p>
             </div>
           </div>
@@ -191,6 +191,40 @@ const Home = () => {
       </section>
 
       {/* ================================================================
+          TÉMOIGNAGE — preuve sociale praticien
+      ================================================================ */}
+      <section className="py-16" style={{ backgroundColor: '#F4F0E8' }}>
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <div
+            className="rounded-3xl p-10 relative"
+            style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8', boxShadow: '0 2px 8px rgba(90,113,97,0.06)' }}
+          >
+            <div
+              className="absolute -top-4 left-10 h-8 w-8 flex items-center justify-center rounded-full"
+              style={{ backgroundColor: '#5A7161' }}
+            >
+              <MessageCircle className="h-4 w-4 text-white" />
+            </div>
+            <blockquote className="font-heading font-medium text-xl sm:text-2xl leading-relaxed mb-6" style={{ color: '#2C352D' }}>
+              "Gain de temps réel au quotidien. La facturation intégrée et les paiements en ligne à l'avance ont changé ma façon de travailler. La flexibilité pour créer mes types de séances et gérer mon planning est exactement ce dont j'avais besoin."
+            </blockquote>
+            <div className="flex items-center gap-4">
+              <div
+                className="h-12 w-12 rounded-full flex items-center justify-center font-heading font-medium text-lg text-white flex-shrink-0"
+                style={{ backgroundColor: '#5A7161' }}
+              >
+                G
+              </div>
+              <div>
+                <p className="font-semibold" style={{ color: '#2C352D' }}>Guillaume</p>
+                <p className="text-sm" style={{ color: '#5E6C60' }}>Psychopraticien · Gironde</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
           SÉPARATEUR NATURE — bande paysage immersive
       ================================================================ */}
       <div className="relative h-64 overflow-hidden" style={{ margin: '0' }}>
@@ -204,7 +238,7 @@ const Home = () => {
           style={{ background: 'rgba(249,246,240,0.55)' }}>
           <div className="text-center px-6">
             <p className="font-heading text-2xl sm:text-3xl font-medium" style={{ color: '#2C352D' }}>
-              "Redonner du temps aux soignants, c'est leur permettre de soigner mieux."
+              "Moins de gestion, plus de présence."
             </p>
           </div>
         </div>
@@ -515,10 +549,10 @@ const Home = () => {
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#F9F6F0' }}>
-              Prêt à simplifier votre<br />gestion des rendez-vous ?
+              Votre agenda en ligne,<br />prêt en 7 jours.
             </h2>
             <p className="text-lg leading-relaxed mb-10" style={{ color: 'rgba(249,246,240,0.75)' }}>
-              Parlez-nous de votre pratique lors d'un échange sans engagement. Nous vous conseillerons l'offre la plus adaptée.
+              Échangeons 20 minutes. Vous expliquez votre pratique, nous vous montrons à quoi ressemblera votre page. Sans engagement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">

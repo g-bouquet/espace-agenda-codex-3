@@ -15,10 +15,10 @@ export const contactInfo = {
 // HERO - PAGE ACCUEIL
 // ========================
 export const heroHome = {
-  h1: 'Gestion des rendez-vous : simple pour vous, fluide pour vos clients',
-  subtitle: 'Pour les praticiens et indépendants : page de réservation personnalisée à votre identité, rappels et support réactif. Nous installons et configurons pour votre pratique, puis nous restons disponibles.',
-  ctaPrimary: 'Planifier un échange',
-  ctaSecondary: 'Voir les demos',
+  h1: 'Vos rendez-vous en ligne : à votre nom, prêts en 7 jours',
+  subtitle: 'Vos clients réservent seuls, 24h/24, et reçoivent des rappels automatiques. Vous ne configurez rien — nous installons, paramétrons et restons disponibles.',
+  ctaPrimary: 'Demander l\'installation',
+  ctaSecondary: 'Voir un exemple de page',
   ctaSecondaryLink: '/exemples'
 };
 
@@ -121,12 +121,12 @@ export const professionsGrouped = [
 // CE QUE VOUS OBTENEZ
 // ========================
 export const whatYouGet = [
-  'Une page de réservation personnalisée à votre identité (logo, couleurs, textes)',
-  'Un accompagnement humain : installation, configuration et formation incluses',
-  'Des rappels automatiques pour réduire les absences (email + SMS + WhatsApp selon offre)',
-  'Un support réactif et illimité par email, tickets, WhatsApp et téléphone (selon offre)',
-  'Une solution sécurisée et conforme RGPD',
-  'Des mises à jour régulières et un suivi dans le temps'
+  'Page de réservation personnalisée : votre logo, vos couleurs, votre nom de domaine',
+  'Rappels automatiques email + WhatsApp inclus dès le départ (SMS selon offre)',
+  'Facturation et paiements en ligne intégrés dès 29€/mois',
+  'Installation complète et formation de 30 minutes comprises',
+  'Support humain illimité — pas de hotline, une vraie réponse sous 24h',
+  'Aucun outil tiers visible : vos clients ne voient que vous'
 ];
 
 // ========================
