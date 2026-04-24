@@ -68,7 +68,12 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Home.jsx** : toggle indépendant `isAnnualHome`
 - **Tests** : 16/16 passés (iteration_4.json)
 
-### Session 7 (Février 2026) — Refonte Blog + BlogPost
+### Session 8 (Février 2026) — Contact.jsx + SMTP Hostinger
+- ✅ **Contact.jsx** : harmonisation design warm — tous les labels (label-tag), inputs, select, textarea avec `borderColor: #E2DFD8` + `rounded-xl`, plus aucune classe résiduelle `text-foreground`/`border-neutral-300`/`focus:ring-amber-700`. Section délai refaite en 3 cartes (#FFFFFF sur #F4F0E8). Option sujet corrigée 79→69.
+- ✅ **content.js** : `contactInfo.email` et `legalInfo.email` → `contact@espaceagenda.com` (2 occurrences). `locationShort` → `Bordeaux + à distance`.
+- ✅ **email_service.py** : ajout `self.use_ssl`, `_send_email` utilise `SMTP_SSL` pour port 465, couleurs templates #2C352D/#5A7161, adresse footer mise à jour.
+- ✅ **backend/.env** : SMTP_HOST=smtp.hostinger.com, SMTP_PORT=465, SMTP_USE_SSL=true, CONTACT_EMAIL=contact@espaceagenda.com. **SMTP_PASSWORD doit être saisi par l'opérateur.**
+- **Tests** : 16/16 passés après correction du champ Téléphone (iteration_7.json + self-test)
 - ✅ **Blog.jsx** : réécriture — suppression newsletter non fonctionnelle, état vide "Les articles arrivent bientôt", design warm cohérent, CTA final deep forest, zéro classe résiduelle bg-muted
 - ✅ **BlogPost.jsx** : bug critique corrigé — `post.content` affiché via `dangerouslySetInnerHTML` (plus de texte hardcodé "Introduction", "Les enjeux..."), convertisseur Markdown→HTML natif sans dépendance externe, CTA inline bas d'article, section articles connexes conditionnelle
 - ✅ **index.css** : styles `.prose-blog` ajoutés (h2/h3 Cormorant Garamond, paragraphes #5E6C60, blockquote avec bordure verte)
