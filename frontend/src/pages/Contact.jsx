@@ -120,7 +120,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: '#2C352D' }}>
                           Nom complet *
                         </label>
                         <input
@@ -130,13 +130,14 @@ const Contact = () => {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent"
+                          className="flex h-10 w-full rounded-xl border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors"
+                          style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
                           placeholder="Votre nom"
                         />
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: '#2C352D' }}>
                           Email *
                         </label>
                         <input
@@ -146,7 +147,8 @@ const Contact = () => {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent"
+                          className="flex h-10 w-full rounded-xl border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors"
+                          style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
                           placeholder="votre.email@exemple.fr"
                         />
                       </div>
@@ -169,7 +171,7 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="subject" className="block text-sm font-medium mb-2" style={{ color: '#2C352D' }}>
                           Sujet *
                         </label>
                         <select
@@ -178,11 +180,12 @@ const Contact = () => {
                           required
                           value={formData.subject}
                           onChange={handleChange}
-                          className="flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent"
+                          className="flex h-10 w-full rounded-xl border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors"
+                          style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
                         >
                           <option value="">Sélectionnez un sujet</option>
                           <option value="installation">Démarrer mon installation</option>
-                          <option value="offre">Choisir mon offre (29/45/79)</option>
+                          <option value="offre">Choisir mon offre (29/45/69)</option>
                           <option value="domaine">Nom de domaine / intégration site</option>
                           <option value="sms-paiements">SMS / paiements</option>
                           <option value="sur-mesure">Sur mesure</option>
@@ -192,7 +195,7 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="profession" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="profession" className="block text-sm font-medium mb-2" style={{ color: '#2C352D' }}>
                         Votre métier (optionnel)
                       </label>
                       <input
@@ -201,13 +204,14 @@ const Contact = () => {
                         name="profession"
                         value={formData.profession}
                         onChange={handleChange}
-                        className="flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent"
+                        className="flex h-10 w-full rounded-xl border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors"
+                        style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
                         placeholder="Ex: Psychologue, Ostéopathe, Coach..."
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: '#2C352D' }}>
                         Message *
                       </label>
                       <textarea
@@ -217,7 +221,8 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         rows={6}
-                        className="flex w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent resize-none"
+                        className="flex w-full rounded-xl border bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors resize-none"
+                        style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
                         placeholder="Décrivez votre projet ou votre demande..."
                       />
                     </div>
@@ -232,7 +237,7 @@ const Contact = () => {
                           onChange={handleChange}
                           className="mt-1 h-4 w-4 rounded border-neutral-300 text-primary focus:ring-2 focus:ring-primary"
                         />
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm" style={{ color: '#5E6C60' }}>
                           J'accepte d'être recontacté·e concernant ma demande *
                         </span>
                       </label>
@@ -260,17 +265,20 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* Section Délai de réponse */}
       <section className="py-16" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-heading font-medium text-3xl mb-4" style={{ color: '#2C352D' }}>
-              Délai de réponse
-            </h2>
-            <p className="text-lg leading-relaxed" style={{ color: '#5E6C60' }}>
-              Nous nous engageons à vous répondre sous 24 heures ouvrées.
-              Pour toute urgence, n'hésitez pas à nous contacter directement par téléphone.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              { titre: 'Réponse sous 24h', texte: 'Toutes les demandes reçoivent une réponse dans la journée ouvrable.' },
+              { titre: 'Urgences < 6h', texte: 'Pour un blocage technique ou un problème critique, nous intervenons rapidement.' },
+              { titre: 'Échange sans engagement', texte: 'Pas de pression, pas de relances. Vous décidez à votre rythme.' },
+            ].map((item, i) => (
+              <div key={i} className="rounded-2xl p-6 text-center" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}>
+                <h3 className="font-heading font-medium text-xl mb-2" style={{ color: '#2C352D' }}>{item.titre}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#5E6C60' }}>{item.texte}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

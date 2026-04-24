@@ -14,8 +14,9 @@ class EmailService:
         self.smtp_port = int(os.getenv('SMTP_PORT', '1025'))
         self.smtp_user = os.getenv('SMTP_USER', '')
         self.smtp_password = os.getenv('SMTP_PASSWORD', '')
-        self.contact_email = os.getenv('CONTACT_EMAIL', 'contact@espaceagenda.fr')
+        self.contact_email = os.getenv('CONTACT_EMAIL', 'contact@espaceagenda.com')
         self.use_tls = os.getenv('SMTP_USE_TLS', 'false').lower() == 'true'
+        self.use_ssl = os.getenv('SMTP_USE_SSL', 'false').lower() == 'true'
 
     def send_contact_notification(self, name: str, email: str, phone: Optional[str], subject: str, message: str, profession: Optional[str] = None) -> bool:
         """Envoie une notification email à l'équipe pour un nouveau contact"""
@@ -32,11 +33,11 @@ class EmailService:
                 <style>
                   body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
                   .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
-                  .header {{ background-color: #0c4a6e; color: white; padding: 20px; text-align: center; }}
+                  .header {{ background-color: #2C352D; color: white; padding: 20px; text-align: center; }}
                   .content {{ background-color: #f9fafb; padding: 20px; }}
                   .field {{ margin-bottom: 15px; }}
-                  .label {{ font-weight: bold; color: #0c4a6e; }}
-                  .value {{ margin-top: 5px; padding: 10px; background-color: white; border-left: 3px solid #b45309; }}
+                  .label {{ font-weight: bold; color: #5A7161; }}
+                  .value {{ margin-top: 5px; padding: 10px; background-color: white; border-left: 3px solid #5A7161; }}
                 </style>
               </head>
               <body>
@@ -101,7 +102,7 @@ class EmailService:
                 <style>
                   body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
                   .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
-                  .header {{ background-color: #0c4a6e; color: white; padding: 20px; text-align: center; }}
+                  .header {{ background-color: #2C352D; color: white; padding: 20px; text-align: center; }}
                   .content {{ padding: 30px; background-color: #f9fafb; }}
                   .footer {{ padding: 20px; text-align: center; font-size: 12px; color: #6b7280; }}
                 </style>
@@ -120,8 +121,8 @@ class EmailService:
                   </div>
                   <div class="footer">
                     <p>Espace Agenda - Solution de prise de rendez-vous en ligne<br>
-                    42 rue de Tauzia, 33800 Bordeaux<br>
-                    06 11 01 60 54 | contact@espaceagenda.fr</p>
+                    Bordeaux + à distance<br>
+                    06 11 01 60 54 | contact@espaceagenda.com</p>
                   </div>
                 </div>
               </body>
@@ -142,21 +143,28 @@ class EmailService:
     def _send_email(self, msg: MIMEMultipart):
         """Méthode interne pour envoyer l'email via SMTP"""
         try:
-            if self.use_tls:
+            if self.use_ssl:
+                # SSL direct — pour Hostinger port 465
+                server = smtplib.SMTP_SSL(self.smtp_host, self.smtp_port)
+            elif self.use_tls:
+                # STARTTLS — pour port 587
                 server = smtplib.SMTP(self.smtp_host, self.smtp_port)
                 server.starttls()
             else:
+                # Sans chiffrement — dev local uniquement
                 server = smtplib.SMTP(self.smtp_host, self.smtp_port)
-            
+
             if self.smtp_user and self.smtp_password:
                 server.login(self.smtp_user, self.smtp_password)
-            
+
             server.send_message(msg)
             server.quit()
-            
+            logger.info(f"Email envoyé via {self.smtp_host}:{self.smtp_port}")
+
         except Exception as e:
             logger.error(f"Erreur SMTP: {str(e)}")
             raise
 
 
 email_service = EmailService()
+

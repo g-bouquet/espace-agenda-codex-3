@@ -6,9 +6,9 @@
 // ========================
 export const contactInfo = {
   phone: '06 11 01 60 54',
-  email: 'contact@espaceagenda.fr',
+  email: 'contact@espaceagenda.com',
   location: 'Bordeaux',
-  locationShort: 'Bordeaux'
+  locationShort: 'Bordeaux + à distance'
 };
 
 // ========================
@@ -654,7 +654,7 @@ export const legalInfo = {
   address: '42 rue de Tauzia, 33800 Bordeaux',
   addressShort: 'Bordeaux, France',
   phone: '06 11 01 60 54',
-  email: 'contact@espaceagenda.fr',
+  email: 'contact@espaceagenda.com',
   director: 'Célestin Bouquet',
   lastUpdate: 'février 2026',
   hosting: {
