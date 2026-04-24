@@ -361,7 +361,7 @@ export const options = [
     icon: 'UserCheck',
     name: 'Espace client',
     description: 'Vos clients accèdent à leur historique et documents',
-    price: 'Disponible dès Prime',
+    price: 'Disponible dès Intégral',
     note: 'Activation / désactivation selon vos préférences.'
   },
   {
@@ -453,7 +453,7 @@ export const faqsOffres = [
   {
     id: 'faq-off-3',
     question: 'Puis-je commencer simple puis évoluer ?',
-    answer: 'Oui, absolument. Vous pouvez démarrer avec l\'offre Essentiel et évoluer ensuite vers une offre supérieure (Pro ou Prime) si vos besoins évoluent. Vous pouvez également activer des options à la demande (espace client, SMS, multi-praticiens). Nous vous accompagnons dans cette évolution sans contrainte. Pas d\'engagement de durée, vous restez libre.'
+    answer: 'Oui, absolument. Vous pouvez démarrer avec l\'offre Essentiel et évoluer ensuite vers une offre supérieure (Pro ou Intégral) si vos besoins évoluent. Vous pouvez également activer des options à la demande (espace client, SMS, multi-praticiens). Nous vous accompagnons dans cette évolution sans contrainte. Pas d\'engagement de durée, vous restez libre.'
   },
   {
     id: 'faq-off-4',
@@ -467,8 +467,8 @@ export const faqsOffres = [
   },
   {
     id: 'faq-off-6',
-    question: 'Quelle est la différence entre Pro et Prime ?',
-    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus, support téléphonique et support WhatsApp. L\'offre Prime ajoute des fonctionnalités avancées : exports de données, paramètres avancés, chatbot intelligent, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, et support prioritaire (urgences < 6h). Si vous avez besoin de fonctionnalités très avancées et d\'un suivi prioritaire, choisissez Prime. Sinon, Pro est parfait pour la grande majorité des praticiens.'
+    question: 'Quelle est la différence entre Pro et Intégral ?',
+    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus, support téléphonique et support WhatsApp. L\'offre Intégral ajoute des fonctionnalités avancées : exports de données, paramètres avancés, chatbot intelligent, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, 100 SMS inclus, et support prioritaire (urgences < 6h). Si vous avez besoin de fonctionnalités très avancées et d\'un suivi prioritaire, choisissez Intégral. Sinon, Pro est parfait pour la grande majorité des praticiens.'
   },
   {
     id: 'faq-off-7',
