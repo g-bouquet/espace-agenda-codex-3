@@ -68,7 +68,11 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Home.jsx** : toggle indépendant `isAnnualHome`
 - **Tests** : 16/16 passés (iteration_4.json)
 
-### Session 6 (Février 2026) — Page Aperçu + correctifs toggle
+### Session 7 (Février 2026) — Refonte Blog + BlogPost
+- ✅ **Blog.jsx** : réécriture — suppression newsletter non fonctionnelle, état vide "Les articles arrivent bientôt", design warm cohérent, CTA final deep forest, zéro classe résiduelle bg-muted
+- ✅ **BlogPost.jsx** : bug critique corrigé — `post.content` affiché via `dangerouslySetInnerHTML` (plus de texte hardcodé "Introduction", "Les enjeux..."), convertisseur Markdown→HTML natif sans dépendance externe, CTA inline bas d'article, section articles connexes conditionnelle
+- ✅ **index.css** : styles `.prose-blog` ajoutés (h2/h3 Cormorant Garamond, paragraphes #5E6C60, blockquote avec bordure verte)
+- **Tests** : 15/15 passés + Markdown corrigé (iteration_6.json)
 - ✅ **Header.jsx** : "Exemples" → "Aperçu" (desktop + mobile), path `/exemples` inchangé
 - ✅ **Exemples.jsx** : réécriture complète — 2 démos réelles (Harmonie Thérapie + CalmeOstéo), images tablette téléchargées en `/public/`, grille professions 3+2, FAQ, CTA deep forest
 - ✅ **Offres.jsx** : correctif toggle layout shift — badge "2 mois offerts" en `flex-col` sous le toggle

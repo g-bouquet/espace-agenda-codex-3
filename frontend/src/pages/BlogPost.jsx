@@ -8,6 +8,37 @@ import { globalCTA } from '../content';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+// Convertisseur Markdown → HTML minimal (sans dépendance externe)
+const parseMarkdown = (text) => {
+  if (!text) return '';
+  return text
+    // Titres h3 avant h2 pour éviter les collisions
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+    // Gras et italique
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Liens
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    // Listes à puces
+    .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>(\n|$))+/g, '<ul>$&</ul>')
+    // Blockquotes
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+    // Séparateurs
+    .replace(/^---$/gm, '<hr />')
+    // Paragraphes : double saut de ligne
+    .split(/\n{2,}/)
+    .map(block => {
+      const trimmed = block.trim();
+      if (!trimmed) return '';
+      if (/^<(h[123]|ul|ol|blockquote|hr)/.test(trimmed)) return trimmed;
+      return `<p>${trimmed.replace(/\n/g, ' ')}</p>`;
+    })
+    .join('\n');
+};
+
 const BlogPost = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
@@ -171,7 +202,7 @@ const BlogPost = () => {
           <div
             className="prose-blog leading-relaxed"
             style={{ color: '#2C352D' }}
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }}
           />
         ) : (
           <p style={{ color: '#5E6C60' }}>Contenu de l'article non disponible.</p>
