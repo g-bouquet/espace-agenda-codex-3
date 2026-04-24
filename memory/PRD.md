@@ -63,11 +63,17 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - Configuration email backend SMTP
 
 ### Session 5 (Février 2026) — Toggle Tarifaire & Renommage Intégral
-- ✅ **content.js** : Tableau `offers` mis à jour — renommage "Prime" → "Intégral", ajout `priceAnnual`/`priceAnnualNumeric` (Essentiel: 290€/an, Pro: 450€/an, Intégral: 690€/an — 10 mois × tarif mensuel), 100 SMS inclus pour Intégral (vs 50 précédemment)
-- ✅ **Offres.jsx** : Réécriture complète — toggle mensuel/annuel (`useState isAnnual`), badge "2 mois offerts" en terracotta, bandeau Sur mesure redessiné (palette warm), tableau comparatif mis à jour (colonne "Intégral", SMS "100 inclus"), FAQ avec labels terracotta, CTA final deep forest
-- ✅ **Home.jsx** : Toggle tarifaire indépendant (`isAnnualHome`) dans la section aperçu des offres — fonctions séparées des deux pages
-- ✅ **content.js faqsOffres** : Toutes les références "Prime" remplacées par "Intégral" (faq-off-3, faq-off-6, options[2])
-- **Tests** : 16/16 tests passés (iteration_4.json)
+- ✅ **content.js** : `offers` — Prime → Intégral, 100 SMS, prix annuels (290/450/690€), faqsOffres mis à jour
+- ✅ **Offres.jsx** : réécriture avec toggle mensuel/annuel, badge "2 mois offerts", bandeau Sur mesure, tableau comparatif
+- ✅ **Home.jsx** : toggle indépendant `isAnnualHome`
+- **Tests** : 16/16 passés (iteration_4.json)
+
+### Session 6 (Février 2026) — Page Aperçu + correctifs toggle
+- ✅ **Header.jsx** : "Exemples" → "Aperçu" (desktop + mobile), path `/exemples` inchangé
+- ✅ **Exemples.jsx** : réécriture complète — 2 démos réelles (Harmonie Thérapie + CalmeOstéo), images tablette téléchargées en `/public/`, grille professions 3+2, FAQ, CTA deep forest
+- ✅ **Offres.jsx** : correctif toggle layout shift — badge "2 mois offerts" en `flex-col` sous le toggle
+- ✅ **Home.jsx** : même correctif toggle layout shift
+- **Tests** : 15/15 passés (iteration_5.json)
 - ✅ **Scroll reset** : composant ScrollToTop (behavior: instant) sur chaque navigation
 - ✅ **Professions** : 29 professions exactes, groupées en 5 catégories (tags pill sage green + labels terracotta)
 - ✅ **Intégrations** : couleur uniforme sage green (#5A7161) sur tous les items
