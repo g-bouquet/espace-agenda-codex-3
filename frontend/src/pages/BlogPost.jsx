@@ -125,7 +125,7 @@ const BlogPost = () => {
           {post.category && (
             <span
               className="text-xs font-semibold px-3 py-1 rounded-full inline-block mb-5"
-              style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
+              style={{ backgroundColor: 'rgba(158,126,74,0.12)', color: '#9E7E4A' }}
             >
               {post.category}
             </span>
@@ -265,7 +265,7 @@ const BlogPost = () => {
                     {relatedPost.category && (
                       <span
                         className="text-xs font-semibold px-2.5 py-1 rounded-full inline-block mb-3"
-                        style={{ backgroundColor: 'rgba(194,122,98,0.10)', color: '#C27A62' }}
+                        style={{ backgroundColor: 'rgba(158,126,74,0.10)', color: '#9E7E4A' }}
                       >
                         {relatedPost.category}
                       </span>

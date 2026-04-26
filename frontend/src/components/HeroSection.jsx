@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Leaf } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 
 const HeroSection = ({
@@ -59,10 +59,13 @@ const HeroSection = ({
               heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            {/* Overline */}
-            <p className="label-tag text-primary mb-5 opacity-80" style={{ animationDelay: '0.1s' }}>
-              Gestion de rendez-vous pour praticiens
-            </p>
+            {/* Overline avec icône feuille */}
+            <div className="flex items-center gap-2 mb-5">
+              <Leaf className="h-4 w-4 flex-shrink-0" style={{ color: '#5A7161' }} />
+              <span className="label-tag" style={{ color: '#5A7161' }}>
+                Réservation en ligne pour praticiens
+              </span>
+            </div>
 
             <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight mb-6"
               style={{ color: '#2C352D', lineHeight: '1.1' }}>
@@ -92,7 +95,8 @@ const HeroSection = ({
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full border-border text-foreground hover:border-primary hover:text-primary px-8"
+                    className="rounded-full px-8 font-medium"
+                    style={{ borderColor: '#9E7E4A', color: '#9E7E4A' }}
                   >
                     Voir les offres
                   </Button>

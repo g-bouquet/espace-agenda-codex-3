@@ -51,7 +51,7 @@ const Exemples = () => {
       <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Exemples réels</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Exemples réels</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               Des pages de réservation<br />prêtes à l'emploi
             </h2>
@@ -81,7 +81,7 @@ const Exemples = () => {
                 <div className="p-8">
                   <span
                     className="text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4"
-                    style={{ backgroundColor: 'rgba(194,122,98,0.10)', color: '#C27A62' }}
+                    style={{ backgroundColor: 'rgba(158,126,74,0.10)', color: '#9E7E4A' }}
                   >
                     {demo.label}
                   </span>
@@ -152,7 +152,7 @@ const Exemples = () => {
       <section className="py-24" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="label-tag mb-3 block" style={{ color: '#C27A62' }}>Professions concernées</span>
+            <span className="label-tag mb-3 block" style={{ color: '#9E7E4A' }}>Professions concernées</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               Et bien d'autres professions
             </h2>
@@ -169,7 +169,7 @@ const Exemples = () => {
                 className="rounded-2xl p-6"
                 style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}
               >
-                <p className="label-tag mb-4" style={{ color: '#C27A62' }}>{group.category}</p>
+                <p className="label-tag mb-4" style={{ color: '#9E7E4A' }}>{group.category}</p>
                 <ul className="space-y-2">
                   {group.professions.map((prof, pi) => (
                     <li key={pi} className="flex items-center gap-2 text-sm" style={{ color: '#2C352D' }}>
@@ -193,7 +193,7 @@ const Exemples = () => {
                 className="rounded-2xl p-6"
                 style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}
               >
-                <p className="label-tag mb-4" style={{ color: '#C27A62' }}>{group.category}</p>
+                <p className="label-tag mb-4" style={{ color: '#9E7E4A' }}>{group.category}</p>
                 <ul className="space-y-2">
                   {group.professions.map((prof, pi) => (
                     <li key={pi} className="flex items-center gap-2 text-sm" style={{ color: '#2C352D' }}>
@@ -233,7 +233,7 @@ const Exemples = () => {
       <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Questions</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Questions</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               Questions fréquentes
             </h2>

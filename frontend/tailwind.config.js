@@ -33,8 +33,8 @@ module.exports = {
                                 foreground: '#FFFFFF'
                         },
                         terracotta: {
-                                DEFAULT: '#C27A62',
-                                hover: '#A6654F',
+                                DEFAULT: '#9E7E4A',
+                                hover: '#7D6235',
                                 foreground: '#FFFFFF'
                         },
                         muted: {
@@ -42,7 +42,7 @@ module.exports = {
                                 foreground: '#5E6C60'
                         },
                         accent: {
-                                DEFAULT: '#C27A62',
+                                DEFAULT: '#9E7E4A',
                                 foreground: '#FFFFFF'
                         },
                         destructive: {
@@ -54,7 +54,7 @@ module.exports = {
                         ring: '#5A7161',
                         chart: {
                                 '1': '#5A7161',
-                                '2': '#C27A62',
+                                '2': '#9E7E4A',
                                 '3': '#5E6C60',
                                 '4': '#F4F0E8',
                                 '5': '#2C352D'
@@ -97,4 +97,10 @@ module.exports = {
         }
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: [
+    'animate-accordion-down',
+    'animate-accordion-up',
+    'data-[state=open]:animate-accordion-down',
+    'data-[state=closed]:animate-accordion-up',
+  ],
 };

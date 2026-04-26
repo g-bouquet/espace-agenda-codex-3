@@ -30,7 +30,7 @@ const Offres = () => {
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Nos formules</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Nos formules</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               Choisissez votre formule
             </h2>
@@ -71,7 +71,7 @@ const Offres = () => {
               {isAnnual && (
                 <span
                   className="text-xs font-semibold px-3 py-1 rounded-full"
-                  style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
+                  style={{ backgroundColor: 'rgba(158,126,74,0.12)', color: '#9E7E4A' }}
                   data-testid="offres-annual-badge"
                 >
                   2 mois offerts
@@ -102,7 +102,7 @@ const Offres = () => {
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span
                       className="text-xs font-semibold px-4 py-1 rounded-full"
-                      style={{ backgroundColor: '#C27A62', color: '#FFFFFF' }}
+                      style={{ backgroundColor: '#9E7E4A', color: '#FFFFFF' }}
                     >
                       {offer.badge}
                     </span>
@@ -220,7 +220,7 @@ const Offres = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div>
-                  <span className="label-tag mb-2 block" style={{ color: '#C27A62' }}>Sur mesure</span>
+                  <span className="label-tag mb-2 block" style={{ color: '#9E7E4A' }}>Sur mesure</span>
                   <h3 className="font-heading font-medium text-2xl mb-2" style={{ color: '#2C352D' }}>
                     {bannerOffer.name}
                   </h3>
@@ -276,7 +276,7 @@ const Offres = () => {
       <section className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Détail</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Détail</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Comparatif complet
             </h2>
@@ -360,7 +360,7 @@ const Offres = () => {
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Questions</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Questions</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Questions fréquentes
             </h2>

@@ -252,7 +252,7 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div ref={audienceRef} className={`transition-all duration-700 ${audienceInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Pour qui ?</span>
+              <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Pour qui ?</span>
               <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#2C352D' }}>
                 Fait pour les praticiens<br />de l'accompagnement
               </h2>
@@ -262,7 +262,7 @@ const Home = () => {
               <div className="space-y-6">
                 {professionsGrouped.map((group, gi) => (
                   <div key={gi}>
-                    <p className="label-tag mb-3" style={{ color: '#C27A62' }}>{group.category}</p>
+                    <p className="label-tag mb-3" style={{ color: '#9E7E4A' }}>{group.category}</p>
                     <div className="flex flex-wrap gap-2">
                       {group.professions.map((p, pi) => (
                         <span key={pi} className="text-sm px-3 py-1 rounded-full font-medium"
@@ -298,7 +298,7 @@ const Home = () => {
               </Link>
               {/* Decorative element */}
               <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-20 blur-xl"
-                style={{ backgroundColor: '#C27A62' }} />
+                style={{ backgroundColor: '#9E7E4A' }} />
             </div>
           </div>
         </div>
@@ -312,7 +312,7 @@ const Home = () => {
           {/* Côté client */}
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Pour vos clients</span>
+              <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Pour vos clients</span>
               <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#2C352D' }}>
                 Une réservation simple<br />et rassurante
               </h2>
@@ -357,7 +357,7 @@ const Home = () => {
               />
             </div>
             <div className="order-1 lg:order-2">
-              <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Pour vous</span>
+              <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Pour vous</span>
               <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-6" style={{ color: '#2C352D' }}>
                 Tout est cadré,<br />vous gardez la main
               </h2>
@@ -393,7 +393,7 @@ const Home = () => {
       <section className="py-24" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Nos formules</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Nos formules</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl mb-4" style={{ color: '#2C352D' }}>
               À partir de 29€ / mois TTC
             </h2>
@@ -425,7 +425,7 @@ const Home = () => {
               {isAnnualHome && (
                 <span
                   className="text-xs font-semibold px-3 py-1 rounded-full"
-                  style={{ backgroundColor: 'rgba(194,122,98,0.12)', color: '#C27A62' }}
+                  style={{ backgroundColor: 'rgba(158,126,74,0.12)', color: '#9E7E4A' }}
                   data-testid="home-annual-badge"
                 >
                   2 mois offerts
@@ -508,7 +508,7 @@ const Home = () => {
       <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Le processus</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Le processus</span>
             <h2 className="font-heading font-medium text-4xl sm:text-5xl" style={{ color: '#2C352D' }}>
               Comment ça fonctionne ?
             </h2>

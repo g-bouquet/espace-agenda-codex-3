@@ -96,7 +96,7 @@ const Solution = () => {
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Le processus</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Le processus</span>
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
               Comment ça se passe ?
             </h2>
@@ -150,7 +150,7 @@ const Solution = () => {
       <section ref={featuresRef} className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Fonctionnalités</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Fonctionnalités</span>
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
               Ce que vous obtenez
             </h2>
@@ -246,7 +246,7 @@ const Solution = () => {
       <section ref={whyRef} className="py-20" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Notre différence</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Notre différence</span>
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
               Pourquoi nous choisir ?
             </h2>
@@ -289,7 +289,7 @@ const Solution = () => {
       <section className="py-20" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <span className="label-tag mb-4 block" style={{ color: '#C27A62' }}>Intégrations</span>
+            <span className="label-tag mb-4 block" style={{ color: '#9E7E4A' }}>Intégrations</span>
             <h2 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl" style={{ color: '#2C352D' }}>
               Vos outils habituels, connectés
             </h2>
