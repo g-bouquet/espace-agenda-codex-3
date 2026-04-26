@@ -68,7 +68,13 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Home.jsx** : toggle indépendant `isAnnualHome`
 - **Tests** : 16/16 passés (iteration_4.json)
 
-### Session 8 (Février 2026) — Contact.jsx + SMTP Hostinger
+### Session 9 (Février 2026) — Refonte UX/Design globale
+- ✅ **Couleur accent** : Terracotta #C27A62 → Doré sauge #9E7E4A sur TOUS les fichiers (JSX, tailwind.config.js, App.css) — zéro occurrence résiduelle confirmée
+- ✅ **button.jsx** : outline hover → `hover:bg-transparent hover:border-primary hover:text-primary` (plus de fond coloré agressif au hover)
+- ✅ **HeroSection.jsx** : icône Leaf + label-tag "Réservation en ligne pour praticiens" sur toutes les pages (Solution, Offres, Exemples, Blog, Contact)
+- ✅ **accordion.jsx** : fallback `--radix-accordion-content-height: auto` + `leading-relaxed` — FAQ ouvre 9 questions sur /solution
+- ✅ **tailwind.config.js** : safelist accordion, `terracotta.DEFAULT: '#9E7E4A'`, `accent.DEFAULT: '#9E7E4A'`
+- **Tests** : 13/13 passés (iteration_8.json)
 - ✅ **Contact.jsx** : harmonisation design warm — tous les labels (label-tag), inputs, select, textarea avec `borderColor: #E2DFD8` + `rounded-xl`, plus aucune classe résiduelle `text-foreground`/`border-neutral-300`/`focus:ring-amber-700`. Section délai refaite en 3 cartes (#FFFFFF sur #F4F0E8). Option sujet corrigée 79→69.
 - ✅ **content.js** : `contactInfo.email` et `legalInfo.email` → `contact@espaceagenda.com` (2 occurrences). `locationShort` → `Bordeaux + à distance`.
 - ✅ **email_service.py** : ajout `self.use_ssl`, `_send_email` utilise `SMTP_SSL` pour port 465, couleurs templates #2C352D/#5A7161, adresse footer mise à jour.
