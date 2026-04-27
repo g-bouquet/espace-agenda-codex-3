@@ -68,7 +68,11 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Home.jsx** : toggle indépendant `isAnnualHome`
 - **Tests** : 16/16 passés (iteration_4.json)
 
-### Session 9 (Février 2026) — Refonte UX/Design globale
+### Session 10 (Février 2026) — Fix URL démo + Bug FAQ
+- ✅ **Exemples.jsx** : URL CalmeOstéo → `https://calmeosteo.wlbookings.com` (plus ostodirect)
+- ✅ **accordion.jsx** : suppression du `style={{ '--radix-accordion-content-height': 'auto' }}` qui écrasait le calcul Radix → contenu visible (height 173px sur /solution)
+- ✅ **index.css** : `animation-fill-mode: forwards` sur `.animate-accordion-down/up` + fallback CSS `[data-state="open"] → height: auto !important; overflow: visible`
+- **Tests** : 12/12 passés (iteration_9.json) — FAQ vérifié sur /solution, /offres, /exemples
 - ✅ **Couleur accent** : Terracotta #C27A62 → Doré sauge #9E7E4A sur TOUS les fichiers (JSX, tailwind.config.js, App.css) — zéro occurrence résiduelle confirmée
 - ✅ **button.jsx** : outline hover → `hover:bg-transparent hover:border-primary hover:text-primary` (plus de fond coloré agressif au hover)
 - ✅ **HeroSection.jsx** : icône Leaf + label-tag "Réservation en ligne pour praticiens" sur toutes les pages (Solution, Offres, Exemples, Blog, Contact)
