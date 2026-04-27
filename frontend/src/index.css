@@ -215,21 +215,35 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Correctif animation Accordion Radix UI / Shadcn */
 @keyframes accordion-down {
-  from { height: 0; overflow: hidden; }
-  to { height: var(--radix-accordion-content-height); overflow: hidden; }
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
 }
 
 @keyframes accordion-up {
-  from { height: var(--radix-accordion-content-height); overflow: hidden; }
-  to { height: 0; overflow: hidden; }
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
 }
 
 .animate-accordion-down {
-  animation: accordion-down 0.2s ease-out;
+  animation: accordion-down 0.2s ease-out forwards;
 }
 
 .animate-accordion-up {
-  animation: accordion-up 0.2s ease-out;
+  animation: accordion-up 0.2s ease-out forwards;
+}
+
+/* Fallback CSS garanti : contenu visible quand data-state="open" */
+/* Cible l'élément AccordionPrimitive.Content rendu par Radix UI */
+[data-radix-accordion-content][data-state="open"],
+[role="region"][data-state="open"] {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+[data-radix-accordion-content][data-state="closed"],
+[role="region"][data-state="closed"] {
+  height: 0;
+  overflow: hidden;
 }
 
 

@@ -25,8 +25,8 @@ const Exemples = () => {
       label: 'Ostéopathie & thérapies manuelles',
       title: 'CalmeOstéo',
       description: "Page de réservation pour un cabinet d'ostéopathie. Plusieurs types de consultations, disponibilités flexibles, interface claire pour les patients de tous âges.",
-      url: 'https://ostodirect.wlbookings.com/',
-      urlDisplay: 'ostodirect.wlbookings.com',
+      url: 'https://calmeosteo.wlbookings.com',
+      urlDisplay: 'calmeosteo.wlbookings.com',
       image: '/calmeosteo.jpg',
       imageAlt: 'Interface de réservation CalmeOstéo sur tablette — liste des prestations avec tarifs',
       tags: ['Corps & thérapies manuelles', 'Mini-site dédié', 'Multi-types de consultations']

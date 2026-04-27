@@ -1,0 +1,50 @@
+{
+  "summary": "Iteration 9 — Bug fixes: (1) CalmeOstéo URL updated + (2) FAQ accordion visibility fix. All 12 test checks PASS. Frontend 100%.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "/exemples — CalmeOstéo card",
+        "issues": ["urlDisplay: 'calmeosteo.wlbookings.com' is defined in demos array but NOT rendered as visible text in the card template. The href is correct (https://calmeosteo.wlbookings.com). If displaying the URL text below the button is intentional, add {demo.urlDisplay} to the JSX."]
+      }
+    ]
+  },
+  "test_report_links": ["/app/test_reports/iteration_9.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "accordion.jsx: CLEAN — no inline style override for --radix-accordion-content-height. AccordionContent uses className only with animate-accordion-down/up.",
+    "index.css: animate-accordion-down/up use 'forwards' fill-mode. Fallback CSS [data-radix-accordion-content][data-state='open'] and [role='region'][data-state='open'] → height: auto !important confirmed in compiled CSS.",
+    "Exemples.jsx: CalmeOstéo url correctly set to 'https://calmeosteo.wlbookings.com'. urlDisplay field defined but not rendered in template (minor — no visible text showing the URL on the card).",
+    "FAQ on /contact: No accordion present — expected ('si présent' condition)."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "N/A (frontend-only test)",
+    "frontend": "100% (12/12 checks pass)"
+  },
+  "test_credentials": "Admin: /admin/login, password JQi]=3+8Azc4 (not needed for this test)",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": false,
+  "context_for_next_testing_agent": "Iteration 9: Both bug fixes fully verified. (1) CalmeOstéo URL = https://calmeosteo.wlbookings.com confirmed. No 'ostodirect' in source. (2) FAQ accordion works on /solution (9 items), /offres (8 items), /exemples (6 items). Open content height > 0, overflow=visible. Q3 open/close toggle works. accordion.jsx has no style override. CSS fallback rules confirmed in compiled CSS. /contact has no FAQ (correct). Minor: urlDisplay field defined in Exemples.jsx but not rendered as visible text.",
+  "test_results_detail": {
+    "exemples_calmeosteo_href": "PASS — href = 'https://calmeosteo.wlbookings.com'",
+    "exemples_no_ostodirect": "PASS — 'ostodirect' not found in page HTML",
+    "exemples_url_display_text": "NOTE — 'calmeosteo.wlbookings.com' not visible as rendered text (field defined but not used in template JSX)",
+    "accordion_no_style_override": "PASS — No [data-radix-accordion-content] elements with --radix-accordion-content-height inline style",
+    "css_fallback_rule": "PASS — CSS [data-state='open'] height:auto found in compiled stylesheet",
+    "solution_faq_q1": "PASS — height=173, overflow=visible, display=block, visibility=visible",
+    "solution_faq_q2": "PASS — 4 visible open elements after Q2 click",
+    "solution_faq_q3_open_close": "PASS — aria-expanded: true → false (toggle works)",
+    "solution_no_hidden_open_content": "PASS — No height:0 / display:none on open FAQ content",
+    "offres_faq_q1": "PASS — height=111, overflow=visible",
+    "offres_faq_q2": "PASS — 4 visible open elements",
+    "exemples_faq_q1": "PASS — height=111, overflow=visible",
+    "contact_faq": "N/A — No accordion on /contact (expected)"
+  }
+}
