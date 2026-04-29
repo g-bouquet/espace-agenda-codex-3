@@ -119,26 +119,37 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Contact** : Champ `profession` sauvegardé en DB + affiché dans email notification
 - ✅ **Admin** : Dashboard 3 stats (posts, contacts, newsletters) + page AdminNewsletters
 
+### Session 11 (Avril 2026) — 3 Articles SEO piliers insérés en MongoDB
+- ✅ **insert_blog_posts.py** : Créé et exécuté — insertion directe MongoDB sans supprimer les existants
+- ✅ **6 articles en base** : 3 SEO piliers nouveaux (Conseils pratiques, Organisation, Comparatif) + 3 articles existants
+  - Pilier 1 : "Comment réduire les absences et les lapins dans votre cabinet ?"
+  - Pilier 2 : "Gagner du temps en cabinet : ce que la gestion de vos rendez-vous vous coûte vraiment"
+  - Pilier 3 : "Quel logiciel de prise de rendez-vous choisir quand on est praticien indépendant ? Guide 2026"
+- ✅ **Frontend /blog** : 6 cartes d'articles affichées correctement (images, catégories, dates, excerpts)
+- **Tests** : Vérifié via curl API (6 articles) + screenshot frontend (6 cartes visibles)
+
 ## Backlog prioritaire
 
 ### P0 - Critique
-- ⏳ **SMTP réel** : L'envoi d'emails est MOCKÉ (localhost:1025). Nécessite des identifiants SMTP réels (host, port, user, password) de l'hébergeur email de l'utilisateur.
+- ✅ **SMTP réel** : Configuré sur Hostinger SMTP SSL port 465 (contact@espaceagenda.com)
 
 ### P1 - Important
 - ⏳ **Images** : Remplacer les photos stock (surtout les bénéfices sur Home) par des visuels thérapeute/bien-être plus adaptés
 
 ### P2 - Souhaitable
-- ⏳ **Admin auth sécurisée** : Authentification côté serveur (JWT) au lieu de client-side check. Mot de passe admin actuel : `w/h=E{449fXZ` (à reconfigurer)
+- ⏳ **Admin auth sécurisée** : Authentification côté serveur (JWT) au lieu de client-side check
 - ⏳ **Logo footer** : Version blanche/SVG du logo (nécessite que l'utilisateur fournisse le fichier)
+- ⏳ **Témoignages réels** : Photos et avis de praticiens réels pour renforcer la confiance
 
 ## Credentials
 - Admin URL : `/admin/login`
 - Admin password `.env` : `JQi]=3+8Azc4` (REACT_APP_ADMIN_PASSWORD)
-- Email contact : `contact@espaceagenda.fr`
-- SMTP : **MOCKED** (localhost:1025 dev) - À configurer avec vrais identifiants
+- Email contact : `contact@espaceagenda.com`
+- SMTP : Hostinger SSL port 465 — **ACTIF**
 
 ## Notes techniques importantes
-- Le SMTP email est actuellement sur `localhost:1025` (mock dev) → emails non envoyés en production
+- SMTP configuré et actif : Hostinger smtp.hostinger.com port 465 SSL
 - Hot reload actif sur frontend et backend
 - Supervisor gère les services (ne pas modifier ports)
 - Toutes les URLs/credentials via `.env` uniquement
+- `insert_blog_posts.py` : script d'insertion additive (ne supprime pas les posts existants)
