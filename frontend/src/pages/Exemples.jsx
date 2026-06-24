@@ -5,7 +5,16 @@ import { Button } from '../components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import HeroSection from '../components/HeroSection';
 import { globalCTA, professionsGrouped, faqsExemples } from '../content';
+import { Brain, Sparkles, Hand, Stethoscope, Compass } from 'lucide-react';
 import Seo from '../components/Seo';
+
+const categoryIcons = {
+  'Psychologie & Accompagnement': Brain,
+  'Bien-être & Énergétique': Sparkles,
+  'Corps & Thérapies manuelles': Hand,
+  'Santé & Paramédical': Stethoscope,
+  'Conseil & Orientation': Compass,
+};
 
 const Exemples = () => {
 
@@ -174,7 +183,17 @@ const Exemples = () => {
                 className="rounded-2xl p-6"
                 style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}
               >
-                <p className="label-tag mb-4" style={{ color: '#9E7E4A' }}>{group.category}</p>
+                <div className="flex items-center gap-2.5 mb-4">
+                  {categoryIcons[group.category] && (
+                    <span
+                      className="flex h-8 w-8 items-center justify-center rounded-full flex-shrink-0"
+                      style={{ backgroundColor: 'rgba(158,126,74,0.12)' }}
+                    >
+                      {React.createElement(categoryIcons[group.category], { className: 'h-4 w-4', strokeWidth: 1.75, style: { color: '#9E7E4A' } })}
+                    </span>
+                  )}
+                  <p className="label-tag" style={{ color: '#9E7E4A' }}>{group.category}</p>
+                </div>
                 <ul className="space-y-2">
                   {group.professions.map((prof, pi) => (
                     <li key={pi} className="flex items-center gap-2 text-sm" style={{ color: '#2C352D' }}>
@@ -198,7 +217,17 @@ const Exemples = () => {
                 className="rounded-2xl p-6"
                 style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2DFD8' }}
               >
-                <p className="label-tag mb-4" style={{ color: '#9E7E4A' }}>{group.category}</p>
+                <div className="flex items-center gap-2.5 mb-4">
+                  {categoryIcons[group.category] && (
+                    <span
+                      className="flex h-8 w-8 items-center justify-center rounded-full flex-shrink-0"
+                      style={{ backgroundColor: 'rgba(158,126,74,0.12)' }}
+                    >
+                      {React.createElement(categoryIcons[group.category], { className: 'h-4 w-4', strokeWidth: 1.75, style: { color: '#9E7E4A' } })}
+                    </span>
+                  )}
+                  <p className="label-tag" style={{ color: '#9E7E4A' }}>{group.category}</p>
+                </div>
                 <ul className="space-y-2">
                   {group.professions.map((prof, pi) => (
                     <li key={pi} className="flex items-center gap-2 text-sm" style={{ color: '#2C352D' }}>
