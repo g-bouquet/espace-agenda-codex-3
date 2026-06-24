@@ -2,6 +2,8 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext();
 
+const API = process.env.REACT_APP_BACKEND_URL;
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -14,28 +16,55 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // Vérification du token JWT côté serveur au montage
   useEffect(() => {
-    // Vérifier si l'utilisateur est déjà connecté
-    const adminToken = localStorage.getItem('admin_token');
-    if (adminToken === 'espace-agenda-admin-2025') {
-      setIsAuthenticated(true);
-    }
-    setLoading(false);
+    const checkToken = async () => {
+      const token = localStorage.getItem('admin_jwt');
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+      try {
+        const res = await fetch(`${API}/api/admin/verify`, {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (res.ok) {
+          setIsAuthenticated(true);
+        } else {
+          localStorage.removeItem('admin_jwt');
+        }
+      } catch {
+        localStorage.removeItem('admin_jwt');
+      } finally {
+        setLoading(false);
+      }
+    };
+    checkToken();
   }, []);
 
-  const login = (password) => {
-    // Vérification du mot de passe depuis la variable d'environnement
-    const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD || 'admin123';
-    if (password === adminPassword) {
-      localStorage.setItem('admin_token', 'espace-agenda-admin-2025');
-      setIsAuthenticated(true);
-      return true;
+  // Login : validation côté serveur, retourne le JWT signé
+  const login = async (password) => {
+    try {
+      const res = await fetch(`${API}/api/admin/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        localStorage.setItem('admin_jwt', data.token);
+        setIsAuthenticated(true);
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
     }
-    return false;
   };
 
   const logout = () => {
-    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_jwt');
     setIsAuthenticated(false);
   };
 

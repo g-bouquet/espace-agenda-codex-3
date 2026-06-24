@@ -1,0 +1,61 @@
+{
+  "summary": "Iteration 10 — Full test of 6 tasks: T1 (Pilier markers), T2 (SEO metadata), T3 (CTA button border), T4 (Rappels texte), T5 (FAQ accordions), T6 (Admin JWT auth). All 11 backend pytest + all 20 frontend checks PASS.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iteration10.py",
+    "/app/test_reports/pytest/pytest_iteration10.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "BlogPost.jsx extractSEOMeta(): regex /\\*\\*Balise title\\s*:\\*\\*/ correctly matches '**Balise title :**' (space before colon). Content separator '\\n---\\n' found correctly in all 3 articles.",
+    "parseMarkdown(): regex /\\s*\\*\\(Pilier\\s+[^)]*\\)\\*/gi correctly strips *(Pilier N)* markers — confirmed not visible in rendered output.",
+    "AuthContext.jsx: JWT token stored in localStorage (not httpOnly cookie). This is a known frontend limitation but functionally correct for SPA admin.",
+    "ADMIN_PASSWORD in backend/.env uses plain-text comparison (not bcrypt). Acceptable for single-admin password-only access; not a security regression from previous implementation.",
+    "index.css: CSS fix confirmed — animate-fade-in-up, animate-fade-in, animate-slide-in-left, animate-slide-in-right scoped with explicit class names (not [class*='animate-'] wildcard), and accordion-down/up not affected."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iteration10.py"
+  ],
+  "success_rate": {
+    "backend": "100% (11/11 tests pass)",
+    "frontend": "100% (20/20 checks pass)"
+  },
+  "test_credentials": "Admin: /admin/login, password JQi]=3+8Azc4",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": false,
+  "context_for_next_testing_agent": "Iteration 10: All 6 tasks fully verified. (1) No *(Pilier N)* visible in any of 3 SEO blog articles (stripped by parseMarkdown regex). (2) SEO metadata blocks (Balise title, Meta description, Slug URL, Maillage interne) NOT visible in article content (stripped by extractSEOMeta). document.title and meta description correctly updated for all 3 articles. (3) 'Voir un exemple de page' CTA button has 2px solid #5A7161 border. (4) 'Rappels automatiques inclus' present at bottom of hero section in Home.jsx (line 112). 'Facturation incluse dès 29€/mois' not present. (5) FAQ works on both / (6 items, height=111) and /solution (8 items). (6) POST /api/admin/login returns 200+JWT with correct password, 401 with wrong. POST /api/admin/verify returns {valid:true} with valid token, 401 otherwise. Admin login redirects to /admin/dashboard. Direct /admin/dashboard access without token redirects to /admin/login. Only 3 blog posts in DB (all SEO articles, all published).",
+  "test_results_detail": {
+    "T1_article1_no_pilier": "PASS — No *(Pilier N)* in visible text of article d2d4e93f",
+    "T1_article2_no_pilier": "PASS — No *(Pilier N)* in visible text of article e5c2f10c",
+    "T1_article3_no_pilier": "PASS — No *(Pilier N)* in visible text of article c062dc8a",
+    "T2_article1_no_meta_block": "PASS — Balise title/Meta desc/Slug URL/Maillage interne NOT visible in article 1",
+    "T2_article1_title": "PASS — document.title = 'Lapins et absences en cabinet : 5 actions... — Espace Agenda'",
+    "T2_article1_meta_desc": "PASS — meta description set to article's SEO description",
+    "T2_article2_no_meta_block": "PASS — metadata NOT visible in article 2",
+    "T2_article2_title": "PASS — document.title = 'Gestion des rendez-vous en cabinet : ce que ça vous coûte... — Espace Agenda'",
+    "T2_article3_no_meta_block": "PASS — metadata NOT visible in article 3",
+    "T2_article3_title": "PASS — document.title = 'Logiciel de prise de rendez-vous pour praticiens... — Espace Agenda'",
+    "T3_cta_button_border": "PASS — borderColor=rgb(90,113,97), borderWidth=2px, borderStyle=solid",
+    "T4_rappels_automatiques": "PASS — 'Rappels automatiques inclus' found in homepage text",
+    "T4_no_old_facturation_text": "PASS — 'Facturation incluse dès 29€/mois' NOT found on homepage",
+    "T5_homepage_faq_open": "PASS — FAQ opens, content height=111, overflow=visible",
+    "T5_solution_faq_open": "PASS — FAQ accordion expanded (aria-expanded=true), 8 items",
+    "T6_login_correct_password": "PASS — POST /api/admin/login 200 + JWT token returned",
+    "T6_login_wrong_password": "PASS — POST /api/admin/login 401 returned",
+    "T6_login_empty_password": "PASS — POST /api/admin/login 401 returned",
+    "T6_verify_valid_token": "PASS — POST /api/admin/verify {valid: true}",
+    "T6_verify_invalid_token": "PASS — POST /api/admin/verify 401",
+    "T6_ui_login_redirect": "PASS — Correct password redirects to /admin/dashboard",
+    "T6_ui_wrong_password": "PASS — Wrong password shows 'Mot de passe incorrect' toast, stays on /admin/login",
+    "T6_ui_protected_redirect": "PASS — /admin/dashboard without token redirects to /admin/login"
+  }
+}

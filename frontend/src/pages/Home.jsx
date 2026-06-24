@@ -100,15 +100,16 @@ const Home = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full px-8 font-medium"
-                    style={{ borderColor: '#E2DFD8', color: '#2C352D' }}
+                    className="rounded-full px-8 font-medium transition-all duration-200 hover:bg-opacity-10"
+                    style={{ borderColor: '#5A7161', color: '#5A7161', borderWidth: '2px' }}
                   >
                     {heroHome.ctaSecondary}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </div>
               <p className="mt-5 text-sm" style={{ color: '#5E6C60' }}>
-                Installation en 7 jours · Facturation incluse dès 29€/mois · Aucun engagement
+                Installation en 7 jours · Rappels automatiques inclus · Aucun engagement
               </p>
             </div>
           </div>

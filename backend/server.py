@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Query
+from fastapi import FastAPI, APIRouter, HTTPException, Query, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,8 +6,9 @@ import os
 import logging
 from pathlib import Path
 from typing import List, Optional
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import re
+import jwt as pyjwt
 
 from models import (
     ContactSubmission, ContactSubmissionCreate,
@@ -46,6 +47,66 @@ def generate_slug(title: str) -> str:
     slug = re.sub(r'[^\w\s-]', '', slug)
     slug = re.sub(r'[-\s]+', '-', slug)
     return slug.strip('-')
+
+
+# ============================================================================
+# ADMIN AUTH HELPERS (JWT)
+# ============================================================================
+
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRY_HOURS = 24
+
+
+def _jwt_secret() -> str:
+    return os.environ["JWT_SECRET"]
+
+
+def create_admin_token() -> str:
+    payload = {
+        "sub": "admin",
+        "role": "admin",
+        "iat": datetime.now(timezone.utc),
+        "exp": datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRY_HOURS),
+    }
+    return pyjwt.encode(payload, _jwt_secret(), algorithm=JWT_ALGORITHM)
+
+
+def verify_admin_token(token: str) -> bool:
+    try:
+        payload = pyjwt.decode(token, _jwt_secret(), algorithms=[JWT_ALGORITHM])
+        return payload.get("role") == "admin"
+    except (pyjwt.ExpiredSignatureError, pyjwt.InvalidTokenError):
+        return False
+
+
+# ============================================================================
+# ADMIN AUTH ENDPOINTS
+# ============================================================================
+
+@api_router.post("/admin/login")
+async def admin_login(request: Request):
+    """Valide le mot de passe admin et retourne un JWT signé"""
+    body = await request.json()
+    password = body.get("password", "")
+    admin_password = os.environ.get("ADMIN_PASSWORD", "")
+    if not admin_password:
+        raise HTTPException(status_code=500, detail="Configuration serveur manquante")
+    if password != admin_password:
+        raise HTTPException(status_code=401, detail="Mot de passe incorrect")
+    token = create_admin_token()
+    return {"success": True, "token": token}
+
+
+@api_router.post("/admin/verify")
+async def admin_verify(request: Request):
+    """Vérifie la validité d'un JWT admin"""
+    auth = request.headers.get("Authorization", "")
+    if not auth.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Non authentifié")
+    token = auth[7:]
+    if verify_admin_token(token):
+        return {"valid": True}
+    raise HTTPException(status_code=401, detail="Token invalide ou expiré")
 
 
 # ============================================================================

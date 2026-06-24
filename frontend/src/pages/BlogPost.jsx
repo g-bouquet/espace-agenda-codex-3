@@ -8,9 +8,35 @@ import { globalCTA } from '../content';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+// Extrait les métadonnées SEO du bloc en tête d'article et nettoie le contenu
+const extractSEOMeta = (content) => {
+  if (!content) return { seoTitle: null, seoDescription: null, cleanContent: content };
+
+  const hasMetaBlock = /\*\*Balise title\s*:\*\*/i.test(content.substring(0, 600));
+  if (!hasMetaBlock) return { seoTitle: null, seoDescription: null, cleanContent: content };
+
+  // Couper au premier séparateur --- qui clôt le bloc méta
+  const sepIdx = content.indexOf('\n---\n');
+  if (sepIdx === -1) return { seoTitle: null, seoDescription: null, cleanContent: content };
+
+  const metaBlock = content.substring(0, sepIdx);
+  const articleContent = content.substring(sepIdx + 5);
+
+  const titleMatch = metaBlock.match(/\*\*Balise title\s*:\*\*\s*(.+)/i);
+  const descMatch  = metaBlock.match(/\*\*Meta description\s*:\*\*\s*(.+)/i);
+
+  return {
+    seoTitle:       titleMatch ? titleMatch[1].trim() : null,
+    seoDescription: descMatch  ? descMatch[1].trim()  : null,
+    cleanContent:   articleContent
+  };
+};
+
 // Convertisseur Markdown → HTML minimal (sans dépendance externe)
 const parseMarkdown = (text) => {
   if (!text) return '';
+  // Supprimer les marqueurs "(Pilier N)" dans les liens de maillage
+  text = text.replace(/\s*\*\(Pilier\s+[^)]*\)\*/gi, '');
   return text
     // Titres h3 avant h2 pour éviter les collisions
     .replace(/^### (.+)$/gm, '<h3>$1</h3>')
@@ -45,12 +71,23 @@ const BlogPost = () => {
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [seoMeta, setSeoMeta] = useState({ seoTitle: null, seoDescription: null });
+  const [cleanContent, setCleanContent] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
         const response = await axios.get(`${API}/blog/posts/${id}`);
-        setPost(response.data);
+        const fetchedPost = response.data;
+        setPost(fetchedPost);
+
+        // Extraire les métadonnées SEO du contenu
+        if (fetchedPost.content) {
+          const { seoTitle, seoDescription, cleanContent: cc } = extractSEOMeta(fetchedPost.content);
+          setSeoMeta({ seoTitle, seoDescription });
+          setCleanContent(cc);
+        }
+
         const relatedResponse = await axios.get(`${API}/blog/posts?limit=3`);
         setRelatedPosts((relatedResponse.data.posts || []).filter(p => p.id !== id));
       } catch (err) {
@@ -62,6 +99,25 @@ const BlogPost = () => {
     };
     fetchPost();
   }, [id]);
+
+  // Mise à jour SEO dynamique (title + meta description)
+  useEffect(() => {
+    if (!post) return;
+    const pageTitle = seoMeta.seoTitle || post.title;
+    document.title = `${pageTitle} — Espace Agenda`;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = seoMeta.seoDescription || post.excerpt || '';
+
+    return () => {
+      document.title = 'Espace Agenda — Agenda en ligne pour praticiens bien-être';
+    };
+  }, [post, seoMeta]);
 
   // --- État chargement ---
   if (loading) {
@@ -197,12 +253,12 @@ const BlogPost = () => {
           </p>
         )}
 
-        {/* Contenu principal saisi en admin */}
+        {/* Contenu principal saisi en admin — sans le bloc SEO */}
         {post.content ? (
           <div
             className="prose-blog leading-relaxed"
             style={{ color: '#2C352D' }}
-            dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }}
+            dangerouslySetInnerHTML={{ __html: parseMarkdown(cleanContent || post.content) }}
           />
         ) : (
           <p style={{ color: '#5E6C60' }}>Contenu de l'article non disponible.</p>

@@ -110,8 +110,11 @@ h1, h2, h3, h4, h5, h6 {
     animation-delay: 0.4s;
 }
 
-/* Initial state for animated elements */
-[class*="animate-"] {
+/* Initial state for animated elements — exclure les animations internes (accordion, etc.) */
+.animate-fade-in-up,
+.animate-fade-in,
+.animate-slide-in-left,
+.animate-slide-in-right {
     opacity: 0;
 }
 
