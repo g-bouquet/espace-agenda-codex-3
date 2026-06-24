@@ -16,5 +16,5 @@
 - Collections : `blog_posts` (6 articles), `contacts`, `newsletter`
 
 ## Preview URL
-- Frontend : `https://v3-mongodb-deploy.preview.emergentagent.com`
-- Backend API : `https://v3-mongodb-deploy.preview.emergentagent.com/api`
+- Frontend : `https://wellness-blog-seo.preview.emergentagent.com`
+- Backend API : `https://wellness-blog-seo.preview.emergentagent.com/api`
