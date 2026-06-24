@@ -238,7 +238,7 @@ export const offers = [
       'Interface client multilingue',
       'Gestion des taxes',
       'Fonctionnalité "presque complet"',
-      'Support standard (email + tickets + WhatsApp + base de connaissances)'
+      'Support standard (email + WhatsApp + base de connaissances)'
     ],
     highlight: false,
     notIncluded: ['Sous-domaine personnalisé', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
@@ -272,7 +272,7 @@ export const offers = [
       'Extras (options supplémentaires)',
       'Coupons et codes promo',
       'Tableau de bord & statistiques',
-      'Support renforcé (email + tickets + WhatsApp)',
+      'Support renforcé (email + WhatsApp + téléphone)',
       'Support téléphonique inclus'
     ],
     highlight: true,
@@ -427,7 +427,7 @@ export const faqs = [
   {
     id: 'faq-7',
     question: 'Quel support est inclus ?',
-    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email et via notre système de tickets. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dans toutes les offres, dès l\'Essentiel. Le support téléphonique est inclus à partir de l\'offre Pro. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
+    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dans toutes les offres, dès l\'Essentiel. Le support téléphonique est inclus à partir de l\'offre Pro. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
   },
   {
     id: 'faq-8',
@@ -499,7 +499,7 @@ export const howItWorks = [
   {
     step: '3',
     title: 'Accompagnement continu',
-    description: 'Vous bénéficiez d\'un support humain illimité (email, tickets, WhatsApp, téléphone selon offre). Nous restons disponibles pour vos questions, ajustements et évolutions. Mises à jour régulières incluses.'
+    description: 'Vous bénéficiez d\'un support humain illimité (email, WhatsApp, téléphone selon offre). Nous restons disponibles pour vos questions, ajustements et évolutions. Mises à jour régulières incluses.'
   }
 ];
 

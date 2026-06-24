@@ -109,7 +109,7 @@ const Home = () => {
                 </Link>
               </div>
               <p className="mt-5 text-sm" style={{ color: '#5E6C60' }}>
-                Installation en 7 jours · Rappels automatiques inclus · Aucun engagement
+                Installation en 7 jours · Support WhatsApp inclus · Aucun engagement
               </p>
             </div>
           </div>
@@ -498,7 +498,7 @@ const Home = () => {
               </Button>
             </Link>
             <p className="mt-3 text-sm" style={{ color: '#5E6C60' }}>
-              Installation guidée + support humain inclus dans toutes les offres
+              Installation guidée, mini-formation de prise en main de 30 minutes et support humain inclus dans toutes les offres
             </p>
           </div>
         </div>

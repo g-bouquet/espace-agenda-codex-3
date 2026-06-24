@@ -172,3 +172,11 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ⚠️ Note : préversion externe (gateway) en veille pendant la session ; app saine en local (localhost:3000 + API OK). À réveiller via app.emergent.sh.
 - ⚠️ Leçon technique : ne JAMAIS lancer plusieurs `search_replace` en parallèle sur le MÊME fichier (a corrompu content.js — corrigé).
 
+
+## Changelog — 24 juin 2026 (Wave UI contenu)
+- ✅ **Hero accueil** : sous-ligne CTA « Rappels automatiques inclus » → « Support WhatsApp inclus » (suppression de la répétition avec le subtitle).
+- ✅ **Section "Nos formules" (Home.jsx)** : ajout de la mention « mini-formation de prise en main de 30 minutes » dans le texte sous les offres.
+- ✅ **Suppression des "tickets"** sur tout le site : content.js (feature Essentiel, feature Pro renforcé, FAQ faq-7, howItWorks étape 3). Plus aucune occurrence (`grep` vide).
+- 🧹 Suppression des fichiers morts non importés `frontend/src/mock.js` et `frontend/src/content.js.backup` (contenaient aussi "tickets").
+- Responsive vérifié : desktop 1440 / tablette 820 / mobile 390 OK.
+
