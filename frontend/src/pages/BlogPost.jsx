@@ -66,7 +66,7 @@ const parseMarkdown = (text) => {
 };
 
 const BlogPost = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -77,7 +77,7 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`${API}/blog/posts/${id}`);
+        const response = await axios.get(`${API}/blog/posts/${slug}`);
         const fetchedPost = response.data;
         setPost(fetchedPost);
 
@@ -89,7 +89,7 @@ const BlogPost = () => {
         }
 
         const relatedResponse = await axios.get(`${API}/blog/posts?limit=3`);
-        setRelatedPosts((relatedResponse.data.posts || []).filter(p => p.id !== id));
+        setRelatedPosts((relatedResponse.data.posts || []).filter(p => p.slug !== slug));
       } catch (err) {
         console.error("Erreur lors du chargement de l'article:", err);
         setError('Article non trouvé');
@@ -98,7 +98,7 @@ const BlogPost = () => {
       }
     };
     fetchPost();
-  }, [id]);
+  }, [slug]);
 
   // Mise à jour SEO dynamique (title + meta description)
   useEffect(() => {
@@ -303,7 +303,7 @@ const BlogPost = () => {
               {relatedPosts.slice(0, 3).map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
-                  to={`/blog/${relatedPost.id}`}
+                  to={`/blog/${relatedPost.slug}`}
                   className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 block"
                   style={{ border: '1px solid #E2DFD8', backgroundColor: '#FFFFFF' }}
                   data-testid={`related-post-${relatedPost.id}`}

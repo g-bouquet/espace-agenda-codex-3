@@ -211,12 +211,13 @@ const Home = () => {
               "Gain de temps réel au quotidien. La facturation intégrée et les paiements en ligne à l'avance ont changé ma façon de travailler. La flexibilité pour créer mes types de séances et gérer mon planning est exactement ce dont j'avais besoin."
             </blockquote>
             <div className="flex items-center gap-4">
-              <div
-                className="h-12 w-12 rounded-full flex items-center justify-center font-heading font-medium text-lg text-white flex-shrink-0"
-                style={{ backgroundColor: '#5A7161' }}
-              >
-                G
-              </div>
+              <img
+                src="https://customer-assets.emergentagent.com/job_d04ed117-c4cd-4000-a9c1-4ca8004c7dca/artifacts/0lqyddba_IMG_6837-499.jpg"
+                alt="Guillaume, psychopraticien"
+                className="h-12 w-12 rounded-full object-cover object-center flex-shrink-0"
+                style={{ border: '1px solid #E2DFD8' }}
+                data-testid="testimonial-avatar-guillaume"
+              />
               <div>
                 <p className="font-semibold" style={{ color: '#2C352D' }}>Guillaume</p>
                 <p className="text-sm" style={{ color: '#5E6C60' }}>Psychopraticien · Gironde</p>

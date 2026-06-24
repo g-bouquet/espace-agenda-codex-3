@@ -169,7 +169,7 @@ const Blog = () => {
 
                     {/* Lien lire l'article */}
                     <Link
-                      to={`/blog/${post.id}`}
+                      to={`/blog/${post.slug}`}
                       className="inline-flex items-center gap-2 text-sm font-semibold mt-auto transition-opacity hover:opacity-75"
                       style={{ color: '#5A7161' }}
                       data-testid={`blog-read-link-${post.id}`}

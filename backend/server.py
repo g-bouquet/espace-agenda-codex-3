@@ -212,11 +212,14 @@ async def get_blog_posts(
         raise HTTPException(status_code=500, detail="Erreur lors de la récupération des articles")
 
 
-@api_router.get("/blog/posts/{post_id}", response_model=BlogPost)
-async def get_blog_post(post_id: str):
-    """Récupère un article de blog spécifique par son ID"""
+@api_router.get("/blog/posts/{identifier}", response_model=BlogPost)
+async def get_blog_post(identifier: str):
+    """Récupère un article de blog par son slug (SEO) ou son ID (rétrocompatibilité)"""
     try:
-        post = await db.blog_posts.find_one({"id": post_id, "published": True})
+        post = await db.blog_posts.find_one({
+            "published": True,
+            "$or": [{"slug": identifier}, {"id": identifier}]
+        })
         
         if not post:
             raise HTTPException(status_code=404, detail="Article non trouvé")
@@ -226,7 +229,7 @@ async def get_blog_post(post_id: str):
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Erreur lors de la récupération de l'article {post_id}: {str(e)}")
+        logger.error(f"Erreur lors de la récupération de l'article {identifier}: {str(e)}")
         raise HTTPException(status_code=500, detail="Erreur lors de la récupération de l'article")
 
 

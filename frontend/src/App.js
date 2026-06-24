@@ -86,7 +86,7 @@ function App() {
                 <Footer />
               </>
             } />
-            <Route path="/blog/:id" element={
+            <Route path="/blog/:slug" element={
               <>
                 <Header />
                 <main><BlogPost /></main>
