@@ -238,7 +238,7 @@ export const offers = [
       'Interface client multilingue',
       'Gestion des taxes',
       'Fonctionnalité "presque complet"',
-      'Support standard (email + tickets + base de connaissances)'
+      'Support standard (email + tickets + WhatsApp + base de connaissances)'
     ],
     highlight: false,
     notIncluded: ['Sous-domaine personnalisé', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
@@ -427,7 +427,7 @@ export const faqs = [
   {
     id: 'faq-7',
     question: 'Quel support est inclus ?',
-    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email et via notre système de tickets. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dès l\'offre Pro. Le support téléphonique est inclus à partir de l\'offre Pro. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
+    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email et via notre système de tickets. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dans toutes les offres, dès l\'Essentiel. Le support téléphonique est inclus à partir de l\'offre Pro. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
   },
   {
     id: 'faq-8',
@@ -468,7 +468,7 @@ export const faqsOffres = [
   {
     id: 'faq-off-6',
     question: 'Quelle est la différence entre Pro et Intégral ?',
-    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus, support téléphonique et support WhatsApp. L\'offre Intégral ajoute des fonctionnalités avancées : exports de données, paramètres avancés, chatbot intelligent, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, 100 SMS inclus, et support prioritaire (urgences < 6h). Si vous avez besoin de fonctionnalités très avancées et d\'un suivi prioritaire, choisissez Intégral. Sinon, Pro est parfait pour la grande majorité des praticiens.'
+    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus et support téléphonique (le support WhatsApp étant inclus dès l\'Essentiel). L\'offre Intégral ajoute des fonctionnalités avancées : exports de données, paramètres avancés, chatbot intelligent, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, 100 SMS inclus, et support prioritaire (urgences < 6h). Si vous avez besoin de fonctionnalités très avancées et d\'un suivi prioritaire, choisissez Intégral. Sinon, Pro est parfait pour la grande majorité des praticiens.'
   },
   {
     id: 'faq-off-7',

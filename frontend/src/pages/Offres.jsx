@@ -295,7 +295,6 @@ const Offres = () => {
               <tbody>
                 {[
                   { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
-                  { label: 'Sous-domaine personnalisé', ess: false, pro: true, prem: true },
                   { label: 'Rappels email + WhatsApp', ess: true, pro: true, prem: true },
                   { label: 'Rappels SMS', ess: 'Option 0,09€/SMS', pro: '50 inclus', prem: '100 inclus' },
                   { label: 'Espace client', ess: true, pro: true, prem: true },
@@ -309,12 +308,14 @@ const Offres = () => {
                   { label: 'Réservations de groupe', ess: false, pro: true, prem: true },
                   { label: 'Coupons', ess: false, pro: true, prem: true },
                   { label: 'Google Analytics / Tag Manager', ess: false, pro: true, prem: true },
+                  { label: 'Sous-domaine personnalisé', ess: false, pro: true, prem: true },
                   { label: 'Chatbot', ess: false, pro: false, prem: true },
                   { label: 'Gestion de ressources', ess: false, pro: false, prem: true },
                   { label: 'Bundles', ess: false, pro: false, prem: true },
                   { label: 'Plusieurs emplacements', ess: false, pro: false, prem: true },
                   { label: 'API / Zapier / Webhooks', ess: false, pro: false, prem: true },
                   { label: 'Support', ess: 'Standard', pro: 'Renforcé', prem: 'Prioritaire' },
+                  { label: 'Support WhatsApp', ess: true, pro: true, prem: true },
                   { label: 'Support téléphonique', ess: false, pro: true, prem: true }
                 ].map((row, index) => (
                   <tr

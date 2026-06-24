@@ -160,3 +160,15 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - Supervisor gère les services (ne pas modifier ports)
 - Toutes les URLs/credentials via `.env` uniquement
 - `insert_blog_posts.py` : script d'insertion additive (ne supprime pas les posts existants)
+
+
+## Changelog — 24 juin 2026 (Wave UI/Routing message 106)
+- ✅ **Routing par slug SEO** : `/blog/:slug` (App.js, Blog.jsx, BlogPost.jsx). Endpoint backend `GET /api/blog/posts/{identifier}` accepte slug ET id (rétrocompatibilité).
+- ✅ **Liens "Pour aller plus loin"** : liens internes des 3 articles corrigés en base pour pointer vers le bon slug (`backend/fix_blog_internal_links.py`, idempotent).
+- ✅ **Avatar Guillaume** : photo réelle (rounded-full object-cover) à la place du "G".
+- ✅ **En-tête article** : "Retour aux articles" et badge catégorie sur lignes séparées (bug d'alignement inline corrigé).
+- ✅ **Support WhatsApp dès Essentiel** : maj content.js (feature Essentiel + FAQ faq-7 + faqsOffres faq-6) + nouvelle ligne "Support WhatsApp" (✓ partout) dans le tableau comparatif Offres.jsx.
+- ✅ **Tableau comparatif** : "Sous-domaine personnalisé" déplacé du haut vers le bas (entre Google Analytics et Chatbot).
+- ⚠️ Note : préversion externe (gateway) en veille pendant la session ; app saine en local (localhost:3000 + API OK). À réveiller via app.emergent.sh.
+- ⚠️ Leçon technique : ne JAMAIS lancer plusieurs `search_replace` en parallèle sur le MÊME fichier (a corrompu content.js — corrigé).
+

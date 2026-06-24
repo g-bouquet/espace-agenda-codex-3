@@ -168,14 +168,16 @@ const BlogPost = () => {
       <div className="pt-16 pb-12" style={{ backgroundColor: '#F4F0E8' }}>
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           {/* Retour */}
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium mb-8 transition-opacity hover:opacity-70"
-            style={{ color: '#5A7161' }}
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Retour aux articles
-          </Link>
+          <div className="mb-8">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
+              style={{ color: '#5A7161' }}
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Retour aux articles
+            </Link>
+          </div>
 
           {/* Catégorie */}
           {post.category && (
