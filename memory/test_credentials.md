@@ -3,7 +3,8 @@
 ## Interface Admin
 - URL : `/admin/login`
 - Mot de passe : `JQi]=3+8Azc4`
-  (variable d'env : `REACT_APP_ADMIN_PASSWORD` dans `/app/frontend/.env`)
+- Auth : JWT signé côté serveur (POST /api/admin/login), token stocké dans localStorage
+- Endpoints : POST /api/admin/login, POST /api/admin/verify
 
 ## Email Contact
 - Adresse : `contact@espaceagenda.com`
@@ -12,7 +13,8 @@
 ## MongoDB
 - URL : `mongodb://localhost:27017`
 - Base de données : `espace_agenda`
-- Collections : `blog_posts`, `contacts`, `newsletter`
+- Collections : `blog_posts` (6 articles), `contacts`, `newsletter`
 
 ## Preview URL
 - Frontend : `https://v3-mongodb-deploy.preview.emergentagent.com`
+- Backend API : `https://v3-mongodb-deploy.preview.emergentagent.com/api`

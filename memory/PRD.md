@@ -119,7 +119,14 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Contact** : Champ `profession` sauvegardé en DB + affiché dans email notification
 - ✅ **Admin** : Dashboard 3 stats (posts, contacts, newsletters) + page AdminNewsletters
 
-### Session 11 (Avril 2026) — 3 Articles SEO piliers insérés en MongoDB
+### Session 12 (Avril 2026) — 6 tâches implémentées et validées
+- ✅ **T1 Blog** : Suppression marqueurs `*(Pilier N)*` dans `parseMarkdown()` — `BlogPost.jsx`
+- ✅ **T2 SEO** : Extraction blocs métadonnées (Balise title, Meta description, Slug URL, Maillage interne) — strippés du contenu visible, intégrés dans `document.title` et balise meta description dynamique
+- ✅ **T3 CTA accueil** : Bouton "Voir un exemple de page" restyled (bordure 2px `#5A7161`, flèche, contraste renforcé) — `Home.jsx`
+- ✅ **T4 Bénéfice** : "Facturation incluse dès 29€/mois" → "Rappels automatiques inclus" (axe conversion anti-absences) — `Home.jsx`
+- ✅ **T5 FAQ** : Correction bug root cause — `[class*="animate-"] { opacity: 0; }` masquait tous les accordéons. Remplacé par classes explicites dans `index.css`. FAQ opérationnelle sur / et /solution
+- ✅ **T6 Auth JWT** : Login côté serveur (POST /api/admin/login + POST /api/admin/verify). Token JWT signé HS256, expiry 24h. Bypass navigateur impossible. `AuthContext.jsx` + `server.py`
+- **Tests** : 31/31 PASS (testing agent iteration 10)
 - ✅ **insert_blog_posts.py** : Créé et exécuté — insertion directe MongoDB sans supprimer les existants
 - ✅ **6 articles en base** : 3 SEO piliers nouveaux (Conseils pratiques, Organisation, Comparatif) + 3 articles existants
   - Pilier 1 : "Comment réduire les absences et les lapins dans votre cabinet ?"
