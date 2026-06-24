@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import axios from 'axios';
 import HeroSection from '../components/HeroSection';
 import { globalCTA } from '../content';
+import Seo from '../components/Seo';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -64,6 +65,10 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Blog : conseils pour praticiens | Espace Agenda"
+        description="Conseils pratiques pour praticiens : gestion des rendez-vous, réduction des absences, organisation et expérience client. Articles par Espace Agenda."
+      />
       <HeroSection
         title="Ressources pour les praticiens"
         titleHighlight="qui gèrent mieux leur temps"

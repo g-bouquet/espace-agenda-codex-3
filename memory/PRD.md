@@ -180,3 +180,11 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - 🧹 Suppression des fichiers morts non importés `frontend/src/mock.js` et `frontend/src/content.js.backup` (contenaient aussi "tickets").
 - Responsive vérifié : desktop 1440 / tablette 820 / mobile 390 OK.
 
+
+## Changelog — 24 juin 2026 (Optimisation SEO complète)
+- ✅ **Composant `Seo` réutilisable** (`frontend/src/components/Seo.jsx`) : met à jour title, meta description, canonical, Open Graph (og:title/description/image/url/type/site_name/locale), Twitter Cards (summary_large_image) et JSON-LD par page. URL canonique = window.location.origin (dynamique).
+- ✅ **Balises uniques sur 9 pages** : Accueil, Solution, Offres, Exemples, Blog, Contact, Mentions légales, Confidentialité + articles. Titres 32-57 car., descriptions 142-160 car. 0 page vide, 0 doublon (vérifié).
+- ✅ **Articles de blog** : génération auto du title (SEO meta de l'article, sinon post.title + marque si ≤65 car.) et de la meta description (coupée au mot près + « … »). 3/3 uniques. JSON-LD `BlogPosting` injecté.
+- ✅ **index.html** : `lang="fr"`, title/description optimisés, `robots: index,follow`, OG + Twitter par défaut, JSON-LD `Organization`.
+- 🔎 Limite connue : meta injectées côté client (OK pour Google qui exécute le JS) ; pour un rendu parfait sur les crawlers sociaux (Facebook/LinkedIn sans JS), prévoir SSR/prerender. Restant : `sitemap.xml` + `robots.txt` dynamiques avec le vrai domaine de prod.
+

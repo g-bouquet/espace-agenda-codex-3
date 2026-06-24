@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import axios from 'axios';
 import HeroSection from '../components/HeroSection';
 import { contactInfo, globalCTA } from '../content';
+import Seo from '../components/Seo';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -69,6 +70,10 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Contact & devis gratuit pour praticiens | Espace Agenda"
+        description="Parlez-nous de votre pratique et obtenez un devis gratuit sans engagement. Réponse sous 24h ouvrées, urgences en moins de 6h. Échange de 20 minutes."
+      />
       <HeroSection
         title="Parlez-nous de votre pratique"
         description="Réponse sous 24h ouvrées • Vous hésitez entre 2 offres ? On vous oriente."

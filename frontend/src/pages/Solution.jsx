@@ -13,6 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '..
 import { faqs, globalCTA, keyFeatures } from '../content';
 import { useInView } from 'react-intersection-observer';
 import HeroSection from '../components/HeroSection';
+import Seo from '../components/Seo';
 
 const iconMap = {
   Calendar, Globe, Bell, CreditCard, FileText, Users, UserCheck,
@@ -84,6 +85,10 @@ const Solution = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F9F6F0' }}>
+      <Seo
+        title="La solution de réservation en ligne | Espace Agenda"
+        description="Réservation en ligne, rappels automatiques, paiements et fiche client : une plateforme installée et configurée pour votre pratique. Support humain inclus."
+      />
       <HeroSection
         title="Tout ce qu'il faut pour gérer vos rendez-vous —"
         titleHighlight="à votre nom"

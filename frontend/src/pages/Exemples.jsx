@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import HeroSection from '../components/HeroSection';
 import { globalCTA, professionsGrouped, faqsExemples } from '../content';
+import Seo from '../components/Seo';
 
 const Exemples = () => {
 
@@ -35,6 +36,10 @@ const Exemples = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Exemples de pages de réservation | Espace Agenda"
+        description="Découvrez deux exemples réels de pages de réservation en ligne pour praticiens. Testez la démo comme un patient et imaginez la vôtre, à votre nom."
+      />
       <HeroSection
         title="Voyez ce que vos clients"
         titleHighlight="verront en réservant"

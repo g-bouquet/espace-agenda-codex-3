@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Calendar, User, Clock } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import axios from 'axios';
 import { globalCTA } from '../content';
+import Seo from '../components/Seo';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -100,25 +101,6 @@ const BlogPost = () => {
     fetchPost();
   }, [slug]);
 
-  // Mise à jour SEO dynamique (title + meta description)
-  useEffect(() => {
-    if (!post) return;
-    const pageTitle = seoMeta.seoTitle || post.title;
-    document.title = `${pageTitle} — Espace Agenda`;
-
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = 'description';
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = seoMeta.seoDescription || post.excerpt || '';
-
-    return () => {
-      document.title = 'Espace Agenda — Agenda en ligne pour praticiens bien-être';
-    };
-  }, [post, seoMeta]);
-
   // --- État chargement ---
   if (loading) {
     return (
@@ -159,8 +141,38 @@ const BlogPost = () => {
     );
   }
 
+  // Génération automatique des métadonnées SEO de l'article
+  const seoTitleRaw = (seoMeta.seoTitle || post.title || '').trim();
+  const brandSuffix = ' | Espace Agenda';
+  const seoTitle =
+    seoTitleRaw.includes('Espace Agenda') || seoTitleRaw.length + brandSuffix.length > 65
+      ? seoTitleRaw
+      : seoTitleRaw + brandSuffix;
+  const rawDesc = (seoMeta.seoDescription || post.excerpt || '').trim();
+  const seoDescription =
+    rawDesc.length > 160 ? `${rawDesc.slice(0, 157).replace(/\s+\S*$/, '').trim()}…` : rawDesc;
+  const articleUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname : '';
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: seoDescription,
+    image: post.image,
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: post.author || 'Espace Agenda' },
+    publisher: { '@type': 'Organization', name: 'Espace Agenda' },
+    mainEntityOfPage: articleUrl
+  };
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F9F6F0' }}>
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        image={post.image}
+        type="article"
+        jsonLd={articleJsonLd}
+      />
 
       {/* ================================================================
           EN-TÊTE ARTICLE

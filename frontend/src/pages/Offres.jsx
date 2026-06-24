@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { offers, faqsOffres, globalCTA } from '../content';
 import HeroSection from '../components/HeroSection';
+import Seo from '../components/Seo';
 
 const Offres = () => {
   const [isAnnual, setIsAnnual] = useState(false);
@@ -14,6 +15,10 @@ const Offres = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Tarifs et offres dès 29€/mois TTC | Espace Agenda"
+        description="Découvrez nos offres dès 29€/mois TTC : installation, personnalisation, rappels et support humain inclus. Sans engagement. Devis gratuit en 20 minutes."
+      />
       <HeroSection
         title="Des offres simples, adaptées à"
         titleHighlight="votre pratique"

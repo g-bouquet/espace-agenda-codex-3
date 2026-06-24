@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { legalInfo, contactInfo } from '../content';
+import Seo from '../components/Seo';
 
 const MentionsLegales = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Mentions légales | Espace Agenda"
+        description="Mentions légales d'Espace Agenda : éditeur, hébergement, propriété intellectuelle et protection des données personnelles conformément au RGPD."
+      />
       <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8 lg:py-24">
         <Link to="/">
           <Button variant="ghost" className="mb-8">

@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { legalInfo } from '../content';
+import Seo from '../components/Seo';
 
 const Confidentialite = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Politique de confidentialité | Espace Agenda"
+        description="Politique de confidentialité d'Espace Agenda : données collectées, finalités, conservation et vos droits RGPD (accès, rectification, suppression)."
+      />
       <div className="mx-auto max-w-4xl px-6 py-16 lg:px-8 lg:py-24">
         <Link to="/">
           <Button variant="ghost" className="mb-8">

@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import { useInView } from 'react-intersection-observer';
 import { heroHome, whatYouGet, professionsGrouped, offers, howItWorks, faqs, globalCTA } from '../content';
+import Seo from '../components/Seo';
 
 // Images wellness sélectionnées
 const IMAGES = {
@@ -35,6 +36,10 @@ const Home = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F9F6F0' }}>
+      <Seo
+        title="Agenda en ligne pour praticiens bien-être | Espace Agenda"
+        description="Espace Agenda crée votre page de réservation en ligne à votre nom en 7 jours : rappels automatiques, paiements et support humain inclus. Sans engagement."
+      />
 
       {/* ================================================================
           HERO SECTION — forêt, lumière douce, palette sable chaud
