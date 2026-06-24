@@ -188,3 +188,10 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **index.html** : `lang="fr"`, title/description optimisés, `robots: index,follow`, OG + Twitter par défaut, JSON-LD `Organization`.
 - 🔎 Limite connue : meta injectées côté client (OK pour Google qui exécute le JS) ; pour un rendu parfait sur les crawlers sociaux (Facebook/LinkedIn sans JS), prévoir SSR/prerender. Restant : `sitemap.xml` + `robots.txt` dynamiques avec le vrai domaine de prod.
 
+
+## Changelog — 24 juin 2026 (Sitemap dynamique + robots.txt)
+- ✅ **Endpoint backend `GET /api/sitemap.xml`** (server.py) : génère le sitemap XML dynamiquement à chaque requête → 8 pages statiques + tous les articles `published` (slug encodé, lastmod ISO depuis updated_at/created_at). URLs construites depuis le Host de la requête (s'adapte à tout domaine). Tout nouvel article y apparaît automatiquement.
+- ✅ **`frontend/public/robots.txt`** : `Allow: /`, `Disallow: /admin`, directive `Sitemap:` → /api/sitemap.xml.
+- ⚠️ La ligne `Sitemap:` du robots.txt pointe vers le domaine de preview courant (wellness-blog-seo...). À mettre à jour avec le domaine de production réel lors du déploiement (les URLs DANS le sitemap, elles, s'adaptent automatiquement au domaine via le Host). Puis soumettre le sitemap dans Google Search Console.
+- 🔧 Icônes lucide ajoutées devant chaque catégorie de la section "Professions" (page Aperçu) : Brain, Sparkles, Hand, Stethoscope, Compass.
+

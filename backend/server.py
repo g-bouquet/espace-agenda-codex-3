@@ -1,5 +1,6 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Query, Request
+from fastapi import FastAPI, APIRouter, HTTPException, Query, Request, Response
 from dotenv import load_dotenv
+from urllib.parse import quote
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
@@ -231,6 +232,60 @@ async def get_blog_post(identifier: str):
     except Exception as e:
         logger.error(f"Erreur lors de la récupération de l'article {identifier}: {str(e)}")
         raise HTTPException(status_code=500, detail="Erreur lors de la récupération de l'article")
+
+
+@api_router.get("/sitemap.xml")
+async def sitemap(request: Request):
+    """Génère dynamiquement le sitemap XML (pages statiques + articles publiés)."""
+    host = request.headers.get("x-forwarded-host") or request.headers.get("host", "")
+    proto = request.headers.get("x-forwarded-proto", "https")
+    base = f"{proto}://{host}".rstrip("/")
+
+    today = datetime.now(timezone.utc).date().isoformat()
+    static_pages = [
+        ("/", "1.0", "weekly"),
+        ("/solution", "0.9", "monthly"),
+        ("/offres", "0.9", "monthly"),
+        ("/exemples", "0.7", "monthly"),
+        ("/blog", "0.8", "weekly"),
+        ("/contact", "0.7", "monthly"),
+        ("/mentions-legales", "0.3", "yearly"),
+        ("/confidentialite", "0.3", "yearly"),
+    ]
+
+    entries = [(f"{base}{path}", today, freq, priority) for path, priority, freq in static_pages]
+
+    try:
+        posts = await db.blog_posts.find({"published": True}).to_list(1000)
+    except Exception as e:
+        logger.error(f"Sitemap: erreur lecture articles: {e}")
+        posts = []
+
+    for p in posts:
+        slug = p.get("slug")
+        if not slug:
+            continue
+        raw = p.get("updated_at") or p.get("created_at")
+        if isinstance(raw, datetime):
+            lastmod = raw.date().isoformat()
+        elif isinstance(raw, str) and raw:
+            lastmod = raw[:10]
+        else:
+            lastmod = today
+        loc = f"{base}/blog/{quote(slug, safe='')}"
+        entries.append((loc, lastmod, "monthly", "0.6"))
+
+    url_xml = "".join(
+        f"<url><loc>{loc}</loc><lastmod>{lastmod}</lastmod>"
+        f"<changefreq>{freq}</changefreq><priority>{priority}</priority></url>"
+        for loc, lastmod, freq, priority in entries
+    )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        f"{url_xml}</urlset>"
+    )
+    return Response(content=xml, media_type="application/xml")
 
 
 @api_router.post("/blog/posts", response_model=dict)
