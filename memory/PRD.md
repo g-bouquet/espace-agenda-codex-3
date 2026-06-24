@@ -195,3 +195,10 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ⚠️ La ligne `Sitemap:` du robots.txt pointe vers le domaine de preview courant (wellness-blog-seo...). À mettre à jour avec le domaine de production réel lors du déploiement (les URLs DANS le sitemap, elles, s'adaptent automatiquement au domaine via le Host). Puis soumettre le sitemap dans Google Search Console.
 - 🔧 Icônes lucide ajoutées devant chaque catégorie de la section "Professions" (page Aperçu) : Brain, Sparkles, Hand, Stethoscope, Compass.
 
+
+## Changelog — 24 juin 2026 (Image OG de marque)
+- ✅ **Image OG de marque 1200×630** générée (esthétique wellness : sable/vert/or, « Espace Agenda » + « La réservation en ligne pour praticiens bien-être »), recadrée au ratio OG idéal et hébergée en `frontend/public/og-image.jpg`.
+- ✅ **Seo.jsx** : image OG par défaut = `${origin}/og-image.jpg` (s'adapte au domaine). Les articles de blog gardent leur propre image.
+- ✅ **index.html** : og:image + twitter:image par défaut = nouvelle image de marque (URL absolue ; à mettre à jour avec le domaine de prod, comme la ligne Sitemap du robots.txt).
+- ❌ SSR/prérendu : non retenu par l'utilisateur (on conserve l'injection JS, parfaite pour Google).
+

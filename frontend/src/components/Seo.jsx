@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 
 const SITE_NAME = 'Espace Agenda';
-const DEFAULT_IMAGE =
-  'https://images.unsplash.com/photo-1773858375548-3919c0fe1ca0?w=1200&h=630&fit=crop&q=80';
+const DEFAULT_IMAGE_PATH = '/og-image.jpg';
 
 const upsertMeta = (attr, key, content) => {
   if (content === undefined || content === null || content === '') return;
@@ -32,7 +31,7 @@ const upsertLink = (rel, href) => {
 export const Seo = ({ title, description, image, type = 'website', jsonLd = null }) => {
   useEffect(() => {
     const url = window.location.origin + window.location.pathname;
-    const ogImage = image || DEFAULT_IMAGE;
+    const ogImage = image || window.location.origin + DEFAULT_IMAGE_PATH;
 
     if (title) document.title = title;
     upsertMeta('name', 'description', description);
