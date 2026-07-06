@@ -140,6 +140,14 @@ const Footer = () => {
             <div className="flex gap-6">
               <Link to="/mentions-legales" className="hover:opacity-100 transition-opacity">Mentions légales</Link>
               <Link to="/confidentialite" className="hover:opacity-100 transition-opacity">Politique de confidentialité</Link>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-cookie-consent'))}
+                className="hover:opacity-100 transition-opacity"
+                data-testid="footer-manage-cookies"
+              >
+                Gérer les cookies
+              </button>
             </div>
           </div>
         </div>

@@ -15,6 +15,12 @@ export const CookieConsent = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const open = () => setVisible(true);
+    window.addEventListener('open-cookie-consent', open);
+    return () => window.removeEventListener('open-cookie-consent', open);
+  }, []);
+
   const decide = (value) => {
     localStorage.setItem(STORAGE_KEY, value);
     window.dispatchEvent(new CustomEvent('cookie-consent', { detail: value }));
