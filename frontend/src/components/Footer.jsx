@@ -140,7 +140,6 @@ const Footer = () => {
             <div className="flex gap-6">
               <Link to="/mentions-legales" className="hover:opacity-100 transition-opacity">Mentions légales</Link>
               <Link to="/confidentialite" className="hover:opacity-100 transition-opacity">Politique de confidentialité</Link>
-              <Link to="/admin/login" className="transition-opacity" style={{ opacity: 0.4 }}>Admin</Link>
             </div>
           </div>
         </div>

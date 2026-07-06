@@ -202,3 +202,15 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **index.html** : og:image + twitter:image par défaut = nouvelle image de marque (URL absolue ; à mettre à jour avec le domaine de prod, comme la ligne Sitemap du robots.txt).
 - ❌ SSR/prérendu : non retenu par l'utilisateur (on conserve l'injection JS, parfaite pour Google).
 
+
+## Changelog — 5 juillet 2026 (Refonte offres + conformité)
+- ✅ **Accueil** : badge « Calendrier synchronisé » ajouté dans le hero. Lien « Admin » retiré du footer (accès /admin/login toujours protégé JWT, non listé publiquement).
+- ✅ **Solution** : « Espace client » n'est plus une option (inclus par défaut). FAQ « Quel support ? » : phrase base de connaissances supprimée + support unifié. Aucune mention ChatBot.
+- ✅ **Offres — prix** : 29 / 39 / 59 €/mois (Essentiel/Pro/Intégral) propagés partout. SMS retirés des inclusions Pro/Intégral. Hero « Tarif TTC France » supprimé. Intro : mention « Réservation de groupe ».
+- ✅ **Offres — SMS** : partout « Rappels SMS disponibles à prix coûtant » + précision « facturés au coût réel par notre fournisseur, sans marge ajoutée » (option SMS + FAQ).
+- ✅ **Offres — support unifié** : même support humain (email, WhatsApp, téléphone) sur les 3 offres. Différenciation via nouveau bloc « Accompagnement à l'installation » par offre (installSetup dans content.js).
+- ✅ **Offres — ChatBot** retiré (features + tableau + FAQ).
+- ✅ **Tableau comparatif** : ajout Zoom/Google Meet/Microsoft Teams, Multilangue, Évaluations et avis, Avoir l'air occupé, Bons de réduction — tous dès Essentiel. SMS « À prix coûtant ». Ligne Chatbot supprimée. Support unifié.
+- ✅ **Conformité** : bandeau cookies RGPD (`CookieConsent.jsx`, accepter/refuser + localStorage, monté globalement dans App.js). Pages Mentions légales + Confidentialité existantes et liées au footer.
+- ⏳ **Logo header/footer** (demande « gris sur gris + liseré ») : DIFFÉRÉ — le logo header est foncé sur crème (bien visible) et le footer blanc sur vert foncé (bon contraste) ; impossible de reproduire « blanc sur gris ». En attente de clarification / du fichier logo.
+

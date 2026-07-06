@@ -172,7 +172,7 @@ export const keyFeatures = [
   {
     id: '7',
     icon: 'UserCheck',
-    title: 'Espace client (option)',
+    title: 'Espace client',
     description: 'Vos clients accèdent à leur historique, leurs prochains rendez-vous et les documents partagés. Activation ou désactivation selon vos préférences.'
   },
   {
@@ -221,90 +221,105 @@ export const offers = [
     priceAnnualNumeric: 290,
     installation: '149€ TTC (une fois)',
     installationNumeric: 149,
+    installSetup: [
+      'Installation',
+      'Configuration standard',
+      '1 praticien',
+      '30 minutes de formation'
+    ],
     features: [
       'Page de réservation à votre nom',
       'Mini-site OU intégration sur votre site existant',
       'Réservation 24/7 + confirmations automatiques',
       'Rappels email inclus',
       'Rappels WhatsApp inclus',
-      'Rappels SMS : option disponible (0,09€ / SMS)',
+      'Rappels SMS disponibles à prix coûtant',
       'Annulation / replanification + Espace client',
       'Calendrier : gestion des disponibilités',
       'Synchronisation Google Agenda / Outlook / Apple',
       'Facturation intégrée',
       'Réserver avec Google',
-      'Intégration Zoom et Google Meet',
+      'Intégration Zoom, Google Meet et Microsoft Teams',
+      'Bons de réduction',
+      'Évaluations et avis clients',
+      'Fonctionnalité "Avoir l\'air occupé"',
       'Détection automatique des fuseaux horaires',
       'Interface client multilingue',
       'Gestion des taxes',
-      'Fonctionnalité "presque complet"',
-      'Support standard (email + WhatsApp + base de connaissances)'
+      'Support humain illimité (email, WhatsApp, téléphone)'
     ],
     highlight: false,
-    notIncluded: ['Sous-domaine personnalisé', 'Paiements en ligne', 'Notes internes', 'Support téléphonique']
+    notIncluded: ['Sous-domaine personnalisé', 'Paiements en ligne', 'Notes internes']
   },
   {
     id: '2',
     name: 'Pro',
     description: 'La solution complète pour votre activité',
-    price: '45€ / mois TTC',
-    priceNumeric: 45,
-    priceAnnual: '450€ / an TTC',
-    priceAnnualNumeric: 450,
+    price: '39€ / mois TTC',
+    priceNumeric: 39,
+    priceAnnual: '390€ / an TTC',
+    priceAnnualNumeric: 390,
     installation: '199€ TTC (une fois)',
     installationNumeric: 199,
-    sms: '50 SMS inclus / mois, puis 0,09€ / SMS',
+    installSetup: [
+      'Installation',
+      'Configuration personnalisée',
+      '1h30 de formation',
+      'Aide à la migration',
+      'Formulaires personnalisés'
+    ],
     features: [
       'Tout Essentiel',
       'Sous-domaine inclus : rdv.votrecabinet.fr',
-      'Rappels SMS : 50 SMS inclus / mois',
-      'SMS supplémentaires : 0,09€ / SMS',
       'Paiements en ligne & acomptes',
       'Fiche client : champs personnalisés',
       'Notes internes (privées)',
       'Historique client complet',
       'Formulaires personnalisés',
-      'Évaluations et avis clients',
       'Rendez-vous récurrents',
       'Pixel Facebook',
       'Intégration Google Analytics et Google Tag Manager',
       'Réservations de groupe',
       'Extras (options supplémentaires)',
-      'Coupons et codes promo',
       'Tableau de bord & statistiques',
-      'Support renforcé (email + WhatsApp + téléphone)',
-      'Support téléphonique inclus'
+      'Support humain illimité (email, WhatsApp, téléphone)'
     ],
     highlight: true,
     badge: 'Le plus choisi',
-    notIncluded: ['Chatbot', 'Accès API']
+    notIncluded: ['Accès API']
   },
   {
     id: '3',
     name: 'Intégral',
-    description: 'Gestion avancée et support prioritaire',
-    price: '69€ / mois TTC',
-    priceNumeric: 69,
-    priceAnnual: '690€ / an TTC',
-    priceAnnualNumeric: 690,
+    description: 'Gestion avancée et accompagnement au lancement',
+    price: '59€ / mois TTC',
+    priceNumeric: 59,
+    priceAnnual: '590€ / an TTC',
+    priceAnnualNumeric: 590,
     installation: '249€ TTC (une fois)',
     installationNumeric: 249,
-    sms: '100 SMS inclus / mois, puis 0,09€ / SMS',
+    installSetup: [
+      'Installation complète',
+      'Migration',
+      'Configuration avancée',
+      'Bundles',
+      'Ressources',
+      'Automatisations',
+      'Accompagnement au lancement'
+    ],
     features: [
       'Tout Pro',
-      'Rappels SMS : 100 SMS inclus / mois',
       'Import / export des données clients',
       'Paramétrages avancés (règles personnalisées)',
       'Statistiques avancées & rapports',
-      'Chatbot intelligent',
       'Gestion de ressources (salles, équipements)',
       'Bundles (packs de services)',
       'Plusieurs emplacements / sites',
       'Accès API, Zapier et Webhooks',
       'Intégrations : Mailchimp, Sendinblue, Acumbamail',
-      'Support prioritaire : urgences < 6h, autres < 24h',
-      'Support téléphonique inclus',
-      'Accompagnement personnalisé'
+      'Automatisations',
+      'Accompagnement personnalisé au lancement',
+      'Support humain illimité (email, WhatsApp, téléphone)'
     ],
     highlight: false,
     notIncluded: []
@@ -351,18 +366,10 @@ export const options = [
   {
     id: 'opt-2',
     icon: 'MessageSquare',
-    name: 'SMS supplémentaires',
-    description: '50 SMS inclus dans l\'offre Pro',
-    price: '0,09€ / SMS supplémentaire',
-    note: 'Facturation au réel. Activation / désactivation possible.'
-  },
-  {
-    id: 'opt-3',
-    icon: 'UserCheck',
-    name: 'Espace client',
-    description: 'Vos clients accèdent à leur historique et documents',
-    price: 'Disponible dès Intégral',
-    note: 'Activation / désactivation selon vos préférences.'
+    name: 'Rappels SMS',
+    description: 'Rappels SMS disponibles à prix coûtant',
+    price: 'À prix coûtant',
+    note: 'Les SMS sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée.'
   },
   {
     id: 'opt-4',
@@ -407,7 +414,7 @@ export const faqs = [
   {
     id: 'faq-3',
     question: 'Mes clients reçoivent-ils des rappels ?',
-    answer: 'Oui, les rappels sont inclus dans toutes les offres. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel. Les rappels SMS sont disponibles dans l\'offre Pro (50 SMS inclus par mois) et facturés au réel ensuite (0,09€ par SMS). Vous pouvez activer ou désactiver chaque canal de rappel selon vos préférences. Les rappels réduisent considérablement les absences et les oublis de rendez-vous.'
+    answer: 'Oui, les rappels sont inclus dans toutes les offres. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel. Les rappels SMS sont disponibles à prix coûtant : ils sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée. Vous pouvez activer ou désactiver chaque canal de rappel selon vos préférences. Les rappels réduisent considérablement les absences et les oublis de rendez-vous.'
   },
   {
     id: 'faq-4',
@@ -427,7 +434,7 @@ export const faqs = [
   {
     id: 'faq-7',
     question: 'Quel support est inclus ?',
-    answer: 'Le support est illimité dans toutes les offres. Nous répondons à toutes vos questions par email. Une base de connaissances complète est également disponible. Le support WhatsApp est inclus dans toutes les offres, dès l\'Essentiel. Le support téléphonique est inclus à partir de l\'offre Pro. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
+    answer: 'Le support est illimité et identique dans toutes les offres. Vous bénéficiez d\'un support humain par email, WhatsApp et téléphone, quelle que soit votre formule. Les urgences (blocage technique, problème critique) sont traitées en moins de 6 heures ouvrées. Les autres demandes (questions, ajustements, conseils) reçoivent une réponse sous 24 heures ouvrées. Nous restons disponibles dans le temps.'
   },
   {
     id: 'faq-8',
@@ -448,12 +455,12 @@ export const faqsOffres = [
   {
     id: 'faq-off-2',
     question: 'Les SMS sont-ils inclus ?',
-    answer: 'Les rappels SMS sont inclus dans l\'offre Pro : 50 SMS par mois. Au-delà, les SMS supplémentaires sont facturés au réel : 0,09€ par SMS. Vous pouvez activer ou désactiver les rappels SMS à tout moment selon vos besoins. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel sans limite.'
+    answer: 'Les rappels SMS sont disponibles à prix coûtant sur toutes les offres : ils sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée. Vous pouvez activer ou désactiver les rappels SMS à tout moment selon vos besoins. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel, sans limite.'
   },
   {
     id: 'faq-off-3',
     question: 'Puis-je commencer simple puis évoluer ?',
-    answer: 'Oui, absolument. Vous pouvez démarrer avec l\'offre Essentiel et évoluer ensuite vers une offre supérieure (Pro ou Intégral) si vos besoins évoluent. Vous pouvez également activer des options à la demande (espace client, SMS, multi-praticiens). Nous vous accompagnons dans cette évolution sans contrainte. Pas d\'engagement de durée, vous restez libre.'
+    answer: 'Oui, absolument. Vous pouvez démarrer avec l\'offre Essentiel et évoluer ensuite vers une offre supérieure (Pro ou Intégral) si vos besoins évoluent. Vous pouvez également activer des options à la demande (SMS, multi-praticiens). Nous vous accompagnons dans cette évolution sans contrainte. Pas d\'engagement de durée, vous restez libre.'
   },
   {
     id: 'faq-off-4',
@@ -468,7 +475,7 @@ export const faqsOffres = [
   {
     id: 'faq-off-6',
     question: 'Quelle est la différence entre Pro et Intégral ?',
-    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, 50 SMS inclus et support téléphonique (le support WhatsApp étant inclus dès l\'Essentiel). L\'offre Intégral ajoute des fonctionnalités avancées : exports de données, paramètres avancés, chatbot intelligent, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, 100 SMS inclus, et support prioritaire (urgences < 6h). Si vous avez besoin de fonctionnalités très avancées et d\'un suivi prioritaire, choisissez Intégral. Sinon, Pro est parfait pour la grande majorité des praticiens.'
+    answer: 'L\'offre Pro est idéale pour la majorité des praticiens : paiements en ligne, fiche client personnalisée, notes internes, formulaires personnalisés et réservations de groupe. L\'offre Intégral ajoute des fonctionnalités avancées : import/export de données, paramètres avancés, gestion de ressources, plusieurs emplacements, accès API/Zapier, intégrations email marketing, automatisations et un accompagnement personnalisé au lancement. Le support humain (email, WhatsApp, téléphone) est identique et illimité sur toutes les offres. Si vous avez besoin de fonctionnalités très avancées, choisissez Intégral. Sinon, Pro est parfait pour la grande majorité des praticiens.'
   },
   {
     id: 'faq-off-7',

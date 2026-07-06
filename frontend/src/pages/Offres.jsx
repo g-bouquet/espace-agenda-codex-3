@@ -22,7 +22,7 @@ const Offres = () => {
       <HeroSection
         title="Des offres simples, adaptées à"
         titleHighlight="votre pratique"
-        description="Installation guidée, accompagnement humain, support réactif. Tarifs TTC. France."
+        description="Installation guidée, accompagnement humain, support réactif."
         backgroundImage="https://images.unsplash.com/photo-1683056242525-9e0e9883a42e?crop=entropy&cs=srgb&fm=jpg&q=85"
         ctaText={globalCTA.primary}
         ctaLink="/contact"
@@ -40,7 +40,7 @@ const Offres = () => {
               Choisissez votre formule
             </h2>
             <p className="text-lg" style={{ color: '#5E6C60' }}>
-              Installation, personnalisation et support humain inclus dans toutes les offres.
+              Installation, personnalisation et support humain inclus dans toutes les offres. Réservation de groupe disponible.
             </p>
           </div>
 
@@ -200,6 +200,36 @@ const Offres = () => {
                   )}
                 </ul>
 
+                {/* Accompagnement à l'installation */}
+                {offer.installSetup && (
+                  <div
+                    className="mb-6 pt-5"
+                    style={{ borderTop: offer.highlight ? '1px solid rgba(249,246,240,0.2)' : '1px solid #E2DFD8' }}
+                  >
+                    <p
+                      className="text-xs font-semibold uppercase tracking-wide mb-3"
+                      style={{ color: offer.highlight ? 'rgba(249,246,240,0.8)' : '#9E7E4A' }}
+                    >
+                      Accompagnement à l'installation
+                    </p>
+                    <ul className="space-y-1.5">
+                      {offer.installSetup.map((item, i) => (
+                        <li
+                          key={i}
+                          className="flex items-center gap-2 text-sm"
+                          style={{ color: offer.highlight ? 'rgba(249,246,240,0.85)' : '#5E6C60' }}
+                        >
+                          <span
+                            className="h-1.5 w-1.5 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: offer.highlight ? '#F9F6F0' : '#5A7161' }}
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {/* CTA */}
                 <Link to="/contact">
                   <button
@@ -301,27 +331,27 @@ const Offres = () => {
                 {[
                   { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
                   { label: 'Rappels email + WhatsApp', ess: true, pro: true, prem: true },
-                  { label: 'Rappels SMS', ess: 'Option 0,09€/SMS', pro: '50 inclus', prem: '100 inclus' },
+                  { label: 'Rappels SMS', ess: 'À prix coûtant', pro: 'À prix coûtant', prem: 'À prix coûtant' },
+                  { label: 'Intégrations Zoom / Google Meet / Microsoft Teams', ess: true, pro: true, prem: true },
+                  { label: 'Multilangue', ess: true, pro: true, prem: true },
+                  { label: 'Évaluations et avis clients', ess: true, pro: true, prem: true },
+                  { label: 'Avoir l\'air occupé', ess: true, pro: true, prem: true },
+                  { label: 'Bons de réduction', ess: true, pro: true, prem: true },
                   { label: 'Espace client', ess: true, pro: true, prem: true },
                   { label: 'Facturation intégrée', ess: true, pro: true, prem: true },
                   { label: 'Calendrier + sync (Google, Outlook, Apple)', ess: true, pro: true, prem: true },
                   { label: 'Paiements & acomptes en ligne', ess: false, pro: true, prem: true },
                   { label: 'Fiche client personnalisée', ess: false, pro: true, prem: true },
                   { label: 'Notes internes', ess: false, pro: true, prem: true },
-                  { label: 'Évaluations et avis', ess: false, pro: true, prem: true },
                   { label: 'RDV récurrents', ess: false, pro: true, prem: true },
                   { label: 'Réservations de groupe', ess: false, pro: true, prem: true },
-                  { label: 'Coupons', ess: false, pro: true, prem: true },
                   { label: 'Google Analytics / Tag Manager', ess: false, pro: true, prem: true },
                   { label: 'Sous-domaine personnalisé', ess: false, pro: true, prem: true },
-                  { label: 'Chatbot', ess: false, pro: false, prem: true },
                   { label: 'Gestion de ressources', ess: false, pro: false, prem: true },
                   { label: 'Bundles', ess: false, pro: false, prem: true },
                   { label: 'Plusieurs emplacements', ess: false, pro: false, prem: true },
                   { label: 'API / Zapier / Webhooks', ess: false, pro: false, prem: true },
-                  { label: 'Support', ess: 'Standard', pro: 'Renforcé', prem: 'Prioritaire' },
-                  { label: 'Support WhatsApp', ess: true, pro: true, prem: true },
-                  { label: 'Support téléphonique', ess: false, pro: true, prem: true }
+                  { label: 'Support humain (email, WhatsApp, téléphone)', ess: true, pro: true, prem: true }
                 ].map((row, index) => (
                   <tr
                     key={index}

@@ -11,7 +11,7 @@ import Seo from '../components/Seo';
 const IMAGES = {
   hero: 'https://images.unsplash.com/photo-1773858375548-3919c0fe1ca0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1920',
   benefitOne: 'https://images.pexels.com/photos/36729385/pexels-photo-36729385.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  benefitTwo: 'https://images.unsplash.com/photo-1683056242525-9e0e9883a42e?crop=entropy&cs=srgb&fm=jpg&q=85',
+  benefitTwo: 'https://images.unsplash.com/photo-1773332585687-85beb4da71ab?crop=entropy&cs=srgb&fm=jpg&q=85&w=940',
   benefitThree: 'https://images.unsplash.com/photo-1765447041709-9f1efbc81606?crop=entropy&cs=srgb&fm=jpg&q=85',
   sideClient: 'https://images.unsplash.com/photo-1456426531648-850ec2f5a462?crop=entropy&cs=srgb&fm=jpg&q=85',
   sidePractitioner: 'https://images.pexels.com/photos/3958426/pexels-photo-3958426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -114,7 +114,7 @@ const Home = () => {
                 </Link>
               </div>
               <p className="mt-5 text-sm" style={{ color: '#5E6C60' }}>
-                Installation en 7 jours · Rappels automatiques inclus · Aucun engagement
+                Installation en 7 jours · Calendrier synchronisé · Rappels automatiques inclus · Aucun engagement
               </p>
             </div>
           </div>

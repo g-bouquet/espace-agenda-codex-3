@@ -17,6 +17,7 @@ import { Toaster } from "./components/ui/sonner";
 // Admin pages
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieConsent from "./components/CookieConsent";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminPosts from "./pages/admin/AdminPosts";
@@ -49,6 +50,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <ScrollToTop />
+          <CookieConsent />
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={
