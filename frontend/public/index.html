@@ -150,12 +150,25 @@
                     }),
                     (e.__SV = 1));
             })(document, window.posthog || []);
-            posthog.init("phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
-                session_recording: {
-                    recordCrossOriginIframes: true,
-                },
+            // RGPD : PostHog ne se charge/initialise qu'après consentement explicite via le bandeau cookies
+            window.__initAnalytics = function () {
+                if (window.__analyticsLoaded) return;
+                window.__analyticsLoaded = true;
+                posthog.init("phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs", {
+                    api_host: "https://us.i.posthog.com",
+                    person_profiles: "identified_only",
+                    session_recording: {
+                        recordCrossOriginIframes: true,
+                    },
+                });
+            };
+            try {
+                if (localStorage.getItem("cookie-consent-espace-agenda") === "accepted") {
+                    window.__initAnalytics();
+                }
+            } catch (e) {}
+            window.addEventListener("cookie-consent", function (e) {
+                if (e && e.detail === "accepted") window.__initAnalytics();
             });
         </script>
     </body>

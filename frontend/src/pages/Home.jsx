@@ -114,7 +114,7 @@ const Home = () => {
                 </Link>
               </div>
               <p className="mt-5 text-sm" style={{ color: '#5E6C60' }}>
-                Installation en 7 jours · Calendrier synchronisé · Rappels automatiques inclus · Aucun engagement
+                Installation en 7 jours · Calendrier synchronisé · Aucun engagement
               </p>
             </div>
           </div>

@@ -233,7 +233,7 @@ export const offers = [
       'Réservation 24/7 + confirmations automatiques',
       'Rappels email inclus',
       'Rappels WhatsApp inclus',
-      'Rappels SMS disponibles à prix coûtant',
+      'Rappels SMS : 0,09 €/SMS, à prix coûtant',
       'Annulation / replanification + Espace client',
       'Calendrier : gestion des disponibilités',
       'Synchronisation Google Agenda / Outlook / Apple',
@@ -367,9 +367,9 @@ export const options = [
     id: 'opt-2',
     icon: 'MessageSquare',
     name: 'Rappels SMS',
-    description: 'Rappels SMS disponibles à prix coûtant',
-    price: 'À prix coûtant',
-    note: 'Les SMS sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée.'
+    description: '0,09 €/SMS, à prix coûtant',
+    price: '0,09 €/SMS',
+    note: 'Les SMS sont facturés à leur coût réel par notre fournisseur (0,09 €/SMS), sans marge ajoutée.'
   },
   {
     id: 'opt-4',
@@ -414,7 +414,7 @@ export const faqs = [
   {
     id: 'faq-3',
     question: 'Mes clients reçoivent-ils des rappels ?',
-    answer: 'Oui, les rappels sont inclus dans toutes les offres. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel. Les rappels SMS sont disponibles à prix coûtant : ils sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée. Vous pouvez activer ou désactiver chaque canal de rappel selon vos préférences. Les rappels réduisent considérablement les absences et les oublis de rendez-vous.'
+    answer: 'Oui, les rappels sont inclus dans toutes les offres. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel. Les rappels SMS sont disponibles à 0,09 €/SMS, à prix coûtant : ils sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée. Vous pouvez activer ou désactiver chaque canal de rappel selon vos préférences. Les rappels réduisent considérablement les absences et les oublis de rendez-vous.'
   },
   {
     id: 'faq-4',
@@ -455,7 +455,7 @@ export const faqsOffres = [
   {
     id: 'faq-off-2',
     question: 'Les SMS sont-ils inclus ?',
-    answer: 'Les rappels SMS sont disponibles à prix coûtant sur toutes les offres : ils sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée. Vous pouvez activer ou désactiver les rappels SMS à tout moment selon vos besoins. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel, sans limite.'
+    answer: 'Les rappels SMS sont disponibles à 0,09 €/SMS, à prix coûtant sur toutes les offres : ils sont facturés à leur coût réel par notre fournisseur, sans marge ajoutée. Vous pouvez activer ou désactiver les rappels SMS à tout moment selon vos besoins. Les rappels email et WhatsApp sont inclus dès l\'offre Essentiel, sans limite.'
   },
   {
     id: 'faq-off-3',

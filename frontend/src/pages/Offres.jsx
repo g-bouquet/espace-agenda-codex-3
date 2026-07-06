@@ -331,7 +331,7 @@ const Offres = () => {
                 {[
                   { label: 'Page de réservation personnalisée', ess: true, pro: true, prem: true },
                   { label: 'Rappels email + WhatsApp', ess: true, pro: true, prem: true },
-                  { label: 'Rappels SMS', ess: 'À prix coûtant', pro: 'À prix coûtant', prem: 'À prix coûtant' },
+                  { label: 'Rappels SMS', ess: '0,09 €/SMS', pro: '0,09 €/SMS', prem: '0,09 €/SMS' },
                   { label: 'Intégrations Zoom / Google Meet / Microsoft Teams', ess: true, pro: true, prem: true },
                   { label: 'Multilangue', ess: true, pro: true, prem: true },
                   { label: 'Évaluations et avis clients', ess: true, pro: true, prem: true },

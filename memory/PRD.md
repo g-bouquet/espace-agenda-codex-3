@@ -214,3 +214,10 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Conformité** : bandeau cookies RGPD (`CookieConsent.jsx`, accepter/refuser + localStorage, monté globalement dans App.js). Pages Mentions légales + Confidentialité existantes et liées au footer.
 - ⏳ **Logo header/footer** (demande « gris sur gris + liseré ») : DIFFÉRÉ — le logo header est foncé sur crème (bien visible) et le footer blanc sur vert foncé (bon contraste) ; impossible de reproduire « blanc sur gris ». En attente de clarification / du fichier logo.
 
+
+## Changelog — 6 juillet 2026 (RGPD analytics + SMS prix + hero)
+- ✅ **Accueil** : mention « Rappels automatiques inclus » retirée de la ligne sous les CTA du hero.
+- ✅ **RGPD** : PostHog (seul tracker) ne s'initialise plus au chargement. `posthog.init` déplacé dans `window.__initAnalytics()`, appelé uniquement si consentement === 'accepted' (localStorage) OU sur l'événement `cookie-consent` (Accepter). Vérifié : 0 requête PostHog avant consentement, chargement après « Accepter ». Scripts emergent.sh conservés (plateforme).
+- ✅ **Offres SMS** : « prix coûtant » → « 0,09 €/SMS, à prix coûtant » partout (feature Essentiel, option, FAQ, tableau comparatif).
+- ℹ️ **Accès admin** : plus de lien visible ; accès via URL directe `/admin/login` (protégé par authentification JWT).
+
