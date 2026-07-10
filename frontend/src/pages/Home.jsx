@@ -324,7 +324,7 @@ const Home = () => {
                 Une réservation simple<br />et rassurante
               </h2>
               <p className="text-lg mb-8 leading-relaxed" style={{ color: '#5E6C60' }}>
-                Vos clients choisissent un créneau en quelques secondes. Ils reçoivent une confirmation et des rappels (email, SMS selon l'offre).
+                Vos clients choisissent un créneau en quelques secondes. Ils reçoivent une confirmation et des rappels (email et WhatsApp).
               </p>
               <ul className="space-y-4">
                 {[

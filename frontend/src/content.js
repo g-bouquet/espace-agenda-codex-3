@@ -122,7 +122,7 @@ export const professionsGrouped = [
 // ========================
 export const whatYouGet = [
   'Page de réservation personnalisée : votre logo, vos couleurs, votre nom de domaine',
-  'Rappels automatiques email + WhatsApp inclus dès le départ (SMS selon offre)',
+  'Rappels automatiques email + WhatsApp inclus dès le départ',
   'Facturation et paiements en ligne intégrés dès 29€/mois',
   'Installation complète et formation de 30 minutes comprises',
   'Support humain illimité — pas de hotline, une vraie réponse sous 24h',
@@ -149,7 +149,7 @@ export const keyFeatures = [
     id: '3',
     icon: 'Bell',
     title: 'Rappels automatiques',
-    description: 'Rappels email et WhatsApp inclus dès l\'offre Essentiel. SMS disponibles selon l\'offre. Réduisez les absences et les oublis sans intervention de votre part.'
+    description: 'Rappels email et WhatsApp inclus dès l\'offre Essentiel. Réduisez les absences et les oublis sans intervention de votre part.'
   },
   {
     id: '4',
@@ -185,7 +185,7 @@ export const keyFeatures = [
     id: '9',
     icon: 'Headphones',
     title: 'Support humain & réactif',
-    description: 'Support illimité par email, WhatsApp et téléphone (selon offre). Urgences traitées sous 6h, autres demandes sous 24h. Nous ne disparaissons pas après l\'installation.'
+    description: 'Support illimité par email, WhatsApp et téléphone. Urgences traitées sous 6h, autres demandes sous 24h. Nous ne disparaissons pas après l\'installation.'
   },
   {
     id: '10',
@@ -224,7 +224,6 @@ export const offers = [
     installSetup: [
       'Installation',
       'Configuration standard',
-      '1 praticien',
       '30 minutes de formation'
     ],
     features: [
@@ -270,6 +269,7 @@ export const offers = [
     ],
     features: [
       'Tout Essentiel',
+      'Réservations de groupe',
       'Sous-domaine inclus : rdv.votrecabinet.fr',
       'Paiements en ligne & acomptes',
       'Fiche client : champs personnalisés',
@@ -279,7 +279,6 @@ export const offers = [
       'Rendez-vous récurrents',
       'Pixel Facebook',
       'Intégration Google Analytics et Google Tag Manager',
-      'Réservations de groupe',
       'Extras (options supplémentaires)',
       'Tableau de bord & statistiques',
       'Support humain illimité (email, WhatsApp, téléphone)'
@@ -506,7 +505,7 @@ export const howItWorks = [
   {
     step: '3',
     title: 'Accompagnement continu',
-    description: 'Vous bénéficiez d\'un support humain illimité (email, WhatsApp, téléphone selon offre). Nous restons disponibles pour vos questions, ajustements et évolutions. Mises à jour régulières incluses.'
+    description: 'Vous bénéficiez d\'un support humain illimité (email, WhatsApp et téléphone). Nous restons disponibles pour vos questions, ajustements et évolutions. Mises à jour régulières incluses.'
   }
 ];
 

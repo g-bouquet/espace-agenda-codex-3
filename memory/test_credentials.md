@@ -5,6 +5,7 @@
 - Mot de passe : `JQi]=3+8Azc4`
 - Auth : JWT signé côté serveur (POST /api/admin/login), token stocké dans localStorage
 - Endpoints : POST /api/admin/login, POST /api/admin/verify
+- ⚠️ Protection anti-brute-force : 5 tentatives échouées par IP → blocage 15 min (HTTP 429). Collection MongoDB `login_attempts` (clé = IP via X-Forwarded-For). Pour lever un blocage en test : `db.login_attempts.deleteMany({})`.
 
 ## Email Contact
 - Adresse : `contact@espaceagenda.com`

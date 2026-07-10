@@ -221,3 +221,11 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Offres SMS** : « prix coûtant » → « 0,09 €/SMS, à prix coûtant » partout (feature Essentiel, option, FAQ, tableau comparatif).
 - ℹ️ **Accès admin** : plus de lien visible ; accès via URL directe `/admin/login` (protégé par authentification JWT).
 
+
+## Changelog — 10 juillet 2026 (Sécurité admin + ajustements offres)
+- ✅ **Sécurité admin** : protection anti-brute-force sur POST /api/admin/login — 5 tentatives échouées/IP → blocage temporaire 15 min (HTTP 429). IP réelle via X-Forwarded-For (derrière ingress). Persistance MongoDB `login_attempts` (clé = IP). Testé (401×5 → 429 → reset → 200).
+- ✅ **Compteurs offres** : « +N autres fonctionnalités » déjà dynamique et exact par plan (Essentiel +11, Pro +6, Intégral +4). Confirmé.
+- ✅ **Offres** : « 1 praticien » retiré de l'accompagnement Essentiel.
+- ✅ **Offres** : « Réservation de groupe disponible » retirée de l'intro « Choisissez votre formule » et repositionnée dans l'offre Pro juste après « Tout Essentiel ».
+- ✅ **Site entier** : suppression de toutes les mentions « SMS selon l'offre » (whatYouGet, keyFeatures, Home « Pour vos clients »). « (selon offre) » retiré aussi des mentions de support (support désormais unifié).
+

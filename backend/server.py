@@ -84,16 +84,62 @@ def verify_admin_token(token: str) -> bool:
 # ADMIN AUTH ENDPOINTS
 # ============================================================================
 
+LOGIN_MAX_ATTEMPTS = 5
+LOGIN_LOCKOUT_MINUTES = 15
+
+
+def _client_ip(request: Request) -> str:
+    """Récupère l'IP réelle du client derrière l'ingress Kubernetes."""
+    xff = request.headers.get("x-forwarded-for", "")
+    if xff:
+        return xff.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+async def _check_login_lockout(ip: str):
+    """Bloque temporairement l'IP après trop de tentatives échouées."""
+    record = await db.login_attempts.find_one({"_id": ip})
+    if record and record.get("count", 0) >= LOGIN_MAX_ATTEMPTS:
+        now = datetime.now(timezone.utc).timestamp()
+        locked_until = record.get("locked_until", 0)
+        if locked_until > now:
+            remaining = int((locked_until - now) // 60) + 1
+            raise HTTPException(
+                status_code=429,
+                detail=f"Trop de tentatives de connexion. Réessayez dans {remaining} minute(s).",
+            )
+        # Verrou expiré : réinitialisation
+        await db.login_attempts.delete_one({"_id": ip})
+
+
+async def _register_failed_login(ip: str):
+    now = datetime.now(timezone.utc).timestamp()
+    record = await db.login_attempts.find_one({"_id": ip})
+    count = (record.get("count", 0) if record else 0) + 1
+    update = {"count": count, "last_attempt": now}
+    if count >= LOGIN_MAX_ATTEMPTS:
+        update["locked_until"] = now + LOGIN_LOCKOUT_MINUTES * 60
+    await db.login_attempts.update_one({"_id": ip}, {"$set": update}, upsert=True)
+
+
+async def _clear_login_attempts(ip: str):
+    await db.login_attempts.delete_one({"_id": ip})
+
+
 @api_router.post("/admin/login")
 async def admin_login(request: Request):
-    """Valide le mot de passe admin et retourne un JWT signé"""
+    """Valide le mot de passe admin et retourne un JWT signé (avec protection anti-brute-force)"""
+    ip = _client_ip(request)
+    await _check_login_lockout(ip)
     body = await request.json()
     password = body.get("password", "")
     admin_password = os.environ.get("ADMIN_PASSWORD", "")
     if not admin_password:
         raise HTTPException(status_code=500, detail="Configuration serveur manquante")
     if password != admin_password:
+        await _register_failed_login(ip)
         raise HTTPException(status_code=401, detail="Mot de passe incorrect")
+    await _clear_login_attempts(ip)
     token = create_admin_token()
     return {"success": True, "token": token}
 

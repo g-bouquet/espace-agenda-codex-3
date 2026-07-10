@@ -40,7 +40,7 @@ const Offres = () => {
               Choisissez votre formule
             </h2>
             <p className="text-lg" style={{ color: '#5E6C60' }}>
-              Installation, personnalisation et support humain inclus dans toutes les offres. Réservation de groupe disponible.
+              Installation, personnalisation et support humain inclus dans toutes les offres.
             </p>
           </div>
 
