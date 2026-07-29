@@ -20,7 +20,7 @@ const AdminLogin = () => {
     
     if (success) {
       toast.success('Connexion réussie');
-      navigate('/admin/dashboard');
+      navigate('/gestion-x7k9p2/dashboard');
     } else {
       toast.error('Mot de passe incorrect');
     }

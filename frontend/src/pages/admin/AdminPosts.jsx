@@ -61,7 +61,7 @@ const AdminPosts = () => {
         <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link to="/admin/dashboard">
+              <Link to="/gestion-x7k9p2/dashboard">
                 <Button variant="ghost" size="sm">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Retour
@@ -72,7 +72,7 @@ const AdminPosts = () => {
                 <p className="text-sm text-neutral-600">{posts.length} article(s)</p>
               </div>
             </div>
-            <Link to="/admin/posts/new">
+            <Link to="/gestion-x7k9p2/posts/new">
               <Button className="bg-amber-700 hover:bg-amber-800">
                 <Plus className="h-4 w-4 mr-2" />
                 Nouvel article
@@ -88,7 +88,7 @@ const AdminPosts = () => {
           <Card>
             <CardContent className="pt-12 pb-12 text-center">
               <p className="text-neutral-600 mb-4">Aucun article pour le moment</p>
-              <Link to="/admin/posts/new">
+              <Link to="/gestion-x7k9p2/posts/new">
                 <Button className="bg-amber-700 hover:bg-amber-800">
                   <Plus className="h-4 w-4 mr-2" />
                   Créer le premier article
@@ -149,7 +149,7 @@ const AdminPosts = () => {
                           <Button
                             size="sm"
                             variant="outline"
-                            onClick={() => navigate(`/admin/posts/edit/${post.id}`)}
+                            onClick={() => navigate(`/gestion-x7k9p2/posts/edit/${post.id}`)}
                           >
                             <Edit className="h-4 w-4" />
                           </Button>

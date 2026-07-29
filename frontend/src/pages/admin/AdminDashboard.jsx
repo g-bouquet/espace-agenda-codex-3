@@ -113,13 +113,13 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="flex gap-4">
-                <Link to="/admin/posts" className="flex-1">
+                <Link to="/gestion-x7k9p2/posts" className="flex-1">
                   <Button variant="outline" className="w-full">
                     <FileText className="mr-2 h-4 w-4" />
                     Gérer les articles
                   </Button>
                 </Link>
-                <Link to="/admin/posts/new" className="flex-1">
+                <Link to="/gestion-x7k9p2/posts/new" className="flex-1">
                   <Button className="w-full bg-amber-700 hover:bg-amber-800">
                     <Plus className="mr-2 h-4 w-4" />
                     Nouvel article
@@ -135,7 +135,7 @@ const AdminDashboard = () => {
               <p className="text-neutral-600 mt-2">Consulter les messages reçus via le formulaire</p>
             </CardHeader>
             <CardContent>
-              <Link to="/admin/contacts">
+              <Link to="/gestion-x7k9p2/contacts">
                 <Button variant="outline" className="w-full">
                   <Mail className="mr-2 h-4 w-4" />
                   Voir les messages
@@ -150,7 +150,7 @@ const AdminDashboard = () => {
               <p className="text-neutral-600 mt-2">Gérer les abonnés à la newsletter</p>
             </CardHeader>
             <CardContent>
-              <Link to="/admin/newsletters">
+              <Link to="/gestion-x7k9p2/newsletters">
                 <Button variant="outline" className="w-full">
                   <Users className="mr-2 h-4 w-4" />
                   Voir les abonnés

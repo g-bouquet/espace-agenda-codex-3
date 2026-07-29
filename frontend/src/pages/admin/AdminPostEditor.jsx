@@ -38,7 +38,7 @@ const AdminPostEditor = () => {
     } catch (error) {
       console.error('Erreur chargement article:', error);
       toast.error('Erreur lors du chargement de l\'article');
-      navigate('/admin/posts');
+      navigate('/gestion-x7k9p2/posts');
     } finally {
       setLoading(false);
     }
@@ -64,7 +64,7 @@ const AdminPostEditor = () => {
         await axios.post(`${API}/blog/posts`, formData);
         toast.success('Article créé avec succès');
       }
-      navigate('/admin/posts');
+      navigate('/gestion-x7k9p2/posts');
     } catch (error) {
       console.error('Erreur sauvegarde:', error);
       toast.error('Erreur lors de la sauvegarde');
@@ -88,7 +88,7 @@ const AdminPostEditor = () => {
         <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link to="/admin/posts">
+              <Link to="/gestion-x7k9p2/posts">
                 <Button variant="ghost" size="sm">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Retour

@@ -69,7 +69,7 @@ const AdminNewsletters = () => {
         <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link to="/admin/dashboard">
+              <Link to="/gestion-x7k9p2/dashboard">
                 <Button variant="ghost" size="sm">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Retour

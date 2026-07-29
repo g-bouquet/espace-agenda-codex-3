@@ -38,7 +38,7 @@ const ProtectedRoute = ({ children }) => {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/admin/login" replace />;
+    return <Navigate to="/gestion-x7k9p2/login" replace />;
   }
 
   return children;
@@ -118,37 +118,40 @@ function App() {
             } />
 
             {/* Admin Routes */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/dashboard" element={
+            <Route path="/gestion-x7k9p2/login" element={<AdminLogin />} />
+            <Route path="/gestion-x7k9p2/dashboard" element={
               <ProtectedRoute>
                 <AdminDashboard />
               </ProtectedRoute>
             } />
-            <Route path="/admin/posts" element={
+            <Route path="/gestion-x7k9p2/posts" element={
               <ProtectedRoute>
                 <AdminPosts />
               </ProtectedRoute>
             } />
-            <Route path="/admin/posts/new" element={
+            <Route path="/gestion-x7k9p2/posts/new" element={
               <ProtectedRoute>
                 <AdminPostEditor />
               </ProtectedRoute>
             } />
-            <Route path="/admin/posts/edit/:id" element={
+            <Route path="/gestion-x7k9p2/posts/edit/:id" element={
               <ProtectedRoute>
                 <AdminPostEditor />
               </ProtectedRoute>
             } />
-            <Route path="/admin/contacts" element={
+            <Route path="/gestion-x7k9p2/contacts" element={
               <ProtectedRoute>
                 <AdminContacts />
               </ProtectedRoute>
             } />
-            <Route path="/admin/newsletters" element={
+            <Route path="/gestion-x7k9p2/newsletters" element={
               <ProtectedRoute>
                 <AdminNewsletters />
               </ProtectedRoute>
             } />
+
+            {/* Catch-all : toute URL inconnue (dont l'ancienne /admin/login) renvoie à l'accueil */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           <Toaster />
         </BrowserRouter>
