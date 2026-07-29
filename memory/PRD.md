@@ -229,3 +229,8 @@ Mise à jour d'une application React V2 ("Espace Agenda") vers une spécificatio
 - ✅ **Offres** : « Réservation de groupe disponible » retirée de l'intro « Choisissez votre formule » et repositionnée dans l'offre Pro juste après « Tout Essentiel ».
 - ✅ **Site entier** : suppression de toutes les mentions « SMS selon l'offre » (whatYouGet, keyFeatures, Home « Pour vos clients »). « (selon offre) » retiré aussi des mentions de support (support désormais unifié).
 
+
+## Changelog — 10 juillet 2026 (URL admin non devinable + compteurs)
+- ✅ **URL admin renommée** : préfixe front `/admin` → `/gestion-x7k9p2` (App.js + 6 pages admin). Endpoints API `/api/admin/login` & `/api/admin/verify` inchangés. Catch-all `path="*"` → redirection `/` : l'ancienne `/admin/login` (et toute URL inconnue) renvoie à l'accueil sans révéler la nouvelle route. Vérifié par bug_testing_agent (verdict fixed, 100%).
+- ✅ **Compteurs offres** confirmés exacts et dynamiques (`features.length - 8`) : Essentiel +11, Pro +6, Intégral +4.
+

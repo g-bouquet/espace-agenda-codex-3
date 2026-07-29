@@ -1,7 +1,7 @@
 # Credentials de test — Espace Agenda
 
 ## Interface Admin
-- URL : `/admin/login`
+- URL : `/gestion-x7k9p2/login` (ancienne `/admin/login` désactivée → renvoie à l'accueil)
 - Mot de passe : `JQi]=3+8Azc4`
 - Auth : JWT signé côté serveur (POST /api/admin/login), token stocké dans localStorage
 - Endpoints : POST /api/admin/login, POST /api/admin/verify
